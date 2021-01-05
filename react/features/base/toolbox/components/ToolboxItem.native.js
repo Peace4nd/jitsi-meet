@@ -2,11 +2,10 @@
 
 import React from 'react';
 import { Text, TouchableHighlight, View } from 'react-native';
-
+import icw from '../../../../custom/constants';
 import { Icon } from '../../icons';
-
-import AbstractToolboxItem from './AbstractToolboxItem';
 import type { Props } from './AbstractToolboxItem';
+import AbstractToolboxItem from './AbstractToolboxItem';
 
 /**
  * Native implementation of {@code AbstractToolboxItem}.
@@ -39,6 +38,7 @@ export default class ToolboxItem extends AbstractToolboxItem<Props> {
         const {
             disabled,
             elementAfter,
+            labelBottom,
             onClick,
             showLabel,
             styles,
@@ -49,25 +49,41 @@ export default class ToolboxItem extends AbstractToolboxItem<Props> {
 
         // XXX When using a wrapper View, apply the style to it instead of
         // applying it to the TouchableHighlight.
-        let style = styles && styles.style;
+        let style = styles ? styles.style || {} : undefined;
+        const labelStyle = styles ? styles.labelStyle || {} : {};
 
         if (showLabel) {
             // XXX TouchableHighlight requires 1 child. If there's a need to
             // show both the icon and the label, then these two need to be
             // wrapped in a View.
             children = (
-                <View style = { style }>
-                    { children }
-                    <Text style = { styles && styles.labelStyle }>
+                <>
+                    <View style = { style }>
+                        { children }
+                        {!labelBottom && (<Text style = { labelStyle }>
+                            { this.label }
+                        </Text>)}
+                        { elementAfter }
+                    </View>
+                    {labelBottom && (<Text
+                        style = {{
+                            ...labelStyle,
+                            marginTop: icw.padding / 2 }}>
                         { this.label }
-                    </Text>
-                    { elementAfter }
-                </View>
+                    </Text>)}
+                </>
             );
 
             // XXX As stated earlier, the style was applied to the wrapper View
             // (above).
-            style = undefined;
+            if (labelBottom) {
+                style = {
+                    alignItems: 'center',
+                    justifyContent: 'center'
+                };
+            } else {
+                style = undefined;
+            }
         }
 
         return (

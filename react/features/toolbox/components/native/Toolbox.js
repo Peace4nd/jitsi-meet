@@ -4,13 +4,14 @@ import React, { PureComponent } from 'react';
 import { View } from 'react-native';
 
 import { ColorSchemeRegistry } from '../../../base/color-scheme';
+import { getFeatureFlag, INVITE_ENABLED } from '../../../base/flags';
 import { Container } from '../../../base/react';
 import { connect } from '../../../base/redux';
 import { StyleType } from '../../../base/styles';
-import { ChatButton } from '../../../chat';
 import { isToolboxVisible } from '../../functions';
 import AudioMuteButton from '../AudioMuteButton';
 import HangupButton from '../HangupButton';
+import InviteButton from '../InviteButton';
 import VideoMuteButton from '../VideoMuteButton';
 
 import OverflowMenuButton from './OverflowMenuButton';
@@ -30,6 +31,13 @@ type Props = {
      * The indicator which determines whether the toolbox is visible.
      */
     _visible: boolean,
+
+    /**
+     * Invide disabled incicator
+     */
+    _isInviteFunctionsDiabled: boolean;
+
+    _overflowMenu: boolean;
 
     /**
      * The redux {@code dispatch} function.
@@ -96,27 +104,39 @@ class Toolbox extends PureComponent<Props> {
      * @returns {React$Node}
      */
     _renderToolbar() {
-        const { _styles } = this.props;
-        const { buttonStyles, buttonStylesBorderless, hangupButtonStyles, toggledButtonStyles } = _styles;
+        const { _isInviteFunctionsDiabled, _overflowMenu, _styles } = this.props;
+        const { buttonStyles, hangupButtonStyles, toggledButtonStyles } = _styles;
 
         return (
             <View
                 accessibilityRole = 'toolbar'
                 pointerEvents = 'box-none'
-                style = { styles.toolbar }>
-                <ChatButton
-                    styles = { buttonStylesBorderless }
-                    toggledStyles = { this._getChatButtonToggledStyle(toggledButtonStyles) } />
+                style = { _overflowMenu ? styles.toolbarOverflow : styles.toolbar }>
+
+                <InviteButton
+                    disabled = { _isInviteFunctionsDiabled }
+                    labelBottom = { true }
+                    showLabel = { true }
+                    styles = { buttonStyles }
+                    toggledStyles = { toggledButtonStyles } />
                 <AudioMuteButton
+                    labelBottom = { true }
+                    showLabel = { true }
                     styles = { buttonStyles }
                     toggledStyles = { toggledButtonStyles } />
                 <HangupButton
+                    labelBottom = { true }
+                    showLabel = { true }
                     styles = { hangupButtonStyles } />
                 <VideoMuteButton
+                    labelBottom = { true }
+                    showLabel = { true }
                     styles = { buttonStyles }
                     toggledStyles = { toggledButtonStyles } />
                 <OverflowMenuButton
-                    styles = { buttonStylesBorderless }
+                    labelBottom = { true }
+                    showLabel = { true }
+                    styles = { buttonStyles }
                     toggledStyles = { toggledButtonStyles } />
             </View>
         );
@@ -133,7 +153,12 @@ class Toolbox extends PureComponent<Props> {
  * @returns {Props}
  */
 function _mapStateToProps(state: Object): Object {
+    const { disableInviteFunctions } = state['features/base/config'];
+    const flag = getFeatureFlag(state, INVITE_ENABLED, true);
+
     return {
+        _isInviteFunctionsDiabled: !flag || disableInviteFunctions,
+        _overflowMenu: Boolean(state['features/base/dialog'].component),
         _styles: ColorSchemeRegistry.get(state, 'Toolbox'),
         _visible: isToolboxVisible(state)
     };

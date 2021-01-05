@@ -1,6 +1,6 @@
 // @flow
 
-import { openDialog } from '../../../base/dialog';
+import { toggleDialog } from '../../../base/dialog';
 import { translate } from '../../../base/i18n';
 import { IconMenuThumb } from '../../../base/icons';
 import { connect } from '../../../base/redux';
@@ -25,7 +25,8 @@ type Props = AbstractButtonProps & {
 class OverflowMenuButton extends AbstractButton<Props, *> {
     accessibilityLabel = 'toolbar.accessibilityLabel.moreActions';
     icon = IconMenuThumb;
-    label = 'toolbar.moreActions';
+    label = 'icwCustom.toolbar.more';
+    tooltip = 'icwCustom.toolbar.more';
 
     /**
      * Handles clicking / pressing this {@code OverflowMenuButton}.
@@ -34,7 +35,7 @@ class OverflowMenuButton extends AbstractButton<Props, *> {
      * @returns {void}
      */
     _handleClick() {
-        this.props.dispatch(openDialog(OverflowMenu));
+        this.props.dispatch(toggleDialog(OverflowMenu));
     }
 }
 

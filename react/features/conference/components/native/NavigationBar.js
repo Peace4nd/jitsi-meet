@@ -7,6 +7,7 @@ import LinearGradient from 'react-native-linear-gradient';
 import { getConferenceName } from '../../../base/conference';
 import { getFeatureFlag, CONFERENCE_TIMER_ENABLED, MEETING_NAME_ENABLED } from '../../../base/flags';
 import { connect } from '../../../base/redux';
+import { ChatButton } from '../../../chat';
 import { PictureInPictureButton } from '../../../mobile/picture-in-picture';
 import { isToolboxVisible } from '../../../toolbox/functions.native';
 import ConferenceTimer from '../ConferenceTimer';
@@ -82,6 +83,7 @@ class NavigationBar extends Component<Props> {
                         this.props._conferenceTimerEnabled && <ConferenceTimer />
                     }
                 </View>
+                <ChatButton />
             </View>
         ];
     }

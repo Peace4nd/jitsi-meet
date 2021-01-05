@@ -1,9 +1,13 @@
 // @flow
 
-import { ColorSchemeRegistry, schemeColor } from '../../../base/color-scheme';
-import { BoxModel, ColorPalette } from '../../../base/styles';
+import { Dimensions } from 'react-native';
 
-const BUTTON_SIZE = 50;
+import icw from '../../../../custom/constants';
+import { ColorSchemeRegistry, schemeColor } from '../../../base/color-scheme';
+import { ColorPalette } from '../../../base/styles';
+
+export const BUTTON_SIZE = 50;
+export const BORDER_RADIUS = 15;
 
 // Toolbox, toolbar:
 
@@ -30,7 +34,7 @@ const toolbarButton = {
  */
 const toolbarButtonIcon = {
     alignSelf: 'center',
-    color: ColorPalette.darkGrey,
+    color: ColorPalette.white,
     fontSize: 22
 };
 
@@ -50,16 +54,34 @@ const whiteToolbarButtonIcon = {
     color: ColorPalette.white
 };
 
+const { width } = Dimensions.get('window');
+
+const toolbar = {
+    alignItems: 'center',
+    backgroundColor: icw.background.color,
+    borderTopLeftRadius: icw.border.radius,
+    borderTopRightRadius: icw.border.radius,
+    flexDirection: 'row',
+    flexGrow: 0,
+    justifyContent: 'space-between',
+    paddingHorizontal: icw.padding,
+    paddingVertical: icw.padding * 2,
+    width
+};
+
 /**
  * The Toolbox and toolbar related styles.
  */
 const styles = {
 
     expandMenuContainer: {
-        alignItems: 'center',
-        borderTopLeftRadius: 16,
-        borderTopRightRadius: 16,
-        flexDirection: 'column'
+        alignItems: 'flex-end',
+        backgroundColor: icw.background.color,
+        borderTopLeftRadius: icw.border.radius,
+        borderTopRightRadius: icw.border.radius,
+        flexDirection: 'column',
+        paddingTop: icw.padding,
+        paddingRight: icw.padding
     },
 
     sheetGestureRecognizer: {
@@ -70,13 +92,14 @@ const styles = {
     /**
      * The style of the toolbar.
      */
-    toolbar: {
-        alignItems: 'center',
-        flexDirection: 'row',
-        flexGrow: 0,
-        justifyContent: 'center',
-        marginBottom: BoxModel.margin / 2,
-        paddingHorizontal: BoxModel.margin
+    toolbar,
+
+    toolbarOverflow: {
+        ...toolbar,
+        borderColor: icw.border.color,
+        borderTopWidth: icw.border.width,
+        borderTopLeftRadius: 0,
+        borderTopRightRadius: 0
     },
 
     /**
@@ -102,14 +125,6 @@ ColorSchemeRegistry.register('Toolbox', {
         style: toolbarButton
     },
 
-    buttonStylesBorderless: {
-        iconStyle: whiteToolbarButtonIcon,
-        style: {
-            ...toolbarButton,
-            backgroundColor: 'transparent'
-        }
-    },
-
     /**
      * Overrides to the standard styles that we apply to the chat button, as
      * that behaves slightly differently to other buttons.
@@ -121,12 +136,13 @@ ColorSchemeRegistry.register('Toolbox', {
     },
 
     hangupButtonStyles: {
-        iconStyle: whiteToolbarButtonIcon,
+        iconStyle: toolbarButtonIcon,
         style: {
             ...toolbarButton,
             backgroundColor: schemeColor('hangup')
-        },
-        underlayColor: ColorPalette.buttonUnderlay
+        }
+
+        // underlayColor: ColorPalette.buttonUnderlay
     },
 
     /**

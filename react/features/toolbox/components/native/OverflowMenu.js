@@ -2,29 +2,18 @@
 
 import React, { PureComponent } from 'react';
 import { TouchableOpacity, View } from 'react-native';
-import Collapsible from 'react-native-collapsible';
 
 import { ColorSchemeRegistry } from '../../../base/color-scheme';
 import { BottomSheet, hideDialog, isDialogOpen } from '../../../base/dialog';
-import { IconDragHandle } from '../../../base/icons';
+import { Icon, IconClose } from '../../../base/icons';
 import { connect } from '../../../base/redux';
 import { StyleType } from '../../../base/styles';
-import { SharedDocumentButton } from '../../../etherpad';
-import { InviteButton } from '../../../invite';
-import { LobbyModeButton } from '../../../lobby/components/native';
 import { AudioRouteButton } from '../../../mobile/audio-mode';
-import { LiveStreamButton, RecordButton } from '../../../recording';
 import { RoomLockButton } from '../../../room-lock';
-import { ClosedCaptionButton } from '../../../subtitles';
-import { TileViewButton } from '../../../video-layout';
-import { VideoShareButton } from '../../../youtube-player/components';
-import HelpButton from '../HelpButton';
 import MuteEveryoneButton from '../MuteEveryoneButton';
 
 import AudioOnlyButton from './AudioOnlyButton';
-import MoreOptionsButton from './MoreOptionsButton';
 import RaiseHandButton from './RaiseHandButton';
-import ScreenSharingButton from './ScreenSharingButton.js';
 import ToggleCameraButton from './ToggleCameraButton';
 import styles from './styles';
 
@@ -96,7 +85,6 @@ class OverflowMenu extends PureComponent<Props, State> {
 
         // Bind event handlers so they are only bound once per instance.
         this._onCancel = this._onCancel.bind(this);
-        this._onSwipe = this._onSwipe.bind(this);
         this._onToggleMenu = this._onToggleMenu.bind(this);
         this._renderMenuExpandToggle = this._renderMenuExpandToggle.bind(this);
     }
@@ -109,7 +97,6 @@ class OverflowMenu extends PureComponent<Props, State> {
      */
     render() {
         const { _bottomSheetStyles } = this.props;
-        const { showMore } = this.state;
 
         const buttonProps = {
             afterClick: this._onCancel,
@@ -117,36 +104,16 @@ class OverflowMenu extends PureComponent<Props, State> {
             styles: _bottomSheetStyles.buttons
         };
 
-        const moreOptionsButtonProps = {
-            ...buttonProps,
-            afterClick: this._onToggleMenu,
-            visible: !showMore
-        };
-
         return (
             <BottomSheet
                 onCancel = { this._onCancel }
-                onSwipe = { this._onSwipe }
                 renderHeader = { this._renderMenuExpandToggle }>
                 <AudioRouteButton { ...buttonProps } />
-                <InviteButton { ...buttonProps } />
                 <AudioOnlyButton { ...buttonProps } />
+                <MuteEveryoneButton { ...buttonProps } />
+                <RoomLockButton { ...buttonProps } />
                 <RaiseHandButton { ...buttonProps } />
-                <LobbyModeButton { ...buttonProps } />
-                <ScreenSharingButton { ...buttonProps } />
-                <MoreOptionsButton { ...moreOptionsButtonProps } />
-                <Collapsible collapsed = { !showMore }>
-                    <ToggleCameraButton { ...buttonProps } />
-                    <TileViewButton { ...buttonProps } />
-                    <RecordButton { ...buttonProps } />
-                    <LiveStreamButton { ...buttonProps } />
-                    <VideoShareButton { ...buttonProps } />
-                    <RoomLockButton { ...buttonProps } />
-                    <ClosedCaptionButton { ...buttonProps } />
-                    <SharedDocumentButton { ...buttonProps } />
-                    <MuteEveryoneButton { ...buttonProps } />
-                    <HelpButton { ...buttonProps } />
-                </Collapsible>
+                <ToggleCameraButton { ...buttonProps } />
             </BottomSheet>
         );
     }
@@ -165,9 +132,10 @@ class OverflowMenu extends PureComponent<Props, State> {
                     this.props._bottomSheetStyles.sheet,
                     styles.expandMenuContainer
                 ] }>
-                <TouchableOpacity onPress = { this._onToggleMenu }>
-                    { /* $FlowFixMeProps */ }
-                    <IconDragHandle style = { this.props._bottomSheetStyles.expandIcon } />
+                <TouchableOpacity onPress = { this._onCancel }>
+                    <Icon
+                        src = { IconClose }
+                        style = { this.props._bottomSheetStyles.expandIcon } />
                 </TouchableOpacity>
             </View>
         );
@@ -183,40 +151,12 @@ class OverflowMenu extends PureComponent<Props, State> {
      */
     _onCancel() {
         if (this.props._isOpen) {
-            this.props.dispatch(hideDialog(OverflowMenu_));
+            this.props.dispatch(hideDialog());
 
             return true;
         }
 
         return false;
-    }
-
-    _onSwipe: string => void;
-
-    /**
-     * Callback to be invoked when swipe gesture is detected on the menu. Returns true
-     * if the swipe gesture is handled by the menu, false otherwise.
-     *
-     * @param {string} direction - Direction of 'up' or 'down'.
-     * @returns {boolean}
-     */
-    _onSwipe(direction) {
-        const { showMore } = this.state;
-
-        switch (direction) {
-        case 'up':
-            !showMore && this.setState({
-                showMore: true
-            });
-
-            return !showMore;
-        case 'down':
-            showMore && this.setState({
-                showMore: false
-            });
-
-            return showMore;
-        }
     }
 
     _onToggleMenu: () => void;

@@ -74,6 +74,11 @@ export type Props = {
     showLabel: boolean,
 
     /**
+     * Label bottom
+     */
+    labelBottom: ?boolean,
+
+    /**
      * Collection of styles for the item. Used only on native.
      */
     styles: ?Styles,
@@ -120,6 +125,7 @@ export default class AbstractToolboxItem<P : Props> extends Component<P> {
     static defaultProps = {
         disabled: false,
         label: '',
+        labelBottom: false,
         showLabel: false,
         t: undefined,
         tooltip: '',

@@ -1,4 +1,13 @@
 {
+    "icwCustom": {
+        "toolbar": {
+            "invite": "Invite",
+            "mute": "Mute",
+            "end": "End",
+            "cam": "Cam",
+            "more": "More"
+        }
+    },
     "addPeople": {
         "add": "Invite",
         "addContacts": "Invite your contacts",

@@ -1,5 +1,6 @@
 // @flow
 
+import icw from '../../../custom/constants.js';
 import { ColorPalette, getRGBAFormat } from '../styles';
 
 /**
@@ -52,9 +53,9 @@ export default {
         background: 'rgb(94, 109, 122)'
     },
     'Toolbox': {
-        button: 'rgb(255, 255, 255)',
-        buttonToggled: 'rgb(38, 58, 76)',
-        buttonToggledBorder: getRGBAFormat('#a4b8d1', 0.6),
-        hangup: 'rgb(225, 45, 45)'
+        button: icw.color.primary,
+        buttonToggled: icw.color.primary,
+        buttonToggledBorder: icw.color.primary,
+        hangup: icw.color.danger
     }
 };

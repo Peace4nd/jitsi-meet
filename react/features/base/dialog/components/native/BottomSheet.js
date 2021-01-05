@@ -3,8 +3,10 @@
 import React, { PureComponent, type Node } from 'react';
 import { PanResponder, SafeAreaView, ScrollView, View } from 'react-native';
 
+import icw from '../../../../../custom/constants';
+import { BUTTON_SIZE } from '../../../../toolbox/components/native/styles';
 import { ColorSchemeRegistry } from '../../../color-scheme';
-import { SlidingView } from '../../../react';
+import { SlidingViewCustom } from '../../../react';
 import { connect } from '../../../redux';
 import { StyleType } from '../../../styles';
 
@@ -83,9 +85,10 @@ class BottomSheet extends PureComponent<Props> {
         const { _styles, renderHeader } = this.props;
 
         return (
-            <SlidingView
+            <SlidingViewCustom
                 accessibilityRole = 'menu'
                 accessibilityViewIsModal = { true }
+                bottomOffset = { (icw.padding * 4) + BUTTON_SIZE + icw.border.width + (icw.padding / 2) }
                 onHide = { this.props.onCancel }
                 position = 'bottom'
                 show = { true }>
@@ -110,7 +113,7 @@ class BottomSheet extends PureComponent<Props> {
                         </ScrollView>
                     </SafeAreaView>
                 </View>
-            </SlidingView>
+            </SlidingViewCustom>
         );
     }
 

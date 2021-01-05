@@ -24,6 +24,7 @@ export { default as PagedList } from './PagedList';
 export { default as Pressable } from './Pressable';
 export { default as SectionList } from './SectionList';
 export { default as SlidingView } from './SlidingView';
+export { default as SlidingViewCustom } from './SlidingViewCustom';
 export { default as Switch } from './Switch';
 export { default as Text } from './Text';
 export { default as TintedView } from './TintedView';

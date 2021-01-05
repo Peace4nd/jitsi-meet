@@ -2,9 +2,11 @@
 
 import { StyleSheet } from 'react-native';
 
+import icw from '../../../../../custom/constants';
 import { ColorSchemeRegistry, schemeColor } from '../../../color-scheme';
 import { BoxModel, ColorPalette } from '../../../styles';
 import { PREFERRED_DIALOG_SIZE } from '../../constants';
+
 
 const BORDER_RADIUS = 5;
 
@@ -33,6 +35,7 @@ export const bottomSheetStyles = {
     },
 
     scrollView: {
+        backgroundColor: icw.background.color,
         paddingHorizontal: MD_ITEM_MARGIN_PADDING
     },
 

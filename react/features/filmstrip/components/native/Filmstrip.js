@@ -5,12 +5,12 @@ import { ScrollView } from 'react-native';
 
 import { Container, Platform } from '../../../base/react';
 import { connect } from '../../../base/redux';
-import { ASPECT_RATIO_NARROW } from '../../../base/responsive-ui/constants';
 import { isFilmstripVisible } from '../../functions';
 
 import LocalThumbnail from './LocalThumbnail';
 import Thumbnail from './Thumbnail';
 import styles from './styles';
+
 
 /**
  * Filmstrip component's property types.
@@ -86,51 +86,35 @@ class Filmstrip extends Component<Props> {
      * @returns {ReactElement}
      */
     render() {
-        const { _aspectRatio, _enabled, _participants, _visible } = this.props;
+        const { _enabled, _participants, _visible } = this.props;
 
         if (!_enabled) {
             return null;
         }
 
-        const isNarrowAspectRatio = _aspectRatio === ASPECT_RATIO_NARROW;
-        const filmstripStyle = isNarrowAspectRatio ? styles.filmstripNarrow : styles.filmstripWide;
-
         return (
             <Container
-                style = { filmstripStyle }
+                style = { styles.filmstripWide }
                 visible = { _visible }>
                 {
                     this._separateLocalThumbnail
-                        && !isNarrowAspectRatio
                         && <LocalThumbnail />
                 }
                 <ScrollView
-                    horizontal = { isNarrowAspectRatio }
                     showsHorizontalScrollIndicator = { false }
                     showsVerticalScrollIndicator = { false }
                     style = { styles.scrollView } >
                     {
-                        !this._separateLocalThumbnail && !isNarrowAspectRatio
-                            && <LocalThumbnail />
+                        _participants.reverse().map(p => (
+                            <Thumbnail
+                                key = { p.id }
+                                participant = { p } />))
                     }
                     {
-
-                        this._sort(_participants, isNarrowAspectRatio)
-                            .map(p => (
-                                <Thumbnail
-                                    key = { p.id }
-                                    participant = { p } />))
-
-                    }
-                    {
-                        !this._separateLocalThumbnail && isNarrowAspectRatio
+                        !this._separateLocalThumbnail
                             && <LocalThumbnail />
                     }
                 </ScrollView>
-                {
-                    this._separateLocalThumbnail && isNarrowAspectRatio
-                        && <LocalThumbnail />
-                }
             </Container>
         );
     }
