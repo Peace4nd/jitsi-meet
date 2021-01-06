@@ -2,8 +2,10 @@
 
 import React from 'react';
 import { Text, TouchableHighlight, View } from 'react-native';
+
 import icw from '../../../../custom/constants';
 import { Icon } from '../../icons';
+
 import type { Props } from './AbstractToolboxItem';
 import AbstractToolboxItem from './AbstractToolboxItem';
 
@@ -94,7 +96,7 @@ export default class ToolboxItem extends AbstractToolboxItem<Props> {
                 disabled = { disabled }
                 onPress = { onClick }
                 style = { style }
-                underlayColor = { styles && styles.underlayColor } >
+                underlayColor = { styles ? styles.underlayColor || 'transparent' : 'transparent' } >
                 { children }
             </TouchableHighlight>
         );

@@ -165,12 +165,12 @@ ColorSchemeRegistry.register('BottomSheet', {
             alignItems: 'center',
             flexDirection: 'row',
             height: MD_ITEM_HEIGHT
-        },
+        }
 
         /**
          * Additional style that is not directly used as a style object.
          */
-        underlayColor: ColorPalette.overflowMenuItemUnderlay
+        // underlayColor: ColorPalette.overflowMenuItemUnderlay
     },
 
     expandIcon: {
