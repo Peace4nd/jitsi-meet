@@ -3,6 +3,7 @@
 import React, { PureComponent } from 'react';
 import { TouchableOpacity, View } from 'react-native';
 
+import icw from '../../../../custom/constants';
 import { ColorSchemeRegistry } from '../../../base/color-scheme';
 import { BottomSheet, hideDialog, isDialogOpen } from '../../../base/dialog';
 import { Icon, IconClose } from '../../../base/icons';
@@ -107,7 +108,8 @@ class OverflowMenu extends PureComponent<Props, State> {
         return (
             <BottomSheet
                 onCancel = { this._onCancel }
-                renderHeader = { this._renderMenuExpandToggle }>
+                renderHeader = { this._renderMenuExpandToggle }
+                style = { _bottomSheetStyles.fancyBorder }>
                 <AudioRouteButton { ...buttonProps } />
                 <AudioOnlyButton { ...buttonProps } />
                 <MuteEveryoneButton { ...buttonProps } />
@@ -134,6 +136,7 @@ class OverflowMenu extends PureComponent<Props, State> {
                 ] }>
                 <TouchableOpacity onPress = { this._onCancel }>
                     <Icon
+                        size = { icw.overflowMenu.icon }
                         src = { IconClose }
                         style = { this.props._bottomSheetStyles.expandIcon } />
                 </TouchableOpacity>

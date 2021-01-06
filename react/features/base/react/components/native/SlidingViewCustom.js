@@ -174,7 +174,7 @@ export default class SlidingViewCustom extends PureComponent<Props, State> {
                 pointerEvents = 'box-none'
                 style = {{
                     ...styles.sliderViewContainer,
-                    bottom: this.props.bottomOffset || null
+                    bottom: isNaN(this.props.bottomOffset) ? undefined : this.props.bottomOffset
                 }} >
                 <TouchableWithoutFeedback
                     onPress = { this._onHide } >

@@ -35,7 +35,6 @@ export const bottomSheetStyles = {
     },
 
     scrollView: {
-        backgroundColor: icw.background.color,
         paddingHorizontal: MD_ITEM_MARGIN_PADDING
     },
 
@@ -182,7 +181,12 @@ ColorSchemeRegistry.register('BottomSheet', {
      * Bottom sheet's base style.
      */
     sheet: {
-        backgroundColor: schemeColor('background')
+        backgroundColor: icw.background.base
+    },
+
+    fancyBorder: {
+        borderBottomWidth: icw.border.width,
+        borderColor: icw.border.color
     }
 });
 

@@ -58,7 +58,7 @@ const { width } = Dimensions.get('window');
 
 const toolbar = {
     alignItems: 'center',
-    backgroundColor: icw.background.color,
+    backgroundColor: icw.background.base,
     borderTopLeftRadius: icw.border.radius,
     borderTopRightRadius: icw.border.radius,
     flexDirection: 'row',
@@ -76,12 +76,12 @@ const styles = {
 
     expandMenuContainer: {
         alignItems: 'flex-end',
-        backgroundColor: icw.background.color,
+        backgroundColor: icw.background.base,
         borderTopLeftRadius: icw.border.radius,
         borderTopRightRadius: icw.border.radius,
         flexDirection: 'column',
-        paddingTop: icw.padding,
-        paddingRight: icw.padding
+        paddingRight: icw.padding,
+        paddingTop: icw.padding
     },
 
     sheetGestureRecognizer: {
@@ -96,8 +96,6 @@ const styles = {
 
     toolbarOverflow: {
         ...toolbar,
-        borderColor: icw.border.color,
-        borderTopWidth: icw.border.width,
         borderTopLeftRadius: 0,
         borderTopRightRadius: 0
     },

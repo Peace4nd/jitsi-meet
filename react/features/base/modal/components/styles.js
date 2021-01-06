@@ -1,6 +1,7 @@
 // @flow
 
-import { ColorSchemeRegistry, schemeColor } from '../../color-scheme';
+import icw from '../../../../custom/constants';
+import { ColorSchemeRegistry } from '../../color-scheme';
 
 export default {
     safeArea: {
@@ -11,6 +12,6 @@ export default {
 ColorSchemeRegistry.register('Modal', {
     page: {
         alignItems: 'stretch',
-        backgroundColor: schemeColor('background')
+        backgroundColor: icw.background.chat
     }
 });

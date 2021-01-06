@@ -1,9 +1,10 @@
 export default {
     background: {
-        color: 'lightgray'
+        base: '#d3d3d3e5',
+        chat: '#ffffffe5'
     },
     border: {
-        color: 'darkgray',
+        color: '#a9a9a9',
         radius: 15,
         width: 2
     },
@@ -11,5 +12,8 @@ export default {
         primary: '#7e5ff1',
         danger: '#ff645c'
     },
-    padding: 10
+    padding: 10,
+    overflowMenu: {
+        icon: 24
+    }
 };

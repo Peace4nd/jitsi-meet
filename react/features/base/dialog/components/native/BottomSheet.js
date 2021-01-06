@@ -5,12 +5,13 @@ import { PanResponder, SafeAreaView, ScrollView, View } from 'react-native';
 
 import icw from '../../../../../custom/constants';
 import { BUTTON_SIZE } from '../../../../toolbox/components/native/styles';
+import { isToolboxVisible } from '../../../../toolbox/functions';
 import { ColorSchemeRegistry } from '../../../color-scheme';
-import { SlidingViewCustom } from '../../../react';
+import { SlidingViewCustom, SlidingView } from '../../../react';
 import { connect } from '../../../redux';
 import { StyleType } from '../../../styles';
 
-import { bottomSheetStyles as styles } from './styles';
+import { bottomSheetStyles as styles, MD_FONT_SIZE } from './styles';
 
 /**
  * Minimal distance that needs to be moved by the finger to consider it a swipe.
@@ -33,6 +34,11 @@ type Props = {
     _styles: StyleType,
 
     /**
+     * Visible toolbox
+     */
+    _visible: Boolean,
+
+    /**
      * The children to be displayed within this component.
      */
     children: Node,
@@ -51,7 +57,9 @@ type Props = {
     /**
      * Function to render a bottom sheet header element, if necessary.
      */
-    renderHeader: ?Function
+    renderHeader: ?Function,
+
+    style: ?mixed
 };
 
 /**
@@ -82,16 +90,18 @@ class BottomSheet extends PureComponent<Props> {
      * @returns {ReactElement}
      */
     render() {
-        const { _styles, renderHeader } = this.props;
+        const { _styles, _visible, renderHeader, style } = this.props;
+        const SlidingViewDone = _visible ? SlidingViewCustom : SlidingView;
 
         return (
-            <SlidingViewCustom
+            <SlidingViewDone
                 accessibilityRole = 'menu'
                 accessibilityViewIsModal = { true }
-                bottomOffset = { (icw.padding * 4) + BUTTON_SIZE + icw.border.width + (icw.padding / 2) }
+                bottomOffset = { (icw.padding * 4) + BUTTON_SIZE + icw.border.width + (icw.padding / 2) + MD_FONT_SIZE }
                 onHide = { this.props.onCancel }
                 position = 'bottom'
-                show = { true }>
+                show = { true }
+                style = { style }>
                 <View
                     pointerEvents = 'box-none'
                     style = { styles.sheetContainer }>
@@ -113,7 +123,7 @@ class BottomSheet extends PureComponent<Props> {
                         </ScrollView>
                     </SafeAreaView>
                 </View>
-            </SlidingViewCustom>
+            </SlidingViewDone>
         );
     }
 
@@ -170,7 +180,8 @@ class BottomSheet extends PureComponent<Props> {
  */
 function _mapStateToProps(state) {
     return {
-        _styles: ColorSchemeRegistry.get(state, 'BottomSheet')
+        _styles: ColorSchemeRegistry.get(state, 'BottomSheet'),
+        _visible: isToolboxVisible(state)
     };
 }
 
