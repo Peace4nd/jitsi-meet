@@ -110,7 +110,7 @@ class VideoMuteButton extends AbstractVideoMuteButton<Props, *> {
      * @returns {boolean}
      */
     _isDisabled() {
-        return this.props._videoDisabled;
+        return this.props._audioOnly || this.props._videoDisabled;
     }
 
     /**

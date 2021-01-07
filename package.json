@@ -147,6 +147,8 @@
   },
   "license": "Apache-2.0",
   "scripts": {
+    "start": "npx react-native start",
+    "android": "npx react-native run-android",
     "lint": "eslint . && flow",
     "postinstall": "jetify",
     "validate": "npm ls"

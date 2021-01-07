@@ -1,7 +1,5 @@
 // @flow
 
-import { Dimensions } from 'react-native';
-
 import icw from '../../../../custom/constants';
 import { ColorSchemeRegistry, schemeColor } from '../../../base/color-scheme';
 import { ColorPalette } from '../../../base/styles';
@@ -54,7 +52,6 @@ const whiteToolbarButtonIcon = {
     color: ColorPalette.white
 };
 
-const { width } = Dimensions.get('window');
 
 const toolbar = {
     alignItems: 'center',
@@ -65,8 +62,7 @@ const toolbar = {
     flexGrow: 0,
     justifyContent: 'space-between',
     paddingHorizontal: icw.padding,
-    paddingVertical: icw.padding * 2,
-    width
+    paddingVertical: icw.padding * 2
 };
 
 /**

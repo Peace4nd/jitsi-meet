@@ -1,5 +1,6 @@
 // @flow
 
+import icw from '../../../../custom/constants';
 import { MD_ITEM_HEIGHT } from '../../../base/dialog';
 import { ColorPalette, createStyleSheet } from '../../../base/styles';
 
@@ -42,5 +43,15 @@ export default createStyleSheet({
      */
     selectedText: {
         color: ColorPalette.blue
+    },
+
+    expandMenuContainer: {
+        alignItems: 'flex-end',
+        backgroundColor: icw.background.base,
+        borderTopLeftRadius: icw.border.radius,
+        borderTopRightRadius: icw.border.radius,
+        flexDirection: 'column',
+        paddingRight: icw.padding,
+        paddingTop: icw.padding
     }
 });

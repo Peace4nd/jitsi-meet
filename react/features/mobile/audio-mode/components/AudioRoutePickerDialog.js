@@ -2,8 +2,9 @@
 
 import _ from 'lodash';
 import React, { Component } from 'react';
-import { NativeModules, Text, TouchableHighlight, View } from 'react-native';
+import { NativeModules, Text, TouchableHighlight, TouchableOpacity, View } from 'react-native';
 
+import icw from '../../../../custom/constants';
 import { ColorSchemeRegistry } from '../../../base/color-scheme';
 import { hideDialog, BottomSheet } from '../../../base/dialog';
 import { translate } from '../../../base/i18n';
@@ -12,7 +13,8 @@ import {
     IconDeviceBluetooth,
     IconDeviceEarpiece,
     IconDeviceHeadphone,
-    IconDeviceSpeaker
+    IconDeviceSpeaker,
+    IconClose
 } from '../../../base/icons';
 import { connect } from '../../../base/redux';
 import { ColorPalette, type StyleType } from '../../../base/styles';
@@ -207,6 +209,7 @@ class AudioRoutePickerDialog extends Component<Props, State> {
 
         // Bind event handlers so they are only bound once per instance.
         this._onCancel = this._onCancel.bind(this);
+        this._renderMenuClose = this._renderMenuClose.bind(this);
 
         // Trigger an initial update.
         AudioMode.updateDeviceList && AudioMode.updateDeviceList();
@@ -308,6 +311,7 @@ class AudioRoutePickerDialog extends Component<Props, State> {
      */
     render() {
         const { devices } = this.state;
+        const { _bottomSheetStyles } = this.props;
         let content;
 
         if (devices.length === 0) {
@@ -316,10 +320,40 @@ class AudioRoutePickerDialog extends Component<Props, State> {
             content = this.state.devices.map(this._renderDevice, this);
         }
 
+        console.log(_bottomSheetStyles.fancyBorder);
+
         return (
-            <BottomSheet onCancel = { this._onCancel }>
+            <BottomSheet
+                onCancel = { this._onCancel }
+                renderHeader = { this._renderMenuClose }
+                style = { _bottomSheetStyles.fancyBorder }>
                 { content }
             </BottomSheet>
+        );
+    }
+
+
+    _renderMenuClose: () => React$Element<any>;
+
+    /**
+     * Function to render the menu toggle in the bottom sheet header area.
+     *
+     * @returns {React$Element}
+     */
+    _renderMenuClose() {
+        return (
+            <View
+                style = { [
+                    this.props._bottomSheetStyles.sheet,
+                    styles.expandMenuContainer
+                ] }>
+                <TouchableOpacity onPress = { this._onCancel }>
+                    <Icon
+                        size = { icw.overflowMenu.icon }
+                        src = { IconClose }
+                        style = { this.props._bottomSheetStyles.expandIcon } />
+                </TouchableOpacity>
+            </View>
         );
     }
 }

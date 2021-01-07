@@ -44,19 +44,6 @@ type Props = {
     dispatch: Function
 };
 
-type State = {
-
-    /**
-     * True if the bottom scheet is scrolled to the top.
-     */
-    scrolledToTop: boolean,
-
-    /**
-     * True if the 'more' button set needas to be rendered.
-     */
-    showMore: boolean
-}
-
 /**
  * The exported React {@code Component}. We need it to execute
  * {@link hideDialog}.
@@ -70,7 +57,7 @@ let OverflowMenu_; // eslint-disable-line prefer-const
  * Implements a React {@code Component} with some extra actions in addition to
  * those in the toolbar.
  */
-class OverflowMenu extends PureComponent<Props, State> {
+class OverflowMenu extends PureComponent<Props, *> {
     /**
      * Initializes a new {@code OverflowMenu} instance.
      *
@@ -79,15 +66,9 @@ class OverflowMenu extends PureComponent<Props, State> {
     constructor(props: Props) {
         super(props);
 
-        this.state = {
-            scrolledToTop: true,
-            showMore: false
-        };
-
         // Bind event handlers so they are only bound once per instance.
         this._onCancel = this._onCancel.bind(this);
-        this._onToggleMenu = this._onToggleMenu.bind(this);
-        this._renderMenuExpandToggle = this._renderMenuExpandToggle.bind(this);
+        this._renderMenuClose = this._renderMenuClose.bind(this);
     }
 
     /**
@@ -108,7 +89,7 @@ class OverflowMenu extends PureComponent<Props, State> {
         return (
             <BottomSheet
                 onCancel = { this._onCancel }
-                renderHeader = { this._renderMenuExpandToggle }
+                renderHeader = { this._renderMenuClose }
                 style = { _bottomSheetStyles.fancyBorder }>
                 <AudioRouteButton { ...buttonProps } />
                 <AudioOnlyButton { ...buttonProps } />
@@ -120,14 +101,14 @@ class OverflowMenu extends PureComponent<Props, State> {
         );
     }
 
-    _renderMenuExpandToggle: () => React$Element<any>;
+    _renderMenuClose: () => React$Element<any>;
 
     /**
      * Function to render the menu toggle in the bottom sheet header area.
      *
      * @returns {React$Element}
      */
-    _renderMenuExpandToggle() {
+    _renderMenuClose() {
         return (
             <View
                 style = { [
@@ -154,25 +135,12 @@ class OverflowMenu extends PureComponent<Props, State> {
      */
     _onCancel() {
         if (this.props._isOpen) {
-            this.props.dispatch(hideDialog());
+            this.props.dispatch(hideDialog(OverflowMenu_));
 
             return true;
         }
 
         return false;
-    }
-
-    _onToggleMenu: () => void;
-
-    /**
-     * Callback to be invoked when the expand menu button is pressed.
-     *
-     * @returns {void}
-     */
-    _onToggleMenu() {
-        this.setState({
-            showMore: !this.state.showMore
-        });
     }
 }
 

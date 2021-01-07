@@ -35,9 +35,9 @@ type Props = {
     /**
      * Invide disabled incicator
      */
-    _isInviteFunctionsDiabled: boolean;
+    _isInviteFunctionsDiabled: boolean,
 
-    _overflowMenu: boolean;
+    _overflowMenu: boolean,
 
     /**
      * The redux {@code dispatch} function.
