@@ -1,12 +1,13 @@
 // @flow
 
+import { IconIcewarpToolbarMore } from '../../../../custom/icons';
 import { toggleDialog } from '../../../base/dialog';
 import { translate } from '../../../base/i18n';
-import { IconMenuThumb } from '../../../base/icons';
 import { connect } from '../../../base/redux';
 import { AbstractButton, type AbstractButtonProps } from '../../../base/toolbox/components';
 
 import OverflowMenu from './OverflowMenu';
+
 
 /**
  * The type of the React {@code Component} props of {@link OverflowMenuButton}.
@@ -24,7 +25,7 @@ type Props = AbstractButtonProps & {
  */
 class OverflowMenuButton extends AbstractButton<Props, *> {
     accessibilityLabel = 'toolbar.accessibilityLabel.moreActions';
-    icon = IconMenuThumb;
+    icon = IconIcewarpToolbarMore;
     label = 'icwCustom.toolbar.more';
     tooltip = 'icwCustom.toolbar.more';
 

@@ -1,11 +1,12 @@
 // @flow
 
+import { IconIcewarpToolbarInvite } from '../../../custom/icons';
 import { translate } from '../../base/i18n';
-import { IconAddPeople } from '../../base/icons';
 import { connect } from '../../base/redux';
 import { AbstractButton } from '../../base/toolbox/components';
 import type { AbstractButtonProps } from '../../base/toolbox/components';
 import { doInvitePeople } from '../../invite/actions.native';
+
 
 /**
  * The type of the React {@code Component} props of {@link InviteButton}.
@@ -28,7 +29,7 @@ class InviteButton extends AbstractButton<Props, *> {
     // accessibilityLabel = 'toolbar.accessibilityLabel.mute';
     label = 'icwCustom.toolbar.invite';
     tooltip = 'icwCustom.toolbar.invite';
-    icon = IconAddPeople;
+    icon = IconIcewarpToolbarInvite;
 
     /**
      * Invite.
