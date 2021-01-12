@@ -2,9 +2,9 @@
 
 import { NativeModules, Platform } from 'react-native';
 
+import { IconIcewarpHeaderMinimize } from '../../../../custom/icons';
 import { PIP_ENABLED, getFeatureFlag } from '../../../base/flags';
 import { translate } from '../../../base/i18n';
-import { IconMenuDown } from '../../../base/icons';
 import { connect } from '../../../base/redux';
 import { AbstractButton, type AbstractButtonProps } from '../../../base/toolbox/components';
 import { isLocalVideoTrackDesktop } from '../../../base/tracks/functions';
@@ -28,7 +28,7 @@ type Props = AbstractButtonProps & {
  */
 class PictureInPictureButton extends AbstractButton<Props, *> {
     accessibilityLabel = 'toolbar.accessibilityLabel.pip';
-    icon = IconMenuDown;
+    icon = IconIcewarpHeaderMinimize;
     label = 'toolbar.pip';
 
     /**

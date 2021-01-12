@@ -1,7 +1,7 @@
 // @flow
 
+import { IconIcewarpMenuFlip } from '../../../../custom/icons';
 import { translate } from '../../../base/i18n';
-import { IconSwitchCamera } from '../../../base/icons';
 import { MEDIA_TYPE, toggleCameraFacingMode } from '../../../base/media';
 import { connect } from '../../../base/redux';
 import { AbstractButton, type AbstractButtonProps } from '../../../base/toolbox/components';
@@ -33,7 +33,7 @@ type Props = AbstractButtonProps & {
  */
 class ToggleCameraButton extends AbstractButton<Props, *> {
     accessibilityLabel = 'toolbar.accessibilityLabel.toggleCamera';
-    icon = IconSwitchCamera;
+    icon = IconIcewarpMenuFlip;
     label = 'toolbar.toggleCamera';
 
     /**

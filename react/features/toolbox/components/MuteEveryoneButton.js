@@ -1,9 +1,9 @@
 // @flow
 
+import { IconIcewarpMenuMute } from '../../../custom/icons';
 import { createToolbarEvent, sendAnalytics } from '../../analytics';
 import { openDialog } from '../../base/dialog';
 import { translate } from '../../base/i18n';
-import { IconMuteEveryone } from '../../base/icons';
 import { getLocalParticipant, PARTICIPANT_ROLE } from '../../base/participants';
 import { connect } from '../../base/redux';
 import { AbstractButton, type AbstractButtonProps } from '../../base/toolbox/components';
@@ -33,7 +33,7 @@ type Props = AbstractButtonProps & {
  */
 class MuteEveryoneButton extends AbstractButton<Props, *> {
     accessibilityLabel = 'toolbar.accessibilityLabel.muteEveryone';
-    icon = IconMuteEveryone;
+    icon = IconIcewarpMenuMute;
     label = 'toolbar.muteEveryone';
     tooltip = 'toolbar.muteEveryone';
 

@@ -1,8 +1,8 @@
 // @flow
 
+import { IconIcewarpMenuProtect } from '../../../custom/icons';
 import { MEETING_PASSWORD_ENABLED, getFeatureFlag } from '../../base/flags';
 import { translate } from '../../base/i18n';
-import { IconRoomLock, IconRoomUnlock } from '../../base/icons';
 import { isLocalParticipantModerator } from '../../base/participants';
 import { connect } from '../../base/redux';
 import { AbstractButton, type AbstractButtonProps } from '../../base/toolbox/components';
@@ -32,9 +32,10 @@ type Props = AbstractButtonProps & {
  */
 class RoomLockButton extends AbstractButton<Props, *> {
     accessibilityLabel = 'toolbar.accessibilityLabel.lockRoom';
-    icon = IconRoomLock;
+    icon = IconIcewarpMenuProtect;
     label = 'dialog.lockRoom';
-    toggledIcon = IconRoomUnlock;
+
+    // toggledIcon = IconRoomUnlock;
     toggledLabel = 'dialog.unlockRoom';
 
     /**

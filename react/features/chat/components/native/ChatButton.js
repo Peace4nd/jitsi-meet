@@ -1,7 +1,7 @@
 // @flow
 
+import { IconIcewarpHeaderChat } from '../../../../custom/icons';
 import { CHAT_ENABLED, getFeatureFlag } from '../../../base/flags';
-import { IconChat, IconChatUnread } from '../../../base/icons';
 import { setActiveModalId } from '../../../base/modal';
 import { getLocalParticipant } from '../../../base/participants';
 import { connect } from '../../../base/redux';
@@ -44,9 +44,10 @@ type Props = AbstractButtonProps & {
  */
 class ChatButton extends AbstractButton<Props, *> {
     accessibilityLabel = 'toolbar.accessibilityLabel.chat';
-    icon = IconChat;
+    icon = IconIcewarpHeaderChat;
     label = 'toolbar.chat';
-    toggledIcon = IconChatUnread;
+
+    // toggledIcon = IconIcewarpHeaderChat;
 
     /**
      * Handles clicking / pressing the button, and opens the appropriate dialog.

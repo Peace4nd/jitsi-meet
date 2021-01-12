@@ -1,8 +1,8 @@
 // @flow
 
+import { IconIcewarpMenuDevice } from '../../../../custom/icons';
 import { openDialog } from '../../../base/dialog';
 import { translate } from '../../../base/i18n';
-import { IconAudioRoute } from '../../../base/icons';
 import { connect } from '../../../base/redux';
 import { AbstractButton, type AbstractButtonProps } from '../../../base/toolbox/components';
 
@@ -23,7 +23,7 @@ type Props = AbstractButtonProps & {
  */
 class AudioRouteButton extends AbstractButton<Props, *> {
     accessibilityLabel = 'toolbar.accessibilityLabel.audioRoute';
-    icon = IconAudioRoute;
+    icon = IconIcewarpMenuDevice;
     label = 'toolbar.audioRoute';
 
     /**
