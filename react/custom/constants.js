@@ -6,7 +6,7 @@ export default {
     border: {
         color: '#a9a9a9',
         radius: 15,
-        width: 2
+        width: 1
     },
     color: {
         primary: '#7e5ff1',

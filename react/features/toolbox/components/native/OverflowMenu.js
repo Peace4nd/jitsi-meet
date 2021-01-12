@@ -119,7 +119,7 @@ class OverflowMenu extends PureComponent<Props, *> {
                     <Icon
                         size = { icw.overflowMenu.icon }
                         src = { IconClose }
-                        style = { this.props._bottomSheetStyles.expandIcon } />
+                        style = { this.props._bottomSheetStyles.buttons.iconStyle } />
                 </TouchableOpacity>
             </View>
         );

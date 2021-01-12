@@ -97,7 +97,7 @@ class BottomSheet extends PureComponent<Props> {
             <SlidingViewDone
                 accessibilityRole = 'menu'
                 accessibilityViewIsModal = { true }
-                bottomOffset = { (icw.padding * 4) + BUTTON_SIZE + icw.border.width + (icw.padding / 2) + MD_FONT_SIZE }
+                bottomOffset = { (icw.padding * 4) + BUTTON_SIZE + icw.border.width + (icw.padding / 2) + MD_FONT_SIZE + 2 }
                 onHide = { this.props.onCancel }
                 position = 'bottom'
                 show = { true }

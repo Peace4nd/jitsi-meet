@@ -320,8 +320,6 @@ class AudioRoutePickerDialog extends Component<Props, State> {
             content = this.state.devices.map(this._renderDevice, this);
         }
 
-        console.log(_bottomSheetStyles.fancyBorder);
-
         return (
             <BottomSheet
                 onCancel = { this._onCancel }
@@ -351,7 +349,7 @@ class AudioRoutePickerDialog extends Component<Props, State> {
                     <Icon
                         size = { icw.overflowMenu.icon }
                         src = { IconClose }
-                        style = { this.props._bottomSheetStyles.expandIcon } />
+                        style = { this.props._bottomSheetStyles.buttons.iconStyle } />
                 </TouchableOpacity>
             </View>
         );

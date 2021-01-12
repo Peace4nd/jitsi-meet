@@ -127,10 +127,10 @@ export function createStyleSheet(
  * @returns {StyleSheet}
  */
 export function fixAndroidViewClipping<T: StyleSheet>(styles: T): T {
-    if (Platform.OS === 'android') {
+    /* if (Platform.OS === 'android') {
         styles.borderColor = ColorPalette.appBackground;
         styles.borderWidth = 1;
-    }
+    }*/
 
     return styles;
 }
