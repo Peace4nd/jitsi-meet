@@ -336,6 +336,10 @@ var config = {
     // will be joined when no room is specified.
     enableWelcomePage: true,
 
+    // Disable initial browser getUserMedia requests.
+    // This is useful for scenarios where users might want to start a conference for screensharing only
+    // disableInitialGUM: false,
+
     // Enabling the close page will ignore the welcome page redirection when
     // a call is hangup.
     // enableClosePage: false,
@@ -623,8 +627,17 @@ var config = {
     // otherwise the app doesn't render it.
     // moderatedRoomServiceUrl: 'https://moderated.jitsi-meet.example.com',
 
+    // If true, tile view will not be enabled automatically when the participants count threshold is reached.
+    // disableTileView: true,
+
+    // Hides the conference subject
+    // hideConferenceSubject: true
+
     // Hides the conference timer.
     // hideConferenceTimer: true,
+
+    // Hides the participants stats
+    // hideParticipantsStats: true
 
     // Sets the conference subject
     // subject: 'Conference Subject',
