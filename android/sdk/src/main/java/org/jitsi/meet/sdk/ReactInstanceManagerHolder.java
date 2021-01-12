@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.jitsi.meet.sdk;
+package com.icewarp.meet.sdk;
 
 import android.app.Activity;
 
@@ -72,7 +72,7 @@ class ReactInstanceManagerHolder {
                 new PictureInPictureModule(reactContext),
                 new ProximityModule(reactContext),
                 new WiFiStatsModule(reactContext),
-                new org.jitsi.meet.sdk.net.NAT64AddrInfoModule(reactContext)));
+                new com.icewarp.meet.sdk.net.NAT64AddrInfoModule(reactContext)));
 
         if (AudioModeModule.useConnectionService()) {
             nativeModules.add(new RNConnectionService(reactContext));

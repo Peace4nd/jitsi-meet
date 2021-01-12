@@ -185,7 +185,7 @@ android.libraryVariants.all { def variant ->
 publishing {
     publications {
         aarArchive(MavenPublication) {
-            groupId 'org.jitsi.react'
+            groupId 'com.icewarp.react'
             artifactId 'jitsi-meet-sdk'
             version System.env.OVERRIDE_SDK_VERSION ?: project.sdkVersion
 

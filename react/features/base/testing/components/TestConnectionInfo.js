@@ -179,19 +179,19 @@ class TestConnectionInfo extends Component<Props, State> {
         return (
             <Fragment accessible = { false } >
                 <TestHint
-                    id = 'org.jitsi.meet.conference.connectionState'
+                    id = 'com.icewarp.meet.conference.connectionState'
                     value = { this.props._conferenceConnectionState } />
                 <TestHint
-                    id = 'org.jitsi.meet.conference.joinedState'
+                    id = 'com.icewarp.meet.conference.joinedState'
                     value = { this.props._conferenceJoinedState } />
                 <TestHint
-                    id = 'org.jitsi.meet.conference.grantModeratorAvailable'
+                    id = 'com.icewarp.meet.conference.grantModeratorAvailable'
                     value = { true } />
                 <TestHint
-                    id = 'org.jitsi.meet.conference.localParticipantRole'
+                    id = 'com.icewarp.meet.conference.localParticipantRole'
                     value = { this.props._localUserRole } />
                 <TestHint
-                    id = 'org.jitsi.meet.stats.rtp'
+                    id = 'com.icewarp.meet.stats.rtp'
                     value = { JSON.stringify(this.state.stats) } />
             </Fragment>
         );

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.jitsi.meet.sdk.incoming_call;
+package com.icewarp.meet.sdk.incoming_call;
 
 import androidx.annotation.NonNull;
 

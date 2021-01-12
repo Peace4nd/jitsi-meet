@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package org.jitsi.meet.sdk;
+package com.icewarp.meet.sdk;
 
 import android.content.Intent;
 import android.os.Bundle;

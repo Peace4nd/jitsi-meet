@@ -1,5 +1,5 @@
 {
-  "packageId": "org.jitsi.meet",
+  "packageId": "com.icewarp.meet",
   "host": "meet.jit.si",
   "name": "Jitsi Meet",
   "launcherName": "Jitsi Meet",

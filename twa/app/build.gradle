@@ -19,7 +19,7 @@ import groovy.xml.MarkupBuilder
 apply plugin: 'com.android.application'
 
 def twaManifest = [
-    applicationId: 'org.jitsi.meet',
+    applicationId: 'com.icewarp.meet',
     hostName: 'meet.jit.si', // The domain being opened in the TWA.
     launchUrl: '/', // The start path for the TWA. Must be relative to the domain.
     name: 'Jitsi Meet', // The application name.
@@ -55,7 +55,7 @@ def vcode = (int) (((new Date().getTime() / 1000) - 1546297200) / 10)
 android {
     compileSdkVersion 29
     defaultConfig {
-        applicationId "org.jitsi.meet"
+        applicationId "com.icewarp.meet"
         minSdkVersion 19
         targetSdkVersion 29
         versionCode vcode

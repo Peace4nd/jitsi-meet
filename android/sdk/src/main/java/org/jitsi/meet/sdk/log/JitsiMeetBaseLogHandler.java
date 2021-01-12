@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package org.jitsi.meet.sdk.log;
+package com.icewarp.meet.sdk.log;
 
 import android.util.Log;
 
