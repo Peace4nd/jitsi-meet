@@ -1,6 +1,5 @@
 // @flow
 
-import { IconIcewarpMenuMute } from '../../../custom/icons';
 import { createToolbarEvent, sendAnalytics } from '../../analytics';
 import { openDialog } from '../../base/dialog';
 import { translate } from '../../base/i18n';
@@ -33,7 +32,8 @@ type Props = AbstractButtonProps & {
  */
 class MuteEveryoneButton extends AbstractButton<Props, *> {
     accessibilityLabel = 'toolbar.accessibilityLabel.muteEveryone';
-    icon = IconIcewarpMenuMute;
+
+    // icon = IconIcewarpMenuMute;
     label = 'toolbar.muteEveryone';
     tooltip = 'toolbar.muteEveryone';
 

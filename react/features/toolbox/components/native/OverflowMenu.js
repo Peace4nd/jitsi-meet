@@ -10,8 +10,9 @@ import { Icon, IconClose } from '../../../base/icons';
 import { connect } from '../../../base/redux';
 import { StyleType } from '../../../base/styles';
 import { AudioRouteButton } from '../../../mobile/audio-mode';
-import { RoomLockButton } from '../../../room-lock';
-import MuteEveryoneButton from '../MuteEveryoneButton';
+
+// import { RoomLockButton } from '../../../room-lock';
+// import MuteEveryoneButton from '../MuteEveryoneButton';
 
 import AudioOnlyButton from './AudioOnlyButton';
 import RaiseHandButton from './RaiseHandButton';
@@ -93,8 +94,8 @@ class OverflowMenu extends PureComponent<Props, *> {
                 style = { _bottomSheetStyles.fancyBorder }>
                 <AudioRouteButton { ...buttonProps } />
                 <AudioOnlyButton { ...buttonProps } />
-                <MuteEveryoneButton { ...buttonProps } />
-                <RoomLockButton { ...buttonProps } />
+                {/* <MuteEveryoneButton { ...buttonProps } />
+                <RoomLockButton { ...buttonProps } />*/}
                 <RaiseHandButton { ...buttonProps } />
                 <ToggleCameraButton { ...buttonProps } />
             </BottomSheet>

@@ -1,6 +1,5 @@
 // @flow
 
-import { IconIcewarpMenuProtect } from '../../../custom/icons';
 import { MEETING_PASSWORD_ENABLED, getFeatureFlag } from '../../base/flags';
 import { translate } from '../../base/i18n';
 import { isLocalParticipantModerator } from '../../base/participants';
@@ -32,7 +31,8 @@ type Props = AbstractButtonProps & {
  */
 class RoomLockButton extends AbstractButton<Props, *> {
     accessibilityLabel = 'toolbar.accessibilityLabel.lockRoom';
-    icon = IconIcewarpMenuProtect;
+
+    // icon = IconIcewarpMenuProtect;
     label = 'dialog.lockRoom';
 
     // toggledIcon = IconRoomUnlock;
