@@ -1,6 +1,6 @@
 // @flow
 
-import { IconIcewarpToolbarCam } from '../../../../custom/icons';
+import { IconIcewarpToolbarCam, IconIcewarpToolbarCamOff } from '../../../../custom/icons';
 
 import AbstractButton from './AbstractButton';
 import type { Props } from './AbstractButton';
@@ -12,8 +12,7 @@ export default class AbstractVideoMuteButton<P : Props, S : *>
     extends AbstractButton<P, S> {
 
     icon = IconIcewarpToolbarCam;
-
-    // toggledIcon = IconCameraDisabled;
+    toggledIcon = IconIcewarpToolbarCamOff;
 
     /**
      * Handles clicking / pressing the button, and toggles the video mute state

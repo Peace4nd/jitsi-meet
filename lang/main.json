@@ -3,6 +3,7 @@
         "toolbar": {
             "invite": "Invite",
             "mute": "Mute",
+            "unmute": "Unmute",
             "end": "End",
             "cam": "Cam",
             "more": "More"

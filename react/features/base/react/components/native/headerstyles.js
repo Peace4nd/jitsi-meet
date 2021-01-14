@@ -39,7 +39,7 @@ ColorSchemeRegistry.register('Header', {
      * Style of the header overlay to cover the unsafe areas.
      */
     headerOverlay: {
-        backgroundColor: schemeColor('background')
+        backgroundColor: icw.color.primary
     },
 
     /**

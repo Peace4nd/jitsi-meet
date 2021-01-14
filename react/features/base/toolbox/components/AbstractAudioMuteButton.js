@@ -1,6 +1,6 @@
 // @flow
 
-import { IconIcewarpToolbarMute } from '../../../../custom/icons';
+import { IconIcewarpToolbarMute, IconIcewarpToolbarMuteOff } from '../../../../custom/icons';
 
 import AbstractButton from './AbstractButton';
 import type { Props } from './AbstractButton';
@@ -13,8 +13,7 @@ export default class AbstractAudioMuteButton<P: Props, S: *>
     extends AbstractButton<P, S> {
 
     icon = IconIcewarpToolbarMute;
-
-    // toggledIcon = IconMicDisabled;
+    toggledIcon = IconIcewarpToolbarMuteOff;
 
     /**
      * Handles clicking / pressing the button, and toggles the audio mute state
