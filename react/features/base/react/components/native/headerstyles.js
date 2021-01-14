@@ -2,6 +2,7 @@
 
 import { StyleSheet } from 'react-native';
 
+import icw from '../../../../../custom/constants';
 import { ColorSchemeRegistry, schemeColor } from '../../../color-scheme';
 import { BoxModel } from '../../../styles';
 
@@ -73,7 +74,7 @@ ColorSchemeRegistry.register('Header', {
      */
     screenHeader: {
         alignItems: 'center',
-        backgroundColor: schemeColor('background'),
+        backgroundColor: icw.color.primary,
         flexDirection: 'row',
         height: HEADER_HEIGHT,
         justifyContent: 'space-between',

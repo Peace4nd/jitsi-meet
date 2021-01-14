@@ -46,6 +46,7 @@ class ChatMessage extends AbstractChatMessage<Props> {
         const messageBubbleStyle = [
             styles.messageBubble
         ];
+        let textBubbleStyle = null;
 
         if (localMessage) {
             // This is a message sent by the local participant.
@@ -55,6 +56,7 @@ class ChatMessage extends AbstractChatMessage<Props> {
 
             // The bubble needs some additional styling
             messageBubbleStyle.push(_styles.localMessageBubble);
+            textBubbleStyle = _styles.localMessageText;
         } else if (message.messageType === MESSAGE_TYPE_ERROR) {
             // This is a system message.
 
@@ -65,6 +67,7 @@ class ChatMessage extends AbstractChatMessage<Props> {
 
             // The bubble needs some additional styling
             messageBubbleStyle.push(_styles.remoteMessageBubble);
+            textBubbleStyle = _styles.remoteMessageText;
         }
 
         if (privateMessage) {
@@ -78,7 +81,9 @@ class ChatMessage extends AbstractChatMessage<Props> {
                     <View style = { messageBubbleStyle }>
                         <View style = { styles.textWrapper } >
                             { this._renderDisplayName() }
-                            <Linkify linkStyle = { styles.chatLink }>
+                            <Linkify
+                                linkStyle = { styles.chatLink }
+                                textStyle = { textBubbleStyle }>
                                 { replaceNonUnicodeEmojis(this._getMessageText()) }
                             </Linkify>
                             { this._renderPrivateNotice() }

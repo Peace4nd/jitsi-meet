@@ -1,5 +1,6 @@
 // @flow
 
+import icw from '../../../../custom/constants';
 import { ColorSchemeRegistry, schemeColor } from '../../../base/color-scheme';
 import { BoxModel, ColorPalette } from '../../../base/styles';
 
@@ -37,8 +38,9 @@ export default {
     },
 
     emptyComponentWrapper: {
-        alignSelf: 'center',
+        alignItems: 'center',
         flex: 1,
+        justifyContent: 'center',
         padding: BoxModel.padding,
         paddingTop: '10%'
     },
@@ -52,16 +54,23 @@ export default {
 
     inputBar: {
         alignItems: 'center',
-        borderTopColor: 'rgb(209, 219, 231)',
-        borderTopWidth: 1,
         flexDirection: 'row',
-        paddingHorizontal: BoxModel.padding
+        paddingHorizontal: icw.padding,
+        margin: icw.padding * 1.5,
+        borderRadius: icw.chat.size / 2,
+        borderColor: icw.chat.field,
+        borderWidth: icw.border.width,
+        height: icw.chat.size
     },
 
     inputField: {
-        color: 'rgb(28, 32, 37)',
+        color: icw.chat.text,
         flex: 1,
-        height: 48
+        marginRight: icw.padding
+    },
+
+    inputFieldMute: {
+        color: icw.chat.textMute
     },
 
     messageBubble: {
@@ -98,8 +107,12 @@ export default {
     },
 
     sendButtonIcon: {
-        color: ColorPalette.darkGrey,
+        color: icw.chat.text,
         fontSize: 22
+    },
+
+    sendButtonIconDisabled: {
+        opacity: 0.2
     },
 
     /**
@@ -140,18 +153,37 @@ ColorSchemeRegistry.register('Chat', {
      * The text node for the display name.
      */
     displayName: {
-        color: schemeColor('displayName'),
+        color: icw.chat.textMute,
         fontSize: 13
     },
 
+    emptyComponentIcon: {
+        color: icw.chat.text,
+        marginBottom: 18
+    },
+
+    emptyComponentTitle: {
+        color: icw.chat.text,
+        fontSize: 20,
+        fontWeight: 'bold',
+        textAlign: 'center',
+        marginBottom: 8
+    },
+
     emptyComponentText: {
-        color: schemeColor('displayName'),
-        textAlign: 'center'
+        color: icw.chat.text,
+        textAlign: 'center',
+        fontSize: 15,
+        fontWeight: 'normal'
     },
 
     localMessageBubble: {
-        backgroundColor: schemeColor('localMsgBackground'),
+        backgroundColor: icw.chat.bubbles.local.background,
         borderTopRightRadius: 0
+    },
+
+    localMessageText: {
+        color: icw.chat.bubbles.local.color
     },
 
     messageRecipientCancelIcon: {
@@ -182,8 +214,12 @@ ColorSchemeRegistry.register('Chat', {
     },
 
     remoteMessageBubble: {
-        backgroundColor: schemeColor('remoteMsgBackground'),
+        backgroundColor: icw.chat.bubbles.remote.background,
         borderTopLeftRadius: 0
+    },
+
+    remoteMessageText: {
+        color: icw.chat.bubbles.remote.color
     },
 
     replyContainer: {

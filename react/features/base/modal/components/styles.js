@@ -12,6 +12,6 @@ export default {
 ColorSchemeRegistry.register('Modal', {
     page: {
         alignItems: 'stretch',
-        backgroundColor: icw.background.chat
+        backgroundColor: icw.background.page
     }
 });

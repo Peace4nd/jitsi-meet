@@ -3,8 +3,10 @@
 import React from 'react';
 import { FlatList, Text, View } from 'react-native';
 
+import { IconIcewarpHeaderChat } from '../../../../custom/icons';
 import { ColorSchemeRegistry } from '../../../base/color-scheme';
 import { translate } from '../../../base/i18n';
+import { Icon } from '../../../base/icons';
 import { connect } from '../../../base/redux';
 import { StyleType } from '../../../base/styles';
 import AbstractMessageContainer, { type Props as AbstractProps }
@@ -93,9 +95,17 @@ class MessageContainer extends AbstractMessageContainer<Props> {
         const { _styles, t } = this.props;
 
         return (
-            <View style = { styles.emptyComponentWrapper }>
+            <View
+                style = { styles.emptyComponentWrapper }>
+                <Icon
+                    size = { 48 }
+                    src = { IconIcewarpHeaderChat }
+                    style = { _styles.emptyComponentIcon } />
+                <Text style = { _styles.emptyComponentTitle }>
+                    { t('icwCustom.chat.noMessagesTitle') }
+                </Text>
                 <Text style = { _styles.emptyComponentText }>
-                    { t('chat.noMessagesMessage') }
+                    { t('icwCustom.chat.noMessagesMessage') }
                 </Text>
             </View>
         );
