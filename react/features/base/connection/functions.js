@@ -40,6 +40,10 @@ export function getCurrentConferenceUrl(stateful: Function | Object) {
  */
 export function getInviteURL(stateOrGetState: Function | Object): string {
     const state = toState(stateOrGetState);
+
+    return state['features/base/settings'].inviteURL;
+
+/*
     let locationURL
         = state instanceof URL
             ? state
@@ -65,6 +69,7 @@ export function getInviteURL(stateOrGetState: Function | Object): string {
     }
 
     return urlWithoutParams.href;
+    */
 }
 
 /**

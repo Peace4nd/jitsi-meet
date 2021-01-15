@@ -28,6 +28,7 @@ const DEFAULT_STATE = {
     localFlipX: true,
     micDeviceId: undefined,
     serverURL: undefined,
+    inviteURL: undefined,
     startAudioOnly: false,
     startWithAudioMuted: false,
     startWithVideoMuted: false,

@@ -15,6 +15,7 @@ import { SETTINGS_UPDATED } from './actionTypes';
  *         localFlipX: boolean,
  *         micDeviceId: string,
  *         serverURL: string,
+ *         inviteURL: string,
  *         startAudioOnly: boolean,
  *         startWithAudioMuted: boolean,
  *         startWithVideoMuted: boolean

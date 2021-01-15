@@ -40,6 +40,7 @@ static NSString *const WelcomePageEnabledFeatureFlag = @"welcomepage.enabled";
 - (instancetype)init {
     if (self = [super init]) {
         _serverURL = nil;
+        _inviteURL = nil;
         _room = nil;
         _subject = nil;
         _token = nil;
@@ -155,6 +156,7 @@ static NSString *const WelcomePageEnabledFeatureFlag = @"welcomepage.enabled";
 - (instancetype)initWithBuilder:(JitsiMeetConferenceOptionsBuilder *)builder {
     if (self = [super init]) {
         _serverURL = builder.serverURL;
+        _inviteURL = builder.inviteURL;
         _room = builder.room;
         _subject = builder.subject;
         _token = builder.token;
@@ -219,6 +221,10 @@ static NSString *const WelcomePageEnabledFeatureFlag = @"welcomepage.enabled";
         if (_room != nil) {
             urlProps[@"room"] = _room;
         }
+    }
+
+    if (_inviteURL != nil) {
+        props[@"inviteURL"] = [_inviteURL absoluteString];
     }
 
     if (_token != nil) {

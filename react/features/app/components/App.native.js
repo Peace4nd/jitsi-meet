@@ -108,6 +108,9 @@ export class App extends AbstractApp {
                 }
             }
 
+            // As inviteURL is provided externally, so we push it to settings.
+            dispatch(updateSettings({ inviteURL: this.props.inviteURL || null }));
+
             dispatch(updateSettings(this.props.userInfo || {}));
 
             // Update settings with feature-flag.

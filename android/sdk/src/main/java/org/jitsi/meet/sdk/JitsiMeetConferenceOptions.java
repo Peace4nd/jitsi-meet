@@ -36,6 +36,12 @@ public class JitsiMeetConferenceOptions implements Parcelable {
      * Server where the conference should take place.
      */
     private URL serverURL;
+
+    /**
+     * Invite URL
+     */
+    private URL inviteURL;
+
     /**
      * Room name.
      */
@@ -74,6 +80,10 @@ public class JitsiMeetConferenceOptions implements Parcelable {
 
     public URL getServerURL() {
         return serverURL;
+    }
+
+    public URL getInviteURL() {
+        return inviteURL;
     }
 
     public String getRoom() {
@@ -117,6 +127,7 @@ public class JitsiMeetConferenceOptions implements Parcelable {
      */
     public static class Builder {
         private URL serverURL;
+        private URL inviteURL;
         private String room;
         private String subject;
         private String token;
@@ -141,6 +152,17 @@ public class JitsiMeetConferenceOptions implements Parcelable {
          */
         public Builder setServerURL(URL url) {
             this.serverURL = url;
+
+            return this;
+        }
+
+        /**\
+         * Sets the invite URL.
+         * @param url - {@link URL} for invitation
+         * @return - The {@link Builder} object itself so the method calls can be chained.
+         */
+        public Builder setInviteURL(URL url) {
+            this.inviteURL = url;
 
             return this;
         }
@@ -270,6 +292,7 @@ public class JitsiMeetConferenceOptions implements Parcelable {
             JitsiMeetConferenceOptions options = new JitsiMeetConferenceOptions();
 
             options.serverURL = this.serverURL;
+            options.inviteURL = this.inviteURL;
             options.room = this.room;
             options.subject = this.subject;
             options.token = this.token;
@@ -289,6 +312,7 @@ public class JitsiMeetConferenceOptions implements Parcelable {
 
     private JitsiMeetConferenceOptions(Parcel in) {
         serverURL = (URL) in.readSerializable();
+        inviteURL = (URL) in.readSerializable();
         room = in.readString();
         subject = in.readString();
         token = in.readString();
@@ -346,6 +370,10 @@ public class JitsiMeetConferenceOptions implements Parcelable {
             }
         }
 
+        if (inviteURL != null) {
+            props.putString("inviteURL", inviteURL.toString());
+        }
+
         if (token != null) {
             urlProps.putString("jwt", token);
         }
@@ -378,6 +406,7 @@ public class JitsiMeetConferenceOptions implements Parcelable {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeSerializable(serverURL);
+        dest.writeSerializable(inviteURL);
         dest.writeString(room);
         dest.writeString(subject);
         dest.writeString(token);
