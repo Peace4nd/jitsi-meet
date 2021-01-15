@@ -82,7 +82,7 @@ ColorSchemeRegistry.register('Header', {
         paddingVertical: HEADER_PADDING
     },
 
-    statusBar: schemeColor('statusBar'),
+    statusBar: icw.color.primary,
 
     statusBarContent: schemeColor('statusBarContent')
 });
