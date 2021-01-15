@@ -34,11 +34,11 @@ import {
 } from '../AbstractConference';
 import type { AbstractProps } from '../AbstractConference';
 
+import ChatOverlay from './ChatOverlay';
 import Labels from './Labels';
 import LonelyMeetingExperience from './LonelyMeetingExperience';
 import NavigationBar from './NavigationBar';
 import styles, { NAVBAR_GRADIENT_COLORS } from './styles';
-
 
 /**
  * The type of the React {@code Component} props of {@link Conference}.
@@ -302,6 +302,8 @@ class Conference extends AbstractConference<Props, *> {
                     </Container> }
 
                     <LonelyMeetingExperience />
+
+                    <ChatOverlay />
 
                     {/*
                       * The Toolbox is in a stacking layer below the Filmstrip.
