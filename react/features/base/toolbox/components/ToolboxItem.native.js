@@ -68,9 +68,7 @@ export default class ToolboxItem extends AbstractToolboxItem<Props> {
                         { elementAfter }
                     </View>
                     {labelBottom && (<Text
-                        style = {{
-                            ...labelStyle,
-                            marginTop: icw.padding / 2 }}>
+                        style = { [ labelStyle, { marginTop: icw.padding / 2 } ] }>
                         { this.label }
                     </Text>)}
                 </>

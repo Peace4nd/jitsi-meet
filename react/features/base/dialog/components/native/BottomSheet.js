@@ -3,15 +3,14 @@
 import React, { PureComponent, type Node } from 'react';
 import { PanResponder, SafeAreaView, ScrollView, View } from 'react-native';
 
-import icw from '../../../../../custom/constants';
-import { BUTTON_SIZE } from '../../../../toolbox/components/native/styles';
+import { getToolboxHeight } from '../../../../../custom/utils';
 import { isToolboxVisible } from '../../../../toolbox/functions';
 import { ColorSchemeRegistry } from '../../../color-scheme';
 import { SlidingViewCustom, SlidingView } from '../../../react';
 import { connect } from '../../../redux';
 import { StyleType } from '../../../styles';
 
-import { bottomSheetStyles as styles, MD_FONT_SIZE } from './styles';
+import { bottomSheetStyles as styles } from './styles';
 
 /**
  * Minimal distance that needs to be moved by the finger to consider it a swipe.
@@ -97,7 +96,7 @@ class BottomSheet extends PureComponent<Props> {
             <SlidingViewDone
                 accessibilityRole = 'menu'
                 accessibilityViewIsModal = { true }
-                bottomOffset = { (icw.padding * 4) + BUTTON_SIZE + icw.border.width + (icw.padding / 2) + MD_FONT_SIZE + 2 }
+                bottomOffset = { getToolboxHeight() }
                 onHide = { this.props.onCancel }
                 position = 'bottom'
                 show = { true }
