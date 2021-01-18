@@ -1,12 +1,15 @@
 // @flow
 
 import React, { PureComponent } from 'react';
-import { Text, View, StyleSheet } from 'react-native';
+import { View, StyleSheet, TouchableWithoutFeedback } from 'react-native';
 
 import icw from '../../../../custom/constants';
+import { getToolboxHeight, isChatOverlayEnabled } from '../../../../custom/utils';
 import { translate } from '../../../base/i18n';
 import { connect } from '../../../base/redux';
+import MessageContainer from '../../../chat/components/native/MessageContainer';
 import { MESSAGE_TYPE_LOCAL } from '../../../chat/constants';
+import { isToolboxVisible } from '../../../toolbox/functions';
 
 /**
  * Custom styles
@@ -15,7 +18,11 @@ const styles = StyleSheet.create({
     wrapper: {
         bottom: 0,
         position: 'absolute',
-        padding: icw.padding * 2
+        padding: icw.padding * 2,
+        width: '100%'
+    },
+    wrapperOffset: {
+        marginBottom: getToolboxHeight()
     }
 });
 
@@ -23,16 +30,19 @@ const styles = StyleSheet.create({
  * Props type of the component.
  */
 type Props = {
+    onPress: Function,
+    _enabled: boolean,
     _messages: Array<{
             displayName: string,
             error: mixed,
             id: string,
             message: string,
-            messageType: string, // local
+            messageType: string,
             privateMessage: boolean,
             recipient: string,
             timestamp: number
-        }>
+        }>,
+    _visible: boolean
 };
 
 /**
@@ -46,14 +56,15 @@ class ChatOverlay extends PureComponent<Props> {
      */
     render() {
         // rozlozeni
-        const { _messages } = this.props;
+        const { onPress, _enabled, _messages, _visible } = this.props;
 
-        // vyfiltrovani lokalnich
-        // const onlyRemote = _messages.filter(message => message.messageType !== MESSAGE_TYPE_LOCAL);
-        const onlyRemote = _messages;
+        // definice promennych
+        const onlyRemote = _messages.filter(message => message.messageType !== MESSAGE_TYPE_LOCAL);
 
-        // zobrazovat pouze pokud existuje nejake sdeleni
-        if (onlyRemote.length === 0) {
+        console.log(_enabled);
+
+        // zobrazovat pouze pokud je prekryti povolene nevo pokud existuje nejake sdeleni
+        if (!_enabled || onlyRemote.length === 0) {
             return null;
         }
 
@@ -68,15 +79,14 @@ class ChatOverlay extends PureComponent<Props> {
             "timestamp": 1610715197750
         }*/
 
+
         // sestaveni a vraceni
         return (
-            <View
-                pointerEvents = 'none'
-                style = { styles.wrapper }>
-                <Text>
-                    {JSON.stringify(onlyRemote)}
-                </Text>
-            </View>
+            <TouchableWithoutFeedback onPress = { onPress }>
+                <View style = { [ styles.wrapper, _visible ? styles.wrapperOffset : null ] }>
+                    <MessageContainer messages = { onlyRemote } />
+                </View>
+            </TouchableWithoutFeedback>
         );
     }
 }
@@ -92,7 +102,9 @@ function _mapStateToProps(state): $Shape<Props> {
     const { messages } = state['features/chat'];
 
     return {
-        _messages: messages
+        _enabled: isChatOverlayEnabled(state),
+        _messages: messages,
+        _visible: isToolboxVisible(state)
     };
 }
 

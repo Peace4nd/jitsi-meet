@@ -300,7 +300,7 @@ class Conference extends AbstractConference<Props, *> {
                         <DisplayNameLabel participantId = { _largeVideoParticipantId } />
                     </Container> }
 
-                    <ChatOverlay />
+                    <ChatOverlay onPress = { this._onClick } />
 
                     {/*
                       * The Toolbox is in a stacking layer below the Filmstrip.

@@ -154,6 +154,7 @@ public class MainActivity extends JitsiMeetActivity {
             .setServerURL(buildURL(defaultURL))
             .setInviteURL(buildURL(defaultURL))
             .setFeatureFlag("call-integration.enabled", false)
+            .setFeatureFlag("chat-overlay.enabled", true)
             .setFeatureFlag("resolution", 360)
             .setFeatureFlag("server-url-change.enabled", !configurationByRestrictions)
             .build();
