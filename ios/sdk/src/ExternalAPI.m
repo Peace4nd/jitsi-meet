@@ -18,8 +18,8 @@
 #import "JitsiMeetView+Private.h"
 
 // Events
-static NSString * const hangUpEvent = @"org.jitsi.meet.HANG_UP";
-static NSString * const setAudioMutedEvent = @"org.jitsi.meet.SET_AUDIO_MUTED";
+static NSString * const hangUpEvent = @"com.icewarp.meet.HANG_UP";
+static NSString * const setAudioMutedEvent = @"com.icewarp.meet.SET_AUDIO_MUTED";
 
 @implementation ExternalAPI
 

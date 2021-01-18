@@ -1,11 +1,11 @@
-package org.jitsi.meet.sdk;
+package com.icewarp.meet.sdk;
 
 import android.content.Intent;
 import android.os.Bundle;
 
 import com.facebook.react.bridge.ReadableMap;
 
-import org.jitsi.meet.sdk.log.JitsiMeetLogger;
+import com.icewarp.meet.sdk.log.JitsiMeetLogger;
 
 import java.util.HashMap;
 
@@ -75,12 +75,12 @@ public class BroadcastEvent {
     }
 
     public enum Type {
-        CONFERENCE_JOINED("org.jitsi.meet.CONFERENCE_JOINED"),
-        CONFERENCE_TERMINATED("org.jitsi.meet.CONFERENCE_TERMINATED"),
-        CONFERENCE_WILL_JOIN("org.jitsi.meet.CONFERENCE_WILL_JOIN"),
-        AUDIO_MUTED_CHANGED("org.jitsi.meet.AUDIO_MUTED_CHANGED"),
-        PARTICIPANT_JOINED("org.jitsi.meet.PARTICIPANT_JOINED"),
-        PARTICIPANT_LEFT("org.jitsi.meet.PARTICIPANT_LEFT");
+        CONFERENCE_JOINED("com.icewarp.meet.CONFERENCE_JOINED"),
+        CONFERENCE_TERMINATED("com.icewarp.meet.CONFERENCE_TERMINATED"),
+        CONFERENCE_WILL_JOIN("com.icewarp.meet.CONFERENCE_WILL_JOIN"),
+        AUDIO_MUTED_CHANGED("com.icewarp.meet.AUDIO_MUTED_CHANGED"),
+        PARTICIPANT_JOINED("com.icewarp.meet.PARTICIPANT_JOINED"),
+        PARTICIPANT_LEFT("com.icewarp.meet.PARTICIPANT_LEFT");
 
         private static final String CONFERENCE_WILL_JOIN_NAME = "CONFERENCE_WILL_JOIN";
         private static final String CONFERENCE_JOINED_NAME = "CONFERENCE_JOINED";

@@ -1,11 +1,11 @@
-package org.jitsi.meet.sdk;
+package com.icewarp.meet.sdk;
 
 import android.content.Intent;
 import android.os.Bundle;
 
 import com.facebook.react.bridge.WritableNativeMap;
 
-import org.jitsi.meet.sdk.log.JitsiMeetLogger;
+import com.icewarp.meet.sdk.log.JitsiMeetLogger;
 
 import java.util.HashMap;
 
@@ -59,8 +59,8 @@ public class BroadcastAction {
     }
 
     enum Type {
-        SET_AUDIO_MUTED("org.jitsi.meet.SET_AUDIO_MUTED"),
-        HANG_UP("org.jitsi.meet.HANG_UP");
+        SET_AUDIO_MUTED("com.icewarp.meet.SET_AUDIO_MUTED"),
+        HANG_UP("com.icewarp.meet.HANG_UP");
 
         private final String action;
 
