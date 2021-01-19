@@ -1,7 +1,7 @@
 // @flow
 
 import React from 'react';
-import { NativeModules, SafeAreaView, StatusBar } from 'react-native';
+import { NativeModules, SafeAreaView, StatusBar, View } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 
 import { appNavigate } from '../../../app/actions';
@@ -38,6 +38,7 @@ import ChatOverlay from './ChatOverlay';
 import Labels from './Labels';
 import NavigationBar from './NavigationBar';
 import styles, { NAVBAR_GRADIENT_COLORS } from './styles';
+import { getSafeAreaBottomInset } from '../../../../custom/utils';
 
 /**
  * The type of the React {@code Component} props of {@link Conference}.
@@ -293,6 +294,21 @@ class Conference extends AbstractConference<Props, *> {
                         ] } />}
 
                     <Labels />
+
+                    { showGradient && 
+                        <View
+                            style={{
+                                backgroundColor: '#d3d3d3e5',
+                                height: 34,//getSafeAreaBottomInset(),
+                                bottom: 0,
+                                flexDirection: 'column',
+                                justifyContent: 'flex-end',
+                                left: 0,
+                                position: 'absolute',
+                                right: 0
+                            }}>
+                        </View>
+                    }
 
                     <Captions onPress = { this._onClick } />
 

@@ -31,6 +31,24 @@ export function getToolboxHeight() {
 }
 
 /**
+ * Safe area bottom inset. //Not good nieje na to nejaké knižnica?
+ *
+ * @returns {number}
+ */
+export function getSafeAreaBottomInset() {
+    if (Platform.OS === 'ios') {
+        if (Platform.isPad) {
+            return 20;
+        }
+
+        return 34;
+    }
+
+    // android
+    return 0;
+}
+
+/**
  * Get if chat overlay is enabled.
  *
  * @param {Function | Object} stateful - Redux state.
