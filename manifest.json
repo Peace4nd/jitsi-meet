@@ -28,9 +28,9 @@
     }
   ],
   "start_url": "/",
-  "background_color": "#17A0DB",
+  "background_color": "#605fd2",
   "display": "standalone",
   "scope": "/",
-  "theme_color": "#17A0DB"
+  "theme_color": "#605fd2"
  }
  

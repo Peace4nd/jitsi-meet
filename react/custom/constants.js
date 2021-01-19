@@ -10,6 +10,7 @@ export default {
     },
     color: {
         primary: '#605fd2',
+        highlight: '#958cff',
         danger: '#ff645c'
     },
     padding: 10,
