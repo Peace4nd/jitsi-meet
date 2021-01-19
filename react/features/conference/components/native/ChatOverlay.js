@@ -61,8 +61,6 @@ class ChatOverlay extends PureComponent<Props> {
         // definice promennych
         const onlyRemote = _messages.filter(message => message.messageType !== MESSAGE_TYPE_LOCAL);
 
-        console.log(_enabled);
-
         // zobrazovat pouze pokud je prekryti povolene nevo pokud existuje nejake sdeleni
         if (!_enabled || onlyRemote.length === 0) {
             return null;
@@ -99,11 +97,9 @@ class ChatOverlay extends PureComponent<Props> {
  * @returns {Props}
  */
 function _mapStateToProps(state): $Shape<Props> {
-    const { messages } = state['features/chat'];
-
     return {
         _enabled: isChatOverlayEnabled(state),
-        _messages: messages,
+        _messages: state['features/chat'].messages,
         _visible: isToolboxVisible(state)
     };
 }
