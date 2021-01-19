@@ -19,7 +19,11 @@ export function getToolboxHeight() {
 
     // ios je mrdka
     if (Platform.OS === 'ios') {
-        return height + 30;
+        if (Platform.isPad) {
+            return height + 20;
+        }
+
+        return height + 34;
     }
 
     // android
