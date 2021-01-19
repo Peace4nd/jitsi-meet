@@ -4,7 +4,7 @@ export default {
         page: '#ffffff'
     },
     border: {
-        color: '#555555',
+        color: '#747f8d',
         radius: 15,
         width: 1
     },
