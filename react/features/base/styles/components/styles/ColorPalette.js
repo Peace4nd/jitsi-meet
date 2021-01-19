@@ -1,3 +1,5 @@
+import icw from '../../../../../custom/constants';
+
 /**
  * The application's definition of the default color black.
  */
@@ -19,8 +21,8 @@ export const ColorPalette = {
      */
     black: BLACK,
     blackBlue: 'rgb(0, 3, 6)',
-    blue: '#17A0DB',
-    blueHighlight: '#1081b2',
+    blue: icw.color.primary,
+    blueHighlight: icw.color.highlight,
     buttonUnderlay: '#495258',
     darkGrey: '#555555',
     green: '#40b183',
