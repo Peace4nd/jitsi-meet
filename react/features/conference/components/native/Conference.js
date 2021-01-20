@@ -1,9 +1,11 @@
 // @flow
 
 import React from 'react';
-import { NativeModules, SafeAreaView, StatusBar, View } from 'react-native';
+import { NativeModules, SafeAreaView, StatusBar, View, StyleSheet } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 
+import icw from '../../../../custom/constants';
+import { getSafeAreaBottomInset } from '../../../../custom/utils';
 import { appNavigate } from '../../../app/actions';
 import { PIP_ENABLED, getFeatureFlag } from '../../../base/flags';
 import { Container, LoadingIndicator, TintedView } from '../../../base/react';
@@ -38,7 +40,6 @@ import ChatOverlay from './ChatOverlay';
 import Labels from './Labels';
 import NavigationBar from './NavigationBar';
 import styles, { NAVBAR_GRADIENT_COLORS } from './styles';
-import { getSafeAreaBottomInset } from '../../../../custom/utils';
 
 /**
  * The type of the React {@code Component} props of {@link Conference}.
@@ -95,6 +96,17 @@ type Props = AbstractProps & {
     dispatch: Function
 };
 
+const safeAreaStyles = StyleSheet.create({
+    view: {
+        backgroundColor: icw.background.base,
+        height: getSafeAreaBottomInset(),
+        bottom: 0,
+        left: 0,
+        position: 'absolute',
+        right: 0
+    }
+});
+
 /**
  * The conference page of the mobile (i.e. React Native) application.
  */
@@ -146,7 +158,9 @@ class Conference extends AbstractConference<Props, *> {
      */
     render() {
         return (
-            <Container style = { styles.conference }>
+            <Container
+                component = { SafeAreaView }
+                style = { styles.conference }>
                 <StatusBar
                     barStyle = 'light-content'
                     hidden = { true }
@@ -295,20 +309,7 @@ class Conference extends AbstractConference<Props, *> {
 
                     <Labels />
 
-                    { showGradient && 
-                        <View
-                            style={{
-                                backgroundColor: '#d3d3d3e5',
-                                height: 34,//getSafeAreaBottomInset(),
-                                bottom: 0,
-                                flexDirection: 'column',
-                                justifyContent: 'flex-end',
-                                left: 0,
-                                position: 'absolute',
-                                right: 0
-                            }}>
-                        </View>
-                    }
+                    { showGradient && <View style = { safeAreaStyles.view } /> }
 
                     <Captions onPress = { this._onClick } />
 

@@ -17,6 +17,11 @@ type Props = AbstractProps & {
      * {@code AbstractContainer} is long pressed on React Native.
      */
     onLongPress?: ?Function,
+
+    /**
+     * Custom components (default is View)
+     */
+    component?: *
 };
 
 /**
@@ -35,6 +40,7 @@ export default class Container<P: Props> extends AbstractContainer<P> {
         const {
             accessibilityLabel,
             accessible,
+            component,
             onClick,
             onLongPress,
             touchFeedback = Boolean(onClick || onLongPress),
@@ -51,7 +57,7 @@ export default class Container<P: Props> extends AbstractContainer<P> {
         const onClickOrTouchFeedback = onClick || onLongPress || touchFeedback;
         let element
             = super._render(
-                View,
+                component || View,
                 {
                     pointerEvents: onClickOrTouchFeedback ? 'auto' : 'box-none',
                     ...props

@@ -14,28 +14,19 @@ import icw from './constants';
  * @returns {number}
  */
 export function getToolboxHeight() {
-    // definice
-    const height = (icw.padding * 4) + BUTTON_SIZE + (icw.padding / 2) + MD_FONT_SIZE;
-
-    // ios je mrdka
-    if (Platform.OS === 'ios') {
-        if (Platform.isPad) {
-            return height + 20;
-        }
-
-        return height + 34;
-    }
-
-    // android
-    return height;
+    return (icw.padding * 4) + BUTTON_SIZE + (icw.padding / 2) + MD_FONT_SIZE + getSafeAreaBottomInset();
 }
 
 /**
- * Safe area bottom inset. //Not good nieje na to nejaké knižnica?
+ * Safe area bottom inset.
  *
  * @returns {number}
  */
 export function getSafeAreaBottomInset() {
+    return 0;
+
+    /*
+    // ios
     if (Platform.OS === 'ios') {
         if (Platform.isPad) {
             return 20;
@@ -46,6 +37,7 @@ export function getSafeAreaBottomInset() {
 
     // android
     return 0;
+    */
 }
 
 /**
