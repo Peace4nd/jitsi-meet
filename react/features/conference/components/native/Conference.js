@@ -159,7 +159,6 @@ class Conference extends AbstractConference<Props, *> {
     render() {
         return (
             <Container
-                component = { SafeAreaView }
                 style = { styles.conference }>
                 <StatusBar
                     barStyle = 'light-content'

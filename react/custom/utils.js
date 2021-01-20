@@ -1,12 +1,14 @@
 // @flow
 
-import { Platform } from 'react-native';
+import { NativeModules, Platform } from 'react-native';
 
 import { MD_FONT_SIZE } from '../features/base/dialog/components/native/styles';
 import { CHAT_OVERLAY_ENABLED, getFeatureFlag } from '../features/base/flags';
 import { BUTTON_SIZE } from '../features/toolbox/components/native/styles';
 
 import icw from './constants';
+
+const { RNStaticSafeAreaInsets } = NativeModules;
 
 /**
  * Toolbox height.
@@ -23,13 +25,10 @@ export function getToolboxHeight() {
  * @returns {number}
  */
 export function getSafeAreaBottomInset() {
+    
     // ios
     if (Platform.OS === 'ios') {
-        if (Platform.isPad) {
-            return 20;
-        }
-
-        return 34;
+        return RNStaticSafeAreaInsets.safeAreaInsetsBottom
     }
 
     // android
