@@ -23,9 +23,6 @@ export function getToolboxHeight() {
  * @returns {number}
  */
 export function getSafeAreaBottomInset() {
-    return 0;
-
-    /*
     // ios
     if (Platform.OS === 'ios') {
         if (Platform.isPad) {
@@ -37,7 +34,6 @@ export function getSafeAreaBottomInset() {
 
     // android
     return 0;
-    */
 }
 
 /**
