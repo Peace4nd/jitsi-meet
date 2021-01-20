@@ -5,8 +5,8 @@ import {
     Animated,
     Dimensions,
     TouchableWithoutFeedback,
-    View,
-    SafeAreaView
+    View
+
 } from 'react-native';
 
 import { BackButtonRegistry } from '../../../../mobile/back-button';
@@ -165,7 +165,7 @@ export default class SlidingView extends PureComponent<Props, State> {
         }
 
         return (
-            <SafeAreaView
+            <View
                 pointerEvents = 'box-none'
                 style = { styles.sliderViewContainer } >
                 <TouchableWithoutFeedback
@@ -177,7 +177,7 @@ export default class SlidingView extends PureComponent<Props, State> {
                     style = { this._getContentStyle() }>
                     { this.props.children }
                 </Animated.View>
-            </SafeAreaView>
+            </View>
         );
     }
 

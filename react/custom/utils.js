@@ -8,6 +8,7 @@ import { BUTTON_SIZE } from '../features/toolbox/components/native/styles';
 
 import icw from './constants';
 
+// native modules
 const { RNStaticSafeAreaInsets } = NativeModules;
 
 /**
@@ -25,13 +26,10 @@ export function getToolboxHeight() {
  * @returns {number}
  */
 export function getSafeAreaBottomInset() {
-    
-    // ios
     if (Platform.OS === 'ios') {
-        return RNStaticSafeAreaInsets.safeAreaInsetsBottom
+        return RNStaticSafeAreaInsets.safeAreaInsetsBottom;
     }
 
-    // android
     return 0;
 }
 
