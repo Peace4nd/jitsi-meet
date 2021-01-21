@@ -1,30 +1,38 @@
 // @flow
 
+import { Dimensions } from 'react-native';
+
 import icw from '../../../../custom/constants';
 import { ColorSchemeRegistry, schemeColor } from '../../../base/color-scheme';
 import { ColorPalette } from '../../../base/styles';
 
-export const BUTTON_SIZE = 50;
+const { width } = Dimensions.get('window');
+
+export const BUTTON_MARGIN = 5;
 export const BORDER_RADIUS = 15;
+export const calcButtonSize = () => {
+    const defaultSize = 50;
+
+    return Math.min(((width - (2 * icw.padding)) / 5) - (2 * BUTTON_MARGIN), defaultSize);
+};
+
 
 // Toolbox, toolbar:
 
 /**
  * The style of toolbar buttons.
  */
+const btnSize = calcButtonSize();
 const toolbarButton = {
     backgroundColor: schemeColor('button'),
-    borderRadius: BUTTON_SIZE / 2,
+    borderRadius: btnSize / 2,
     borderWidth: 0,
     flex: 0,
     flexDirection: 'row',
-    height: BUTTON_SIZE,
+    height: btnSize,
     justifyContent: 'center',
-
-    // XXX We probably tested BoxModel.margin and discovered it to be too small
-    // for our taste.
-    marginHorizontal: 7,
-    width: BUTTON_SIZE
+    marginHorizontal: BUTTON_MARGIN,
+    width: btnSize
 };
 
 /**

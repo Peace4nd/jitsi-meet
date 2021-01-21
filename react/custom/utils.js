@@ -4,7 +4,7 @@ import { NativeModules, Platform } from 'react-native';
 
 import { MD_FONT_SIZE } from '../features/base/dialog/components/native/styles';
 import { CHAT_OVERLAY_ENABLED, getFeatureFlag } from '../features/base/flags';
-import { BUTTON_SIZE } from '../features/toolbox/components/native/styles';
+import { calcButtonSize } from '../features/toolbox/components/native/styles';
 
 import icw from './constants';
 
@@ -17,7 +17,7 @@ const { RNStaticSafeAreaInsets } = NativeModules;
  * @returns {number}
  */
 export function getToolboxHeight() {
-    return (icw.padding * 4) + BUTTON_SIZE + (icw.padding / 2) + MD_FONT_SIZE + getSafeAreaBottomInset();
+    return (icw.padding * 4) + calcButtonSize() + (icw.padding / 2) + MD_FONT_SIZE + getSafeAreaBottomInset();
 }
 
 /**
