@@ -15,6 +15,10 @@ const BUBBLE_RADIUS = 8;
  * for the future).
  */
 export default {
+    chatKeyboardWrapper: {
+        flex: 1,
+        paddingBottom: icw.chat.size
+    },
 
     /**
      * Wrapper View for the avatar.
