@@ -1,6 +1,7 @@
 export default {
     background: {
         base: '#d3d3d3e5',
+        loading: '#000000',
         page: '#ffffff'
     },
     border: {
@@ -16,6 +17,10 @@ export default {
     padding: 10,
     overflowMenu: {
         icon: 24
+    },
+    loading: {
+        base: '#e4ebff',
+        notch: '#605fd2'
     },
     chat: {
         size: 42,

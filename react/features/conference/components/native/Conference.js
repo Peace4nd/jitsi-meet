@@ -5,10 +5,11 @@ import { NativeModules, SafeAreaView, StatusBar, View, StyleSheet } from 'react-
 import LinearGradient from 'react-native-linear-gradient';
 
 import icw from '../../../../custom/constants';
+import IcewarpLoading from '../../../../custom/loading';
 import { getSafeAreaBottomInset } from '../../../../custom/utils';
 import { appNavigate } from '../../../app/actions';
 import { PIP_ENABLED, getFeatureFlag } from '../../../base/flags';
-import { Container, LoadingIndicator, TintedView } from '../../../base/react';
+import { Container, TintedView } from '../../../base/react';
 import { connect } from '../../../base/redux';
 import { ASPECT_RATIO_NARROW } from '../../../base/responsive-ui/constants';
 import { TestConnectionInfo } from '../../../base/testing';
@@ -282,7 +283,7 @@ class Conference extends AbstractConference<Props, *> {
                   */
                     _connecting
                         && <TintedView>
-                            <LoadingIndicator />
+                            <IcewarpLoading />
                         </TintedView>
                 }
 
@@ -368,7 +369,7 @@ class Conference extends AbstractConference<Props, *> {
                 {
                     _connecting
                         && <TintedView>
-                            <LoadingIndicator />
+                            <IcewarpLoading />
                         </TintedView>
                 }
             </>

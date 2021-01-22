@@ -2,8 +2,10 @@
 
 import { StyleSheet } from 'react-native';
 
-import { ColorSchemeRegistry, schemeColor } from '../../../base/color-scheme';
+import icw from '../../../../custom/constants';
+import { ColorSchemeRegistry } from '../../../base/color-scheme';
 import { BoxModel, ColorPalette } from '../../../base/styles';
+
 
 /**
  * The React {@code Component} styles of the overlay feature.
@@ -43,13 +45,9 @@ export default {
  * Color schemed styles for all the component based on the abstract dialog.
  */
 ColorSchemeRegistry.register('LoadConfigOverlay', {
-    indicatorColor: schemeColor('text'),
+    indicatorColor: '#ffffff',
 
     loadingOverlayText: {
-        color: schemeColor('text')
-    },
-
-    loadingOverlayWrapper: {
-        backgroundColor: schemeColor('background')
+        color: '#ffffff'
     }
 });

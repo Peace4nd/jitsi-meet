@@ -1,16 +1,27 @@
 // @flow
 
 import React, { Component } from 'react';
-import { SafeAreaView, Text, View } from 'react-native';
+import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
 
+import IcewarpLoading from '../../../../custom/loading';
 import { ColorSchemeRegistry } from '../../../base/color-scheme';
 import { translate } from '../../../base/i18n';
-import { LoadingIndicator } from '../../../base/react';
+import { TintedView } from '../../../base/react';
 import { connect } from '../../../base/redux';
 import { StyleType } from '../../../base/styles';
 
 import OverlayFrame from './OverlayFrame';
 import styles from './styles';
+
+const customStyles = StyleSheet.create({
+    loading: {
+        marginBottom: 10
+    },
+    wrapper: {
+        alignItems: 'center',
+        justifyContent: 'center'
+    }
+});
 
 type Props = {
 
@@ -53,16 +64,9 @@ class LoadConfigOverlay extends Component<Props> {
 
         return (
             <OverlayFrame>
-                <View
-                    style = { [
-                        styles.loadingOverlayWrapper,
-                        _styles.loadingOverlayWrapper
-                    ] }>
-                    <SafeAreaView>
-                        <LoadingIndicator
-                            color = { _styles.indicatorColor }
-                            size = 'large'
-                            style = { styles.connectIndicator } />
+                <TintedView style = { styles.loadingOverlayWrapper }>
+                    <SafeAreaView style = { customStyles.wrapper }>
+                        <IcewarpLoading style = { customStyles.loading } />
                         <Text
                             style = { [
                                 styles.loadingOverlayText,
@@ -71,7 +75,7 @@ class LoadConfigOverlay extends Component<Props> {
                             { this.props.t('connectingOverlay.joiningRoom') }
                         </Text>
                     </SafeAreaView>
-                </View>
+                </TintedView>
             </OverlayFrame>
         );
     }
