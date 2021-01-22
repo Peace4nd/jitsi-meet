@@ -3,7 +3,7 @@
 import { NativeModules, Platform } from 'react-native';
 
 import { MD_FONT_SIZE } from '../features/base/dialog/components/native/styles';
-import { CHAT_OVERLAY_ENABLED, getFeatureFlag } from '../features/base/flags';
+import { getFeatureFlag } from '../features/base/flags';
 import { calcButtonSize } from '../features/toolbox/components/native/styles';
 
 import icw from './constants';
@@ -40,5 +40,17 @@ export function getSafeAreaBottomInset() {
  * @returns {boolean}
  */
 export function isChatOverlayEnabled(stateful: Function | Object) {
-    return Boolean(getFeatureFlag(stateful, CHAT_OVERLAY_ENABLED, false));
+    return Boolean(getFeatureFlag(stateful, 'chat-overlay.enabled', false));
 }
+
+
+/**
+ * Get if tile view is enabled.
+ *
+ * @param {Function | Object} stateful - Redux state.
+ * @returns {boolean}
+ */
+export function isTileViewEnabled(stateful: Function | Object) {
+    return Boolean(getFeatureFlag(stateful, 'tile-view.enabled', true));
+}
+

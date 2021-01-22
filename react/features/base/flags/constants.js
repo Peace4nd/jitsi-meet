@@ -129,9 +129,3 @@ export const VIDEO_SHARE_BUTTON_ENABLED = 'video-share.enabled';
  * Default: disabled (false).
  */
 export const WELCOME_PAGE_ENABLED = 'welcomepage.enabled';
-
-/**
- * Chat overlay.
- * Default: disabled (false).
- */
-export const CHAT_OVERLAY_ENABLED = 'chat-overlay.enabled';

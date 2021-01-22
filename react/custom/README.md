@@ -4,6 +4,11 @@
 
 Pro nastavení "invite URL" slouzi metoda `setInviteURL()`.
 
-## Chat overlay
+## Feature flagy
 
-Lze povolit pomocí `setFeatureFlag("chat-overlay.enabled", true)` (funguje stejně jako ostatní feature flagy.)
+ Nastavení hodnoty se provádi metodou `setFeatureFlag` (jednotné pro obě platformy)
+
+| Flag                   | Typ     | Výchozí hodnota | Popis                                                        |
+| ---------------------- | ------- | --------------- | ------------------------------------------------------------ |
+| `chat-overlay.enabled` | boolean | `false`         | Povolení/zakázání chatovací vrstvy nad videem                |
+| `tile-view.enabled`    | boolean | `true`          | Povolí/zakáže zobrazovat dlaždice pro více jak dva účastníky |
