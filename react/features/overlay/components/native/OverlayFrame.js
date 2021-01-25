@@ -14,6 +14,8 @@ type Props = {
      * The children components to be displayed into the overlay frame.
      */
     children: Node,
+
+    backgroundColor: string
 };
 
 /**
@@ -28,7 +30,7 @@ export default class OverlayFrame extends Component<Props> {
      */
     render() {
         return (
-            <View style = { styles.container }>
+            <View style = { [ styles.container, { backgroundColor: this.props.backgroundColor } ] }>
                 <SafeAreaView style = { styles.safeContainer } >
                     { this.props.children }
                 </SafeAreaView>

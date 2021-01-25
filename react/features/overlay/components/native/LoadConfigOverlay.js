@@ -1,14 +1,14 @@
 // @flow
 
 import React, { Component } from 'react';
-import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
+import { SafeAreaView, StyleSheet, Text } from 'react-native';
 
 import IcewarpLoading from '../../../../custom/loading';
 import { ColorSchemeRegistry } from '../../../base/color-scheme';
 import { translate } from '../../../base/i18n';
 import { TintedView } from '../../../base/react';
 import { connect } from '../../../base/redux';
-import { StyleType } from '../../../base/styles';
+import { StyleType, ColorPalette } from '../../../base/styles';
 
 import OverlayFrame from './OverlayFrame';
 import styles from './styles';
@@ -63,7 +63,7 @@ class LoadConfigOverlay extends Component<Props> {
         const { _styles } = this.props;
 
         return (
-            <OverlayFrame>
+            <OverlayFrame backgroundColor = { ColorPalette.appBackground }>
                 <TintedView style = { styles.loadingOverlayWrapper }>
                     <SafeAreaView style = { customStyles.wrapper }>
                         <IcewarpLoading style = { customStyles.loading } />
