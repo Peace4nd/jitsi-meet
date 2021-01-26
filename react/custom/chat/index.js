@@ -8,24 +8,11 @@ import { translate } from '../../features/base/i18n';
 import { connect } from '../../features/base/redux';
 import { _mapDispatchToProps } from '../../features/chat/components/AbstractChat';
 import { isToolboxVisible } from '../../features/toolbox/functions';
-import icw from '../constants';
 import { isChatOverlayEnabled, getChatOverlayLimit } from '../utils';
 
 import MessageContainer from './components/container';
 import ChatInputBar from './components/input';
-
-/**
- * Custom styles
- */
-const styles = StyleSheet.create({
-    wrapper: {
-        bottom: 0,
-        position: 'absolute',
-        padding: icw.padding * 2,
-        marginBottom: icw.chatOverlay.size,
-        width: '100%'
-    }
-});
+import styles from './styles';
 
 /**
  * Props type of the component.

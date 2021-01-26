@@ -4,8 +4,6 @@ import { StyleSheet } from 'react-native';
 
 import icw from '../constants';
 
-const BUBBLE_RADIUS = 8;
-
 export const styles = StyleSheet.create({
     // input
     chatInputField: {
@@ -49,30 +47,29 @@ export const styles = StyleSheet.create({
     },
     messageBubble: {
         alignItems: 'center',
-        borderRadius: BUBBLE_RADIUS,
-        borderTopLeftRadius: 0,
+        borderRadius: 20,
         flexDirection: 'row'
     },
-    messageBubbleLocal: {
-        backgroundColor: icw.chatOverlay.bubbles.local.background
+    messageBubbleText: {
+        color: icw.chatOverlay.text,
+        fontSize: 13,
+        lineHeight: 14,
+        letterSpacing: -0.33
     },
-    messageBubbleLocalText: {
-        color: icw.chatOverlay.bubbles.local.color
+    messageBubbleLocal: {
+        backgroundColor: icw.chatOverlay.bubbles.local
     },
     messageBubbleRemote: {
-        backgroundColor: icw.chatOverlay.bubbles.remote.background
-    },
-    messageBubbleRemoteText: {
-        color: icw.chatOverlay.bubbles.remote.color
+        backgroundColor: icw.chatOverlay.bubbles.remote
     },
     messageBubbleSystem: {
-        backgroundColor: icw.chatOverlay.bubbles.system.background
+        backgroundColor: icw.chatOverlay.bubbles.system
     },
     messageBubblePrivate: {
-        backgroundColor: icw.chatOverlay.bubbles.private.background
+        backgroundColor: icw.chatOverlay.bubbles.private
     },
     messageBubblePrivateNotice: {
-        color: icw.chatOverlay.bubbles.private.notice,
+        color: icw.chatOverlay.private.notice,
         fontSize: 11,
         marginTop: 6
     },
@@ -89,24 +86,30 @@ export const styles = StyleSheet.create({
         width: 32
     },
     messageNameWrapper: {
-        fontSize: 13
-    },
-    messageNameRemote: {
-        color: `${icw.chatOverlay.bubbles.remote.color}80`
-    },
-    messageNameLocal: {
-        color: `${icw.chatOverlay.bubbles.local.color}80`
+        color: icw.chatOverlay.text,
+        fontSize: 13,
+        fontWeight: 'bold',
+        letterSpacing: -0.33
     },
     messageReplyWrapper: {
         alignSelf: 'stretch',
-        borderLeftColor: icw.chatOverlay.bubbles.private.reply.divider,
+        borderLeftColor: icw.chatOverlay.private.reply.divider,
         borderLeftWidth: 1,
         justifyContent: 'center'
     },
     messageReplyIcon: {
-        color: icw.chatOverlay.bubbles.private.reply.icon,
+        color: icw.chatOverlay.private.reply.icon,
         fontSize: 22,
         padding: 8
+    },
+
+    // wrapper
+    wrapper: {
+        bottom: 0,
+        position: 'absolute',
+        padding: icw.padding * 2,
+        marginBottom: icw.chatOverlay.size + icw.padding,
+        width: '100%'
     }
 });
 

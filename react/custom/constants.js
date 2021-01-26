@@ -27,31 +27,22 @@ export default {
         text: '#ffffff',
         link: '#605fd2',
         textMute: '#ffffff66',
-        send: '#ffffff33',
-        field: '#747f8d4c',
+        send: '#ffffff87',
+        field: '#ffffff87',
         bubbles: {
-            remote: {
-                background: '#f4f4f4',
-                color: '#000000'
-            },
-            local: {
-                background: '#605fd2',
-                color: '#ffffff'
-            },
-            system: {
-                background: 'rgb(247, 215, 215)',
-                color: '#ffffff'
-            },
-            private: {
-                background: 'rgb(250, 219, 219)',
-                color: '#ffffff',
-                notice: 'rgb(186, 39, 58)',
-                reply: {
-                    icon: 'rgb(94, 109, 121)',
-                    divider: 'rgb(219, 197, 200)'
-                }
+            remote: '#605fd266',
+            local: '#00000036',
+            system: 'rgb(247, 215, 215)',
+            private: 'rgb(250, 219, 219)'
+        },
+        private: {
+            notice: 'rgb(186, 39, 58)',
+            reply: {
+                icon: 'rgb(94, 109, 121)',
+                divider: 'rgb(219, 197, 200)'
             }
         }
+
     },
     chat: {
         size: 42,

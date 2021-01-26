@@ -29,23 +29,15 @@ class ChatMessage extends AbstractChatMessage<Props> {
         const messageBubbleStyle = [
             styles.messageBubble
         ];
-        const messageName = [
-            styles.messageNameWrapper
-        ];
-        let messageTextStyle = null;
 
         // message type
         switch (message.messageType) {
             case MESSAGE_TYPE_LOCAL:
                 messageBubbleStyle.push(styles.messageBubbleLocal);
-                messageName.push(styles.messageNameLocal);
-                messageTextStyle = styles.messageBubbleLocalText;
                 break;
 
             case MESSAGE_TYPE_REMOTE:
                 messageBubbleStyle.push(styles.messageBubbleRemote);
-                messageName.push(styles.messageNameRemote);
-                messageTextStyle = styles.messageBubbleRemoteText;
                 break;
 
             case MESSAGE_TYPE_ERROR:
@@ -65,12 +57,12 @@ class ChatMessage extends AbstractChatMessage<Props> {
 
                 <View style = { messageBubbleStyle }>
                     <View style = { styles.messageTextWrapper } >
-                        {showDisplayName && (<Text style = { messageName }>
+                        {showDisplayName && (<Text style = { styles.messageNameWrapper }>
                             { message.displayName }
                         </Text>)}
                         <Linkify
                             linkStyle = { styles.messageTextLink }
-                            textStyle = { messageTextStyle }>
+                            textStyle = { styles.messageBubbleText }>
                             { replaceNonUnicodeEmojis(this._getMessageText()) }
                         </Linkify>
                         { this._renderPrivateNotice() }
