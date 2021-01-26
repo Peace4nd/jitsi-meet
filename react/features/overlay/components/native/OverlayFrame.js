@@ -15,7 +15,7 @@ type Props = {
      */
     children: Node,
 
-    backgroundColor: string
+    backgroundColor?: string
 };
 
 /**

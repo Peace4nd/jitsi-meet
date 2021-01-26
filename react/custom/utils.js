@@ -43,6 +43,15 @@ export function isChatOverlayEnabled(stateful: Function | Object) {
     return Boolean(getFeatureFlag(stateful, 'chat-overlay.enabled', false));
 }
 
+/**
+ * Get message limit to display in chat overlay.
+ *
+ * @param {Function | Object} stateful - Redux state.
+ * @returns {number}
+ */
+export function getChatOverlayLimit(stateful: Function | Object) {
+    return getFeatureFlag(stateful, 'chat-overlay.limit', 4);
+}
 
 /**
  * Get if tile view is enabled.
@@ -51,6 +60,6 @@ export function isChatOverlayEnabled(stateful: Function | Object) {
  * @returns {boolean}
  */
 export function isTileViewEnabled(stateful: Function | Object) {
-    return Boolean(getFeatureFlag(stateful, 'tile-view.enabled', true));
+    return Boolean(getFeatureFlag(stateful, 'tile-view.enabled', false));
 }
 

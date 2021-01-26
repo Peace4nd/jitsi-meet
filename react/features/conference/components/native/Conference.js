@@ -4,6 +4,7 @@ import React from 'react';
 import { NativeModules, SafeAreaView, StatusBar, View, StyleSheet } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 
+import ChatOverlay from '../../../../custom/chat';
 import icw from '../../../../custom/constants';
 import IcewarpLoading from '../../../../custom/loading';
 import { getSafeAreaBottomInset } from '../../../../custom/utils';
@@ -37,7 +38,6 @@ import {
 } from '../AbstractConference';
 import type { AbstractProps } from '../AbstractConference';
 
-import ChatOverlay from './ChatOverlay';
 import Labels from './Labels';
 import NavigationBar from './NavigationBar';
 import styles, { NAVBAR_GRADIENT_COLORS } from './styles';
@@ -313,11 +313,11 @@ class Conference extends AbstractConference<Props, *> {
 
                     <Captions onPress = { this._onClick } />
 
+                    <ChatOverlay onPress = { this._onClick } />
+
                     { _shouldDisplayTileView || <Container style = { styles.displayNameContainer }>
                         <DisplayNameLabel participantId = { _largeVideoParticipantId } />
                     </Container> }
-
-                    <ChatOverlay onPress = { this._onClick } />
 
                     {/*
                       * The Toolbox is in a stacking layer below the Filmstrip.
@@ -332,7 +332,7 @@ class Conference extends AbstractConference<Props, *> {
                       * React Components depict the videos of the conference's
                       * participants.
                       */
-                        _shouldDisplayTileView ? undefined : <Filmstrip />
+                        _shouldDisplayTileView || !_toolboxVisible ? undefined : <Filmstrip />
                     }
                 </SafeAreaView>
 
