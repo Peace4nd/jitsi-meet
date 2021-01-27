@@ -1,7 +1,7 @@
 // @flow
 
 import { hasAvailableDevices } from '../base/devices';
-import { TOOLBOX_ALWAYS_VISIBLE, getFeatureFlag } from '../base/flags';
+import { TOOLBOX_ALWAYS_VISIBLE, getFeatureFlag, TOOLBOX_ENABLED } from '../base/flags';
 import { toState } from '../base/redux';
 import { isLocalVideoTrackDesktop } from '../base/tracks';
 
