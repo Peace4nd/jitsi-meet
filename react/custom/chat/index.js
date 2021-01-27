@@ -2,7 +2,7 @@
 // @flow
 
 import React, { PureComponent } from 'react';
-import { View, StyleSheet, TouchableWithoutFeedback } from 'react-native';
+import { View, TouchableWithoutFeedback } from 'react-native';
 
 import { translate } from '../../features/base/i18n';
 import { connect } from '../../features/base/redux';
@@ -81,21 +81,11 @@ class Overlay extends PureComponent<Props, State> {
         const { onPress, _enabled, _messages, _visible } = this.props;
         const { recieved } = this.state;
 
+
         // zobrazovat pouze pokud je prekryti povolene nevo pokud existuje nejake sdeleni
-        if (!_enabled || _messages.length === 0) {
+        if (!_enabled) {
             return null;
         }
-
-        /* {
-            "displayName": "Kundel",
-            "error": undefined,
-            "id": "d51fe916",
-            "message": "kundaaaa",
-            "messageType": "local",
-            "privateMessage": false,
-            "recipient": "Kundel",
-            "timestamp": 1610715197750
-        }*/
 
         // sestaveni a vraceni
         if (_visible || recieved) {

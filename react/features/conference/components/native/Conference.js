@@ -307,7 +307,7 @@ class Conference extends AbstractConference<Props, *> {
                             applyGradientStretching ? styles.gradientStretchBottom : undefined
                         ] } />}
 
-                    <Labels />
+                    {/* <Labels />*/}
 
                     { showGradient && <View style = { safeAreaStyles.view } /> }
 

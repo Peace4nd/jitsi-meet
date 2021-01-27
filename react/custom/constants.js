@@ -14,7 +14,12 @@ export default {
         highlight: '#958cff',
         danger: '#ff645c'
     },
-    padding: 10,
+    padding: 8,
+    thumbnail: {
+        margin: 2,
+        width: 104,
+        height: 90
+    },
     overflowMenu: {
         icon: 24
     },

@@ -1,8 +1,10 @@
 // @flow
 
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Dimensions } from 'react-native';
 
 import icw from '../constants';
+
+const { width } = Dimensions.get('window');
 
 export const styles = StyleSheet.create({
     // input
@@ -42,13 +44,15 @@ export const styles = StyleSheet.create({
         alignItems: 'flex-start',
         flex: 1,
         flexDirection: 'row',
-        marginHorizontal: 17,
-        marginVertical: 4
+        marginBottom: icw.padding
     },
     messageBubble: {
         alignItems: 'center',
         borderRadius: 20,
-        flexDirection: 'row'
+        flex: 1,
+        flexDirection: 'row',
+        paddingVertical: icw.padding,
+        paddingHorizontal: icw.padding * 1.5
     },
     messageBubbleText: {
         color: icw.chatOverlay.text,
@@ -75,8 +79,7 @@ export const styles = StyleSheet.create({
     },
     messageTextWrapper: {
         alignItems: 'flex-start',
-        flexDirection: 'column',
-        padding: 9
+        flexDirection: 'column'
     },
     messageTextLink: {
         color: icw.chatOverlay.link
@@ -89,7 +92,8 @@ export const styles = StyleSheet.create({
         color: icw.chatOverlay.text,
         fontSize: 13,
         fontWeight: 'bold',
-        letterSpacing: -0.33
+        letterSpacing: -0.33,
+        paddingBottom: icw.padding / 2
     },
     messageReplyWrapper: {
         alignSelf: 'stretch',
@@ -100,7 +104,7 @@ export const styles = StyleSheet.create({
     messageReplyIcon: {
         color: icw.chatOverlay.private.reply.icon,
         fontSize: 22,
-        padding: 8
+        padding: icw.padding
     },
 
     // wrapper
@@ -109,7 +113,7 @@ export const styles = StyleSheet.create({
         position: 'absolute',
         padding: icw.padding * 2,
         marginBottom: icw.chatOverlay.size + icw.padding,
-        width: '100%'
+        width: width - ((icw.thumbnail.margin * 2) + icw.thumbnail.width + icw.padding)
     }
 });
 

@@ -1,5 +1,6 @@
 // @flow
 
+import icw from '../../../../custom/constants';
 import { ColorSchemeRegistry, schemeColor } from '../../../base/color-scheme';
 import { ColorPalette } from '../../../base/styles';
 import { FILMSTRIP_SIZE } from '../../constants';
@@ -44,12 +45,12 @@ export default {
      * to {@code FILMSTRIP_SIZE}.
      */
     filmstripWide: {
-        bottom: 0,
+        bottom: 230,
         flexDirection: 'column',
         flexGrow: 0,
         position: 'absolute',
-        right: 0,
-        top: 80
+        right: icw.padding,
+        top: 30
     },
 
     /**
@@ -84,16 +85,16 @@ export default {
         alignItems: 'stretch',
         backgroundColor: ColorPalette.appBackground,
         borderColor: '#424242',
-        borderRadius: 3,
+        borderRadius: 8,
         borderStyle: 'solid',
         borderWidth: 1,
         flex: 1,
-        height: 80,
+        height: icw.thumbnail.height,
         justifyContent: 'center',
-        margin: 2,
+        margin: icw.thumbnail.margin,
         overflow: 'hidden',
         position: 'relative',
-        width: 80
+        width: icw.thumbnail.width
     },
 
     /**
