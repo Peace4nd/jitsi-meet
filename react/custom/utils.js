@@ -63,3 +63,12 @@ export function isTileViewEnabled(stateful: Function | Object) {
     return Boolean(getFeatureFlag(stateful, 'tile-view.enabled', false));
 }
 
+/**
+ * Get if private messaging is enabled.
+ *
+ * @param {Function | Object} stateful - Redux state.
+ * @returns {boolean}
+ */
+export function isPrivateMessageEnabled(stateful: Function | Object) {
+    return Boolean(getFeatureFlag(stateful, 'private-message.enabled', false));
+}

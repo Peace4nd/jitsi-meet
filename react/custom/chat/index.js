@@ -8,7 +8,7 @@ import { translate } from '../../features/base/i18n';
 import { connect } from '../../features/base/redux';
 import { _mapDispatchToProps } from '../../features/chat/components/AbstractChat';
 import { isToolboxVisible } from '../../features/toolbox/functions';
-import { isChatOverlayEnabled, getChatOverlayLimit } from '../utils';
+import { isChatOverlayEnabled, getChatOverlayLimit, isPrivateMessageEnabled } from '../utils';
 
 import MessageContainer from './components/container';
 import ChatInputBar from './components/input';
@@ -32,7 +32,8 @@ type Props = {
         }>,
     _last: number,
     _visible: boolean,
-    _onSendMessage: Function
+    _onSendMessage: Function,
+    _privateEnabled: boolean
 };
 
 /**
@@ -78,9 +79,8 @@ class Overlay extends PureComponent<Props, State> {
      */
     render() {
         // rozlozeni
-        const { onPress, _enabled, _messages, _visible } = this.props;
+        const { onPress, _enabled, _messages, _privateEnabled, _visible } = this.props;
         const { recieved } = this.state;
-
 
         // zobrazovat pouze pokud je prekryti povolene nevo pokud existuje nejake sdeleni
         if (!_enabled) {
@@ -93,7 +93,9 @@ class Overlay extends PureComponent<Props, State> {
                 <View>
                     <TouchableWithoutFeedback onPress = { onPress }>
                         <View style = { styles.wrapper }>
-                            <MessageContainer messages = { _messages } />
+                            <MessageContainer
+                                messages = { _messages }
+                                privateEnabled = { _privateEnabled } />
                         </View>
                     </TouchableWithoutFeedback>
                     <ChatInputBar onSend = { this.props._onSendMessage } />
@@ -120,7 +122,8 @@ function _mapStateToProps(state): $Shape<Props> {
         _enabled: isChatOverlayEnabled(state),
         _messages: messages.slice(0, limit),
         _last: messages.length > 0 ? messages[0].timestamp : 0,
-        _visible: isToolboxVisible(state)
+        _visible: isToolboxVisible(state),
+        _privateEnabled: isPrivateMessageEnabled(state)
     };
 }
 

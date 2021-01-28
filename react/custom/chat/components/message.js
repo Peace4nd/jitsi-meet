@@ -10,12 +10,13 @@ import AbstractChatMessage, { type Props } from '../../../features/chat/componen
 import PrivateMessageButton from '../../../features/chat/components/PrivateMessageButton';
 import { MESSAGE_TYPE_ERROR, MESSAGE_TYPE_LOCAL, MESSAGE_TYPE_REMOTE } from '../../../features/chat/constants';
 import { replaceNonUnicodeEmojis } from '../../../features/chat/functions';
+import { isPrivateMessageEnabled } from '../../utils';
 import styles from '../styles';
 
 /**
  * Renders a single chat message.
  */
-class ChatMessage extends AbstractChatMessage<Props> {
+class ChatMessage extends AbstractChatMessage<Props & { privateEnabled: boolean }> {
     /**
      * Implements {@code Component#render}.
      *
@@ -23,12 +24,13 @@ class ChatMessage extends AbstractChatMessage<Props> {
      */
     render() {
         // properties
-        const { message, showDisplayName } = this.props;
+        const { message, privateEnabled, showDisplayName } = this.props;
 
         // defnitions
         const messageBubbleStyle = [
             styles.messageBubble
         ];
+        const messageBubbleText = null;
 
         // message type
         switch (message.messageType) {
@@ -47,7 +49,15 @@ class ChatMessage extends AbstractChatMessage<Props> {
 
         // private message
         if (message.privateMessage) {
+
+            // pokud neni povoleno
+            if (!privateEnabled) {
+                return null;
+            }
+
             messageBubbleStyle.push(styles.messageBubblePrivate);
+
+            // messageBubbleText = styles.messageBubblePrivateText;
         }
 
         // build and return
@@ -57,12 +67,12 @@ class ChatMessage extends AbstractChatMessage<Props> {
 
                 <View style = { messageBubbleStyle }>
                     <View style = { styles.messageTextWrapper } >
-                        {showDisplayName && (<Text style = { styles.messageNameWrapper }>
+                        {showDisplayName && (<Text style = { [ styles.messageNameWrapper, messageBubbleText ] }>
                             { message.displayName }
                         </Text>)}
                         <Linkify
                             linkStyle = { styles.messageTextLink }
-                            textStyle = { styles.messageBubbleText }>
+                            textStyle = { [ styles.messageBubbleText, messageBubbleText ] }>
                             { replaceNonUnicodeEmojis(this._getMessageText()) }
                         </Linkify>
                         { this._renderPrivateNotice() }

@@ -1,10 +1,12 @@
 // @flow
 
 import React from 'react';
-import { TextInput, TouchableOpacity, View } from 'react-native';
+import { TextInput, TouchableOpacity, View, Text } from 'react-native';
 
 import { translate } from '../../../features/base/i18n';
-import { Icon, IconChatSend } from '../../../features/base/icons';
+import { Icon, IconChatSend, IconClose } from '../../../features/base/icons';
+import { connect } from '../../../features/base/redux';
+import { setPrivateMessageRecipient } from '../../../features/chat/actions';
 import icw from '../../constants';
 import styles from '../styles';
 
@@ -18,7 +20,17 @@ type Props = {
     /**
      * Function to be used to translate i18n labels.
      */
-    t: Function
+    t: Function,
+
+    /**
+     * Private message recipient
+     */
+    _recipient: *,
+
+    /**
+     * End "private message" mode
+     */
+    _endPrivateMessage: Function;
 };
 
 type State = {
@@ -44,6 +56,11 @@ type State = {
  */
 class ChatInputBar extends React.Component<Props, State> {
     /**
+     * Input field reference
+     */
+    _inputRef: *;
+
+    /**
      * Instantiates a new instance of the component.
      *
      * @inheritdoc
@@ -57,9 +74,23 @@ class ChatInputBar extends React.Component<Props, State> {
             showSend: false
         };
 
+        this._inputRef = React.createRef();
+
         this._onChangeText = this._onChangeText.bind(this);
         this._onFocused = this._onFocused.bind(this);
         this._onSubmit = this._onSubmit.bind(this);
+    }
+
+    /**
+     * Component update.
+     *
+     * @param {Props} prevProps - Previous props.
+     * @returns {void}
+     */
+    componentDidUpdate(prevProps: Props) {
+        if (!prevProps._recipient && this.props._recipient && this._inputRef.current) {
+            this._inputRef.current.focus();
+        }
     }
 
     /**
@@ -68,9 +99,12 @@ class ChatInputBar extends React.Component<Props, State> {
      * @inheritdoc
      */
     render() {
+        const { _recipient, _endPrivateMessage, t } = this.props;
+        const { message, showSend } = this.state;
+
         return (
             <View
-                style = { styles.chatInputWrapper }>
+                style = { [ styles.chatInputWrapper, _recipient ? styles.chatInputWrapperPrivate : null ] }>
                 <TextInput
                     blurOnSubmit = { false }
                     multiline = { false }
@@ -78,23 +112,43 @@ class ChatInputBar extends React.Component<Props, State> {
                     onChangeText = { this._onChangeText }
                     onFocus = { this._onFocused(true) }
                     onSubmitEditing = { this._onSubmit }
-                    placeholder = { this.props.t('chat.fieldPlaceHolder') }
+                    placeholder = {
+                        _recipient ? t('chat.messageTo', { recipient: _recipient.name }) : t('chat.fieldPlaceHolder')
+                    }
                     placeholderTextColor = { icw.chatOverlay.textMute }
+                    ref = { this._inputRef }
                     returnKeyType = 'send'
-                    style = { [ styles.chatInputField, this.state.showSend ? {} : styles.chatInputFieldMute ] }
-                    value = { this.state.message } />
-                {
+                    style = { [ styles.chatInputField, showSend ? {} : styles.chatInputFieldMute ] }
+                    value = { message } />
+
+                <TouchableOpacity
+                    disabled = { !showSend }
+                    onPress = { this._onSubmit }>
+                    <Icon
+                        src = { IconChatSend }
+                        style = { [
+                            styles.chatInputSendIcon,
+                            showSend ? {} : styles.chatInputSendIconDisabled
+                        ] } />
+                </TouchableOpacity>
+                {_recipient && (
                     <TouchableOpacity
-                        disabled = { !this.state.showSend }
-                        onPress = { this._onSubmit }>
+                        onPress = { _endPrivateMessage }
+                        style = { styles.chatInputPrivateEnd }>
                         <Icon
-                            src = { IconChatSend }
+                            src = { IconClose }
                             style = { [
-                                styles.chatInputSendIcon,
-                                this.state.showSend ? {} : styles.chatInputSendIconDisabled
+                                styles.chatInputSendIcon
+
                             ] } />
                     </TouchableOpacity>
-                }
+                )}
+
+                {/* _recipient && (
+                    <View style = { styles.chatInputPrivate }>
+                        <Text>{t('chat.messageTo', { recipient: _recipient.name })}</Text>
+                    </View>
+                )*/}
             </View>
         );
     }
@@ -150,4 +204,31 @@ class ChatInputBar extends React.Component<Props, State> {
     }
 }
 
-export default translate(ChatInputBar);
+/**
+ * Maps parts of the Redux state to the props of this Component.
+ *
+ * @param {Object} state - The redux state.
+ * @private
+ * @returns {Props}
+ */
+function _mapStateToProps(state): $Shape<Props> {
+    return {
+        _recipient: state['features/chat'].privateMessageRecipient
+    };
+}
+
+/**
+ * Maps part of the props of this component to Redux actions.
+ *
+ * @param {Function} dispatch - The Redux dispatch function.
+ * @returns {Props}
+ */
+export function _mapDispatchToProps(dispatch: Function): $Shape<Props> {
+    return {
+        _endPrivateMessage: () => {
+            dispatch(setPrivateMessageRecipient(null));
+        }
+    };
+}
+
+export default connect(_mapStateToProps, _mapDispatchToProps)(translate(ChatInputBar));

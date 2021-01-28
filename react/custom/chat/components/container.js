@@ -13,7 +13,9 @@ export type Props = {
     /**
      * The messages array to render.
      */
-    messages: Array<Object>
+    messages: Array<Object>,
+
+    privateEnabled: boolean
 }
 
 /**
@@ -64,7 +66,9 @@ export default class MessageContainer extends AbstractMessageContainer<Props> {
      * @returns {React$Element<*>}
      */
     _renderMessageGroup({ item: messages }) {
-        return <ChatMessageGroup messages = { messages } />;
+        return (<ChatMessageGroup
+            messages = { messages }
+            privateEnabled = { this.props.privateEnabled } />);
     }
 }
 

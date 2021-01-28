@@ -12,7 +12,9 @@ type Props = {
   /**
    * The messages array to render.
    */
-  messages: Array<Object>
+  messages: Array<Object>,
+
+  privateEnabled: boolean;
 }
 
 /**
@@ -62,6 +64,7 @@ export default class ChatMessageGroup extends Component<Props> {
         return (
             <ChatMessage
                 message = { item }
+                privateEnabled = { this.props.privateEnabled }
                 showAvatar = { isLast }
                 showDisplayName = { isLast }
                 showTimestamp = { index === 0 } />

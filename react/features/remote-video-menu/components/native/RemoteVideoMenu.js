@@ -3,6 +3,7 @@
 import React, { PureComponent } from 'react';
 import { Text, View } from 'react-native';
 
+import { isPrivateMessageEnabled } from '../../../../custom/utils';
 import { Avatar } from '../../../base/avatar';
 import { ColorSchemeRegistry } from '../../../base/color-scheme';
 import { BottomSheet, isDialogOpen } from '../../../base/dialog';
@@ -20,6 +21,7 @@ import MuteButton from './MuteButton';
 import MuteEveryoneElseButton from './MuteEveryoneElseButton';
 import PinButton from './PinButton';
 import styles from './styles';
+
 
 /**
  * Size of the rendered avatar in the menu.
@@ -61,7 +63,9 @@ type Props = {
     /**
      * Display name of the participant retreived from Redux.
      */
-    _participantDisplayName: string
+    _participantDisplayName: string,
+
+    _privateEnabled: boolean
 }
 
 // eslint-disable-next-line prefer-const
@@ -89,7 +93,7 @@ class RemoteVideoMenu extends PureComponent<Props> {
      * @inheritdoc
      */
     render() {
-        const { _disableKick, _disableRemoteMute, participant } = this.props;
+        const { _disableKick, _disableRemoteMute, _privateEnabled, participant } = this.props;
         const buttonProps = {
             afterClick: this._onCancel,
             showLabel: true,
@@ -105,7 +109,7 @@ class RemoteVideoMenu extends PureComponent<Props> {
                 { !_disableKick && <KickButton { ...buttonProps } /> }
                 <GrantModeratorButton { ...buttonProps } />
                 <PinButton { ...buttonProps } />
-                <PrivateMessageButton { ...buttonProps } />
+                {_privateEnabled && <PrivateMessageButton { ...buttonProps } />}
                 <MuteEveryoneElseButton { ...buttonProps } />
                 <ConnectionStatusButton { ...buttonProps } />
             </BottomSheet>
@@ -177,7 +181,8 @@ function _mapStateToProps(state, ownProps) {
         _disableKick: Boolean(disableKick),
         _disableRemoteMute: Boolean(disableRemoteMute),
         _isOpen: isDialogOpen(state, RemoteVideoMenu_),
-        _participantDisplayName: getParticipantDisplayName(state, participant.id)
+        _participantDisplayName: getParticipantDisplayName(state, participant.id),
+        _privateEnabled: isPrivateMessageEnabled(state)
     };
 }
 

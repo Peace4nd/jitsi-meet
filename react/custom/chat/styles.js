@@ -6,6 +6,13 @@ import icw from '../constants';
 
 const { width } = Dimensions.get('window');
 
+const AVATAR_WIDTH = 32;
+const WRAPPER_WIDTH = width - ((icw.thumbnail.margin * 2) + icw.thumbnail.width + icw.padding);
+const PRIVATE_HEIGHT = Math.ceil(icw.chatOverlay.size); //* (2 / 3)
+
+// 2x2 wrapper padding, 1x avatar rightMargin, 2x1.5 text padding
+const TEXT_WIDTH = WRAPPER_WIDTH - AVATAR_WIDTH - (8 * icw.padding);
+
 export const styles = StyleSheet.create({
     // input
     chatInputField: {
@@ -33,6 +40,35 @@ export const styles = StyleSheet.create({
         borderWidth: icw.border.width,
         height: icw.chatOverlay.size
     },
+    chatInputWrapperPrivate: {
+        borderColor: icw.color.danger,
+        paddingRight: icw.chatOverlay.size + icw.padding
+    },
+    chatInputPrivate: {
+        alignItems: 'center',
+        backgroundColor: icw.color.danger,
+        borderRadius: PRIVATE_HEIGHT / 2,
+        color: icw.chatOverlay.text,
+        flexDirection: 'row',
+        height: PRIVATE_HEIGHT,
+        justifyContent: 'center',
+        left: -icw.border.width,
+        paddingHorizontal: 2 * icw.padding,
+        position: 'absolute',
+        right: -icw.border.width,
+        top: -PRIVATE_HEIGHT - icw.padding
+    },
+    chatInputPrivateEnd: {
+        alignItems: 'center',
+        backgroundColor: icw.color.danger,
+        borderRadius: icw.chatOverlay.size / 2,
+        bottom: -icw.border.width,
+        justifyContent: 'center',
+        position: 'absolute',
+        right: -icw.border.width,
+        top: -icw.border.width,
+        width: icw.chatOverlay.size
+    },
 
     // container + group
     containerWrapper: {
@@ -49,7 +85,7 @@ export const styles = StyleSheet.create({
     messageBubble: {
         alignItems: 'center',
         borderRadius: 20,
-        flex: 1,
+        flex: 0,
         flexDirection: 'row',
         paddingVertical: icw.padding,
         paddingHorizontal: icw.padding * 1.5
@@ -58,7 +94,8 @@ export const styles = StyleSheet.create({
         color: icw.chatOverlay.text,
         fontSize: 13,
         lineHeight: 14,
-        letterSpacing: -0.33
+        letterSpacing: -0.33,
+        maxWidth: TEXT_WIDTH
     },
     messageBubbleLocal: {
         backgroundColor: icw.chatOverlay.bubbles.local
@@ -85,8 +122,8 @@ export const styles = StyleSheet.create({
         color: icw.chatOverlay.link
     },
     messageAvatarWrapper: {
-        marginRight: 8,
-        width: 32
+        marginRight: icw.padding,
+        width: AVATAR_WIDTH
     },
     messageNameWrapper: {
         color: icw.chatOverlay.text,
@@ -99,12 +136,13 @@ export const styles = StyleSheet.create({
         alignSelf: 'stretch',
         borderLeftColor: icw.chatOverlay.private.reply.divider,
         borderLeftWidth: 1,
-        justifyContent: 'center'
+        justifyContent: 'center',
+        marginLeft: icw.padding
     },
     messageReplyIcon: {
         color: icw.chatOverlay.private.reply.icon,
         fontSize: 22,
-        padding: icw.padding
+        paddingLeft: icw.padding
     },
 
     // wrapper
@@ -113,7 +151,7 @@ export const styles = StyleSheet.create({
         position: 'absolute',
         padding: icw.padding * 2,
         marginBottom: icw.chatOverlay.size + icw.padding,
-        width: width - ((icw.thumbnail.margin * 2) + icw.thumbnail.width + icw.padding)
+        width: WRAPPER_WIDTH
     }
 });
 

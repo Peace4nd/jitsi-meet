@@ -1,5 +1,6 @@
 // @flow
 
+import { isPrivateMessageEnabled } from '../../custom/utils';
 import { APP_WILL_MOUNT, APP_WILL_UNMOUNT } from '../base/app';
 import {
     CONFERENCE_JOINED,
@@ -305,6 +306,11 @@ function _persistSentPrivateMessage({ dispatch, getState }, recipientID, message
  * @returns {string?}
  */
 function _shouldSendPrivateMessageTo(state, action): ?string {
+    // private mode not enabled
+    if (!isPrivateMessageEnabled(state)) {
+        return undefined;
+    }
+
     if (action.ignorePrivacy) {
         // Shortcut: this is only true, if we already displayed the notice, so no need to show it again.
         return undefined;
