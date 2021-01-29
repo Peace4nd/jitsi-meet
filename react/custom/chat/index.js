@@ -2,7 +2,7 @@
 // @flow
 
 import React, { PureComponent } from 'react';
-import { View, TouchableWithoutFeedback } from 'react-native';
+import { KeyboardAvoidingView, View, TouchableWithoutFeedback, Platform } from 'react-native';
 
 import { translate } from '../../features/base/i18n';
 import { connect } from '../../features/base/redux';
@@ -90,7 +90,7 @@ class Overlay extends PureComponent<Props, State> {
         // sestaveni a vraceni
         if (_visible || recieved) {
             return (
-                <View>
+                <KeyboardAvoidingView behavior = { Platform.OS === 'ios' ? 'padding' : 'height' }>
                     <TouchableWithoutFeedback onPress = { onPress }>
                         <View style = { styles.wrapper }>
                             <MessageContainer
@@ -99,7 +99,8 @@ class Overlay extends PureComponent<Props, State> {
                         </View>
                     </TouchableWithoutFeedback>
                     <ChatInputBar onSend = { this.props._onSendMessage } />
-                </View>
+                </KeyboardAvoidingView>
+
             );
         }
 
