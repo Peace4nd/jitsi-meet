@@ -90,19 +90,18 @@ class Overlay extends PureComponent<Props, State> {
         // sestaveni a vraceni
         if (_visible || recieved) {
             return (
-                <KeyboardAvoidingView
-                    behavior = { Platform.OS === 'ios' ? 'padding' : 'height' }
-                    keyboardVerticalOffset = { Platform.OS === 'ios' ? 64 : 0 }>
-                    <TouchableWithoutFeedback onPress = { onPress }>
-                        <View style = { styles.wrapper }>
-                            <MessageContainer
-                                messages = { _messages }
-                                privateEnabled = { _privateEnabled } />
-                        </View>
-                    </TouchableWithoutFeedback>
-                    <ChatInputBar onSend = { this.props._onSendMessage } />
-                </KeyboardAvoidingView>
-
+                <TouchableWithoutFeedback onPress = { onPress }>
+                    <KeyboardAvoidingView
+                        behavior = { Platform.OS === 'ios' ? 'padding' : 'height' }
+                        keyboardVerticalOffset = { Platform.OS === 'ios' ? 64 : 0 }
+                        style = {{ flex: 1,
+                            justifyContent: 'flex-end' }}>
+                        <MessageContainer
+                            messages = { _messages }
+                            privateEnabled = { _privateEnabled } />
+                        <ChatInputBar onSend = { this.props._onSendMessage } />
+                    </KeyboardAvoidingView>
+                </TouchableWithoutFeedback>
             );
         }
 

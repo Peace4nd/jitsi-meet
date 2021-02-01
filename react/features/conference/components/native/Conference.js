@@ -1,7 +1,7 @@
 // @flow
 
 import React from 'react';
-import { NativeModules, SafeAreaView, StatusBar, View, StyleSheet } from 'react-native';
+import { NativeModules, SafeAreaView, StatusBar, View, StyleSheet, Keyboard } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 
 import ChatOverlay from '../../../../custom/chat';
@@ -121,10 +121,19 @@ class Conference extends AbstractConference<Props, *> {
     constructor(props) {
         super(props);
 
+        // default state
+        this.state = {
+            keyboard: false
+        };
+
         // Bind event handlers so they are only bound once per instance.
         this._onClick = this._onClick.bind(this);
         this._onHardwareBackPress = this._onHardwareBackPress.bind(this);
         this._setToolboxVisible = this._setToolboxVisible.bind(this);
+
+        // keyboard handlers
+        this._keyboardDidShow = this._keyboardDidShow.bind(this);
+        this._keyboardDidHide = this._keyboardDidHide.bind(this);
     }
 
     /**
@@ -136,6 +145,8 @@ class Conference extends AbstractConference<Props, *> {
      */
     componentDidMount() {
         BackButtonRegistry.addListener(this._onHardwareBackPress);
+        Keyboard.addListener('keyboardDidShow', this._keyboardDidShow);
+        Keyboard.addListener('keyboardDidHide', this._keyboardDidHide);
     }
 
     /**
@@ -149,6 +160,34 @@ class Conference extends AbstractConference<Props, *> {
     componentWillUnmount() {
         // Tear handling any hardware button presses for back navigation down.
         BackButtonRegistry.removeListener(this._onHardwareBackPress);
+        Keyboard.removeListener('keyboardDidShow', this._keyboardDidShow);
+        Keyboard.removeListener('keyboardDidHide', this._keyboardDidHide);
+    }
+
+    _keyboardDidShow: () => void;
+
+    /**
+     * Keyboard did show.
+     *
+     * @returns {void}
+     */
+    _keyboardDidShow() {
+        this.setState({
+            keyboard: true
+        });
+    }
+
+    _keyboardDidHide: () => void;
+
+    /**
+     * Keyboard did hide.
+     *
+     * @returns {void}
+     */
+    _keyboardDidHide() {
+        this.setState({
+            keyboard: false
+        });
     }
 
     /**
@@ -180,7 +219,11 @@ class Conference extends AbstractConference<Props, *> {
      * @returns {void}
      */
     _onClick() {
-        this._setToolboxVisible(!this.props._toolboxVisible);
+        if (this.state.keyboard) {
+            Keyboard.dismiss();
+        } else {
+            this._setToolboxVisible(!this.props._toolboxVisible);
+        }
     }
 
     _onHardwareBackPress: () => boolean;

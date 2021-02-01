@@ -83,6 +83,9 @@ export const styles = StyleSheet.create({
 
     // container + group
     containerWrapper: {
+        paddingHorizontal: icw.padding * 2,
+        paddingBottom: icw.chatOverlay.size + icw.padding,
+        width: WRAPPER_WIDTH,
         flex: 1
     },
 
@@ -154,16 +157,6 @@ export const styles = StyleSheet.create({
         color: icw.chatOverlay.private.reply.icon,
         fontSize: 22,
         paddingLeft: icw.padding
-    },
-
-    // wrapper
-    wrapper: {
-        bottom: 0,
-        position: 'absolute',
-        paddingHorizontal: icw.padding * 2,
-        paddingBottom: icw.chatOverlay.size + icw.padding,
-        width: WRAPPER_WIDTH,
-        flex: 1
     }
 });
 
