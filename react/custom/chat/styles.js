@@ -9,6 +9,8 @@ const { width } = Dimensions.get('window');
 const AVATAR_WIDTH = 32;
 const WRAPPER_WIDTH = width - ((icw.thumbnail.margin * 2) + icw.thumbnail.width + icw.padding);
 const PRIVATE_HEIGHT = Math.ceil(icw.chatOverlay.size); //* (2 / 3)
+const MARGIN_SIDES = icw.padding * 1.5;
+
 
 // 2x2 wrapper padding, 1x avatar rightMargin, 2x1.5 text padding
 const TEXT_WIDTH = WRAPPER_WIDTH - AVATAR_WIDTH - (8 * icw.padding);
@@ -18,7 +20,12 @@ export const styles = StyleSheet.create({
     chatInputField: {
         color: icw.chatOverlay.text,
         flex: 1,
-        marginRight: icw.padding
+        borderRadius: icw.chatOverlay.size / 2,
+        borderColor: icw.chatOverlay.field,
+        borderWidth: icw.border.width,
+        paddingLeft: icw.padding * 2,
+        paddingRight: icw.chatOverlay.size + icw.padding,
+        marginHorizontal: MARGIN_SIDES
     },
     chatInputFieldMute: {
         color: icw.chatOverlay.textMute
@@ -31,13 +38,7 @@ export const styles = StyleSheet.create({
         color: icw.chatOverlay.textMute
     },
     chatInputWrapper: {
-        alignItems: 'center',
-        flexDirection: 'row',
-        paddingHorizontal: icw.padding,
-        margin: icw.padding * 1.5,
-        borderRadius: icw.chatOverlay.size / 2,
-        borderColor: icw.chatOverlay.field,
-        borderWidth: icw.border.width,
+        flex: 0,
         height: icw.chatOverlay.size
     },
     chatInputWrapperPrivate: {
@@ -57,6 +58,16 @@ export const styles = StyleSheet.create({
         position: 'absolute',
         right: -icw.border.width,
         top: -PRIVATE_HEIGHT - icw.padding
+    },
+    chatInputButton: {
+        alignItems: 'center',
+        borderRadius: icw.chatOverlay.size,
+        bottom: -icw.border.width,
+        justifyContent: 'center',
+        position: 'absolute',
+        right: MARGIN_SIDES - icw.border.width,
+        top: -icw.border.width,
+        width: icw.chatOverlay.size
     },
     chatInputPrivateEnd: {
         alignItems: 'center',
@@ -88,7 +99,7 @@ export const styles = StyleSheet.create({
         flex: 0,
         flexDirection: 'row',
         paddingVertical: icw.padding,
-        paddingHorizontal: icw.padding * 1.5
+        paddingHorizontal: MARGIN_SIDES
     },
     messageBubbleText: {
         color: icw.chatOverlay.text,
@@ -149,9 +160,10 @@ export const styles = StyleSheet.create({
     wrapper: {
         bottom: 0,
         position: 'absolute',
-        padding: icw.padding * 2,
-        marginBottom: icw.chatOverlay.size + icw.padding,
-        width: WRAPPER_WIDTH
+        paddingHorizontal: icw.padding * 2,
+        paddingBottom: icw.chatOverlay.size + icw.padding,
+        width: WRAPPER_WIDTH,
+        flex: 1
     }
 });
 

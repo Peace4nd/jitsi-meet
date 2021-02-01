@@ -123,7 +123,8 @@ class ChatInputBar extends React.Component<Props, State> {
 
                 <TouchableOpacity
                     disabled = { !showSend }
-                    onPress = { this._onSubmit }>
+                    onPress = { this._onSubmit }
+                    style = { styles.chatInputButton }>
                     <Icon
                         src = { IconChatSend }
                         style = { [
@@ -131,10 +132,10 @@ class ChatInputBar extends React.Component<Props, State> {
                             showSend ? {} : styles.chatInputSendIconDisabled
                         ] } />
                 </TouchableOpacity>
-                {_recipient && (
+                {/* _recipient && (
                     <TouchableOpacity
                         onPress = { _endPrivateMessage }
-                        style = { styles.chatInputPrivateEnd }>
+                        style = { styles.chatInputButton }>
                         <Icon
                             src = { IconClose }
                             style = { [
@@ -142,7 +143,7 @@ class ChatInputBar extends React.Component<Props, State> {
 
                             ] } />
                     </TouchableOpacity>
-                )}
+                )*/}
 
                 {/* _recipient && (
                     <View style = { styles.chatInputPrivate }>

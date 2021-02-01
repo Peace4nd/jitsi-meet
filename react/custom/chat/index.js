@@ -90,7 +90,9 @@ class Overlay extends PureComponent<Props, State> {
         // sestaveni a vraceni
         if (_visible || recieved) {
             return (
-                <KeyboardAvoidingView behavior = { Platform.OS === 'ios' ? 'padding' : 'height' }>
+                <KeyboardAvoidingView
+                    behavior = { Platform.OS === 'ios' ? 'padding' : 'height' }
+                    keyboardVerticalOffset = { Platform.OS === 'ios' ? 64 : 0 }>
                     <TouchableWithoutFeedback onPress = { onPress }>
                         <View style = { styles.wrapper }>
                             <MessageContainer
