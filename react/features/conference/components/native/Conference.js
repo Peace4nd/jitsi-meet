@@ -260,6 +260,7 @@ class Conference extends AbstractConference<Props, *> {
     _renderConferenceModals() {
         return [
             <AddPeopleDialog key = 'addPeopleDialog' />,
+            <Chat key = 'chat' />,
             <SharedDocument key = 'sharedDocument' />
         ];
     }

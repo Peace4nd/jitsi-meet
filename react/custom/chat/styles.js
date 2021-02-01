@@ -157,6 +157,12 @@ export const styles = StyleSheet.create({
         color: icw.chatOverlay.private.reply.icon,
         fontSize: 22,
         paddingLeft: icw.padding
+    },
+
+    // wrapper
+    wrapper: {
+        flex: 1,
+        justifyContent: 'flex-end'
     }
 });
 

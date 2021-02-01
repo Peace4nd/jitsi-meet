@@ -2,7 +2,7 @@
 // @flow
 
 import React, { PureComponent } from 'react';
-import { KeyboardAvoidingView, View, TouchableWithoutFeedback, Platform } from 'react-native';
+import { KeyboardAvoidingView, TouchableWithoutFeedback, Platform } from 'react-native';
 
 import { translate } from '../../features/base/i18n';
 import { connect } from '../../features/base/redux';
@@ -94,8 +94,7 @@ class Overlay extends PureComponent<Props, State> {
                     <KeyboardAvoidingView
                         behavior = { Platform.OS === 'ios' ? 'padding' : 'height' }
                         keyboardVerticalOffset = { Platform.OS === 'ios' ? 64 : 0 }
-                        style = {{ flex: 1,
-                            justifyContent: 'flex-end' }}>
+                        style = { styles.wrapper }>
                         <MessageContainer
                             messages = { _messages }
                             privateEnabled = { _privateEnabled } />
