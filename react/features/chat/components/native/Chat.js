@@ -1,7 +1,6 @@
 // @flow
 
 import React from 'react';
-import { KeyboardAvoidingView } from 'react-native';
 
 import { translate } from '../../../base/i18n';
 import { JitsiModal } from '../../../base/modal';
@@ -16,7 +15,6 @@ import AbstractChat, {
 import ChatInputBar from './ChatInputBar';
 import MessageContainer from './MessageContainer';
 import MessageRecipient from './MessageRecipient';
-import styles from './styles';
 
 /**
  * Implements a React native component that renders the chat window (modal) of
@@ -47,11 +45,10 @@ class Chat extends AbstractChat<Props> {
                 }}
                 modalId = { CHAT_VIEW_MODAL_ID }
                 onClose = { this._onClose }>
-                <KeyboardAvoidingView style = { styles.chatKeyboardWrapper }>
-                    <MessageContainer messages = { this.props._messages } />
-                    <MessageRecipient />
-                    <ChatInputBar onSend = { this.props._onSendMessage } />
-                </KeyboardAvoidingView>
+
+                <MessageContainer messages = { this.props._messages } />
+                <MessageRecipient />
+                <ChatInputBar onSend = { this.props._onSendMessage } />
             </JitsiModal>
         );
     }

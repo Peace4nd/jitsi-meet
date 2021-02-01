@@ -1,7 +1,7 @@
 // @flow
 
 import React, { Component } from 'react';
-import { TextInput, TouchableOpacity, View } from 'react-native';
+import { Platform, TextInput, TouchableOpacity, View } from 'react-native';
 
 import { translate } from '../../../base/i18n';
 import { Icon, IconChatSend } from '../../../base/icons';
@@ -26,7 +26,7 @@ type State = {
     /**
      * Boolean to show if an extra padding needs to be added to the bar.
      */
-    focused: boolean,
+    addPadding: boolean,
 
     /**
      * The value of the input field.
@@ -52,7 +52,7 @@ class ChatInputBar extends Component<Props, State> {
         super(props);
 
         this.state = {
-            focused: false,
+            addPadding: false,
             message: '',
             showSend: false
         };
@@ -71,7 +71,10 @@ class ChatInputBar extends Component<Props, State> {
     render() {
         return (
             <View
-                style = { styles.inputBar }>
+                style = { [
+                    styles.inputBar,
+                    this.state.addPadding ? styles.extraBarPadding : null
+                ] }>
                 <TextInput
                     blurOnSubmit = { false }
                     multiline = { false }
@@ -82,18 +85,13 @@ class ChatInputBar extends Component<Props, State> {
                     placeholder = { this.props.t('chat.fieldPlaceHolder') }
                     ref = { this._onFieldReferenceAvailable }
                     returnKeyType = 'send'
-                    style = { [ styles.inputField, this.state.showSend ? {} : styles.inputFieldMute ] }
+                    style = { styles.inputField }
                     value = { this.state.message } />
                 {
-                    <TouchableOpacity
-                        disabled = { !this.state.showSend }
-                        onPress = { this._onSubmit }>
+                    this.state.showSend && <TouchableOpacity onPress = { this._onSubmit }>
                         <Icon
                             src = { IconChatSend }
-                            style = { [
-                                styles.sendButtonIcon,
-                                this.state.showSend ? {} : styles.sendButtonIconDisabled
-                            ] } />
+                            style = { styles.sendButtonIcon } />
                     </TouchableOpacity>
                 }
             </View>
@@ -136,13 +134,11 @@ class ChatInputBar extends Component<Props, State> {
      * @returns {Function}
      */
     _onFocused(focused) {
-
         return () => {
-            this.setState({
-                focused
+            Platform.OS === 'android' && this.setState({
+                addPadding: focused
             });
         };
-
     }
 
     _onSubmit: () => void;
