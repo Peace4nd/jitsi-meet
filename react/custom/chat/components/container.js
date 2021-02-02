@@ -15,7 +15,9 @@ export type Props = {
      */
     messages: Array<Object>,
 
-    privateEnabled: boolean
+    privateEnabled: boolean,
+
+    onPress: Function
 }
 
 /**
@@ -56,7 +58,6 @@ export default class MessageContainer extends AbstractMessageContainer<Props> {
 
     _getMessagesGroupedBySender: () => Array<Array<Object>>;
 
-
     _renderMessageGroup: Object => React$Element<any>;
 
     /**
@@ -68,6 +69,7 @@ export default class MessageContainer extends AbstractMessageContainer<Props> {
     _renderMessageGroup({ item: messages }) {
         return (<ChatMessageGroup
             messages = { messages }
+            onPress = { this.props.onPress }
             privateEnabled = { this.props.privateEnabled } />);
     }
 }

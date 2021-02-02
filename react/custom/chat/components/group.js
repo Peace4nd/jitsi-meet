@@ -1,7 +1,7 @@
 // @flow
 
 import React, { Component } from 'react';
-import { FlatList } from 'react-native';
+import { FlatList, TouchableWithoutFeedback } from 'react-native';
 
 import styles from '../styles';
 
@@ -14,7 +14,9 @@ type Props = {
    */
   messages: Array<Object>,
 
-  privateEnabled: boolean;
+  privateEnabled: boolean,
+
+  onPress: Function
 }
 
 /**
@@ -39,12 +41,14 @@ export default class ChatMessageGroup extends Component<Props> {
      */
     render() {
         return (
-            <FlatList
-                data = { this.props.messages }
-                inverted = { true }
-                keyExtractor = { this._keyExtractor }
-                renderItem = { this._renderMessage }
-                style = { styles.containerWrapper } />
+            <TouchableWithoutFeedback onPress = { this.props.onPress }>
+                <FlatList
+                    data = { this.props.messages }
+                    inverted = { true }
+                    keyExtractor = { this._keyExtractor }
+                    renderItem = { this._renderMessage }
+                    style = { styles.containerGroup } />
+            </TouchableWithoutFeedback>
         );
     }
 

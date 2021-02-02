@@ -2,7 +2,7 @@
 // @flow
 
 import React, { PureComponent } from 'react';
-import { KeyboardAvoidingView, TouchableWithoutFeedback, Platform } from 'react-native';
+import { KeyboardAvoidingView, Platform } from 'react-native';
 
 import { translate } from '../../features/base/i18n';
 import { connect } from '../../features/base/redux';
@@ -90,17 +90,17 @@ class Overlay extends PureComponent<Props, State> {
         // sestaveni a vraceni
         if (_visible || recieved) {
             return (
-                <TouchableWithoutFeedback onPress = { onPress }>
-                    <KeyboardAvoidingView
-                        behavior = { Platform.OS === 'ios' ? 'padding' : 'height' }
-                        keyboardVerticalOffset = { Platform.OS === 'ios' ? 64 : 0 }
-                        style = { styles.wrapper }>
-                        <MessageContainer
-                            messages = { _messages }
-                            privateEnabled = { _privateEnabled } />
-                        <ChatInputBar onSend = { this.props._onSendMessage } />
-                    </KeyboardAvoidingView>
-                </TouchableWithoutFeedback>
+                <KeyboardAvoidingView
+                    behavior = { Platform.OS === 'ios' ? 'padding' : 'height' }
+                    keyboardVerticalOffset = { Platform.OS === 'ios' ? 64 : 0 }
+                    pointerEvents = 'box-none'
+                    style = { styles.wrapper }>
+                    <MessageContainer
+                        messages = { _messages }
+                        onPress = { onPress }
+                        privateEnabled = { _privateEnabled } />
+                    <ChatInputBar onSend = { this.props._onSendMessage } />
+                </KeyboardAvoidingView>
             );
         }
 
@@ -121,12 +121,11 @@ function _mapStateToProps(state): $Shape<Props> {
 
     return {
         _enabled: isChatOverlayEnabled(state),
-        _messages: messages.slice(0, limit),
+        _messages: limit > 0 ? messages.slice(0, limit) : messages,
         _last: messages.length > 0 ? messages[0].timestamp : 0,
         _visible: isToolboxVisible(state),
         _privateEnabled: isPrivateMessageEnabled(state)
     };
 }
-
 
 export default connect(_mapStateToProps, _mapDispatchToProps)(translate(Overlay));

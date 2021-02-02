@@ -83,7 +83,7 @@ class NavigationBar extends Component<Props> {
                         this.props._conferenceTimerEnabled && <ConferenceTimer />
                     }
                 </View>
-                <ChatButton styles = { styles.navBarButton } />
+                {/* <ChatButton styles = { styles.navBarButton } />*/}
             </View>
         ];
     }

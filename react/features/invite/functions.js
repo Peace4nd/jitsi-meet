@@ -644,7 +644,7 @@ export function _getDefaultPhoneNumber(
  * @private
  */
 export function _decodeRoomURI(url: string) {
-    let roomUrl = url;
+    let roomUrl = url || '';
 
     // we want to decode urls when the do not contain space, ' ', which url encoded is %20
     if (roomUrl && !roomUrl.includes('%20')) {

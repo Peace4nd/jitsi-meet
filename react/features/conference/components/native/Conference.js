@@ -260,7 +260,6 @@ class Conference extends AbstractConference<Props, *> {
     _renderConferenceModals() {
         return [
             <AddPeopleDialog key = 'addPeopleDialog' />,
-            <Chat key = 'chat' />,
             <SharedDocument key = 'sharedDocument' />
         ];
     }
@@ -375,7 +374,7 @@ class Conference extends AbstractConference<Props, *> {
                       * React Components depict the videos of the conference's
                       * participants.
                       */
-                        _shouldDisplayTileView || !_toolboxVisible ? undefined : <Filmstrip />
+                        _shouldDisplayTileView ? undefined : <Filmstrip />
                     }
                 </SafeAreaView>
 

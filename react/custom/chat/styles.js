@@ -7,7 +7,7 @@ import icw from '../constants';
 const { width } = Dimensions.get('window');
 
 const AVATAR_WIDTH = 32;
-const WRAPPER_WIDTH = width - ((icw.thumbnail.margin * 2) + icw.thumbnail.width + icw.padding);
+const WRAPPER_WIDTH = width - ((icw.thumbnail.margin * 2) + icw.thumbnail.width + icw.padding) - icw.padding;
 const PRIVATE_HEIGHT = Math.ceil(icw.chatOverlay.size); //* (2 / 3)
 const MARGIN_SIDES = icw.padding * 1.5;
 
@@ -83,8 +83,14 @@ export const styles = StyleSheet.create({
 
     // container + group
     containerWrapper: {
-        paddingHorizontal: icw.padding * 2,
+        paddingLeft: icw.padding * 2,
+        paddingRight: icw.padding,
         paddingBottom: icw.chatOverlay.size + icw.padding,
+        width: WRAPPER_WIDTH,
+        flex: 1
+
+    },
+    containerGroup: {
         width: WRAPPER_WIDTH,
         flex: 1
     },

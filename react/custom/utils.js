@@ -50,7 +50,7 @@ export function isChatOverlayEnabled(stateful: Function | Object) {
  * @returns {number}
  */
 export function getChatOverlayLimit(stateful: Function | Object) {
-    return getFeatureFlag(stateful, 'chat-overlay.limit', 4);
+    return getFeatureFlag(stateful, 'chat-overlay.limit', 0);
 }
 
 /**
