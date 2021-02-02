@@ -15,6 +15,10 @@ export default {
         danger: '#ff645c'
     },
     padding: 8,
+    pip: {
+        iconSize: 32,
+        iconBackground: '#747f8d'
+    },
     thumbnail: {
         margin: 2,
         width: 104,

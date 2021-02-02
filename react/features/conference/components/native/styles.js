@@ -1,3 +1,4 @@
+import icw from '../../../../custom/constants';
 import { ColorSchemeRegistry, schemeColor } from '../../../base/color-scheme';
 import { BoxModel, ColorPalette, fixAndroidViewClipping } from '../../../base/styles';
 import { FILMSTRIP_SIZE } from '../../../filmstrip';
@@ -103,9 +104,16 @@ export default {
     navBarButton: {
         iconStyle: {
             color: ColorPalette.white,
-            fontSize: 24
+            fontSize: 20
         },
-
+        style: {
+            alignItems: 'center',
+            backgroundColor: icw.pip.iconBackground,
+            borderRadius: icw.pip.iconSize / 2,
+            height: icw.pip.iconSize,
+            justifyContent: 'center',
+            width: icw.pip.iconSize
+        },
         underlayColor: 'transparent'
     },
 
