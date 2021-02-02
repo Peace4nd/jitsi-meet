@@ -40,7 +40,7 @@ export function getSafeAreaBottomInset() {
  * @returns {boolean}
  */
 export function isChatOverlayEnabled(stateful: Function | Object) {
-    return Boolean(getFeatureFlag(stateful, 'chat-overlay.enabled', false));
+    return Boolean(getFeatureFlag(stateful, 'chat-overlay.enabled', true));
 }
 
 /**
