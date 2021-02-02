@@ -87,8 +87,9 @@ export const styles = StyleSheet.create({
         paddingRight: icw.padding,
         paddingBottom: icw.chatOverlay.size + icw.padding,
         width: WRAPPER_WIDTH,
-        flex: 1
-
+        flex: 1,
+        marginBottom: icw.padding,
+        marginTop: icw.padding * 6
     },
     containerGroup: {
         width: WRAPPER_WIDTH,
