@@ -33,9 +33,9 @@ type Props = {
     _visible: boolean,
 
     /**
-     * Invide disabled incicator
+     * Invide enabled incicator
      */
-    _isInviteFunctionsDiabled: boolean,
+    _isInviteFunctionsEnabled: boolean,
 
     _overflowMenu: boolean,
 
@@ -104,7 +104,7 @@ class Toolbox extends PureComponent<Props> {
      * @returns {React$Node}
      */
     _renderToolbar() {
-        const { _isInviteFunctionsDiabled, _overflowMenu, _styles } = this.props;
+        const { _isInviteFunctionsEnabled, _overflowMenu, _styles } = this.props;
         const { buttonStyles, hangupButtonStyles, toggledButtonStyles } = _styles;
 
         return (
@@ -114,7 +114,7 @@ class Toolbox extends PureComponent<Props> {
                 style = { _overflowMenu ? styles.toolbarOverflow : styles.toolbar }>
 
                 <InviteButton
-                    disabled = { _isInviteFunctionsDiabled }
+                    disabled = { !_isInviteFunctionsEnabled }
                     labelBottom = { true }
                     showLabel = { true }
                     styles = { buttonStyles }
@@ -153,11 +153,8 @@ class Toolbox extends PureComponent<Props> {
  * @returns {Props}
  */
 function _mapStateToProps(state: Object): Object {
-    const { disableInviteFunctions } = state['features/base/config'];
-    const flag = getFeatureFlag(state, INVITE_ENABLED, true);
-
     return {
-        _isInviteFunctionsDiabled: !flag || disableInviteFunctions,
+        _isInviteFunctionsEnabled: getFeatureFlag(state, INVITE_ENABLED, true),
         _overflowMenu: Boolean(state['features/base/dialog'].component),
         _styles: ColorSchemeRegistry.get(state, 'Toolbox'),
         _visible: isToolboxVisible(state)
