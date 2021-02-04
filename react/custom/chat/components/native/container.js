@@ -3,8 +3,8 @@
 import React from 'react';
 import { FlatList } from 'react-native';
 
-import AbstractMessageContainer from '../../../features/chat/components/AbstractMessageContainer';
-import styles from '../styles';
+import AbstractMessageContainer from '../../../../features/chat/components/AbstractMessageContainer';
+import styles from '../../styles';
 
 import ChatMessageGroup from './group';
 

@@ -3,7 +3,7 @@
 import React, { Component } from 'react';
 import { FlatList, TouchableWithoutFeedback } from 'react-native';
 
-import styles from '../styles';
+import styles from '../../styles';
 
 import ChatMessage from './message';
 

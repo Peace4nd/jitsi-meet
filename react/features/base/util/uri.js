@@ -604,5 +604,5 @@ export function addHashParamsToURL(url: URL, hashParamsToAdd: Object = {}) {
  * @returns {string}
  */
 export function getDecodedURI(uri: string) {
-    return decodeURI(uri.replace(/^https?:\/\//i, ''));
+    return decodeURI((uri || '').replace(/^https?:\/\//i, ''));
 }

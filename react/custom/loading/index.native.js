@@ -3,7 +3,7 @@
 import React from 'react';
 import { StyleSheet, Animated, Easing } from 'react-native';
 
-import icw from './constants';
+import icw from '../constants';
 
 // nejake konstanty
 const LOADING_SIZE = 36;
@@ -39,12 +39,12 @@ const IcewarpLoading = (props: Props) => {
 
     // definice animace
     Animated.loop(
-    Animated.timing(spinValue, {
-        toValue: 1,
-        duration: LOADING_DURATION,
-        easing: Easing.linear,
-        useNativeDriver: true
-    })
+        Animated.timing(spinValue, {
+            toValue: 1,
+            duration: LOADING_DURATION,
+            easing: Easing.linear,
+            useNativeDriver: true
+        })
     ).start();
 
     // priprava interpolace animovane hodnoty

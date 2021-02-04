@@ -3,15 +3,15 @@
 import React from 'react';
 import { Text, View } from 'react-native';
 
-import { Avatar } from '../../../features/base/avatar';
-import { translate } from '../../../features/base/i18n';
-import { Linkify } from '../../../features/base/react';
-import AbstractChatMessage, { type Props } from '../../../features/chat/components/AbstractChatMessage';
-import PrivateMessageButton from '../../../features/chat/components/PrivateMessageButton';
-import { MESSAGE_TYPE_ERROR, MESSAGE_TYPE_LOCAL, MESSAGE_TYPE_REMOTE } from '../../../features/chat/constants';
-import { replaceNonUnicodeEmojis } from '../../../features/chat/functions';
-import { isPrivateMessageEnabled } from '../../utils';
-import styles from '../styles';
+import { Avatar } from '../../../../features/base/avatar';
+import { translate } from '../../../../features/base/i18n';
+import { Linkify } from '../../../../features/base/react';
+import AbstractChatMessage, { type Props } from '../../../../features/chat/components/AbstractChatMessage';
+import PrivateMessageButton from '../../../../features/chat/components/PrivateMessageButton';
+import { MESSAGE_TYPE_ERROR, MESSAGE_TYPE_LOCAL, MESSAGE_TYPE_REMOTE } from '../../../../features/chat/constants';
+import { replaceNonUnicodeEmojis } from '../../../../features/chat/functions';
+import { isPrivateMessageEnabled } from '../../../utils';
+import styles from '../../styles';
 
 /**
  * Renders a single chat message.

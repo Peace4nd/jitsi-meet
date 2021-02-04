@@ -1,6 +1,6 @@
 // @flow
 
-import { isPrivateMessageEnabled } from '../../custom/utils';
+import { isPrivateMessageEnabled } from '../../custom/utils.any';
 import { APP_WILL_MOUNT, APP_WILL_UNMOUNT } from '../base/app';
 import {
     CONFERENCE_JOINED,

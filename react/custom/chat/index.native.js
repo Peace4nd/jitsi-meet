@@ -8,10 +8,10 @@ import { translate } from '../../features/base/i18n';
 import { connect } from '../../features/base/redux';
 import { _mapDispatchToProps } from '../../features/chat/components/AbstractChat';
 import { isToolboxVisible } from '../../features/toolbox/functions';
-import { isChatOverlayEnabled, getChatOverlayLimit, isPrivateMessageEnabled } from '../utils';
+import { isChatOverlayEnabled, getChatOverlayLimit, isPrivateMessageEnabled } from '../utils.any';
 
-import MessageContainer from './components/container';
-import ChatInputBar from './components/input';
+import MessageContainer from './components/native/container';
+import ChatInputBar from './components/native/input';
 import styles from './styles';
 
 /**

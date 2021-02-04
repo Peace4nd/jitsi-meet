@@ -2,7 +2,7 @@
 
 import React, { Component } from 'react';
 
-import { isTileViewEnabled } from '../../../custom/utils';
+import { isTileViewEnabled } from '../../../custom/utils.any';
 import { NotificationsContainer } from '../../notifications/components';
 import { shouldDisplayTileView } from '../../video-layout';
 import { shouldDisplayNotifications } from '../functions';

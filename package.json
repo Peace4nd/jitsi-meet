@@ -49,11 +49,11 @@
     "i18next": "17.0.6",
     "i18next-browser-languagedetector": "3.0.1",
     "i18next-xhr-backend": "3.0.0",
+    "jQuery-Impromptu": "github:trentrichardson/jQuery-Impromptu#v6.0.0",
     "jitsi-meet-logger": "github:jitsi/jitsi-meet-logger#v1.0.0",
     "jquery": "3.5.1",
     "jquery-contextmenu": "2.4.5",
     "jquery-i18next": "1.2.1",
-    "jQuery-Impromptu": "github:trentrichardson/jQuery-Impromptu#v6.0.0",
     "js-md5": "0.6.1",
     "jwt-decode": "2.2.0",
     "lib-jitsi-meet": "github:jitsi/lib-jitsi-meet#be18ff34bedf38c7475fe4953074c7959000e15f",
@@ -149,6 +149,9 @@
   "scripts": {
     "start": "npx react-native start",
     "android": "npx react-native run-android",
+    "android-build": "./android/scripts/release-sdk.sh",
+    "web": "make dev",
+    "web-build": "make && dpkg-buildpackage -A -rfakeroot -us -uc -tc",
     "lint": "eslint . && flow",
     "postinstall": "jetify",
     "validate": "npm ls"

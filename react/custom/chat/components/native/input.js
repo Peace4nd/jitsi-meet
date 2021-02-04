@@ -3,12 +3,13 @@
 import React from 'react';
 import { TextInput, TouchableOpacity, View, Text } from 'react-native';
 
-import { translate } from '../../../features/base/i18n';
-import { Icon, IconChatSend, IconClose } from '../../../features/base/icons';
-import { connect } from '../../../features/base/redux';
-import { setPrivateMessageRecipient } from '../../../features/chat/actions';
-import icw from '../../constants';
-import styles from '../styles';
+import { translate } from '../../../../features/base/i18n';
+import { Icon, IconChatSend, IconClose } from '../../../../features/base/icons';
+import { connect } from '../../../../features/base/redux';
+import { setPrivateMessageRecipient } from '../../../../features/chat/actions';
+import icw from '../../../constants';
+import styles from '../../styles';
+
 
 type Props = {
 
