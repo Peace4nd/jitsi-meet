@@ -75,14 +75,14 @@ public class BroadcastEvent {
     }
 
     public enum Type {
-        CONFERENCE_JOINED("org.jitsi.meet.CONFERENCE_JOINED"),
-        CONFERENCE_TERMINATED("org.jitsi.meet.CONFERENCE_TERMINATED"),
-        CONFERENCE_WILL_JOIN("org.jitsi.meet.CONFERENCE_WILL_JOIN"),
-        AUDIO_MUTED_CHANGED("org.jitsi.meet.AUDIO_MUTED_CHANGED"),
-        PARTICIPANT_JOINED("org.jitsi.meet.PARTICIPANT_JOINED"),
-        PARTICIPANT_LEFT("org.jitsi.meet.PARTICIPANT_LEFT"),
-        ENDPOINT_TEXT_MESSAGE_RECEIVED("org.jitsi.meet.ENDPOINT_TEXT_MESSAGE_RECEIVED"),
-        SCREEN_SHARE_TOGGLED("org.jitsi.meet.SCREEN_SHARE_TOGGLED");
+        CONFERENCE_JOINED("com.icewarp.meet.CONFERENCE_JOINED"),
+        CONFERENCE_TERMINATED("com.icewarp.meet.CONFERENCE_TERMINATED"),
+        CONFERENCE_WILL_JOIN("com.icewarp.meet.CONFERENCE_WILL_JOIN"),
+        AUDIO_MUTED_CHANGED("com.icewarp.meet.AUDIO_MUTED_CHANGED"),
+        PARTICIPANT_JOINED("com.icewarp.meet.PARTICIPANT_JOINED"),
+        PARTICIPANT_LEFT("com.icewarp.meet.PARTICIPANT_LEFT"),
+        ENDPOINT_TEXT_MESSAGE_RECEIVED("com.icewarp.meet.ENDPOINT_TEXT_MESSAGE_RECEIVED"),
+        SCREEN_SHARE_TOGGLED("com.icewarp.meet.SCREEN_SHARE_TOGGLED");
 
         private static final String CONFERENCE_WILL_JOIN_NAME = "CONFERENCE_WILL_JOIN";
         private static final String CONFERENCE_JOINED_NAME = "CONFERENCE_JOINED";
