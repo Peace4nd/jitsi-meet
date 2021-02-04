@@ -33,6 +33,7 @@ import {
     conferenceLeft,
     conferenceSubjectChanged,
     conferenceTimestampChanged,
+    conferenceUniqueIdSet,
     conferenceWillJoin,
     conferenceWillLeave,
     dataChannelOpened,
@@ -1866,6 +1867,10 @@ export default {
             });
 
         room.on(
+            JitsiConferenceEvents.CONFERENCE_UNIQUE_ID_SET,
+            (...args) => APP.store.dispatch(conferenceUniqueIdSet(room, ...args)));
+
+        room.on(
             JitsiConferenceEvents.AUTH_STATUS_CHANGED,
             (authEnabled, authLogin) =>
                 APP.store.dispatch(authStatusChanged(authEnabled, authLogin)));
@@ -2248,7 +2253,7 @@ export default {
                     return this.useAudioStream(stream);
                 })
                 .then(() => {
-                    if (hasDefaultMicChanged) {
+                    if (this.localAudio && hasDefaultMicChanged) {
                         // workaround for the default device to be shown as selected in the
                         // settings even when the real device id was passed to gUM because of the
                         // above mentioned chrome bug.
@@ -2588,7 +2593,7 @@ export default {
                                     // Use the new stream or null if we failed to obtain it.
                                     return useStream(tracks.find(track => track.getType() === mediaType) || null)
                                         .then(() => {
-                                            if (hasDefaultMicChanged) {
+                                            if (this.localAudio && hasDefaultMicChanged) {
                                                 // workaround for the default device to be shown as selected in the
                                                 // settings even when the real device id was passed to gUM because of
                                                 // the above mentioned chrome bug.
