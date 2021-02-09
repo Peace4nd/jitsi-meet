@@ -95,6 +95,9 @@ export const styles = StyleSheet.create({
         width: WRAPPER_WIDTH,
         flex: 1
     },
+    containerList: {
+        flex: 1
+    },
 
     // message
     messageWrapper: {

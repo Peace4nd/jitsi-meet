@@ -1,7 +1,7 @@
 // @flow
 
 import React from 'react';
-import { NativeModules, SafeAreaView, StatusBar, View, StyleSheet, Keyboard } from 'react-native';
+import { NativeModules, SafeAreaView, View, StyleSheet, Keyboard } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 
 import ChatOverlay from '../../../../custom/chat';
@@ -15,7 +15,6 @@ import { connect } from '../../../base/redux';
 import { ASPECT_RATIO_NARROW } from '../../../base/responsive-ui/constants';
 import { TestConnectionInfo } from '../../../base/testing';
 import { ConferenceNotification, isCalendarEnabled } from '../../../calendar-sync';
-import { Chat } from '../../../chat';
 import { DisplayNameLabel } from '../../../display-name';
 import { SharedDocument } from '../../../etherpad';
 import {
@@ -38,7 +37,6 @@ import {
 } from '../AbstractConference';
 import type { AbstractProps } from '../AbstractConference';
 
-import Labels from './Labels';
 import NavigationBar from './NavigationBar';
 import styles, { NAVBAR_GRADIENT_COLORS } from './styles';
 
@@ -343,8 +341,6 @@ class Conference extends AbstractConference<Props, *> {
                             styles.bottomGradient,
                             applyGradientStretching ? styles.gradientStretchBottom : undefined
                         ] } />}
-
-                    {/* <Labels />*/}
 
                     { showGradient && <View style = { safeAreaStyles.view } /> }
 

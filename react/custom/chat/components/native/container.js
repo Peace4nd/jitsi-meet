@@ -1,7 +1,7 @@
 // @flow
 
 import React from 'react';
-import { FlatList } from 'react-native';
+import { FlatList, TouchableOpacity } from 'react-native';
 
 import AbstractMessageContainer from '../../../../features/chat/components/AbstractMessageContainer';
 import styles from '../../styles';
@@ -44,13 +44,20 @@ export default class MessageContainer extends AbstractMessageContainer<Props> {
         const data = this._getMessagesGroupedBySender();
 
         return (
-            <FlatList
-                data = { data }
-                inverted = { true }
-                keyExtractor = { this._keyExtractor }
-                keyboardShouldPersistTaps = 'always'
-                renderItem = { this._renderMessageGroup }
-                style = { styles.containerWrapper } />
+            <TouchableOpacity
+                activeOpacity = { 1 }
+                onPress = { this.props.onPress }
+                style = { styles.containerWrapper }>
+                <FlatList
+                    data = { data }
+                    inverted = { true }
+                    keyExtractor = { this._keyExtractor }
+                    keyboardShouldPersistTaps = 'always'
+
+                    // pointerEvents = 'box-none'
+                    renderItem = { this._renderMessageGroup }
+                    style = { styles.containerList } />
+            </TouchableOpacity>
         );
     }
 
