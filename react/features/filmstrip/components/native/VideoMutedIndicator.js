@@ -2,7 +2,7 @@
 
 import React, { Component } from 'react';
 
-import { IconCameraDisabled } from '../../../base/icons';
+import { IconIcewarpToolbarCamOff } from '../../../../custom/icons';
 import { BaseIndicator } from '../../../base/react';
 
 /**
@@ -18,7 +18,7 @@ export default class VideoMutedIndicator extends Component<{}> {
         return (
             <BaseIndicator
                 highlight = { false }
-                icon = { IconCameraDisabled } />
+                icon = { IconIcewarpToolbarCamOff } />
         );
     }
 }
