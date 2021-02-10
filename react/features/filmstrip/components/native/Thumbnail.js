@@ -10,7 +10,6 @@ import { MEDIA_TYPE, VIDEO_TYPE } from '../../../base/media';
 import {
     PARTICIPANT_ROLE,
     ParticipantView,
-    getParticipantCount,
     isEveryoneModerator,
     pinParticipant
 } from '../../../base/participants';

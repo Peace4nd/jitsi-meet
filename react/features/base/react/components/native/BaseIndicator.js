@@ -24,7 +24,9 @@ type Props = {
     /**
      * Additional style to be applied to the icon element.
      */
-    iconStyle: StyleType
+    iconStyle: StyleType,
+
+    style: StyleType
 };
 
 /**
@@ -38,12 +40,12 @@ export default class BaseIndicator extends Component<Props> {
      * @inheritdoc
      */
     render() {
-        const { highlight, icon, iconStyle } = this.props;
+        const { highlight, icon, iconStyle, style } = this.props;
 
         return (
             <View
                 style = { [ BASE_INDICATOR,
-                    highlight ? styles.highlightedIndicator : null ] }>
+                    highlight ? styles.highlightedIndicator : null, style ] }>
                 <Icon
                     src = { icon }
                     style = { [

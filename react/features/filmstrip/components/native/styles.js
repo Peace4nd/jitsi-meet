@@ -84,17 +84,19 @@ export default {
     thumbnail: {
         alignItems: 'stretch',
         backgroundColor: ColorPalette.appBackground,
-        borderColor: '#424242',
         borderRadius: 8,
-        borderStyle: 'solid',
-        borderWidth: 1,
         flex: 1,
         height: icw.thumbnail.height,
         justifyContent: 'center',
         margin: icw.thumbnail.margin,
+        marginBottom: 3 * icw.thumbnail.margin,
         overflow: 'hidden',
         position: 'relative',
         width: icw.thumbnail.width
+    },
+
+    thumbnailIndicatorIcon: {
+        marginRight: icw.padding / 2
     },
 
     /**
@@ -160,7 +162,6 @@ ColorSchemeRegistry.register('Thumbnail', {
      * Pinned video thumbnail style.
      */
     thumbnailPinned: {
-        borderColor: schemeColor('activeParticipantHighlight'),
         shadowColor: schemeColor('activeParticipantHighlight'),
         shadowOffset: {
             height: 5,

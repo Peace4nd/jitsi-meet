@@ -138,7 +138,8 @@ export default {
         flexDirection: 'row',
         height: 44,
         justifyContent: 'space-between',
-        paddingHorizontal: 14
+        paddingHorizontal: 14,
+        marginTop: 8
     },
 
     roomTimer: {
