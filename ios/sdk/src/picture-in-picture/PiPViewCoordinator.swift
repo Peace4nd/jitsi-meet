@@ -21,6 +21,8 @@ public typealias AnimationCompletion = (Bool) -> Void
 public protocol PiPViewCoordinatorDelegate: class {
     
     func exitPictureInPicture()
+    
+    func closePictureInPicture()
 }
 
 /// Coordinates the view state of a specified view to allow
@@ -61,6 +63,7 @@ public class PiPViewCoordinator {
 
     private var tapGestureRecognizer: UITapGestureRecognizer?
     private var exitPiPButton: UIButton?
+    private var closePiPButton: UIButton?
 
     private let dragController: DragGestureController = DragGestureController()
 
@@ -91,6 +94,8 @@ public class PiPViewCoordinator {
             animateTransition(animations: { [weak self] in
                 self?.view.alpha = 1
             }, completion: completion)
+        } else {
+            completion?(true)
         }
     }
 
@@ -101,6 +106,8 @@ public class PiPViewCoordinator {
                 self?.view.alpha = 0
                 self?.view.isHidden = true
             }, completion: completion)
+        } else {
+            completion?(true)
         }
     }
 
@@ -131,6 +138,9 @@ public class PiPViewCoordinator {
         // hide PiP UI
         exitPiPButton?.removeFromSuperview()
         exitPiPButton = nil
+        
+        closePiPButton?.removeFromSuperview()
+        closePiPButton = nil
 
         // remove gesture
         let exitSelector = #selector(toggleExitPiP)
@@ -138,6 +148,25 @@ public class PiPViewCoordinator {
         tapGestureRecognizer = nil
         
         delegate?.exitPictureInPicture()
+    }
+    
+    @objc public func closePictureInPicture() {
+        isInPiP = false
+        dragController.stopDragListener()
+        
+        // hide PiP UI
+        exitPiPButton?.removeFromSuperview()
+        exitPiPButton = nil
+        
+        closePiPButton?.removeFromSuperview()
+        closePiPButton = nil
+
+        // remove gesture
+        let exitSelector = #selector(toggleExitPiP)
+        tapGestureRecognizer?.removeTarget(self, action: exitSelector)
+        tapGestureRecognizer = nil
+        
+        delegate?.closePictureInPicture()
     }
 
     /// Reset view to provide bounds, use this method on rotation or
@@ -169,6 +198,22 @@ public class PiPViewCoordinator {
         return button
     }
 
+    /// Customize the presentation of close pip button
+    open func configureClosePiPButton(target: Any,
+                                     action: Selector) -> UIButton {
+        let buttonImage = UIImage.init(named: "close",
+                                       in: Bundle(for: type(of: self)),
+                                       compatibleWith: nil)
+        let button = UIButton(type: .custom)
+        let size: CGSize = CGSize(width: 44, height: 44)
+        button.setImage(buttonImage, for: .normal)
+        button.backgroundColor = .clear
+        button.frame = CGRect(origin: CGPoint(x: view.frame.width - size.width, y: 0), size: size)
+        button.contentEdgeInsets = UIEdgeInsets(top: 0, left: 15, bottom: 15, right: 0)
+        button.addTarget(target, action: action, for: .touchUpInside)
+        return button
+    }
+    
     // MARK: - Interactions
 
     @objc private func toggleExitPiP() {
@@ -179,11 +224,19 @@ public class PiPViewCoordinator {
                                                 action: exitSelector)
             view.addSubview(button)
             exitPiPButton = button
-
+            
+            let closeSelector = #selector(closePictureInPicture)
+            let closeButton = configureClosePiPButton(target: self,
+                                                action: closeSelector)
+            view.addSubview(closeButton)
+            closePiPButton = closeButton
         } else {
             // hide button
             exitPiPButton?.removeFromSuperview()
             exitPiPButton = nil
+            
+            closePiPButton?.removeFromSuperview()
+            closePiPButton = nil
         }
     }
 
