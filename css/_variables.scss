@@ -1,5 +1,14 @@
 @import "themes/light";
 
+$icwToolboxPadding: 60px;
+$icwColorPrimary: #605fd2;
+$icwColorHighlight: #958cff;
+$icwColorDanger: #ff645c;
+$icwColorMuted: rgba(0, 0, 0, 0.3);
+$icwColorWhite: #ffffff;
+$icwSmileSize: 16pt;
+$icwToolboxPadding: 60px;
+
 /**
  * Style variables
  */
@@ -92,9 +101,9 @@ $modalTextColor: #333;
 $chatActionsSeparatorColor: rgb(173, 105, 112);
 $chatHeaderBackgroundColor: rgba(42, 58, 75, 0.9);
 $chatInputSeparatorColor: #A4B8D1;
-$chatLocalMessageBackgroundColor: rgb(4, 98, 178);
+$chatLocalMessageBackgroundColor: rgba(0, 0, 0, 0.21);
 $chatPrivateMessageBackgroundColor: rgb(153, 69, 77);
-$chatRemoteMessageBackgroundColor:  rgb(86, 101, 114);
+$chatRemoteMessageBackgroundColor: rgba(96, 95, 210, 0.4) ;
 $sidebarWidth: 375px;
 
  /**
@@ -119,7 +128,7 @@ $zindex10: 10;
 $reloadZ: 20;
 $poweredByZ: 100;
 $ringingZ: 300;
-$sideToolbarContainerZ: 300;
+$sideToolbarContainerZ: 400;
 $toolbarZ: 350;
 $drawerZ: 351;
 $tooltipsZ: 401;

@@ -15,6 +15,9 @@
         "chat": {
             "noMessagesTitle": "No Messages",
             "noMessagesMessage": "There are no messages in the meeting yet.\nStart a conversation typing to input down."
+        },
+        "addPeople": {
+            "copyLink": "Copy link"
         }
     },
     "addPeople": {

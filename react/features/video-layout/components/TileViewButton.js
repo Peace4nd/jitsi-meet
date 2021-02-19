@@ -2,6 +2,7 @@
 
 import type { Dispatch } from 'redux';
 
+import { IconIcewarpToolbarGrid } from '../../../custom/icons';
 import {
     createToolbarEvent,
     sendAnalytics
@@ -39,10 +40,11 @@ type Props = AbstractButtonProps & {
  */
 class TileViewButton<P: Props> extends AbstractButton<P, *> {
     accessibilityLabel = 'toolbar.accessibilityLabel.tileView';
-    icon = IconTileView;
+    icon = IconIcewarpToolbarGrid;
     label = 'toolbar.enterTileView';
     toggledLabel = 'toolbar.exitTileView';
     tooltip = 'toolbar.tileViewToggle';
+    className = 'muted';
 
     /**
      * Handles clicking / pressing the button.

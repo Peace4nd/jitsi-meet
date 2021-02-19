@@ -117,6 +117,11 @@ export default class AbstractButton<P: Props, S: *> extends Component<P, S> {
     tooltip: ?string;
 
     /**
+     * Class name
+     */
+    className: ?string;
+
+    /**
      * Initializes a new {@code AbstractButton} instance.
      *
      * @param {Props} props - The React {@code Component} props to initialize
@@ -277,6 +282,7 @@ export default class AbstractButton<P: Props, S: *> extends Component<P, S> {
 
         return (
             <ToolboxItem
+                anotherCustomClass = { this.className }
                 disabled = { this._isDisabled() }
                 onClick = { this._onClick }
                 { ...props } />

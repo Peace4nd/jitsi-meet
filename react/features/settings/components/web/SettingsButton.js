@@ -32,6 +32,7 @@ class SettingsButton extends AbstractButton<Props, *> {
     icon = IconSettings;
     label = 'toolbar.Settings';
     tooltip = 'toolbar.Settings';
+    className = 'muted';
 
     /**
      * Handles clicking / pressing the button, and opens the appropriate dialog.

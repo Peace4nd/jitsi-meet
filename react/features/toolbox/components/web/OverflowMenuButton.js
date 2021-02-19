@@ -3,9 +3,9 @@
 import InlineDialog from '@atlaskit/inline-dialog';
 import React, { Component } from 'react';
 
+import { IconIcewarpToolbarMore } from '../../../../custom/icons';
 import { createToolbarEvent, sendAnalytics } from '../../../analytics';
 import { translate } from '../../../base/i18n';
-import { IconMenuThumb } from '../../../base/icons';
 import { connect } from '../../../base/redux';
 
 import Drawer from './Drawer';
@@ -114,9 +114,9 @@ class OverflowMenuButton extends Component<Props> {
 
         return (
             <ToolbarButton
-                accessibilityLabel =
-                    { t('toolbar.accessibilityLabel.moreActions') }
-                icon = { IconMenuThumb }
+                accessibilityLabel = { t('toolbar.accessibilityLabel.moreActions') }
+                className = 'muted'
+                icon = { IconIcewarpToolbarMore }
                 onClick = { this._onToggleDialogVisibility }
                 toggled = { isOpen }
                 tooltip = { t('toolbar.moreActions') } />

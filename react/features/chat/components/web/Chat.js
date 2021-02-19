@@ -69,11 +69,9 @@ class Chat extends AbstractChat<Props> {
      * @inheritdoc
      */
     componentDidUpdate(prevProps) {
-        if (this.props._messages !== prevProps._messages) {
-            this._scrollMessageContainerToBottom(true);
-        } else if (this.props._isOpen && !prevProps._isOpen) {
-            this._scrollMessageContainerToBottom(false);
-        }
+
+        this._scrollMessageContainerToBottom(true);
+
     }
 
     /**
@@ -149,37 +147,13 @@ class Chat extends AbstractChat<Props> {
      */
     _renderPanelContent() {
         const { _isModal, _isOpen, _showNamePrompt } = this.props;
-        let ComponentToRender = null;
 
-        if (_isOpen) {
-            if (_isModal) {
-                ComponentToRender = (
-                    <ChatDialog>
-                        { _showNamePrompt ? <DisplayNameForm /> : this._renderChat() }
-                    </ChatDialog>
-                );
-            } else {
-                ComponentToRender = (
-                    <>
-                        { this._renderChatHeader() }
-                        { _showNamePrompt ? <DisplayNameForm /> : this._renderChat() }
-                    </>
-                );
-            }
-        }
-        let className = '';
-
-        if (_isOpen) {
-            className = 'slideInExt';
-        } else if (this._isExited) {
-            className = 'invisible';
-        }
 
         return (
             <div
-                className = { `sideToolbarContainer ${className}` }
+                className = 'sideToolbarContainer'
                 id = 'sideToolbarContainer'>
-                { ComponentToRender }
+                { _showNamePrompt ? <DisplayNameForm /> : this._renderChat() }
             </div>
         );
     }

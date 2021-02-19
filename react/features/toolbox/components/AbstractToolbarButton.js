@@ -42,7 +42,11 @@ export type Props = {
     /**
      * The color underlaying the button.
      */
-    underlayColor?: any
+    underlayColor?: any,
+
+    className?: string,
+
+    label?: string
 };
 
 /**

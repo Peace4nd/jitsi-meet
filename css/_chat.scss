@@ -1,33 +1,30 @@
+$icw-chat-offset: 48px;
+
 #sideToolbarContainer {
-    background-color: $newToolbarBackgroundColor;
+    bottom: $icwToolboxPadding;
     box-sizing: border-box;
     color: #FFF;
     display: flex;
     flex-direction: column;
-    height: 100%;
-    left: -$sidebarWidth;
+    left: $icw-chat-offset;
     overflow: hidden;
     position: absolute;
-    top: 0;
+    top: $newToolbarSize * 2;
     width: $sidebarWidth;
-    z-index: $sideToolbarContainerZ;
-
-    /**
-     * The sidebar (chat) is off-screen when hidden. Move it flush to the left
-     * side of the window when it should be visible.
-     */
-    &.slideInExt {
-        left: 0;
-    }
+    z-index: $toolbarZ;
 }
 
 #chatconversation {
+    align-items: flex-start;
     box-sizing: border-box;
+    display: flex;
     flex: 1;
+    flex-flow: column;
     font-size: 10pt;
-    line-height: 20px;
+    justify-content: flex-end;
+    line-height: 1;
     overflow: auto;
-    padding: 16px;
+    padding-bottom: $icw-chat-offset / 4;
     text-align: left;
     width: $sidebarWidth;
     word-wrap: break-word;
@@ -62,10 +59,6 @@
     }
 
     &::-webkit-scrollbar-track {
-        background: black;
-    }
-
-    &::-webkit-scrollbar-track-piece {
         background: black;
     }
 
@@ -123,9 +116,11 @@
 }
 
 #chat-input {
-    border-top: 1px solid $chatInputSeparatorColor;
     display: flex;
-    padding: 5px 10px;
+    padding: 0 10px;
+    min-height: 38px;
+    border-radius: 19px;
+    border: 1px solid rgba(255, 255, 255, 0.35);
 
     * {
         background-color: transparent;
@@ -145,12 +140,15 @@
     border-radius:0;
     box-shadow: none;
     color: white;
-    font-size: 15px;
-    padding: 10px;
+    font-size: 14px;
+    line-height: 1.3;
+    margin: 10px 0;
+    padding: 0 10px;
     overflow-y: auto;
     resize: none;
     width: 100%;
     word-break: break-word;
+    height: 100%;
 }
 
 #usermsg:hover {
@@ -176,7 +174,8 @@
     .display-name {
         font-size: 13px;
         font-weight: bold;
-        margin-bottom: 5px;
+        letter-spacing: -0.33px;
+        margin-bottom: 4px;
         white-space: nowrap;
         text-overflow: ellipsis;
         overflow: hidden;
@@ -202,6 +201,9 @@
     }
 
     .usermessage {
+        font-size: 13px;
+        letter-spacing: -0.33px;
+        line-height: 14px;
         white-space: pre-wrap;
     }
 
@@ -225,7 +227,7 @@
     }
 
     .messagecontent {
-        margin: 5px 10px;
+        margin: 8px 12px;
         max-width: 100%;
         overflow: hidden;
     }
@@ -236,7 +238,7 @@
 }
 
 #smileys {
-    font-size: 20pt;
+    font-size: $icwSmileSize;
     margin: auto;
     cursor: pointer;
 }
@@ -288,7 +290,7 @@
 }
 
 #smileysContainer .smiley {
-    font-size: 20pt;
+    font-size: $icwSmileSize;
 }
 
 .smileyContainer {
@@ -304,7 +306,7 @@
     cursor: pointer;
 }
 
-#usermsg::-webkit-scrollbar-track-piece {
+#usermsg::-webkit-scrollbar-track {
     background: #3a3a3a;
 }
 
@@ -313,23 +315,12 @@
     flex-direction: column;
 
     &.local {
-        align-items: flex-end;
-
         .chatmessage {
             background-color: $chatLocalMessageBackgroundColor;
-            border-radius: 6px 0px 6px 6px;
 
             &.privatemessage {
                 background-color: $chatPrivateMessageBackgroundColor;
             }
-        }
-
-        .display-name {
-            display: none;
-        }
-
-        .timestamp {
-            text-align: right;
         }
     }
 
@@ -370,9 +361,9 @@
 
     .chatmessage {
         background-color: $chatRemoteMessageBackgroundColor;
-        border-radius: 0px 6px 6px 6px;
+        border-radius: 20px;
         display: inline-block;
-        margin-top: 3px;
+        margin-top: 8px;
         color: white;
 
         &.privatemessage {

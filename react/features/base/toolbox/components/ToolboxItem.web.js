@@ -58,6 +58,7 @@ export default class ToolboxItem extends AbstractToolboxItem<Props> {
      */
     _renderItem() {
         const {
+            anotherCustomClass,
             disabled,
             elementAfter,
             onClick,
@@ -70,7 +71,7 @@ export default class ToolboxItem extends AbstractToolboxItem<Props> {
             'aria-pressed': toggled,
             'aria-disabled': disabled,
             'aria-label': this.accessibilityLabel,
-            className: className + (disabled ? ' disabled' : ''),
+            className: className + (disabled ? ' disabled' : '') + (anotherCustomClass ? ` ${anotherCustomClass}` : ''),
             onClick: disabled ? undefined : onClick,
             onKeyDown: this._onKeyDown,
             tabIndex: 0,

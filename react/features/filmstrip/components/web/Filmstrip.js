@@ -144,22 +144,22 @@ class Filmstrip extends Component <Props> {
         let remoteVideoContainerClassName = 'remote-videos-container';
 
         switch (this.props._currentLayout) {
-        case LAYOUTS.VERTICAL_FILMSTRIP_VIEW:
+            case LAYOUTS.VERTICAL_FILMSTRIP_VIEW:
             // Adding 18px for the 2px margins, 2px borders on the left and right and 5px padding on the left and right.
             // Also adding 7px for the scrollbar.
-            filmstripStyle.maxWidth = (interfaceConfig.FILM_STRIP_MAX_HEIGHT || 120) + 25;
-            break;
-        case LAYOUTS.TILE_VIEW: {
+                filmstripStyle.maxWidth = (interfaceConfig.FILM_STRIP_MAX_HEIGHT || 120) + 25;
+                break;
+            case LAYOUTS.TILE_VIEW: {
             // The size of the side margins for each tile as set in CSS.
-            const { _columns, _rows, _filmstripWidth } = this.props;
+                const { _columns, _rows, _filmstripWidth } = this.props;
 
-            if (_rows > _columns) {
-                remoteVideoContainerClassName += ' has-overflow';
+                if (_rows > _columns) {
+                    remoteVideoContainerClassName += ' has-overflow';
+                }
+
+                filmstripRemoteVideosContainerStyle.width = _filmstripWidth;
+                break;
             }
-
-            filmstripRemoteVideosContainerStyle.width = _filmstripWidth;
-            break;
-        }
         }
 
         let remoteVideosWrapperClassName = 'filmstrip__videos';
@@ -292,10 +292,10 @@ function _mapStateToProps(state) {
     const reduceHeight
         = state['features/toolbox'].visible && interfaceConfig.TOOLBAR_BUTTONS.length;
     const remoteVideosVisible = shouldRemoteVideosBeVisible(state);
-    const { isOpen: shiftRight } = state['features/chat'];
+
     const className = `${remoteVideosVisible ? '' : 'hide-videos'} ${
         reduceHeight ? 'reduce-height' : ''
-    } ${shiftRight ? 'shift-right' : ''}`.trim();
+    }`.trim();
     const videosClassName = `filmstrip__videos${visible ? '' : ' hidden'}`;
     const { gridDimensions = {}, filmstripWidth } = state['features/filmstrip'].tileViewDimensions;
 

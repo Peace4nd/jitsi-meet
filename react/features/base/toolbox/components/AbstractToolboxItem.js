@@ -24,7 +24,7 @@ export type Styles = {
     /**
      * Color for the item underlay (shows when clicked).
      */
-    underlayColor: ?string
+    underlayColor: ?string,
 };
 
 export type Props = {
@@ -107,7 +107,9 @@ export type Props = {
     /**
      * Whether this item is visible or not.
      */
-    visible: boolean
+    visible: boolean,
+
+    anotherCustomClass: ?string
 };
 
 /**

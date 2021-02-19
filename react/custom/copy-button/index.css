@@ -1,0 +1,56 @@
+.copy_link {
+	background-color: #605fd2;
+	border-radius: 20px;
+	padding: 0 20px;
+	position: relative;
+	white-space: nowrap;
+	transition: 0.4s;
+}
+
+.copy_link:hover {
+	background-color: #958cff;
+}
+
+.copy_link.success .label {
+	opacity: 0;
+}
+.copy_link.success .check {
+	opacity: 1;
+}
+.copy_link.success .tooltip {
+	top: -40px;
+	opacity: 1;
+}
+
+.copy_link .label {
+	color: #fff;
+	font-size: 14px;
+	opacity: 1;
+	transition-property: opacity;
+	transition-duration:  0.4s;
+	transition-timing-function: ease-in-out;
+}
+
+.copy_link .check {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	opacity: 0;
+	transition-property: opacity;
+	transition-duration:  0.4s;
+	transition-timing-function: ease-in-out;
+	color: #fff;
+}
+
+.copy_link .tooltip {
+	position: absolute;
+	top: 0px;
+	width: auto;
+	opacity: 0;
+	color: #fff;
+	transition-property: top, opacity;
+	transition-duration:  0.4s;
+	transition-timing-function: ease-in-out;
+	pointer-events: none;
+}

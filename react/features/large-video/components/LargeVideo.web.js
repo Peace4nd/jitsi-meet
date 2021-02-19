@@ -63,7 +63,7 @@ class LargeVideo extends Component<Props> {
      */
     render() {
         const style = this._getCustomSyles();
-        const className = `videocontainer${this.props._isChatOpen ? ' shift-right' : ''}`;
+        const className = 'videocontainer';
 
         return (
             <div
@@ -71,7 +71,7 @@ class LargeVideo extends Component<Props> {
                 id = 'largeVideoContainer'
                 style = { style }>
                 <Subject />
-                <InviteMore />
+                {/* <InviteMore />*/}
                 <div id = 'sharedVideo'>
                     <div id = 'sharedVideoIFrame' />
                 </div>

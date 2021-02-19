@@ -53,28 +53,28 @@ StateListenerRegistry.register(
         const state = store.getState();
 
         switch (layout) {
-        case LAYOUTS.TILE_VIEW: {
-            const { clientHeight, clientWidth } = state['features/base/responsive-ui'];
+            case LAYOUTS.TILE_VIEW: {
+                const { clientHeight, clientWidth } = state['features/base/responsive-ui'];
 
-            store.dispatch(
-                setTileViewDimensions(
-                    getTileViewGridDimensions(state),
-                    {
-                        clientHeight,
-                        clientWidth
-                    },
-                    store
-                )
-            );
-            break;
-        }
-        case LAYOUTS.HORIZONTAL_FILMSTRIP_VIEW:
-            store.dispatch(setHorizontalViewDimensions(state['features/base/responsive-ui'].clientHeight));
-            break;
-        case LAYOUTS.VERTICAL_FILMSTRIP_VIEW:
+                store.dispatch(
+                    setTileViewDimensions(
+                        getTileViewGridDimensions(state),
+                        {
+                            clientHeight,
+                            clientWidth
+                        },
+                        store
+                    )
+                );
+                break;
+            }
+            case LAYOUTS.HORIZONTAL_FILMSTRIP_VIEW:
+                store.dispatch(setHorizontalViewDimensions(state['features/base/responsive-ui'].clientHeight));
+                break;
+            case LAYOUTS.VERTICAL_FILMSTRIP_VIEW:
             // Once the thumbnails are reactified this should be moved there too.
-            Filmstrip.resizeThumbnailsForVerticalView();
-            break;
+                Filmstrip.resizeThumbnailsForVerticalView();
+                break;
         }
     });
 
@@ -100,9 +100,10 @@ StateListenerRegistry.register(
 /**
  * Listens for changes in the chat state to calculate the dimensions of the tile view grid and the tiles.
  */
+/*
 StateListenerRegistry.register(
-    /* selector */ state => state['features/chat'].isOpen,
-    /* listener */ (isChatOpen, store) => {
+    state => state['features/chat'].isOpen,//selector
+     (isChatOpen, store) => {//listener
         const state = store.getState();
 
         if (isChatOpen) {
@@ -129,6 +130,7 @@ StateListenerRegistry.register(
             );
         }
     });
+    */
 
 /**
  * Listens for changes in the client width to determine whether the overflow menu(s) should be displayed as drawers.

@@ -88,7 +88,7 @@ class ToolbarButton extends AbstractToolbarButton<Props> {
             <div
                 aria-label = { this.props.accessibilityLabel }
                 aria-pressed = { this.props.toggled }
-                className = 'toolbox-button'
+                className = { `toolbox-button ${this.props.className || ''}` }
                 onClick = { this.props.onClick }
                 onKeyDown = { this._onKeyDown }
                 role = 'button'
@@ -110,11 +110,15 @@ class ToolbarButton extends AbstractToolbarButton<Props> {
      * @inheritdoc
      */
     _renderIcon() {
+        const { icon, label, toggled } = this.props;
+
         return (
-            <div className = { `toolbox-icon ${this.props.toggled ? 'toggled' : ''}` }>
-                <Icon src = { this.props.icon } />
+            <div className = { `toolbox-icon ${toggled ? 'toggled' : ''}` }>
+                {icon && <Icon src = { icon } />}
+                {label}
             </div>
         );
+
     }
 }
 
