@@ -2,83 +2,100 @@
     &-container {
         position: relative;
 
-        .toolbox-icon {
-            //align-items: center;
-            //cursor: pointer;
-            //display: flex;
-            //background-color: #fff;
-            //border-radius: 50%;
-            //border: 1px solid #d1dbe8;
-            //justify-content: center;
-            //width: 38px;
-            //height: 38px;
+        .toolbox-button {
+            cursor: pointer;
 
-            /*&:hover {
-                background-color: #daebfa;
-                border: 1px solid #daebfa;
-            }
+            .toolbox-icon {
+                align-items: center;
+                background: $icwColorPrimary;
+                display: flex;
+                border-radius: $newToolbarSize / 2;
+                flex-direction: column;
+                font-size: 24px;
+                height: $newToolbarSize;
+                justify-content: center;
+                width: $newToolbarSize;
 
-            &.toggled {
-                background: #2a3a4b;
-                border: 1px solid #5e6d7a;
+                &:hover {
+                    background-color: $icwColorHighlight;
+                }
+
+                //align-items: center;
+                //cursor: pointer;
+                //display: flex;
+                //background-color: #fff;
+                //border-radius: 50%;
+                //border: 1px solid #d1dbe8;
+                //justify-content: center;
+                //width: 38px;
+                //height: 38px;
+
+                /*&:hover {
+                    background-color: #daebfa;
+                    border: 1px solid #daebfa;
+                }
+
+                &.toggled {
+                    background: #2a3a4b;
+                    border: 1px solid #5e6d7a;
+
+                    svg {
+                        fill: #fff;
+                    }
+
+                    &:hover {
+                        background-color: #5e6d7a;
+                    }
+                }
+
+                &.disabled, .disabled & {
+                    cursor: initial;
+                    color: #fff;
+                    background-color: #a4b8d1;
+
+                    &:hover {
+                        background-color: #a4b8d1;
+                    }
+                }
 
                 svg {
-                    fill: #fff;
-                }
-
-                &:hover {
-                    background-color: #5e6d7a;
-                }
+                    fill: #5e6d7a;
+                }*/
             }
-
-            &.disabled, .disabled & {
-                cursor: initial;
-                color: #fff;
-                background-color: #a4b8d1;
-
-                &:hover {
-                    background-color: #a4b8d1;
-                }
-            }
-
-            svg {
-                fill: #5e6d7a;
-            }*/
         }
     }
 
     &-small-icon {
+        align-items: center;
+        display: flex;
+        justify-content: center;
         background: #FFF;
-        border: 1px solid rgba(0, 0, 0, 0.2);
         border-radius: 50%;
         bottom: 0;
-        box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
         cursor: pointer;
-        height: 16px;
+        height: $icwToolboxButtonMore;
         position: absolute;
-        text-align: center;
-        right: 4px;
-        width: 16px;
+        right: $icwToolboxButtonGap - ($icwToolboxButtonMore / 2);
+        width: $icwToolboxButtonMore;
+        transform: scale(1);
+        transform-origin: center;
+        transition-property: transform;
+        transition-duration: 250ms;
+        transition-timing-function: ease-in-out;
 
         &> svg {
             fill: #5e6d7a;
-            margin-top: 5px;
+            height: $icwToolboxButtonMore / 2;
+            width: $icwToolboxButtonMore / 2;
         }
 
-        &--disabled {
+        &.disabled {
             background-color: #a4b8d1;
             cursor: default;
         }
 
-        &--hovered {
-            bottom: -1px;
-            height: 20px;
-            right: 2px;
-            width: 20px;
-
-            &> svg {
-                margin-top: 6px;
-            }
+        &:hover {
+            transform: scale(1.15);
         }
     }
 }

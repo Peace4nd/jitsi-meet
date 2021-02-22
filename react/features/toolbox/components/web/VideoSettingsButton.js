@@ -2,8 +2,8 @@
 
 import React, { Component } from 'react';
 
+import { IconIcewarpButtonArrowDown } from '../../../../custom/icons';
 import { isMobileBrowser } from '../../../base/environment/utils';
-import { IconArrowDown } from '../../../base/icons';
 import JitsiMeetJS from '../../../base/lib-jitsi-meet/_';
 import { connect } from '../../../base/redux';
 import { ToolboxButtonWithIcon } from '../../../base/toolbox/components';
@@ -142,7 +142,7 @@ class VideoSettingsButton extends Component<Props, State> {
         return visible ? (
             <VideoSettingsPopup>
                 <ToolboxButtonWithIcon
-                    icon = { IconArrowDown }
+                    icon = { IconIcewarpButtonArrowDown }
                     iconDisabled = { this._isIconDisabled() }
                     onIconClick = { onVideoOptionsClick }>
                     <VideoMuteButton />

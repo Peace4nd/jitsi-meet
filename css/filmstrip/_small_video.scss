@@ -3,7 +3,7 @@
     position: relative;
     background-size: contain;
     border: $thumbnailVideoBorder solid transparent;
-    border-radius: $borderRadius;
+    border-radius: $icwThumbnailRadius;
     margin: 0 $thumbnailVideoMargin;
 
     &.videoContainerFocused, &:hover {
@@ -39,7 +39,7 @@
 
     & > video {
         cursor: hand;
-        border-radius: $borderRadius;
+        border-radius: $icwThumbnailRadius;
         object-fit: cover;
         overflow: hidden;
     }

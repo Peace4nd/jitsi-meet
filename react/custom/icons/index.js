@@ -16,3 +16,4 @@ export { default as IconIcewarpMenuBandwidth } from './menu-bandwidth.svg';
 export { default as IconIcewarpMenuDevice } from './menu-device.svg';
 export { default as IconIcewarpMenuFlip } from './menu-flip.svg';
 export { default as IconIcewarpMenuHand } from './menu-hand.svg';
+export { default as IconIcewarpButtonArrowDown } from './button-arrow-down.svg';

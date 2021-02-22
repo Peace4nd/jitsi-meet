@@ -199,11 +199,7 @@
         }
 
         .settings-button-small-icon {
-            right: -8px;
-
-            &--hovered {
-                right: -10px;
-            }
+            right: -($icwToolboxButtonMore / 2);
         }
     }
 }

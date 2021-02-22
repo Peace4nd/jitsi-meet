@@ -2,7 +2,7 @@
 
 import React, { Component } from 'react';
 
-import { IconMicDisabled } from '../../../base/icons';
+import { IconIcewarpToolbarMuteOff } from '../../../../custom/icons';
 import { BaseIndicator } from '../../../base/react';
 
 /**
@@ -32,7 +32,7 @@ class AudioMutedIndicator extends Component<Props> {
         return (
             <BaseIndicator
                 className = 'audioMuted toolbar-icon'
-                icon = { IconMicDisabled }
+                icon = { IconIcewarpToolbarMuteOff }
                 iconId = 'mic-disabled'
                 iconSize = { 13 }
                 tooltipKey = 'videothumbnail.mute'

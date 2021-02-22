@@ -117,10 +117,12 @@ $icw-chat-offset: 48px;
 
 #chat-input {
     display: flex;
-    padding: 0 10px;
-    min-height: 38px;
+    box-sizing: border-box;
+    padding: 0 $icwChatInputPadding;
+    min-height: $icwChatInputHeight;
     border-radius: 19px;
-    border: 1px solid rgba(255, 255, 255, 0.35);
+    border: $icwChatInputBorder solid rgba(255, 255, 255, 0.35);
+    position: relative;
 
     * {
         background-color: transparent;
@@ -257,35 +259,27 @@ $icw-chat-offset: 48px;
 
 .smiley-input {
     display: flex;
-    position: relative;
 }
 
 .smileys-panel {
-    bottom: 100%;
-    box-sizing: border-box;
-    background-color: rgba(0, 0, 0, .6) !important;
+    bottom: $icwChatInputHeight + $icwChatInputPadding;
     height: auto;
     max-height: 0;
     overflow: hidden;
     position: absolute;
-    width: $sidebarWidth;
-
-    /**
-     * CSS transitions do not apply for auto dimensions. So to produce the css
-     * accordion effect for showing and hiding the smiley-panel, while allowing
-     * for variable panel, height, use a very large max-height and animate off
-     * of that.
-     */
-    transition: max-height 0.3s;
+    width: calc(100% + #{2 * $icwChatInputBorder});
+    left: -$icwChatInputBorder;
+    transition: max-height .375s ease-in-out;
 
     &.show-smileys {
         max-height: 500%;
     }
 
     #smileysContainer {
+        border: $icwChatInputBorder solid rgba(255, 255, 255, 0.35);
+        border-radius: $icwChatInputHeight / 2;
         background-color: $newToolbarBackgroundColor;
-        border-bottom: 1px solid;
-        border-top: 1px solid;
+        padding: $icwChatInputPadding;
     }
 }
 
