@@ -1,4 +1,4 @@
-.copy_link {
+.icw-button-copy {
 	background-color: #605fd2;
 	border-radius: 20px;
 	padding: 0 20px;
@@ -7,22 +7,22 @@
 	transition: 0.4s;
 }
 
-.copy_link:hover {
+.icw-button-copy:hover {
 	background-color: #958cff;
 }
 
-.copy_link.success .label {
+.icw-button-copy.success .label {
 	opacity: 0;
 }
-.copy_link.success .check {
+.icw-button-copy.success .check {
 	opacity: 1;
 }
-.copy_link.success .tooltip {
+.icw-button-copy.success .tooltip {
 	top: -40px;
 	opacity: 1;
 }
 
-.copy_link .label {
+.icw-button-copy .label {
 	color: #fff;
 	font-size: 14px;
 	opacity: 1;
@@ -31,7 +31,7 @@
 	transition-timing-function: ease-in-out;
 }
 
-.copy_link .check {
+.icw-button-copy .check {
 	position: absolute;
 	top: 50%;
 	left: 50%;
@@ -43,7 +43,7 @@
 	color: #fff;
 }
 
-.copy_link .tooltip {
+.icw-button-copy .tooltip {
 	position: absolute;
 	top: 0px;
 	width: auto;

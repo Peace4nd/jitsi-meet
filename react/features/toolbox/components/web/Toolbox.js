@@ -1356,8 +1356,6 @@ class Toolbox extends Component<Props, State> {
                             onClick = { this._onToolbarOpenInvite }
                             tooltip = { t('toolbar.invite') } /> }
                     { this._renderAudioButton() }
-                    <HangupButton
-                        visible = { this._shouldShowButton('hangup') } />
                     { this._renderVideoButton() }
                     { buttonsLeft.indexOf('desktop') !== -1
                         && this._renderDesktopSharingButton() }
@@ -1368,6 +1366,8 @@ class Toolbox extends Component<Props, State> {
                             onClick = { this._onToolbarToggleRaiseHand }
                             toggled = { _raisedHand }
                             tooltip = { t('toolbar.raiseHand') } /> }
+                    <HangupButton
+                        visible = { this._shouldShowButton('hangup') } />
                 </div>
                 <div className = 'button-group-right'>
                     { buttonsRight.indexOf('localrecording') !== -1

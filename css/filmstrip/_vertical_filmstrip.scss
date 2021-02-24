@@ -40,7 +40,7 @@
     z-index: $filmstripVideosZ;
 
     &.reduce-height {
-        height: calc(100% - #{$newToolbarSizeWithPadding});
+        height: calc(100% - #{$newToolbarSize + $icwToolboxPadding});
     }
 
     /**

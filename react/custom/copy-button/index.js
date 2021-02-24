@@ -77,7 +77,7 @@ export default class CopyButton extends React.Component<Props, State> {
                 className = 'toolbox-button'
                 onClick = { this._onClick }
                 ref = { this.buttonRef }>
-                <div className = { `copy_link${clicked ? ' success' : ''}` }>
+                <div className = { `icw-button-copy${clicked ? ' success' : ''}` }>
                     <span className = 'label'>{label}</span>
                     <svg
                         className = 'check'

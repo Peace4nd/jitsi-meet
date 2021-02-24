@@ -30,7 +30,7 @@
     }
 
     &.reduce-height {
-        bottom: calc(#{$newToolbarSizeWithPadding} + #{$scrollHeight});
+        bottom: $newToolbarSize + $icwToolboxPadding + $scrollHeight;
     }
 
     &__videos {
