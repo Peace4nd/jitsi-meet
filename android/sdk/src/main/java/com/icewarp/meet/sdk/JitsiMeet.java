@@ -21,6 +21,9 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import com.facebook.react.ReactInstanceManager;
+import com.facebook.react.bridge.Arguments;
+import com.facebook.react.bridge.ReadableMap;
+import com.facebook.react.bridge.WritableMap;
 
 import org.devio.rn.splashscreen.SplashScreen;
 import com.icewarp.meet.sdk.log.JitsiMeetLogger;
@@ -96,5 +99,52 @@ public class JitsiMeet {
         } catch (Exception e) {
             JitsiMeetLogger.e(e, "Failed to show splash screen");
         }
+    }
+
+    /**
+     * Emit event in React Native
+     *
+     * @param name - Event name
+     * @param params - Event params
+     */
+    public static void emitEvent(String name, ReadableMap params) {
+        // init
+        WritableMap map = Arguments.createMap();
+        // prepare data
+        map.putString("name", name);
+        map.putMap("params", params);
+        // emit event with provided data
+        ReactInstanceManagerHolder.emitEvent("ICW_EVENT_EMITTER", map);
+    }
+
+    /**
+     * Emit event in React Native
+     *
+     * @param name - Event name
+     * @param params - Event params
+     */
+    public static void emitEvent(String name, Bundle params) {
+        // init
+        WritableMap map = Arguments.createMap();
+        // prepare data
+        map.putString("name", name);
+        map.putMap("params", Arguments.fromBundle(params));
+        // emit event with provided data
+        ReactInstanceManagerHolder.emitEvent("ICW_EVENT_EMITTER", map);
+    }
+
+    /**
+     * Emit event in React Native
+     *
+     * @param name - Event name
+     */
+    public static void emitEvent(String name) {
+        // init
+        WritableMap map = Arguments.createMap();
+        // prepare data
+        map.putString("name", name);
+        map.putMap("params", null);
+        // emit event with provided data
+        ReactInstanceManagerHolder.emitEvent("ICW_EVENT_EMITTER", map);
     }
 }

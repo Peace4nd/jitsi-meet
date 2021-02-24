@@ -8,6 +8,7 @@ import { translate } from '../../../base/i18n';
 import { connect } from '../../../base/redux';
 import { AbstractButton, type AbstractButtonProps } from '../../../base/toolbox/components';
 import { isLocalVideoTrackDesktop } from '../../../base/tracks/functions';
+import { ENTER_PICTURE_IN_PICTURE } from '../actionTypes';
 import { enterPictureInPicture } from '../actions';
 
 type Props = AbstractButtonProps & {
@@ -38,7 +39,11 @@ class PictureInPictureButton extends AbstractButton<Props, *> {
      * @returns {void}
      */
     _handleClick() {
-        this.props.dispatch(enterPictureInPicture());
+        NativeModules.IcewarpCallback.onEnterPipMode().then(() => {
+            this.props.dispatch({ type: ENTER_PICTURE_IN_PICTURE });
+        });
+
+        // this.props.dispatch(enterPictureInPicture());
     }
 
     /**

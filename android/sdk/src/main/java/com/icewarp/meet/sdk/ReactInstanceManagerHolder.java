@@ -73,7 +73,9 @@ class ReactInstanceManagerHolder {
                 new ProximityModule(reactContext),
                 new WiFiStatsModule(reactContext),
                 new RNStaticSafeAreaInsetsModule(reactContext),
-                new com.icewarp.meet.sdk.net.NAT64AddrInfoModule(reactContext)));
+                new com.icewarp.meet.sdk.net.NAT64AddrInfoModule(reactContext),
+                new IcewarpCallbackModule(reactContext)
+            ));
 
         if (AudioModeModule.useConnectionService()) {
             nativeModules.add(new RNConnectionService(reactContext));

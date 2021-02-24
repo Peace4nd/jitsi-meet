@@ -15,3 +15,15 @@ Pro nastavení "invite URL" slouzi metoda `setInviteURL()`.
 | `tile-view.enabled`       | boolean | `false`         | Povolí/zakáže zobrazovat dlaždice pro více jak dva účastníky |
 | `private-message.enabled` | boolean | `false`         | Povolení/zakázání odesílání soukromých zpráv                 |
 
+## Moznost prenaset udalosti z javy do javascriptu
+
+```javascript
+if (Platform.OS === 'android') {
+    // emitter
+    const eventEmitter = new NativeEventEmitter();
+    // listener
+    eventEmitter.addListener('ICW_EVENT_EMITTER', event => {
+        console.log(event);
+    });
+}
+```

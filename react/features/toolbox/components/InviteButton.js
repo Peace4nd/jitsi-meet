@@ -1,4 +1,5 @@
 // @flow
+import { NativeModules } from 'react-native';
 
 import { IconIcewarpToolbarInvite } from '../../../custom/icons';
 import { translate } from '../../base/i18n';
@@ -37,7 +38,9 @@ class InviteButton extends AbstractButton<Props, *> {
      * @returns {void}
      */
     _handleClick() {
-        this.props.dispatch(doInvitePeople());
+        NativeModules.IcewarpCallback.onInvite();
+
+        // this.props.dispatch(doInvitePeople());
     }
 
     /**
