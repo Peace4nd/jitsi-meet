@@ -39,11 +39,13 @@ class PictureInPictureButton extends AbstractButton<Props, *> {
      * @returns {void}
      */
     _handleClick() {
-        NativeModules.IcewarpCallback.onEnterPipMode().then(() => {
-            this.props.dispatch({ type: ENTER_PICTURE_IN_PICTURE });
-        });
-
-        // this.props.dispatch(enterPictureInPicture());
+        if (Platform.OS === 'android') {
+            NativeModules.IcewarpCallback.onEnterPipMode().then(() => {
+                this.props.dispatch({ type: ENTER_PICTURE_IN_PICTURE });
+            });
+        } else {
+            this.props.dispatch(enterPictureInPicture());
+        }
     }
 
     /**

@@ -1,5 +1,5 @@
 // @flow
-import { NativeModules } from 'react-native';
+import { NativeModules, Platform } from 'react-native';
 
 import { IconIcewarpToolbarInvite } from '../../../custom/icons';
 import { translate } from '../../base/i18n';
@@ -38,9 +38,11 @@ class InviteButton extends AbstractButton<Props, *> {
      * @returns {void}
      */
     _handleClick() {
-        NativeModules.IcewarpCallback.onInvite();
-
-        // this.props.dispatch(doInvitePeople());
+        if (Platform.OS === 'android') {
+            NativeModules.IcewarpCallback.onInvite();
+        } else {
+            this.props.dispatch(doInvitePeople());
+        }
     }
 
     /**
