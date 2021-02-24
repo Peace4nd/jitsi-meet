@@ -16,6 +16,7 @@ export default function ScreenShareIndicator() {
     return (
         <BaseIndicator
             highlight = { false }
+            icon = { IconShareDesktop }
             style = { styles.thumbnailIndicatorIcon } />
     );
 }
