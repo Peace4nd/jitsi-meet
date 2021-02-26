@@ -124,10 +124,6 @@ class Toolbox extends PureComponent<Props> {
                     showLabel = { true }
                     styles = { buttonStyles }
                     toggledStyles = { toggledButtonStyles } />
-                <HangupButton
-                    labelBottom = { true }
-                    showLabel = { true }
-                    styles = { hangupButtonStyles } />
                 <VideoMuteButton
                     labelBottom = { true }
                     showLabel = { true }
@@ -138,6 +134,10 @@ class Toolbox extends PureComponent<Props> {
                     showLabel = { true }
                     styles = { buttonStyles }
                     toggledStyles = { toggledButtonStyles } />
+                <HangupButton
+                    labelBottom = { true }
+                    showLabel = { true }
+                    styles = { hangupButtonStyles } />
             </View>
         );
     }
