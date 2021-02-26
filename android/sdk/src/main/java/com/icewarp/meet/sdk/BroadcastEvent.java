@@ -81,6 +81,8 @@ public class BroadcastEvent {
         AUDIO_MUTED_CHANGED("com.icewarp.meet.AUDIO_MUTED_CHANGED"),
         PARTICIPANT_JOINED("com.icewarp.meet.PARTICIPANT_JOINED"),
         PARTICIPANT_LEFT("com.icewarp.meet.PARTICIPANT_LEFT"),
+        ENTER_PIP_MODE("com.icewarp.meet.ENTER_PIP_MODE"),
+        SHOW_INVITE("com.icewarp.meet.SHOW_INVITE"),
         ENDPOINT_TEXT_MESSAGE_RECEIVED("com.icewarp.meet.ENDPOINT_TEXT_MESSAGE_RECEIVED"),
         SCREEN_SHARE_TOGGLED("com.icewarp.meet.SCREEN_SHARE_TOGGLED");
 
@@ -92,6 +94,8 @@ public class BroadcastEvent {
         private static final String PARTICIPANT_LEFT_NAME = "PARTICIPANT_LEFT";
         private static final String ENDPOINT_TEXT_MESSAGE_RECEIVED_NAME = "ENDPOINT_TEXT_MESSAGE_RECEIVED";
         private static final String SCREEN_SHARE_TOGGLED_NAME= "SCREEN_SHARE_TOGGLED";
+        private static final String ENTER_PIP_MODE_NAME = "ENTER_PIP_MODE";
+        private static final String SHOW_INVITE_NAME = "SHOW_INVITE";
 
         private final String action;
 
@@ -130,6 +134,10 @@ public class BroadcastEvent {
                     return ENDPOINT_TEXT_MESSAGE_RECEIVED;
                 case SCREEN_SHARE_TOGGLED_NAME:
                     return SCREEN_SHARE_TOGGLED;
+                case ENTER_PIP_MODE_NAME:
+                    return ENTER_PIP_MODE;
+                case SHOW_INVITE_NAME:
+                    return SHOW_INVITE;                    
             }
 
             return null;

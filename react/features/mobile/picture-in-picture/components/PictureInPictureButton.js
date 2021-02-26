@@ -8,6 +8,7 @@ import { translate } from '../../../base/i18n';
 import { connect } from '../../../base/redux';
 import { AbstractButton, type AbstractButtonProps } from '../../../base/toolbox/components';
 import { isLocalVideoTrackDesktop } from '../../../base/tracks/functions';
+import { sendEvent } from '../../../mobile/external-api';
 import { ENTER_PICTURE_IN_PICTURE } from '../actionTypes';
 import { enterPictureInPicture } from '../actions';
 
@@ -17,6 +18,8 @@ type Props = AbstractButtonProps & {
      * Whether Picture-in-Picture is enabled or not.
      */
     _enabled: boolean,
+
+    _sendEvent: Function;
 
     /**
      * The redux {@code dispatch} function.
@@ -40,9 +43,7 @@ class PictureInPictureButton extends AbstractButton<Props, *> {
      */
     _handleClick() {
         if (Platform.OS === 'android') {
-            NativeModules.IcewarpCallback.onEnterPipMode().then(() => {
-                this.props.dispatch({ type: ENTER_PICTURE_IN_PICTURE });
-            });
+            this.props._sendEvent();
         } else {
             this.props.dispatch(enterPictureInPicture());
         }
@@ -79,7 +80,10 @@ function _mapStateToProps(state): Object {
     }
 
     return {
-        _enabled: enabled
+        _enabled: enabled,
+        _sendEvent: () => {
+            sendEvent(state, 'ENTER_PIP_MODE', { url: '' });
+        }
     };
 }
 

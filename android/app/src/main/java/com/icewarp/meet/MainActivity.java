@@ -27,6 +27,7 @@ import android.os.Bundle;
 import android.provider.Settings;
 import android.util.Log;
 import android.view.KeyEvent;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
@@ -187,6 +188,24 @@ public class MainActivity extends JitsiMeetActivity {
     @Override
     protected void onConferenceTerminated(HashMap<String, Object> extraData) {
         Log.d(TAG, "Conference terminated: " + extraData);
+    }
+
+    @Override
+    protected void onEnterPipMode(HashMap<String, Object> extraData) {
+        Log.d(TAG, "Entering PiP mode: " + extraData);
+
+        Context context = getApplicationContext();
+        Toast toast = Toast.makeText(context, "PiP", Toast.LENGTH_LONG);
+        toast.show();
+    }
+
+    @Override
+    protected void onShowInvite(HashMap<String, Object> extraData) {
+        Log.d(TAG, "Invite: " + extraData);
+
+        Context context = getApplicationContext();
+        Toast toast = Toast.makeText(context, "Invite", Toast.LENGTH_LONG);
+        toast.show();
     }
 
     // Activity lifecycle method overrides

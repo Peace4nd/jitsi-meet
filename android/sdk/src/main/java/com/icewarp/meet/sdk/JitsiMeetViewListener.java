@@ -42,6 +42,10 @@ public interface JitsiMeetViewListener {
      */
     void onConferenceTerminated(Map<String, Object> data);
 
+    void onEnterPipMode(Map<String, Object> data);
+    
+    void onShowInvite(Map<String, Object> data);
+
     /**
      * Called before the conference is joined.
      *

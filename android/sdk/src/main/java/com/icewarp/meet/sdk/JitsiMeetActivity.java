@@ -193,6 +193,14 @@ public class JitsiMeetActivity extends FragmentActivity
         finish();
     }
 
+    protected void onEnterPipMode(HashMap<String, Object> extraData) {
+        JitsiMeetLogger.i("Entering PiP mode: " + extraData);
+    }
+
+    protected void onShowInvite(HashMap<String, Object> extraData) {
+        JitsiMeetLogger.i("Invite: " + extraData);
+    }
+
     protected void onConferenceWillJoin(HashMap<String, Object> extraData) {
         JitsiMeetLogger.i("Conference will join: " + extraData);
     }
@@ -293,6 +301,12 @@ public class JitsiMeetActivity extends FragmentActivity
                     break;
                 case PARTICIPANT_LEFT:
                     onParticipantLeft(event.getData());
+                    break;
+                case ENTER_PIP_MODE:
+                    onEnterPipMode(event.getData());
+                    break;
+                case SHOW_INVITE:
+                    onShowInvite(event.getData());
                     break;
             }
         }
