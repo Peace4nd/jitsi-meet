@@ -17,8 +17,8 @@ const { RNStaticSafeAreaInsets } = NativeModules;
  * @returns {void}
  */
 export function getToolboxHeight(cb: Function) {
-    getSafeAreaBottomInset(inset => {
-        cb((icw.padding * 4) + calcButtonSize() + (icw.padding / 2) + MD_FONT_SIZE + inset);
+    getSafeAreaBottomInset(insets => {
+        cb((icw.padding * 4) + calcButtonSize() + (icw.padding / 2) + MD_FONT_SIZE + insets.bottom);
     });
 }
 
@@ -30,12 +30,33 @@ export function getToolboxHeight(cb: Function) {
  */
 export function getSafeAreaBottomInset(cb: Function) {
     if (Platform.OS === 'ios') {
+        // pocatecni nastaveni
+        RNStaticSafeAreaInsets.getSafeAreaInsets(values => {
+            cb({
+                top: values.safeAreaInsetsTop,
+                bottom: values.safeAreaInsetsBottom,
+                left: values.safeAreaInsetsLeft,
+                right: values.safeAreaInsetsRight
+            });
+        });
+
+        // zmena modu zobrazeni
         Dimensions.addEventListener('change', () => {
             RNStaticSafeAreaInsets.getSafeAreaInsets(values => {
-                cb(values.safeAreaInsetsBottom);
+                cb({
+                    top: values.safeAreaInsetsTop,
+                    bottom: values.safeAreaInsetsBottom,
+                    left: values.safeAreaInsetsLeft,
+                    right: values.safeAreaInsetsRight
+                });
             });
         });
     } else {
-        cb(0);
+        cb({
+            top: 0,
+            bottom: 0,
+            left: 0,
+            right: 0
+        });
     }
 }

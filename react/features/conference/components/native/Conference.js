@@ -104,9 +104,7 @@ const safeAreaStyles = StyleSheet.create({
     view: {
         backgroundColor: icw.background.base,
         bottom: 0,
-        left: 0,
-        position: 'absolute',
-        right: 0
+        position: 'absolute'
     }
 });
 
@@ -126,7 +124,7 @@ class Conference extends AbstractConference<Props, *> {
         // default state
         this.state = {
             keyboard: false,
-            inset: 0
+            insets: null
         };
 
         // Bind event handlers so they are only bound once per instance.
@@ -157,9 +155,9 @@ class Conference extends AbstractConference<Props, *> {
         }, this.props._timeout);
 
         // bottom inset
-        getSafeAreaBottomInset(inset => {
+        getSafeAreaBottomInset(insets => {
             this.setState({
-                inset
+                insets
             });
         });
     }
@@ -305,6 +303,7 @@ class Conference extends AbstractConference<Props, *> {
             _shouldDisplayTileView,
             _toolboxVisible
         } = this.props;
+        const { insets } = this.state;
         const showGradient = _toolboxVisible;
         const applyGradientStretching
             = _filmstripVisible && _aspectRatio === ASPECT_RATIO_NARROW && !_shouldDisplayTileView;
@@ -359,7 +358,10 @@ class Conference extends AbstractConference<Props, *> {
                             applyGradientStretching ? styles.gradientStretchBottom : undefined
                         ] } />}
 
-                    { showGradient && <View style = { [ safeAreaStyles.view, { height: this.state.inset } ] } /> }
+                    { showGradient && <View
+                        style = { [ safeAreaStyles.view, { height: insets?.bottom,
+                            left: insets?.left,
+                            right: insets?.right } ] } /> }
 
                     <Captions onPress = { this._onClick } />
 
