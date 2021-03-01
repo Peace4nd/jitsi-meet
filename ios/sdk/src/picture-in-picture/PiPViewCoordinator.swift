@@ -38,6 +38,7 @@ public class PiPViewCoordinator {
                                                             right: 5) {
         didSet {
             dragController.insets = dragBoundInsets
+            self.dragBoundInsetsChanged(oldValue: oldValue)
         }
     }
 
@@ -56,11 +57,10 @@ public class PiPViewCoordinator {
     
     public weak var delegate: PiPViewCoordinatorDelegate?
 
-    private(set) var isInPiP: Bool = false // true if view is in PiP mode
-
-    private(set) var view: UIView
+    public private(set) var isInPiP: Bool = false // true if view is in PiP mode
+    public private(set) var view: UIView
+    
     private var currentBounds: CGRect = CGRect.zero
-
     private var tapGestureRecognizer: UITapGestureRecognizer?
     private var exitPiPButton: UIButton?
     private var closePiPButton: UIButton?
@@ -180,6 +180,24 @@ public class PiPViewCoordinator {
     public func stopDragGesture() {
         dragController.stopDragListener()
     }
+    
+    /// Move picture in picture to position
+    public func movePictureInPictureTo(position: Position) {
+        guard isInPiP else {
+            return
+        }
+        
+        let bounds = currentBounds
+        
+        // resize to suggested ratio and position to the bottom right
+        let adjustedBounds = bounds.inset(by: dragBoundInsets)
+        let size = CGSize(width: 150, height: 150)
+        let origin = initialPositionFor(pipSize: size, bounds: adjustedBounds, position: position)
+        
+        UIView.animate(withDuration: 0.25) {
+            self.view.frame.origin = origin
+        }
+    }
 
     /// Customize the presentation of exit pip button
     open func configureExitPiPButton(target: Any,
@@ -259,12 +277,12 @@ public class PiPViewCoordinator {
         // resize to suggested ratio and position to the bottom right
         let adjustedBounds = bounds.inset(by: dragBoundInsets)
         let size = CGSize(width: 150, height: 150)
-        let origin = initialPositionFor(pipSize: size, bounds: adjustedBounds)
+        let origin = initialPositionFor(pipSize: size, bounds: adjustedBounds, position: initialPositionInSuperview)
         return CGRect(x: origin.x, y: origin.y, width: size.width, height: size.height)
     }
     
-    private func initialPositionFor(pipSize size: CGSize, bounds: CGRect) -> CGPoint {
-        switch initialPositionInSuperview {
+    private func initialPositionFor(pipSize size: CGSize, bounds: CGRect, position: Position) -> CGPoint {
+        switch position {
         case .lowerLeftCorner:
             return CGPoint(x: bounds.minX, y: bounds.maxY - size.height)
         case .lowerRightCorner:
@@ -273,6 +291,46 @@ public class PiPViewCoordinator {
             return CGPoint(x: bounds.minX, y: bounds.minY)
         case .upperRightCorner:
             return CGPoint(x: bounds.maxX - size.width, y: bounds.minY)
+        }
+    }
+    
+    private func dragBoundInsetsChanged(oldValue: UIEdgeInsets) {
+        guard isInPiP else {
+            return
+        }
+
+        let bounds = currentBounds
+        
+        let oldAdjustedBounds = bounds.inset(by: oldValue)
+        
+        var oldAdjustedBoundsCenter = oldAdjustedBounds.origin
+        oldAdjustedBoundsCenter.x += (oldAdjustedBounds.width / 2)
+        oldAdjustedBoundsCenter.y += (oldAdjustedBounds.height / 2)
+        
+        var currentPosition = self.initialPositionInSuperview
+        if self.view.center.y < oldAdjustedBoundsCenter.y {
+            //up
+            if self.view.center.x < oldAdjustedBoundsCenter.x {
+                currentPosition = .upperLeftCorner
+            } else {
+                currentPosition = .upperRightCorner
+            }
+        } else {
+            //down
+            if self.view.center.x < oldAdjustedBoundsCenter.x {
+                currentPosition = .lowerLeftCorner
+            } else {
+                currentPosition = .lowerRightCorner
+            }
+        }
+        
+        
+        let adjustedBounds = bounds.inset(by: dragBoundInsets)
+        let size = CGSize(width: 150, height: 150)
+        let origin = initialPositionFor(pipSize: size, bounds: adjustedBounds, position: currentPosition)
+        
+        UIView.animate(withDuration: 0.25) {
+            self.view.frame.origin = origin
         }
     }
 
