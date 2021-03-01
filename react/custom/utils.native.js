@@ -1,6 +1,6 @@
 // @flow
 
-import { NativeModules, Platform } from 'react-native';
+import { NativeModules, Platform, Dimensions } from 'react-native';
 
 import { MD_FONT_SIZE } from '../features/base/dialog/components/native/styles';
 import { calcButtonSize } from '../features/toolbox/components/native/styles';
@@ -13,21 +13,29 @@ const { RNStaticSafeAreaInsets } = NativeModules;
 /**
  * Toolbox height.
  *
- * @returns {number}
+ * @param {Function} cb - Callback.
+ * @returns {void}
  */
-export function getToolboxHeight() {
-    return (icw.padding * 4) + calcButtonSize() + (icw.padding / 2) + MD_FONT_SIZE + getSafeAreaBottomInset();
+export function getToolboxHeight(cb: Function) {
+    getSafeAreaBottomInset(inset => {
+        cb((icw.padding * 4) + calcButtonSize() + (icw.padding / 2) + MD_FONT_SIZE + inset);
+    });
 }
 
 /**
  * Safe area bottom inset.
  *
- * @returns {number}
+ * @param {Function} cb - Callback.
+ * @returns {void}
  */
-export function getSafeAreaBottomInset() {
+export function getSafeAreaBottomInset(cb: Function) {
     if (Platform.OS === 'ios') {
-        return RNStaticSafeAreaInsets.safeAreaInsetsBottom;
+        Dimensions.addEventListener('change', () => {
+            RNStaticSafeAreaInsets.getSafeAreaInsets(values => {
+                cb(values.safeAreaInsetsBottom);
+            });
+        });
+    } else {
+        cb(0);
     }
-
-    return 0;
 }

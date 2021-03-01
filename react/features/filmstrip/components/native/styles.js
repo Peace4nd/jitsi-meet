@@ -45,7 +45,7 @@ export default {
      * to {@code FILMSTRIP_SIZE}.
      */
     filmstripWide: {
-        bottom: 230,
+        bottom: 200,
         flexDirection: 'column',
         flexGrow: 0,
         position: 'absolute',

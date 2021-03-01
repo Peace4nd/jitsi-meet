@@ -64,7 +64,7 @@ type Props = {
 /**
  * A component emulating Android's BottomSheet.
  */
-class BottomSheet extends PureComponent<Props> {
+class BottomSheet extends PureComponent<Props, *> {
     panResponder: Object;
 
     /**
@@ -75,10 +75,27 @@ class BottomSheet extends PureComponent<Props> {
     constructor(props: Props) {
         super(props);
 
+        this.state = {
+            bottomOffset: 0
+        };
+
         this.panResponder = PanResponder.create({
             onStartShouldSetPanResponder: this._onShouldSetResponder.bind(this),
             onMoveShouldSetPanResponder: this._onShouldSetResponder.bind(this),
             onPanResponderRelease: this._onGestureEnd.bind(this)
+        });
+    }
+
+    /**
+     * Mount.
+     *
+     * @returns {void}
+     */
+    componentDidMount() {
+        getToolboxHeight(height => {
+            this.setState({
+                bottomOffset: height
+            });
         });
     }
 
@@ -92,11 +109,13 @@ class BottomSheet extends PureComponent<Props> {
         const { _styles, _visible, renderHeader, style } = this.props;
         const SlidingViewDone = _visible ? SlidingViewCustom : SlidingView;
 
+        console.log('OFFSET', this.state.bottomOffset);
+
         return (
             <SlidingViewDone
                 accessibilityRole = 'menu'
                 accessibilityViewIsModal = { true }
-                bottomOffset = { getToolboxHeight() }
+                bottomOffset = { this.state.bottomOffset }
                 onHide = { this.props.onCancel }
                 position = 'bottom'
                 show = { true }

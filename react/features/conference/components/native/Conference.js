@@ -90,6 +90,11 @@ type Props = AbstractProps & {
     _toolboxVisible: boolean,
 
     /**
+     * Hideout timer
+     */
+    _timeout: number,
+
+    /**
      * The redux {@code dispatch} function.
      */
     dispatch: Function
@@ -98,7 +103,6 @@ type Props = AbstractProps & {
 const safeAreaStyles = StyleSheet.create({
     view: {
         backgroundColor: icw.background.base,
-        height: getSafeAreaBottomInset(),
         bottom: 0,
         left: 0,
         position: 'absolute',
@@ -121,7 +125,8 @@ class Conference extends AbstractConference<Props, *> {
 
         // default state
         this.state = {
-            keyboard: false
+            keyboard: false,
+            inset: 0
         };
 
         // Bind event handlers so they are only bound once per instance.
@@ -145,6 +150,18 @@ class Conference extends AbstractConference<Props, *> {
         BackButtonRegistry.addListener(this._onHardwareBackPress);
         Keyboard.addListener('keyboardDidShow', this._keyboardDidShow);
         Keyboard.addListener('keyboardDidHide', this._keyboardDidHide);
+
+        // toolbox automatic hide
+        setTimeout(() => {
+            this._setToolboxVisible(false);
+        }, this.props._timeout);
+
+        // bottom inset
+        getSafeAreaBottomInset(inset => {
+            this.setState({
+                inset
+            });
+        });
     }
 
     /**
@@ -342,7 +359,7 @@ class Conference extends AbstractConference<Props, *> {
                             applyGradientStretching ? styles.gradientStretchBottom : undefined
                         ] } />}
 
-                    { showGradient && <View style = { safeAreaStyles.view } /> }
+                    { showGradient && <View style = { [ safeAreaStyles.view, { height: this.state.inset } ] } /> }
 
                     <Captions onPress = { this._onClick } />
 
@@ -453,7 +470,16 @@ class Conference extends AbstractConference<Props, *> {
      * @returns {void}
      */
     _setToolboxVisible(visible) {
-        this.props.dispatch(setToolboxVisible(visible));
+        if (visible) {
+            this.props.dispatch(setToolboxVisible(true));
+
+            /* setTimeout(() => {
+                this._setToolboxVisible(false);
+            }, this.props._timeout);*/
+        } else {
+            this.props.dispatch(setToolboxVisible(false));
+        }
+
     }
 }
 
@@ -486,6 +512,10 @@ function _mapStateToProps(state) {
     const connecting_
         = connecting || (connection && (!membersOnly && (joining || (!conference && !leaving))));
 
+
+    const toolbox = state['features/toolbox'];
+
+
     return {
         ...abstractMapStateToProps(state),
         _aspectRatio: aspectRatio,
@@ -495,7 +525,8 @@ function _mapStateToProps(state) {
         _largeVideoParticipantId: state['features/large-video'].participantId,
         _pictureInPictureEnabled: getFeatureFlag(state, PIP_ENABLED),
         _reducedUI: reducedUI,
-        _toolboxVisible: isToolboxVisible(state)
+        _toolboxVisible: isToolboxVisible(state),
+        _timeout: toolbox.timeoutMS
     };
 }
 

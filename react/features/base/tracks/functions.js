@@ -323,6 +323,19 @@ export function getTrackByMediaTypeAndParticipant(
 }
 
 /**
+ * Detect if screen is being shared.
+ *
+ * @param {Track[]} tracks - List of all tracks.
+ * @returns {boolean}
+ */
+export function isScreenShared(tracks) {
+    const sharing = tracks.find(t => t.mediaType === MEDIA_TYPE.VIDEO && t.videoType === VIDEO_TYPE.DESKTOP);
+
+    return Boolean(sharing);
+}
+
+
+/**
  * Returns the track if any which corresponds to a specific instance
  * of JitsiLocalTrack or JitsiRemoteTrack.
  *

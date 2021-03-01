@@ -5,6 +5,7 @@ import { ScrollView } from 'react-native';
 
 import { Container, Platform } from '../../../base/react';
 import { connect } from '../../../base/redux';
+import { isScreenShared } from '../../../base/tracks';
 import { isFilmstripVisible } from '../../functions';
 
 import LocalThumbnail from './LocalThumbnail';
@@ -159,12 +160,15 @@ class Filmstrip extends Component<Props> {
 function _mapStateToProps(state) {
     const participants = state['features/base/participants'];
     const { enabled } = state['features/filmstrip'];
+    const tracks = state['features/base/tracks'];
+    const { visible } = state['features/toolbox'];
+    const sharing = isScreenShared(tracks);
 
     return {
         _aspectRatio: state['features/base/responsive-ui'].aspectRatio,
         _enabled: enabled,
         _participants: participants.filter(p => !p.local),
-        _visible: isFilmstripVisible(state)
+        _visible: sharing ? visible : isFilmstripVisible(state)
     };
 }
 
