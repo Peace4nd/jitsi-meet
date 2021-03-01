@@ -43,25 +43,6 @@ export default class CopyButton extends React.Component<Props, State> {
     tooltipRef: *;
 
     /**
-     * Pripojeni komponenty.
-     *
-     * @returns {void}
-     */
-    componentDidMount() {
-
-        const button = this.buttonRef.current.getBoundingClientRect();
-        const tooltip = this.tooltipRef.current.getBoundingClientRect();
-
-
-        console.log(button);
-        console.log(tooltip);
-
-        this.setState({
-            position: (tooltip.width - button.width) / 2
-        });
-    }
-
-    /**
      * Render.
      *
      * @returns {React$Element<any>}
@@ -99,6 +80,32 @@ export default class CopyButton extends React.Component<Props, State> {
         );
     }
 
+    _calcPosition: () => number;
+
+    /**
+     * Vypocet pozice.
+     *
+     * @returns {number} Pozice.
+     */
+    _calcPosition() {
+        // definice
+        let button = 0;
+        let tooltip = 0;
+
+
+        // tlacitko
+        if (this.buttonRef.current) {
+            button = this.buttonRef.current.getBoundingClientRect().width;
+        }
+
+        // tooltip
+        if (this.tooltipRef.current) {
+            tooltip = this.tooltipRef.current.getBoundingClientRect().width;
+        }
+
+        // vypocet
+        return (tooltip - button) / 2;
+    }
 
     _onClick: () => void;
 
@@ -110,7 +117,8 @@ export default class CopyButton extends React.Component<Props, State> {
      */
     _onClick() {
         this.setState({
-            clicked: true
+            clicked: true,
+            position: this._calcPosition()
         }, () => {
             copyText(this.props.content);
             setTimeout(() => {
