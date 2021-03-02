@@ -2,7 +2,6 @@
 
 import React, { Component } from 'react';
 
-import { isTileViewEnabled } from '../../../custom/utils.any';
 import { NotificationsContainer } from '../../notifications/components';
 import { shouldDisplayTileView } from '../../video-layout';
 import { shouldDisplayNotifications } from '../functions';
@@ -77,6 +76,6 @@ export function abstractMapStateToProps(state: Object) {
     return {
         _notificationsVisible: shouldDisplayNotifications(state),
         _room: state['features/base/conference'].room,
-        _shouldDisplayTileView: isTileViewEnabled(state) ? shouldDisplayTileView(state) : false
+        _shouldDisplayTileView: shouldDisplayTileView(state)
     };
 }

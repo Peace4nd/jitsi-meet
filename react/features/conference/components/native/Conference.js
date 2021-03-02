@@ -16,6 +16,7 @@ import { connect } from '../../../base/redux';
 import { ASPECT_RATIO_NARROW } from '../../../base/responsive-ui/constants';
 import { TestConnectionInfo } from '../../../base/testing';
 import { ConferenceNotification, isCalendarEnabled } from '../../../calendar-sync';
+import { isTileViewEnabled } from '../../../custom/utils.any';
 import { DisplayNameLabel } from '../../../display-name';
 import { SharedDocument } from '../../../etherpad';
 import {
@@ -542,9 +543,10 @@ function _mapStateToProps(state) {
 
 
     const toolbox = state['features/toolbox'];
+    const abstract = abstractMapStateToProps(state);
 
     return {
-        ...abstractMapStateToProps(state),
+        ...abstract,
         _aspectRatio: aspectRatio,
         _calendarEnabled: isCalendarEnabled(state),
         _connecting: Boolean(connecting_),
@@ -554,7 +556,8 @@ function _mapStateToProps(state) {
         _reducedUI: reducedUI,
         _toolboxVisible: isToolboxVisible(state),
         _timeout: toolbox.timeoutMS,
-        _overflowVisible: isDialogOpen(state, OverflowMenu)
+        _overflowVisible: isDialogOpen(state, OverflowMenu),
+        _shouldDisplayTileView: isTileViewEnabled(state) ? abstract._shouldDisplayTileView : false
     };
 }
 
