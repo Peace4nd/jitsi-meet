@@ -9,6 +9,7 @@ import icw from '../../../../custom/constants';
 import IcewarpLoading from '../../../../custom/loading';
 import { getSafeAreaBottomInset } from '../../../../custom/utils';
 import { appNavigate } from '../../../app/actions';
+import { isDialogOpen } from '../../../base/dialog';
 import { PIP_ENABLED, getFeatureFlag } from '../../../base/flags';
 import { Container, TintedView } from '../../../base/react';
 import { connect } from '../../../base/redux';
@@ -30,6 +31,7 @@ import { BackButtonRegistry } from '../../../mobile/back-button';
 import { Captions } from '../../../subtitles';
 import { setToolboxVisible } from '../../../toolbox/actions';
 import { Toolbox } from '../../../toolbox/components/native';
+import OverflowMenu from '../../../toolbox/components/native/OverflowMenu';
 import { isToolboxVisible } from '../../../toolbox/functions';
 import {
     AbstractConference,
@@ -95,6 +97,11 @@ type Props = AbstractProps & {
     _timeout: number,
 
     /**
+    * Overfow menu visible
+    */
+    _overflowVisible: boolean,
+
+    /**
      * The redux {@code dispatch} function.
      */
     dispatch: Function
@@ -107,6 +114,8 @@ const safeAreaStyles = StyleSheet.create({
         position: 'absolute'
     }
 });
+
+let hideInterval = null;
 
 /**
  * The conference page of the mobile (i.e. React Native) application.
@@ -150,9 +159,7 @@ class Conference extends AbstractConference<Props, *> {
         Keyboard.addListener('keyboardDidHide', this._keyboardDidHide);
 
         // toolbox automatic hide
-        setTimeout(() => {
-            this._setToolboxVisible(false);
-        }, this.props._timeout);
+        this._toolboxHideTimeout();
 
         // bottom inset
         getSafeAreaBottomInset(insets => {
@@ -200,6 +207,8 @@ class Conference extends AbstractConference<Props, *> {
     _keyboardDidHide() {
         this.setState({
             keyboard: false
+        }, () => {
+            this._toolboxHideTimeout();
         });
     }
 
@@ -474,14 +483,31 @@ class Conference extends AbstractConference<Props, *> {
     _setToolboxVisible(visible) {
         if (visible) {
             this.props.dispatch(setToolboxVisible(true));
-
-            /* setTimeout(() => {
-                this._setToolboxVisible(false);
-            }, this.props._timeout);*/
+            this._toolboxHideTimeout();
         } else {
             this.props.dispatch(setToolboxVisible(false));
         }
+    }
 
+
+    _toolboxHideTimeout: () => void;
+
+    /**
+     * Toolbar hide.
+     *
+     * @returns {void}
+     */
+    _toolboxHideTimeout() {
+        // reset
+        clearInterval(hideInterval);
+
+        // start hide interval
+        hideInterval = setInterval(() => {
+            if (!this.state.keyboard && !this.props._overflowVisible) {
+                this.props.dispatch(setToolboxVisible(false));
+                clearInterval(hideInterval);
+            }
+        }, this.props._timeout);
     }
 }
 
@@ -517,7 +543,6 @@ function _mapStateToProps(state) {
 
     const toolbox = state['features/toolbox'];
 
-
     return {
         ...abstractMapStateToProps(state),
         _aspectRatio: aspectRatio,
@@ -528,7 +553,8 @@ function _mapStateToProps(state) {
         _pictureInPictureEnabled: getFeatureFlag(state, PIP_ENABLED),
         _reducedUI: reducedUI,
         _toolboxVisible: isToolboxVisible(state),
-        _timeout: toolbox.timeoutMS
+        _timeout: toolbox.timeoutMS,
+        _overflowVisible: isDialogOpen(state, OverflowMenu)
     };
 }
 
