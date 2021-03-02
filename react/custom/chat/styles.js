@@ -18,6 +18,7 @@ const TEXT_WIDTH = WRAPPER_WIDTH - AVATAR_WIDTH - (8 * icw.padding);
 export const styles = StyleSheet.create({
     // input
     chatInputField: {
+        backgroundColor: icw.chat.field.background,
         color: icw.chatOverlay.text,
         flex: 1,
         borderRadius: icw.chatOverlay.size / 2,

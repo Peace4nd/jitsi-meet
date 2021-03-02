@@ -58,7 +58,10 @@ export default {
         text: '#282828',
         textMute: '#28282866',
         send: '#28282833',
-        field: '#747f8d4c',
+        field: {
+            border: '#747f8d4c',
+            background: 'rgba(0, 0, 0, 0.24)'
+        },
         bubbles: {
             remote: {
                 background: '#f4f4f4',

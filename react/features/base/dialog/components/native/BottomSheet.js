@@ -109,8 +109,6 @@ class BottomSheet extends PureComponent<Props, *> {
         const { _styles, _visible, renderHeader, style } = this.props;
         const SlidingViewDone = _visible ? SlidingViewCustom : SlidingView;
 
-        console.log('OFFSET', this.state.bottomOffset);
-
         return (
             <SlidingViewDone
                 accessibilityRole = 'menu'

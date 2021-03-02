@@ -62,7 +62,7 @@ export default {
         paddingHorizontal: icw.padding,
         margin: icw.padding * 1.5,
         borderRadius: icw.chat.size / 2,
-        borderColor: icw.chat.field,
+        borderColor: icw.chat.field.border,
         borderWidth: icw.border.width,
         height: icw.chat.size
     },

@@ -76,7 +76,8 @@ import {
     setFullScreen,
     setOverflowMenuVisible,
     setToolbarHovered,
-    setToolboxVisible
+    setToolboxVisible,
+    hideToolbox
 } from '../../actions';
 import { isToolboxVisible } from '../../functions';
 import DownloadButton from '../DownloadButton';
@@ -324,6 +325,9 @@ class Toolbox extends Component<Props, State> {
         });
 
         window.addEventListener('resize', this._onResize);
+
+        // toolbox automatic hide
+        this.props.dispatch(hideToolbox());
     }
 
     /**
