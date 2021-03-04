@@ -324,9 +324,13 @@ public class PiPViewCoordinator {
             }
         }
         
-        
         let adjustedBounds = bounds.inset(by: dragBoundInsets)
         let size = CGSize(width: 150, height: 150)
+        
+        guard adjustedBounds.height >= size.height, adjustedBounds.width >= size.width else {
+            return
+        }
+        
         let origin = initialPositionFor(pipSize: size, bounds: adjustedBounds, position: currentPosition)
         
         UIView.animate(withDuration: 0.25) {
