@@ -30,6 +30,7 @@
          */
         pointer-events: none;
         text-align: right;
+        padding: 0 8px 4px 8px;
 
         > div {
             pointer-events: none;
@@ -42,6 +43,7 @@
 
         .toolbar-icon {
             pointer-events: all;
+            padding: 0px 8px 0px 0px;
         }
     }
 
@@ -61,7 +63,7 @@
     }
 
     .indicator-container {
-        float: none;
+        //float: none;
     }
 
     /**

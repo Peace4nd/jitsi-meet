@@ -56,6 +56,8 @@ const LAYOUT_CLASSNAMES = {
     [LAYOUTS.VERTICAL_FILMSTRIP_VIEW]: 'vertical-filmstrip'
 };
 
+const MIN_MOVE = 20;
+
 /**
  * The type of the React {@code Component} props of {@link Conference}.
  */
@@ -98,6 +100,7 @@ class Conference extends AbstractConference<Props, *> {
     _onFullScreenChange: Function;
     _onShowToolbar: Function;
     _originalOnShowToolbar: Function;
+    _currentPosition: Object;
 
     /**
      * Initializes a new Conference instance.
@@ -112,7 +115,7 @@ class Conference extends AbstractConference<Props, *> {
         // from firing too often.
         this._originalOnShowToolbar = this._onShowToolbar;
         this._onShowToolbar = _.throttle(
-            () => this._originalOnShowToolbar(),
+            e => this._originalOnShowToolbar(e),
             100,
             {
                 leading: true,
@@ -121,6 +124,12 @@ class Conference extends AbstractConference<Props, *> {
 
         // Bind event handler so it is only bound once for every instance.
         this._onFullScreenChange = this._onFullScreenChange.bind(this);
+
+        // pozice mysi
+        this._currentPosition = {
+            x: 0,
+            y: 0
+        };
     }
 
     /**
@@ -222,11 +231,26 @@ class Conference extends AbstractConference<Props, *> {
     /**
      * Displays the toolbar.
      *
+     * @param {MouseEvent} e - Udalost pohybu.
      * @private
      * @returns {void}
      */
-    _onShowToolbar() {
-        this.props.dispatch(showToolbox());
+    _onShowToolbar(e) {
+        // aktualni pozice
+        const x = e.clientX;
+        const y = e.clientY;
+
+
+        // overeni alespon minimalniho pohybu kurzoru
+        if (Math.abs(this._currentPosition.x - x) > MIN_MOVE || Math.abs(this._currentPosition.y - y) > MIN_MOVE) {
+            this.props.dispatch(showToolbox());
+        }
+
+        // ktualizace pozice
+        this._currentPosition = {
+            x,
+            y
+        };
     }
 
     /**

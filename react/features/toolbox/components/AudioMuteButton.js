@@ -46,7 +46,8 @@ class AudioMuteButton extends AbstractAudioMuteButton<Props, *> {
     accessibilityLabel = 'toolbar.accessibilityLabel.mute';
     label = 'icwCustom.toolbar.mute';
     toggledLabel = 'icwCustom.toolbar.unmute';
-    tooltip = 'icwCustom.toolbar.mute';
+
+    // tooltip = 'icwCustom.toolbar.mute';
 
     /**
      * Initializes a new {@code AudioMuteButton} instance.

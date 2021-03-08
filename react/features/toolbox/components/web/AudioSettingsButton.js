@@ -129,7 +129,7 @@ class AudioSettingsButton extends Component<Props, State> {
                     icon = { IconIcewarpButtonArrowDown }
                     iconDisabled = { settingsDisabled }
                     onIconClick = { onAudioOptionsClick }>
-                    <AudioMuteButton />
+                    <AudioMuteButton labelBottom = { true } />
                 </ToolboxButtonWithIcon>
             </AudioSettingsPopup>
         ) : <AudioMuteButton />;

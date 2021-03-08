@@ -5,6 +5,7 @@ import type { Dispatch } from 'redux';
 
 import { isMobileBrowser } from '../../base/environment/utils';
 import { getLocalParticipant } from '../../base/participants';
+import { isToolboxVisible } from '../../toolbox/functions';
 import { sendMessage, toggleChat } from '../actions';
 import { DESKTOP_SMALL_WIDTH_THRESHOLD, MOBILE_SMALL_WIDTH_THRESHOLD } from '../constants';
 
@@ -45,6 +46,8 @@ export type Props = {
      */
     _showNamePrompt: boolean,
 
+    _visible: boolean,
+
     /**
      * The Redux dispatch function.
      */
@@ -59,7 +62,7 @@ export type Props = {
 /**
  * Implements an abstract chat panel.
  */
-export default class AbstractChat<P: Props> extends Component<P> {}
+export default class AbstractChat<P: Props, S: *> extends Component<P, S> {}
 
 /**
  * Maps redux actions to the props of the component.
@@ -118,6 +121,7 @@ export function _mapStateToProps(state: Object) {
             : window.innerWidth <= DESKTOP_SMALL_WIDTH_THRESHOLD,
         _isOpen: isOpen,
         _messages: messages,
-        _showNamePrompt: !_localParticipant.name
+        _showNamePrompt: !_localParticipant.name,
+        _visible: isToolboxVisible(state)
     };
 }

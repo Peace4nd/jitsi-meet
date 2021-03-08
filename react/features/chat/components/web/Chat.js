@@ -17,11 +17,13 @@ import DisplayNameForm from './DisplayNameForm';
 import MessageContainer from './MessageContainer';
 import MessageRecipient from './MessageRecipient';
 
+let activeTimeout = null;
+
 /**
  * React Component for holding the chat feature in a side panel that slides in
  * and out of view.
  */
-class Chat extends AbstractChat<Props> {
+class Chat extends AbstractChat<Props, *> {
 
     /**
      * Whether or not the {@code Chat} component is off-screen, having finished
@@ -44,6 +46,10 @@ class Chat extends AbstractChat<Props> {
     constructor(props: Props) {
         super(props);
 
+        this.state = {
+            active: false
+        };
+
         this._isExited = true;
         this._messageContainerRef = React.createRef();
 
@@ -52,6 +58,9 @@ class Chat extends AbstractChat<Props> {
 
         // Bind event handlers so they are only bound once for every instance.
         this._onChatInputResize = this._onChatInputResize.bind(this);
+
+        this._onMouseEnter = this._onMouseEnter.bind(this);
+        this._onMouseLeave = this._onMouseLeave.bind(this);
     }
 
     /**
@@ -146,16 +155,49 @@ class Chat extends AbstractChat<Props> {
      * @returns {ReactElement | null}
      */
     _renderPanelContent() {
-        const { _isModal, _isOpen, _showNamePrompt } = this.props;
-
+        const { _isModal, _isOpen, _showNamePrompt, _visible } = this.props;
 
         return (
             <div
-                className = 'sideToolbarContainer'
-                id = 'sideToolbarContainer'>
+                className = { `sideToolbarContainer${_visible || this.state.active ? ' visible' : ''}` }
+                id = 'sideToolbarContainer'
+                onMouseEnter = { this._onMouseEnter }
+                onMouseLeave = { this._onMouseLeave }>
                 { _showNamePrompt ? <DisplayNameForm /> : this._renderChat() }
             </div>
         );
+    }
+
+    _onMouseEnter: () => void;
+
+    /**
+     * Mouse enter.
+     *
+     * @returns {void}
+     */
+    _onMouseEnter() {
+        clearTimeout(activeTimeout);
+        activeTimeout = setTimeout(() => {
+            this.setState({
+                active: true
+            });
+        }, 1500);
+    }
+
+    _onMouseLeave: () => void;
+
+    /**
+     * Mouse leave.
+     *
+     * @returns {void}
+     */
+    _onMouseLeave() {
+        clearTimeout(activeTimeout);
+        activeTimeout = setTimeout(() => {
+            this.setState({
+                active: false
+            });
+        }, 1500);
     }
 
     /**

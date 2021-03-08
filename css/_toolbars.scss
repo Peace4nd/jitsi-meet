@@ -234,6 +234,7 @@
             line-height: $newToolbarSize;
             margin: 0 $icwToolboxButtonGap;
             text-align: center;
+            position: relative;
 
 
             &.muted {
@@ -255,7 +256,17 @@
                     width: auto;
                 }
             }
+        }
 
+        .toolbox-label {
+            font-size: 13px;
+            line-height: 13px;
+            letter-spacing: -0.41px;
+            margin-top: 8px;
+            display: block;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
         }
 
         .toolbar-button-with-badge {

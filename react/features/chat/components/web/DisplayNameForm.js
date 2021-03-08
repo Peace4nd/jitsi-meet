@@ -66,8 +66,9 @@ class DisplayNameForm extends Component<Props, State> {
      * @returns {ReactElement}
      */
     render() {
-        const { t } = this.props;
+        return null;
 
+        /* const { t } = this.props;
         return (
             <div id = 'nickname'>
                 <span>{ this.props.t('chat.nickname.title') }</span>
@@ -81,7 +82,7 @@ class DisplayNameForm extends Component<Props, State> {
                         value = { this.state.displayName } />
                 </form>
             </div>
-        );
+        );*/
     }
 
     _onDisplayNameChange: (Object) => void;

@@ -6,12 +6,17 @@ $icw-chat-offset: 48px;
     color: #FFF;
     display: flex;
     flex-direction: column;
-    left: $icw-chat-offset;
+    left: -$sidebarWidth;
+    transition: left 0.4s ease-in-out;
     overflow: hidden;
     position: absolute;
     top: $newToolbarSize * 2;
     width: $sidebarWidth;
     z-index: $toolbarZ;
+}
+
+#sideToolbarContainer.visible {
+    left: $icw-chat-offset;
 }
 
 #chatconversation {

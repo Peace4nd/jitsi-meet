@@ -117,9 +117,9 @@ class OverflowMenuButton extends Component<Props> {
                 accessibilityLabel = { t('toolbar.accessibilityLabel.moreActions') }
                 className = 'muted'
                 icon = { IconIcewarpToolbarMore }
+                label = { t('icwCustom.toolbar.more') }
                 onClick = { this._onToggleDialogVisibility }
-                toggled = { isOpen }
-                tooltip = { t('toolbar.moreActions') } />
+                toggled = { isOpen } />
         );
     }
 

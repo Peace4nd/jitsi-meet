@@ -31,7 +31,8 @@ type Props = AbstractButtonProps & {
 class InviteButton extends AbstractButton<Props, *> {
     // accessibilityLabel = 'toolbar.accessibilityLabel.mute';
     label = 'icwCustom.toolbar.invite';
-    tooltip = 'icwCustom.toolbar.invite';
+
+    // tooltip = 'icwCustom.toolbar.invite';
     icon = IconIcewarpToolbarInvite;
 
     /**

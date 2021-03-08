@@ -112,6 +112,7 @@ class BaseIndicator extends Component<Props> {
                         <Icon
                             className = { iconClassName }
                             id = { iconId }
+                            size = { 16 }
                             src = { icon }
                             style = { style } />
                     </span>

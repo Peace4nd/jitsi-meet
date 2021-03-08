@@ -1001,9 +1001,9 @@ class Toolbox extends Component<Props, State> {
                 accessibilityLabel = { t('toolbar.accessibilityLabel.shareYourScreen') }
                 disabled = { !_desktopSharingEnabled }
                 icon = { IconIcewarpToolbarShare }
+                label = { t('icwCustom.toolbar.screen') }
                 onClick = { this._onToolbarToggleScreenshare }
-                toggled = { _screensharing }
-                tooltip = { tooltip } />
+                toggled = { _screensharing } />
         );
     }
 
@@ -1361,8 +1361,8 @@ class Toolbox extends Component<Props, State> {
                         && <ToolbarButton
                             accessibilityLabel = { t('toolbar.accessibilityLabel.invite') }
                             icon = { IconIcewarpToolbarInvite }
-                            onClick = { this._onToolbarOpenInvite }
-                            tooltip = { t('toolbar.invite') } /> }
+                            label = { t('icwCustom.toolbar.invite') }
+                            onClick = { this._onToolbarOpenInvite } /> }
                     { this._renderAudioButton() }
                     { this._renderVideoButton() }
                     { buttonsLeft.indexOf('desktop') !== -1
@@ -1371,10 +1371,11 @@ class Toolbox extends Component<Props, State> {
                         && <ToolbarButton
                             accessibilityLabel = { t('toolbar.accessibilityLabel.raiseHand') }
                             icon = { IconIcewarpMenuHand }
+                            label = { t('icwCustom.toolbar.hand') }
                             onClick = { this._onToolbarToggleRaiseHand }
-                            toggled = { _raisedHand }
-                            tooltip = { t('toolbar.raiseHand') } /> }
+                            toggled = { _raisedHand } /> }
                     <HangupButton
+                        labelBottom = { true }
                         visible = { this._shouldShowButton('hangup') } />
                 </div>
                 <div className = 'button-group-right'>
@@ -1391,7 +1392,7 @@ class Toolbox extends Component<Props, State> {
                         labelSuccess = { t('addPeople.linkCopied') } />
 
                     { buttonsRight.indexOf('tileview') !== -1
-                        && <TileViewButton /> }
+                        && <TileViewButton labelBottom = { true } /> }
 
 
                     { buttonsRight.indexOf('overflowmenu') !== -1

@@ -16,7 +16,7 @@ type Props = AbstractToolbarButtonProps & {
     /**
      * The text to display in the tooltip.
      */
-    tooltip: string,
+    tooltip?: string,
 
     /**
      * From which direction the tooltip should appear, relative to the
@@ -84,22 +84,25 @@ class ToolbarButton extends AbstractToolbarButton<Props> {
      * @returns {ReactElement} The button of this {@code ToolbarButton}.
      */
     _renderButton(children) {
+        const { accessibilityLabel, className, label, onClick, toggled, tooltip, tooltipPosition } = this.props;
+
         return (
             <div
-                aria-label = { this.props.accessibilityLabel }
-                aria-pressed = { this.props.toggled }
-                className = { `toolbox-button ${this.props.className || ''}` }
-                onClick = { this.props.onClick }
+                aria-label = { accessibilityLabel }
+                aria-pressed = { toggled }
+                className = { `toolbox-button ${className || ''}` }
+                onClick = { onClick }
                 onKeyDown = { this._onKeyDown }
                 role = 'button'
                 tabIndex = { 0 }>
-                { this.props.tooltip
+                { tooltip
                     ? <Tooltip
-                        content = { this.props.tooltip }
-                        position = { this.props.tooltipPosition }>
+                        content = { tooltip }
+                        position = { tooltipPosition }>
                         { children }
                     </Tooltip>
                     : children }
+                {label ? <span className = 'toolbox-label'>{label}</span> : null}
             </div>
         );
     }
@@ -110,12 +113,11 @@ class ToolbarButton extends AbstractToolbarButton<Props> {
      * @inheritdoc
      */
     _renderIcon() {
-        const { icon, label, toggled } = this.props;
+        const { icon, toggled } = this.props;
 
         return (
             <div className = { `toolbox-icon ${toggled ? 'toggled' : ''}` }>
                 {icon && <Icon src = { icon } />}
-                {label}
             </div>
         );
 

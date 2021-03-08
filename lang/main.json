@@ -6,7 +6,10 @@
             "unmute": "Unmute",
             "end": "End",
             "cam": "Cam",
-            "more": "More"
+            "more": "More",
+            "hand": "Raise Hand",
+            "screen": "Share Screen",
+            "tile": "Grid View"
         },
         "share": {
             "dialInfoText": "\n\n=====\n\nJust want to dial in on your phone?\n\n{{defaultDialInNumber}}Click this link to see the dial in phone numbers for this meeting\n{{dialInfoPageUrl}}",

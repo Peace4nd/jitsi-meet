@@ -1,5 +1,14 @@
+jitsi-meet-web (0.0.2-1) unstable; urgency=low
+
+  * propper UI hiding
+  * graphical fixes (larger indicator icons, padding corrections, thumbnail size, ...)
+  * toolbar button labels
+
+ -- Miroslav Frodl <miroslav.frodl@icewarp.com>  Mon, 08 Mar 2021 08:11:36 +0100
+
 jitsi-meet-web (0.0.1-1) unstable; urgency=low
 
   * Initial release.
 
- -- Miroslav Frodl <miroslav.frodl@icewarp.com>  Tue, 02 Mar 2021 15:08:41 CET
+ -- Miroslav Frodl <miroslav.frodl@icewarp.com>  Tue, 02 Mar 2021 15:08:41 +0100
+

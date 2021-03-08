@@ -468,7 +468,7 @@ export default class SmallVideo {
 
         switch (layout) {
         case LAYOUTS.VERTICAL_FILMSTRIP_VIEW: {
-            this.$container.css('padding-top', `${heightToWidthPercent}%`);
+            //this.$container.css('padding-top', `${heightToWidthPercent}%`);
             break;
         }
         case LAYOUTS.HORIZONTAL_FILMSTRIP_VIEW: {
