@@ -152,6 +152,46 @@ type Props = {
  */
 class ConnectionStatsTable extends Component<Props> {
     /**
+     * Reference to the Popover that is meant to open as a drawer.
+     */
+    _moreRef: Object;
+
+    /**
+     * Initializes a new {@code Popover} instance.
+     *
+     * @param {Object} props - The read-only properties with which the new
+     * instance is to be initialized.
+     */
+    constructor(props: Props) {
+        super(props);
+
+        this._onShowMore = this._onShowMore.bind(this);
+        this._moreRef = React.createRef();
+    }
+
+    /**
+     * Mount.
+     *
+     * @returns {void}
+     */
+    componentDidMount() {
+        if (this._moreRef && this._moreRef.current) {
+            this._moreRef.current.addEventListener('click', this._onShowMore);
+        }
+    }
+
+    /**
+     * Unmount.
+     *
+     * @returns {void}
+     */
+    componentWillUnmount() {
+        if (this._moreRef && this._moreRef.current) {
+            this._moreRef.current.removeEventListener('click', this._onShowMore);
+        }
+    }
+
+    /**
      * Implements React's {@link Component#render()}.
      *
      * @inheritdoc
@@ -170,6 +210,20 @@ class ConnectionStatsTable extends Component<Props> {
                 { this.props.shouldShowMore ? this._renderAdditionalStats() : null }
             </div>
         );
+    }
+
+    _onShowMore: (evt: MouseEvent) => void;
+
+    /**
+     * Show more.
+     *
+     * @param {MouseEvent} evt - Mouse event.
+     * @returns {void}
+     */
+    _onShowMore(evt: MouseEvent) {
+        evt.preventDefault();
+        evt.stopPropagation();
+        this.props.onShowMore();
     }
 
     /**
@@ -583,7 +637,7 @@ class ConnectionStatsTable extends Component<Props> {
         return (
             <a
                 className = 'showmore link'
-                onClick = { this.props.onShowMore } >
+                ref = { this._moreRef }>
                 { this.props.t(translationKey) }
             </a>
         );

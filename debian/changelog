@@ -1,6 +1,7 @@
 jitsi-meet-web (0.0.4-1) unstable; urgency=low
 
   * private messages (web)
+  * fixed "show more" in connection stats
 
  -- Miroslav Frodl <miroslav.frodl@icewarp.com>  Wed, 10 Mar 2021 08:28:05 +0100
 
