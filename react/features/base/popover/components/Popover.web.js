@@ -77,7 +77,9 @@ type Props = {
      * From which side of the dialog trigger the dialog should display. The
      * value will be passed to {@code InlineDialog}.
      */
-    position: string
+    position: string,
+
+    mode: string
 };
 
 /**
@@ -129,6 +131,7 @@ class Popover extends Component<Props, State> {
         // Bind event handlers so they are only bound once for every instance.
         this._onHideDialog = this._onHideDialog.bind(this);
         this._onShowDialog = this._onShowDialog.bind(this);
+        this._onToggleDialog = this._onToggleDialog.bind(this);
         this._drawerContainerRef = React.createRef();
     }
 
@@ -144,7 +147,7 @@ class Popover extends Component<Props, State> {
      */
     componentDidMount() {
         if (this._drawerContainerRef && this._drawerContainerRef.current) {
-            this._drawerContainerRef.current.addEventListener('click', this._onShowDialog);
+            this._drawerContainerRef.current.addEventListener('click', this._onToggleDialog);
         }
     }
 
@@ -156,7 +159,7 @@ class Popover extends Component<Props, State> {
      */
     componentWillUnmount() {
         if (this._drawerContainerRef && this._drawerContainerRef.current) {
-            this._drawerContainerRef.current.removeEventListener('click', this._onShowDialog);
+            this._drawerContainerRef.current.removeEventListener('click', this._onToggleDialog);
         }
     }
 
@@ -183,7 +186,7 @@ class Popover extends Component<Props, State> {
      * @returns {ReactElement}
      */
     render() {
-        const { children, className, content, id, overflowDrawer, position } = this.props;
+        const { children, className, content, id, mode, overflowDrawer, position } = this.props;
 
         if (overflowDrawer) {
             return (
@@ -207,8 +210,9 @@ class Popover extends Component<Props, State> {
             <div
                 className = { className }
                 id = { id }
-                onMouseEnter = { this._onShowDialog }
-                onMouseLeave = { this._onHideDialog }>
+                onMouseEnter = { mode === 'click' ? null : this._onShowDialog }
+                onMouseLeave = { this._onHideDialog }
+                ref = { mode === 'click' ? this._drawerContainerRef : null }>
                 <InlineDialog
                     content = { this._renderContent() }
                     isOpen = { this.state.showDialog }
@@ -219,19 +223,39 @@ class Popover extends Component<Props, State> {
         );
     }
 
-    _onHideDialog: () => void;
+    _onToggleDialog: () => void;
+
+    /**
+     * Toggle.
+     *
+     * @param {MouseEvent} event - The mouse event to intercept.
+     * @returns {void}
+     */
+    _onToggleDialog(event) {
+        if (this.state.showDialog) {
+            this._onHideDialog(event);
+        } else {
+            this._onShowDialog(event);
+        }
+    }
+
+    _onHideDialog: (event: MouseEvent) => void;
 
     /**
      * Stops displaying the {@code InlineDialog}.
      *
+     * @param {MouseEvent} event - The mouse event to intercept.
      * @private
      * @returns {void}
      */
-    _onHideDialog() {
+    _onHideDialog(event) {
+        if (event) {
+            event.stopPropagation();
+        }
         this.setState({ showDialog: false });
     }
 
-    _onShowDialog: () => void;
+    _onShowDialog: (event: MouseEvent) => void;
 
     /**
      * Displays the {@code InlineDialog} and calls any registered onPopoverOpen
@@ -242,7 +266,9 @@ class Popover extends Component<Props, State> {
      * @returns {void}
      */
     _onShowDialog(event) {
-        event.stopPropagation();
+        if (event) {
+            event.stopPropagation();
+        }
         if (!this.props.disablePopover) {
             this.setState({ showDialog: true });
 

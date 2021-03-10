@@ -20,7 +20,7 @@ import MessageRecipient from './MessageRecipient';
  * Implements a React native component that renders the chat window (modal) of
  * the mobile client.
  */
-class Chat extends AbstractChat<Props> {
+class Chat extends AbstractChat<Props, *> {
     /**
      * Creates a new instance.
      *

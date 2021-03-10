@@ -40,7 +40,7 @@ const Filmstrip = {
 
         if (thumbs.localThumb) {
             thumbs.localThumb.css({
-                'padding-top': '',
+                // 'padding-top': '',
                 height: `${height}px`,
                 'min-height': `${height}px`,
                 'min-width': `${width}px`,
@@ -50,7 +50,7 @@ const Filmstrip = {
 
         if (thumbs.remoteThumbs) {
             thumbs.remoteThumbs.css({
-                'padding-top': '',
+                // 'padding-top': '',
                 height: `${height}px`,
                 'min-height': `${height}px`,
                 'min-width': `${width}px`,
@@ -101,10 +101,10 @@ const Filmstrip = {
         const thumbs = this._getThumbs(true);
 
         if (thumbs.localThumb) {
-            const heightToWidthPercent = 100 / interfaceConfig.LOCAL_THUMBNAIL_RATIO;
+            // const heightToWidthPercent = 100 / interfaceConfig.LOCAL_THUMBNAIL_RATIO;
 
             thumbs.localThumb.css({
-                'padding-top': `${heightToWidthPercent}%`,
+                // 'padding-top': `${heightToWidthPercent}%`,
                 width: '',
                 height: '',
                 'min-width': '',
@@ -113,10 +113,10 @@ const Filmstrip = {
         }
 
         if (thumbs.remoteThumbs) {
-            const heightToWidthPercent = 100 / interfaceConfig.REMOTE_THUMBNAIL_RATIO;
+            // const heightToWidthPercent = 100 / interfaceConfig.REMOTE_THUMBNAIL_RATIO;
 
             thumbs.remoteThumbs.css({
-                'padding-top': `${heightToWidthPercent}%`,
+                // 'padding-top': `${heightToWidthPercent}%`,
                 width: '',
                 height: '',
                 'min-width': '',

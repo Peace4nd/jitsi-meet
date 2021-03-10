@@ -248,42 +248,6 @@ class Thumbnail extends Component<Props, State> {
     }
 
     /**
-     * Returns an object with the styles for thumbnail.
-     *
-     * @returns {Object} - The styles for the thumbnail.
-     */
-    _getStyles(): Object {
-        const { _height, _heightToWidthPercent, _currentLayout } = this.props;
-        let styles;
-
-        switch (_currentLayout) {
-        case LAYOUTS.TILE_VIEW:
-        case LAYOUTS.HORIZONTAL_FILMSTRIP_VIEW: {
-            const avatarSize = _height / 2;
-
-            styles = {
-                avatarContainer: {
-                    height: `${avatarSize}px`,
-                    width: `${avatarSize}px`
-                }
-            };
-            break;
-        }
-        case LAYOUTS.VERTICAL_FILMSTRIP_VIEW: {
-            styles = {
-                avatarContainer: {
-                    height: '50%',
-                    width: `${_heightToWidthPercent / 2}%`
-                }
-            };
-            break;
-        }
-        }
-
-        return styles;
-    }
-
-    /**
      * Renders a fake participant (youtube video) thumbnail.
      *
      * @param {string} id - The id of the participant.
@@ -375,12 +339,10 @@ class Thumbnail extends Component<Props, State> {
     _renderAvatar() {
         const { _participant } = this.props;
         const { id } = _participant;
-        const styles = this._getStyles();
 
         return (
             <div
-                className = 'avatar-container'
-                style = { styles.avatarContainer }>
+                className = 'avatar-container'>
                 <Avatar
                     className = 'userAvatar'
                     participantId = { id } />

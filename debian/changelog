@@ -1,3 +1,11 @@
+jitsi-meet-web (0.0.3-1) unstable; urgency=low
+
+  * code cleanup
+  * complete rework of hiding UI element (original one was total crap)
+  * ui fixes
+
+ -- Miroslav Frodl <miroslav.frodl@icewarp.com>  Wed, 10 Mar 2021 08:28:05 +0100
+
 jitsi-meet-web (0.0.2-1) unstable; urgency=low
 
   * propper UI hiding
@@ -8,7 +16,7 @@ jitsi-meet-web (0.0.2-1) unstable; urgency=low
 
 jitsi-meet-web (0.0.1-1) unstable; urgency=low
 
-  * Initial release.
+  * initial release.
 
  -- Miroslav Frodl <miroslav.frodl@icewarp.com>  Tue, 02 Mar 2021 15:08:41 +0100
 

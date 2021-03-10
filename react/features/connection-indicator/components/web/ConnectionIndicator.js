@@ -185,6 +185,7 @@ class ConnectionIndicator extends AbstractConnectionIndicator<Props, State> {
                 className = { rootClassNames }
                 content = { this._renderStatisticsTable() }
                 disablePopover = { !this.props.enableStatsDisplay }
+                mode = 'click'
                 position = { this.props.statsPopoverPosition }>
                 <div className = 'popover-trigger'>
                     <div

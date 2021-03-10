@@ -32,7 +32,7 @@ class HangupButton extends AbstractHangupButton<Props, *> {
     accessibilityLabel = 'toolbar.accessibilityLabel.hangup';
     label = 'icwCustom.toolbar.end';
 
-    // tooltip = 'icwCustom.toolbar.end';
+    tooltip = 'icwCustom.toolbar.end';
     className = 'danger';
 
     /**

@@ -4,14 +4,6 @@
  */
 .tile-view {
     /**
-     * Let the avatar grow with the tile.
-     */
-    .avatar-container {
-        max-height: initial;
-        max-width: initial;
-    }
-
-    /**
      * Hide various features that should not be displayed while in tile view.
      */
     #dominantSpeaker,

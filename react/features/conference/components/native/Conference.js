@@ -7,7 +7,7 @@ import LinearGradient from 'react-native-linear-gradient';
 import ChatOverlay from '../../../../custom/chat';
 import icw from '../../../../custom/constants';
 import IcewarpLoading from '../../../../custom/loading';
-import { getSafeAreaBottomInset } from '../../../../custom/utils';
+import { getSafeAreaBottomInset, isTileViewEnabled } from '../../../../custom/utils';
 import { appNavigate } from '../../../app/actions';
 import { isDialogOpen } from '../../../base/dialog';
 import { PIP_ENABLED, getFeatureFlag } from '../../../base/flags';
@@ -16,7 +16,6 @@ import { connect } from '../../../base/redux';
 import { ASPECT_RATIO_NARROW } from '../../../base/responsive-ui/constants';
 import { TestConnectionInfo } from '../../../base/testing';
 import { ConferenceNotification, isCalendarEnabled } from '../../../calendar-sync';
-import { isTileViewEnabled } from '../../../../custom/utils.any';
 import { DisplayNameLabel } from '../../../display-name';
 import { SharedDocument } from '../../../etherpad';
 import {

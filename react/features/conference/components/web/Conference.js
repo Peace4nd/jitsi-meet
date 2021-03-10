@@ -14,7 +14,7 @@ import { CalleeInfoContainer } from '../../../invite';
 import { LargeVideo } from '../../../large-video';
 import { KnockingParticipantList, LobbyScreen } from '../../../lobby';
 import { Prejoin, isPrejoinPageVisible } from '../../../prejoin';
-import { fullScreenChanged, showToolbox } from '../../../toolbox/actions.web';
+import { fullScreenChanged } from '../../../toolbox/actions';
 import { Toolbox } from '../../../toolbox/components/web';
 import { LAYOUTS, getCurrentLayout } from '../../../video-layout';
 import { maybeShowSuboptimalExperienceNotification } from '../../functions';
@@ -56,7 +56,10 @@ const LAYOUT_CLASSNAMES = {
     [LAYOUTS.VERTICAL_FILMSTRIP_VIEW]: 'vertical-filmstrip'
 };
 
-const MIN_MOVE = 20;
+/**
+ * Hide timeout
+ */
+let toolbarTimeout = null;
 
 /**
  * The type of the React {@code Component} props of {@link Conference}.
@@ -89,6 +92,10 @@ type Props = AbstractProps & {
      */
     _showPrejoin: boolean,
 
+    _connected: boolean,
+
+    _timeout: number,
+
     dispatch: Function,
     t: Function
 }
@@ -100,7 +107,6 @@ class Conference extends AbstractConference<Props, *> {
     _onFullScreenChange: Function;
     _onShowToolbar: Function;
     _originalOnShowToolbar: Function;
-    _currentPosition: Object;
 
     /**
      * Initializes a new Conference instance.
@@ -110,6 +116,13 @@ class Conference extends AbstractConference<Props, *> {
      */
     constructor(props) {
         super(props);
+
+        // vychozi stav
+        this.state = {
+            init: false,
+            chat: true,
+            toolbar: true
+        };
 
         // Throttle and bind this component's mousemove handler to prevent it
         // from firing too often.
@@ -124,12 +137,6 @@ class Conference extends AbstractConference<Props, *> {
 
         // Bind event handler so it is only bound once for every instance.
         this._onFullScreenChange = this._onFullScreenChange.bind(this);
-
-        // pozice mysi
-        this._currentPosition = {
-            x: 0,
-            y: 0
-        };
     }
 
     /**
@@ -149,6 +156,18 @@ class Conference extends AbstractConference<Props, *> {
      * returns {void}
      */
     componentDidUpdate(prevProps) {
+        // pocatecni schovani (az pote co je konference plne inicializovana)
+        if (this.props._connected && !this.state.init) {
+            clearTimeout(toolbarTimeout);
+            toolbarTimeout = setTimeout(() => {
+                this.setState({
+                    init: true,
+                    chat: false,
+                    toolbar: false
+                });
+            }, this.props._timeout);
+        }
+
         if (this.props._shouldDisplayTileView
             === prevProps._shouldDisplayTileView) {
             return;
@@ -201,12 +220,12 @@ class Conference extends AbstractConference<Props, *> {
                 <div id = 'videospace'>
                     <LargeVideo />
                     <KnockingParticipantList />
-                    <Filmstrip />
+                    <Filmstrip visible = { this.state.toolbar } />
                     { hideLabels || <Labels /> }
                 </div>
 
-                { _showPrejoin || _isLobbyScreenVisible || <Toolbox /> }
-                <Chat />
+                { _showPrejoin || _isLobbyScreenVisible || <Toolbox visible = { this.state.toolbar } /> }
+                <Chat visible = { this.state.chat } />
 
                 { this.renderNotificationsContainer() }
 
@@ -236,21 +255,46 @@ class Conference extends AbstractConference<Props, *> {
      * @returns {void}
      */
     _onShowToolbar(e) {
+        // definice
+        const treshold = 100;
+
         // aktualni pozice
         const x = e.clientX;
         const y = e.clientY;
 
+        // pohyb je platny pouze kdyz je dokoncena pocatecni faze
+        if (this.state.init) {
 
-        // overeni alespon minimalniho pohybu kurzoru
-        if (Math.abs(this._currentPosition.x - x) > MIN_MOVE || Math.abs(this._currentPosition.y - y) > MIN_MOVE) {
-            this.props.dispatch(showToolbox());
+            // reset casovace
+            clearTimeout(toolbarTimeout);
+
+            // rozhodnuti o aktualni akci
+            if (x <= treshold || e.target.closest('#sideToolbarContainer')) {
+                this.setState({
+                    chat: true
+                }, () => {
+                    if (this.state.toolbar) {
+                        toolbarTimeout = setTimeout(() => {
+                            this.setState({
+                                toolbar: false
+                            });
+                        }, this.props._timeout);
+                    }
+                });
+            } else if (y >= window.innerHeight - treshold || e.target.closest('#new-toolbox')) {
+                this.setState({
+                    chat: true,
+                    toolbar: true
+                });
+            } else {
+                toolbarTimeout = setTimeout(() => {
+                    this.setState({
+                        chat: false,
+                        toolbar: false
+                    });
+                }, this.props._timeout);
+            }
         }
-
-        // ktualizace pozice
-        this._currentPosition = {
-            x,
-            y
-        };
     }
 
     /**
@@ -292,7 +336,9 @@ function _mapStateToProps(state) {
         _isLobbyScreenVisible: state['features/base/dialog']?.component === LobbyScreen,
         _layoutClassName: LAYOUT_CLASSNAMES[getCurrentLayout(state)],
         _roomName: getConferenceNameForTitle(state),
-        _showPrejoin: isPrejoinPageVisible(state)
+        _showPrejoin: isPrejoinPageVisible(state),
+        _connected: Boolean(state['features/base/conference'].conference),
+        _timeout: state['features/toolbox'].timeoutMS
     };
 }
 

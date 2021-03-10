@@ -40,7 +40,7 @@
     z-index: $filmstripVideosZ;
 
     &.reduce-height {
-        height: calc(100% - #{$newToolbarSize + $icwToolboxPadding});
+        height: calc(100% - #{$newToolbarSize + $icwToolboxPaddingVertical});
     }
 
     /**
@@ -117,6 +117,10 @@
             flex-direction: column-reverse;
             overflow: visible;
             width: calc(100% - 8px); // 8px for margin + border of the thumbnails
+
+            .videocontainer__toolbar {
+                padding-left: 20px;
+            }
 
             .videocontainer {
                 height: 90px;

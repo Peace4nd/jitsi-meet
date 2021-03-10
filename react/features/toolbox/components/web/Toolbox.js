@@ -16,16 +16,12 @@ import { isMobileBrowser } from '../../../base/environment/utils';
 import { translate } from '../../../base/i18n';
 import {
     IconChat,
-    IconCodeBlock,
     IconExitFullScreen,
-    IconFeedback,
     IconFullScreen,
     IconInviteMore,
-    IconOpenInNew,
     IconPresentation,
     IconRaisedHand,
-    IconRec,
-    IconShareVideo
+    IconRec
 } from '../../../base/icons';
 import JitsiMeetJS from '../../../base/lib-jitsi-meet';
 import {
@@ -76,10 +72,8 @@ import {
     setFullScreen,
     setOverflowMenuVisible,
     setToolbarHovered,
-    setToolboxVisible,
-    hideToolbox
+    setToolboxVisible
 } from '../../actions';
-import { isToolboxVisible } from '../../functions';
 import DownloadButton from '../DownloadButton';
 import HangupButton from '../HangupButton';
 import HelpButton from '../HelpButton';
@@ -186,7 +180,7 @@ type Props = {
     /**
      * Flag showing whether toolbar is visible.
      */
-    _visible: boolean,
+    visible: boolean,
 
     /**
      * Set with the buttons which this Toolbox should display.
@@ -325,9 +319,6 @@ class Toolbox extends Component<Props, State> {
         });
 
         window.addEventListener('resize', this._onResize);
-
-        // toolbox automatic hide
-        this.props.dispatch(hideToolbox());
     }
 
     /**
@@ -337,7 +328,7 @@ class Toolbox extends Component<Props, State> {
      */
     componentDidUpdate(prevProps) {
         // Ensure the dialog is closed when the toolbox becomes hidden.
-        if (prevProps._overflowMenuVisible && !this.props._visible) {
+        if (prevProps._overflowMenuVisible && !this.props.visible) {
             this._onSetOverflowVisible(false);
         }
 
@@ -373,17 +364,15 @@ class Toolbox extends Component<Props, State> {
      * @returns {ReactElement}
      */
     render() {
-        const { _visible, _visibleButtons } = this.props;
-        const rootClassNames = `new-toolbox ${_visible ? 'visible' : ''} ${
+        const { visible, _visibleButtons } = this.props;
+        const rootClassNames = `new-toolbox ${visible ? 'visible' : ''} ${
             _visibleButtons.size ? '' : 'no-buttons'}`;
 
         return (
             <div
                 className = { rootClassNames }
                 id = 'new-toolbox'
-                onFocus = { this._onTabIn }
-                onMouseOut = { this._onMouseOut }
-                onMouseOver = { this._onMouseOver }>
+                onFocus = { this._onTabIn }>
                 <div className = 'toolbox-background' />
                 { this._renderToolboxContent() }
             </div>
@@ -720,7 +709,7 @@ class Toolbox extends Component<Props, State> {
      * @returns {void}
      */
     _onTabIn() {
-        if (!this.props._visible) {
+        if (!this.props.visible) {
             this.props.dispatch(setToolboxVisible(true));
         }
     }
@@ -1001,9 +990,9 @@ class Toolbox extends Component<Props, State> {
                 accessibilityLabel = { t('toolbar.accessibilityLabel.shareYourScreen') }
                 disabled = { !_desktopSharingEnabled }
                 icon = { IconIcewarpToolbarShare }
-                label = { t('icwCustom.toolbar.screen') }
                 onClick = { this._onToolbarToggleScreenshare }
-                toggled = { _screensharing } />
+                toggled = { _screensharing }
+                tooltip = { t('icwCustom.toolbar.screen') } />
         );
     }
 
@@ -1041,10 +1030,11 @@ class Toolbox extends Component<Props, State> {
         } = this.props;
 
         return [
-            this._isProfileVisible()
+
+            /* this._isProfileVisible()
                 && <OverflowMenuProfileItem
                     key = 'profile'
-                    onClick = { this._onToolbarToggleProfile } />,
+                    onClick = { this._onToolbarToggleProfile } />,*/
             this._shouldShowButton('videoquality')
                 && <OverflowMenuVideoQualityItem
                     key = 'videoquality'
@@ -1361,8 +1351,8 @@ class Toolbox extends Component<Props, State> {
                         && <ToolbarButton
                             accessibilityLabel = { t('toolbar.accessibilityLabel.invite') }
                             icon = { IconIcewarpToolbarInvite }
-                            label = { t('icwCustom.toolbar.invite') }
-                            onClick = { this._onToolbarOpenInvite } /> }
+                            onClick = { this._onToolbarOpenInvite }
+                            tooltip = { t('icwCustom.toolbar.invite') } /> }
                     { this._renderAudioButton() }
                     { this._renderVideoButton() }
                     { buttonsLeft.indexOf('desktop') !== -1
@@ -1371,11 +1361,10 @@ class Toolbox extends Component<Props, State> {
                         && <ToolbarButton
                             accessibilityLabel = { t('toolbar.accessibilityLabel.raiseHand') }
                             icon = { IconIcewarpMenuHand }
-                            label = { t('icwCustom.toolbar.hand') }
                             onClick = { this._onToolbarToggleRaiseHand }
-                            toggled = { _raisedHand } /> }
+                            toggled = { _raisedHand }
+                            tooltip = { t('icwCustom.toolbar.hand') } /> }
                     <HangupButton
-                        labelBottom = { true }
                         visible = { this._shouldShowButton('hangup') } />
                 </div>
                 <div className = 'button-group-right'>
@@ -1392,7 +1381,7 @@ class Toolbox extends Component<Props, State> {
                         labelSuccess = { t('addPeople.linkCopied') } />
 
                     { buttonsRight.indexOf('tileview') !== -1
-                        && <TileViewButton labelBottom = { true } /> }
+                        && <TileViewButton /> }
 
 
                     { buttonsRight.indexOf('overflowmenu') !== -1
@@ -1485,7 +1474,6 @@ function _mapStateToProps(state) {
         _sharingVideo: sharedVideoStatus === 'playing'
             || sharedVideoStatus === 'start'
             || sharedVideoStatus === 'pause',
-        _visible: isToolboxVisible(state),
         _visibleButtons: equals(visibleButtons, buttons) ? visibleButtons : buttons,
         _inviteUrl: getInviteURL(state)
     };

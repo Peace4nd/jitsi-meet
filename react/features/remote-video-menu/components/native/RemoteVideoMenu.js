@@ -3,7 +3,7 @@
 import React, { PureComponent } from 'react';
 import { Text, View } from 'react-native';
 
-import { isPrivateMessageEnabled } from '../../../../custom/utils.any';
+import { isPrivateMessageEnabled } from '../../../../custom/utils';
 import { Avatar } from '../../../base/avatar';
 import { ColorSchemeRegistry } from '../../../base/color-scheme';
 import { BottomSheet, isDialogOpen } from '../../../base/dialog';

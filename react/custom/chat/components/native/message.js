@@ -10,7 +10,6 @@ import AbstractChatMessage, { type Props } from '../../../../features/chat/compo
 import PrivateMessageButton from '../../../../features/chat/components/PrivateMessageButton';
 import { MESSAGE_TYPE_ERROR, MESSAGE_TYPE_LOCAL, MESSAGE_TYPE_REMOTE } from '../../../../features/chat/constants';
 import { replaceNonUnicodeEmojis } from '../../../../features/chat/functions';
-import { isPrivateMessageEnabled } from '../../../utils';
 import styles from '../../styles';
 
 /**

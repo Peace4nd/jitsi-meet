@@ -1,15 +1,15 @@
 @import "themes/light";
 
-$icwToolboxPadding: 60px;
 $icwColorPrimary: #605fd2;
 $icwColorHighlight: #958cff;
 $icwColorDanger: #ff645c;
 $icwColorMuted: rgba(0, 0, 0, 0.3);
 $icwColorWhite: #ffffff;
 $icwSmileSize: 16pt;
-$icwToolboxPadding: 60px;
+$icwToolboxPaddingVertical: 60px;
+$icwToolboxPaddingHorizontal: 48px;
 $icwToolboxButtonMore: 20px;
-$icwToolboxButtonGap: 20px;
+$icwToolboxButtonGap: 16px;
 $icwThumbnailRadius: 8px;
 $icwChatInputPadding: 10px;
 $icwChatInputHeight: 40px;
@@ -129,7 +129,7 @@ $zindex1: 1;
 $zindex2: 2;
 $zindex3: 3;
 $toolbarBackgroundZ: 4;
-$filmstripVideosZ: 5;
+$filmstripVideosZ: 6;
 $zindex10: 10;
 $reloadZ: 20;
 $poweredByZ: 100;

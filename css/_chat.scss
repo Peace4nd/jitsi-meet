@@ -1,7 +1,5 @@
-$icw-chat-offset: 48px;
-
 #sideToolbarContainer {
-    bottom: $icwToolboxPadding;
+    bottom: 0;
     box-sizing: border-box;
     color: #FFF;
     display: flex;
@@ -9,6 +7,7 @@ $icw-chat-offset: 48px;
     left: -$sidebarWidth;
     transition: left 0.4s ease-in-out;
     overflow: hidden;
+    padding: 0 0 $icwToolboxPaddingVertical $icwToolboxPaddingHorizontal;
     position: absolute;
     top: $newToolbarSize * 2;
     width: $sidebarWidth;
@@ -16,7 +15,7 @@ $icw-chat-offset: 48px;
 }
 
 #sideToolbarContainer.visible {
-    left: $icw-chat-offset;
+    left: 0;
 }
 
 #chatconversation {
@@ -29,7 +28,7 @@ $icw-chat-offset: 48px;
     justify-content: flex-end;
     line-height: 1;
     overflow: auto;
-    padding-bottom: $icw-chat-offset / 4;
+    padding-bottom: $icwToolboxPaddingHorizontal / 4;
     text-align: left;
     width: $sidebarWidth;
     word-wrap: break-word;
@@ -129,6 +128,7 @@ $icw-chat-offset: 48px;
     border: $icwChatInputBorder solid rgba(255, 255, 255, 0.35);
     background-color: rgba(0, 0, 0, 0.24);
     position: relative;
+    width: 80%;
 
     * {
         background-color: transparent;

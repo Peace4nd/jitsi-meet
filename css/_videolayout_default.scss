@@ -530,13 +530,15 @@
 }
 
 .avatar-container {
-    @include maxSize(40px);
     @include absoluteAligning();
     display: flex;
     justify-content: center;
     height: 100% !important;
     width: 100% !important;
     overflow: hidden;
+    max-width: 50%;
+    max-height: 50%;
+    aspect-ratio: 1;
 
     .userAvatar {
         height: 100%;

@@ -48,6 +48,8 @@ export type Props = {
 
     _visible: boolean,
 
+    visible: boolean,
+
     /**
      * The Redux dispatch function.
      */

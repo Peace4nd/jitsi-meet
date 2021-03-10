@@ -145,7 +145,7 @@ class VideoSettingsButton extends Component<Props, State> {
                     icon = { IconIcewarpButtonArrowDown }
                     iconDisabled = { this._isIconDisabled() }
                     onIconClick = { onVideoOptionsClick }>
-                    <VideoMuteButton labelBottom = { true } />
+                    <VideoMuteButton />
                 </ToolboxButtonWithIcon>
             </VideoSettingsPopup>
         ) : <VideoMuteButton />;

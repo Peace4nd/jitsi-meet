@@ -10,7 +10,6 @@ import AbstractChat, {
     type Props
 } from '../AbstractChat';
 
-import ChatDialog from './ChatDialog';
 import Header from './ChatDialogHeader';
 import ChatInput from './ChatInput';
 import DisplayNameForm from './DisplayNameForm';
@@ -77,7 +76,7 @@ class Chat extends AbstractChat<Props, *> {
      *
      * @inheritdoc
      */
-    componentDidUpdate(prevProps) {
+    componentDidUpdate() {
 
         this._scrollMessageContainerToBottom(true);
 
@@ -155,14 +154,12 @@ class Chat extends AbstractChat<Props, *> {
      * @returns {ReactElement | null}
      */
     _renderPanelContent() {
-        const { _isModal, _isOpen, _showNamePrompt, _visible } = this.props;
+        const { _showNamePrompt, visible } = this.props;
 
         return (
             <div
-                className = { `sideToolbarContainer${_visible || this.state.active ? ' visible' : ''}` }
-                id = 'sideToolbarContainer'
-                onMouseEnter = { this._onMouseEnter }
-                onMouseLeave = { this._onMouseLeave }>
+                className = { `sideToolbarContainer${visible ? ' visible' : ''}` }
+                id = 'sideToolbarContainer'>
                 { _showNamePrompt ? <DisplayNameForm /> : this._renderChat() }
             </div>
         );
