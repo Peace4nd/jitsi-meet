@@ -60,6 +60,7 @@ type Props = AbstractButtonProps & {
  */
 class VideoMuteButton extends AbstractVideoMuteButton<Props, *> {
     accessibilityLabel = 'toolbar.accessibilityLabel.videomute';
+    label = 'icwCustom.toolbar.cam';
     tooltip = 'icwCustom.toolbar.cam';
 
     /**
