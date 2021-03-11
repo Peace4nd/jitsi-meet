@@ -51,6 +51,38 @@ public class PiPViewCoordinator {
     
     public var initialPositionInSuperview = Position.lowerRightCorner
     
+    public var currentPictureInPicturePosition: Position? {
+        guard isInPiP else {
+            return nil
+        }
+
+        let bounds = self.currentBounds
+        let oldAdjustedBounds = bounds.inset(by: self.dragBoundInsets)
+        
+        var oldAdjustedBoundsCenter = oldAdjustedBounds.origin
+        oldAdjustedBoundsCenter.x += (oldAdjustedBounds.width / 2)
+        oldAdjustedBoundsCenter.y += (oldAdjustedBounds.height / 2)
+        
+        var currentPosition: Position?
+        if self.view.center.y < oldAdjustedBoundsCenter.y {
+            //up
+            if self.view.center.x < oldAdjustedBoundsCenter.x {
+                currentPosition = .upperLeftCorner
+            } else {
+                currentPosition = .upperRightCorner
+            }
+        } else {
+            //down
+            if self.view.center.x < oldAdjustedBoundsCenter.x {
+                currentPosition = .lowerLeftCorner
+            } else {
+                currentPosition = .lowerRightCorner
+            }
+        }
+        
+        return currentPosition
+    }
+    
     // Unused. Remove on the next major release.
     @available(*, deprecated, message: "The PiP window size is now fixed to 150px.")
     public var c: CGFloat = 0.0
