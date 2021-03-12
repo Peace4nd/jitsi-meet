@@ -21,6 +21,10 @@ import {
     IconInviteMore,
     IconPresentation,
     IconRaisedHand,
+    IconShareVideo,
+    IconCodeBlock,
+    IconFeedback,
+    IconOpenInNew,
     IconRec
 } from '../../../base/icons';
 import JitsiMeetJS from '../../../base/lib-jitsi-meet';
@@ -1031,10 +1035,10 @@ class Toolbox extends Component<Props, State> {
 
         return [
 
-            /* this._isProfileVisible()
+            this._isProfileVisible()
                 && <OverflowMenuProfileItem
                     key = 'profile'
-                    onClick = { this._onToolbarToggleProfile } />,*/
+                    onClick = { this._onToolbarToggleProfile } />,
             this._shouldShowButton('videoquality')
                 && <OverflowMenuVideoQualityItem
                     key = 'videoquality'
@@ -1046,23 +1050,21 @@ class Toolbox extends Component<Props, State> {
                     key = 'fullscreen'
                     onClick = { this._onToolbarToggleFullScreen }
                     text = { _fullScreen ? t('toolbar.exitFullScreen') : t('toolbar.enterFullScreen') } />,
-
-            /* this._shouldShowButton('livestreaming')
+            this._shouldShowButton('livestreaming')
                 && <LiveStreamButton
                     key = 'livestreaming'
-                    showLabel = { true } />,*/
+                    showLabel = { true } />,
             this._shouldShowButton('recording')
                 && <RecordButton
                     key = 'record'
                     showLabel = { true } />,
-
-            /* this._shouldShowButton('sharedvideo')
+            this._shouldShowButton('sharedvideo')
                 && <OverflowMenuItem
                     accessibilityLabel = { t('toolbar.accessibilityLabel.sharedvideo') }
                     icon = { IconShareVideo }
                     key = 'sharedvideo'
                     onClick = { this._onToolbarToggleSharedVideo }
-                    text = { _sharingVideo ? t('toolbar.stopSharedVideo') : t('toolbar.sharedvideo') } />,*/
+                    text = { _sharingVideo ? t('toolbar.stopSharedVideo') : t('toolbar.sharedvideo') } />,
             this._shouldShowButton('etherpad')
                 && <SharedDocumentButton
                     key = 'etherpad'
@@ -1072,11 +1074,10 @@ class Toolbox extends Component<Props, State> {
                     key = 'videobackgroundblur'
                     showLabel = { true }
                     visible = { !_screensharing } />,
-
-            /* this._shouldShowButton('settings')
+            this._shouldShowButton('settings')
                 && <SettingsButton
                     key = 'settings'
-                    showLabel = { true } />,*/
+                    showLabel = { true } />,
             this._shouldShowButton('mute-everyone')
                 && <MuteEveryoneButton
                     key = 'mute-everyone'
@@ -1088,8 +1089,7 @@ class Toolbox extends Component<Props, State> {
                     key = 'stats'
                     onClick = { this._onToolbarOpenSpeakerStats }
                     text = { t('toolbar.speakerStats') } />,
-
-            /* this._isEmbedMeetingVisible()
+            this._isEmbedMeetingVisible()
                 && <OverflowMenuItem
                     accessibilityLabel = { t('toolbar.accessibilityLabel.embedMeeting') }
                     icon = { IconCodeBlock }
@@ -1110,7 +1110,7 @@ class Toolbox extends Component<Props, State> {
                     icon = { IconOpenInNew }
                     key = 'shortcuts'
                     onClick = { this._onToolbarOpenKeyboardShortcuts }
-                    text = { t('toolbar.shortcuts') } />,*/
+                    text = { t('toolbar.shortcuts') } />,
             this._shouldShowButton('download')
                 && <DownloadButton
                     key = 'download'
