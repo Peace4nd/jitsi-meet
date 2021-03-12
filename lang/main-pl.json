@@ -7,7 +7,7 @@
         "copyStream": "Kopiuj link transmisji na żywo",
         "countryNotSupported": "Nie obsługujemy jeszcze tej lokalizacji.",
         "countryReminder": "Dzwonisz spoza USA? Upewnij się, że zaczynasz od kodu kraju!",
-        "defaultEmail": "Domyślna poczta",        
+        "defaultEmail": "Domyślna poczta",
         "disabled": "Nie możesz zapraszać ludzi.",
         "failedToAdd": "Błąd dodawania uczestników",
         "footerText": "Wybieranie numeru jest wyłączone.",
@@ -74,12 +74,12 @@
         "title": "Rozmowa",
         "you": "Ty"
     },
-	"chromeExtensionBanner": {
+    "chromeExtensionBanner": {
         "installExtensionText": "Zainstaluj rozszerzenie integrujące Kalendarz Google i Office 365",
         "buttonText": "Zainstaluj rozszerzenie Chrome",
         "dontShowAgain": "Nie pokazuj ponownie"
     },
-	"connectingOverlay": {
+    "connectingOverlay": {
         "joiningRoom": "Łączenie ze spotkaniem…"
     },
     "connection": {
@@ -99,9 +99,11 @@
     },
     "connectionindicator": {
         "address": "Adres:",
+        "audio_ssrc": "Audio SSRC:",
         "bandwidth": "Szacowana przepustowość:",
         "bitrate": "Szybkość transmisji:",
         "bridgeCount": "Liczba serwerów: ",
+        "codecs": "Codecs (A/V): ",
         "connectedTo": "Podłączone do:",
         "e2e_rtt": "E2E RTT:",
         "framerate": "Klatek na sekundę:",
@@ -125,9 +127,12 @@
         "remoteport": "Port zdalny:",
         "remoteport_plural": "Porty zdalne:",
         "resolution": "Rozdzielczość:",
+        "savelogs": "Save logs",
+        "participant_id": "Participant id:",
         "status": "Połączenie:",
         "transport": "Transport:",
-        "transport_plural": "Transporty:"
+        "transport_plural": "Transporty:",
+        "video_ssrc": "Video SSRC:"
     },
     "dateUtils": {
         "earlier": "Wcześniej",
@@ -190,16 +195,13 @@
         "connectErrorWithMsg": "Upsss! Coś poszło nie tak i nie możemy podłączyć się do tej konferencji: {{msg}}",
         "connecting": "Nawiązywanie połączenia",
         "contactSupport": "Skontaktuj się ze wsparciem",
-        "copy": "Kopiuj",
         "copied": "Skopiowano",
+        "copy": "Kopiuj",
         "dismiss": "Odrzuć",
         "displayNameRequired": "Cześć! Jak się nazywasz?",
         "done": "Zrobione",
         "e2eeDescription": "Szyfrowanie End-to-End jest aktualnie w fazie EKSPERYMENTALNEJ. Proszę mieć na uwadze fakt, że szyfrowanie end-to-end wyłączy oferowane przez serwer usługi takie jak: nagrywanie, streaming na żywo i dołączanie uczestników przez telefon. Proszę mieć również na uwadze fakt, że takie spotkanie zadziałą tylko dla uczestników korzystających z przeglądarek wspierających wstawiane strumienie.",
         "e2eeLabel": "Klucz E2EE",
-        "e2eeNoKey": "brak",
-        "e2eeToggleSet": "Ustaw klucz",
-        "e2eeSet": "Ustaw",
         "e2eeWarning": "UWAGA: Niektórzy uczestnicy tego spotkania nie mają włączonej obsługi szyfrowania E2EE. Jeśli włączysz tą funkcję ci uczestnicy nie będą mieli z tobą kontaktu.",
         "enterDisplayName": "Wpisz tutaj swoje imię",
         "error": "Błąd",
@@ -218,7 +220,6 @@
         "kickTitle": "Ups! {{participantDisplayName}} usunął Cię z tego spotkania",
         "liveStreaming": "Strumień na żywo",
         "liveStreamingDisabledBecauseOfActiveRecordingTooltip": "Nie możliwe podczas aktywnego nagrywania",
-        "liveStreamingDisabledForGuestTooltip": "Goście nie mogą używać transmisji na żywo.",
         "liveStreamingDisabledTooltip": "Rozpoczęcie transmisji na żywo jest wyłączone.",
         "lockMessage": "Zabezpieczenie konferencji nie powiodło się.",
         "lockRoom": "Dodaj spotkanie $t(lockRoomPasswordUppercase)",
@@ -253,7 +254,6 @@
         "readMore": "więcej",
         "recording": "Nagrywanie",
         "recordingDisabledBecauseOfActiveLiveStreamingTooltip": "Nie możliwe podczas aktywnej transmisji na żywo",
-        "recordingDisabledForGuestTooltip": "Goście nie mogą uruchamiać nagrywania.",
         "recordingDisabledTooltip": "Start recording disabled.",
         "rejoinNow": "Połącz ponownie teraz",
         "remoteControlAllowedMessage": "{{user}} zaakceptował Twoją prośbę o kontrolę zdalną!",
@@ -285,7 +285,6 @@
         "shareVideoTitle": "Udostępnij wideo",
         "shareYourScreen": "Włącz udostępnianie ekranu",
         "shareYourScreenDisabled": "Udostępnianie ekranu wyłączone.",
-        "shareYourScreenDisabledForGuest": "Goście nie mogą współdzielić ekranu.",
         "startLiveStreaming": "Rozpocznij transmisję na żywo",
         "startRecording": "Rozpocznij nagrywanie",
         "startRemoteControlErrorMessage": "Wystąpił błąd podczas próby rozpoczęcie sesji zdalnej kontroli!",
@@ -301,12 +300,19 @@
         "tokenAuthFailedTitle": "Uwierzytelnianie nie powiodło się",
         "transcribing": "Transkrypcja",
         "unlockRoom": "Usuń spotkanie $t(lockRoomPassword)",
+        "user": "user",
         "userPassword": "hasło użytkownika",
         "WaitForHostMsg": "Spotkanie <b>{{room}}</b> jeszcze się nie rozpoczęło. Jeśli jesteś gospodarzem, prosimy o uwierzytelnienie. Jeśli nie, prosimy czekać na przybycie gospodarza.",
         "WaitForHostMsgWOk": "Spotkanie <b>{{room}}</b> jeszcze się nie rozoczęło. Jeśli jesteś jej gospodarzem, wybierz Ok, aby się uwierzytelnić. Jeśli nie, prosimy czekać na przybycie gospodarza.",
         "WaitingForHost": "Oczekiwanie na gospodarza…",
         "Yes": "Tak",
-        "yourEntireScreen": "Cały Twój ekran"
+        "yourEntireScreen": "Cały Twój ekran",
+        "e2eeNoKey": "brak",
+        "e2eeToggleSet": "Ustaw klucz",
+        "e2eeSet": "Ustaw",
+        "liveStreamingDisabledForGuestTooltip": "Goście nie mogą używać transmisji na żywo.",
+        "recordingDisabledForGuestTooltip": "Goście nie mogą uruchamiać nagrywania.",
+        "shareYourScreenDisabledForGuest": "Goście nie mogą współdzielić ekranu."
     },
     "dialOut": {
         "statusMessage": "jest teraz {{status}}"
@@ -428,7 +434,7 @@
         "start": "Rozpocznij transmisję na żywo",
         "streamIdHelp": "Co to jest?",
         "unavailableTitle": "Transmisja na żywo jest niedostępna",
-		"youtubeTerms": "Warunki użytkowania YouTube",
+        "youtubeTerms": "Warunki użytkowania YouTube",
         "googlePrivacyPolicy": "Polityka prywatności Google"
     },
     "localRecording": {
@@ -503,6 +509,7 @@
     "poweredby": "napędzane dzięki",
     "prejoin": {
         "audioAndVideoError": "Błąd audio i wideo:",
+        "audioDeviceProblem": "There is a problem with your audio device",
         "audioOnlyError": "Błąd audio:",
         "audioTrackError": "Nie można utworzyć ścieżki audio.",
         "calling": "Wybieranie",
@@ -510,6 +517,25 @@
         "callMeAtNumber": "Zadzwoń do mnie pod ten numer:",
         "configuringDevices": "Konfigurowanie urządzeń...",
         "connectedWithAudioQ": "Jesteś połączony głosowo?",
+        "connection": {
+            "good": "Your internet connection looks good!",
+            "nonOptimal": "Your internet connection is not optimal",
+            "poor": "You have a poor internet connection"
+        },
+        "connectionDetails": {
+            "audioClipping": "We expect your audio to be clipped.",
+            "audioHighQuality": "We expect your audio to have excellent quality.",
+            "audioLowNoVideo": "We expect your audio quality to be low and no video.",
+            "goodQuality": "Awesome! Your media quality is going to be great.",
+            "noMediaConnectivity": "We could not find a way to establish media connectivity for this test. This is typically caused by a firewall or NAT.",
+            "noVideo": "We expect that your video will be terrible.",
+            "undetectable": "If you still can not make calls in browser, we recommend that you make sure your speakers, microphone and camera are properly set up, that you have granted your browser rights to use your microphone and camera, and that your browser version is up-to-date. If you still have trouble calling, you should contact the web application developer.",
+            "veryPoorConnection": "We expect your call quality to be really terrible.",
+            "videoFreezing": "We expect your video to freeze, turn black, and be pixelated.",
+            "videoHighQuality": "We expect your video to have good quality.",
+            "videoLowQuality": "We expect your video to have low quality in terms of frame rate and resolution.",
+            "videoTearing": "We expect your video to be pixelated or have visual artefacts."
+        },
         "copyAndShare": "Kopiuj i udostępnij link spotkania",
         "dialInMeeting": "Wdzwoń się na spotkanie",
         "dialInPin": "Wdzwoń się na spotkanie i wprowadź kod PIN:",
@@ -519,6 +545,7 @@
         "errorDialOutDisconnected": "Nie udało się wybrać numeru. Rozłączono",
         "errorDialOutFailed": "Nie udało się wybrać numeru. Połączenie nieudane",
         "errorDialOutStatus": "Błąd podczas uzyskiwania stanu połączenia",
+        "errorMissingName": "Please enter your name to join the meeting",
         "errorStatusCode": "Błąd wybierania, kod statusu: {{status}}",
         "errorValidation": "Weryfikacja numeru zakończona niepowodzeniem",
         "iWantToDialIn": "Chcę się wdzwonić",
@@ -581,6 +608,7 @@
         "pending": "Przygotowanie do nagrania spotkania…",
         "rec": "NAGRYWANIE",
         "serviceDescription": "Twoje nagranie zostanie zapisane przez usługę nagrywania",
+        "serviceDescriptionCloud": "Cloud recording",
         "serviceName": "Usługa nagrywania",
         "signIn": "Zaloguj się",
         "signOut": "Wyloguj się",
@@ -616,7 +644,7 @@
         "selectAudioOutput": "Wyjście audio",
         "selectCamera": "Kamera",
         "selectMic": "Mikrofon",
-		"speakers": "Głośniki",
+        "speakers": "Głośniki",
         "startAudioMuted": "Wycisz wszystkich dołączających",
         "startVideoMuted": "Ukryj wszystkich dołączających",
         "title": "Ustawienia"
@@ -624,7 +652,7 @@
     "settingsView": {
         "advanced": "Zaawansowane",
         "alertOk": "OK",
-		"alertCancel": "Anuluj",
+        "alertCancel": "Anuluj",
         "alertTitle": "Uwaga",
         "alertURLText": "Wprowadzony adres URL serwera jest nieprawidłowy",
         "buildInfoSection": "Informacja o kompilacji",
@@ -657,7 +685,7 @@
         "speakerTime": "Czas mówcy"
     },
     "startupoverlay": {
-        "policyText": " ",
+        "genericTitle": "The meeting needs to use your microphone and camera.",
         "title": "{{app}} potrzebuje używać Twój mikrofon i kamerę."
     },
     "suspendedoverlay": {
@@ -675,7 +703,6 @@
             "document": "Przełączanie wspólnego dokumentu",
             "download": "Pobierz nasze aplikacje",
             "embedMeeting": "Osadź spotkanie",
-            "e2ee": "Szyfrowanie End-to-End",
             "feedback": "Zostaw swoją opinię",
             "fullScreen": "Przełączanie trybu pełnoekranowego",
             "grantModerator": "Przyznaj prawa moderowania",
@@ -709,7 +736,8 @@
             "toggleCamera": "Przełączanie kamery",
             "toggleFilmstrip": "Przełącz filmstrip",
             "videomute": "Przełączanie wyciszonego filmu wideo",
-            "videoblur": "Przełącz rozmazanie obrazu"
+            "videoblur": "Przełącz rozmazanie obrazu",
+            "e2ee": "Szyfrowanie End-to-End"
         },
         "addPeople": "Dodaj ludzi do swojej rozmowy",
         "audioOnlyOff": "Wyłącz tryb słabego łącza",
@@ -818,13 +846,14 @@
         "ld": "LD",
         "ldTooltip": "Podgląd obrazu w niskiej rozdzielczości",
         "lowDefinition": "Niska rozdzielczość",
-        "onlyAudioAvailable": "Dostępny jest tylko dźwięk",
-        "onlyAudioSupported": "Obsługujemy tylko dźwięk w tej przeglądarce.",
         "sd": "SD",
         "sdTooltip": "Podgląd obrazu w standardowej rozdzielczości",
-        "standardDefinition": "Standardowa rozdzielczość"
+        "standardDefinition": "Standardowa rozdzielczość",
+        "onlyAudioAvailable": "Dostępny jest tylko dźwięk",
+        "onlyAudioSupported": "Obsługujemy tylko dźwięk w tej przeglądarce."
     },
     "videothumbnail": {
+        "connectionInfo": "Connection Info",
         "domute": "Wyciszenie",
         "domuteOthers": "Wycisz pozostałych",
         "flip": "Odwrócenie",
@@ -854,8 +883,11 @@
         "getHelp": "Pomoc",
         "go": "Dalej",
         "goSmall": "Dalej",
+        "headerTitle": "Jitsi Meet",
+        "headerSubtitle": "Secure and high quality meetings",
         "info": "Informacje",
         "join": "Utwórz / Dołącz",
+        "jitsiOnMobile": "Jitsi on mobile – download our apps and start a meeting from anywhere",
         "moderatedMessage": "lub <a href=\"{{url}}\" rel=\"noopener noreferrer\" target=\"_blank\">zarezerwuj adres spotkania</a> jeśli jesteś jedynym moderatorem.",
         "privacy": "Polityka prywatności",
         "recentList": "Niedawno",
@@ -866,9 +898,10 @@
         "roomname": "Podaj nazwę sali konferencyjnej",
         "roomnameHint": "Wprowadź nazwę lub adres URL pokoju, do którego chcesz dołączyć. Możesz wymyślić nazwę, po prostu pozwól, aby osoby, z którymi się spotykasz, znały ją tak, aby wpisały tę samą nazwę.",
         "sendFeedback": "Wyślij opinię",
+        "startMeeting": "Start meeting",
         "terms": "Warunki korzystania",
         "title": "Bezpieczna, w pełni funkcjonalna i całkowicie bezpłatna wideokonferencja"
-	},
+    },
     "lonelyMeetingExperience": {
         "button": "Zaproś innych uczestników",
         "youAreAlone": "Tylko ty uczestniczysz w tym spotkaniu"
@@ -908,5 +941,29 @@
         "passwordJoinButton": "Dołącz",
         "reject": "Odrzuć",
         "toggleLabel": "Włącz / Wyłącz lobby"
+    },
+    "icwCustom": {
+        "toolbar": {
+            "invite": "Invite",
+            "mute": "Mute",
+            "unmute": "Unmute",
+            "end": "End",
+            "cam": "Cam",
+            "more": "More",
+            "hand": "Raise Hand",
+            "screen": "Share Screen",
+            "tile": "Grid View"
+        },
+        "share": {
+            "dialInfoText": "\n\n=====\n\nJust want to dial in on your phone?\n\n{{defaultDialInNumber}}Click this link to see the dial in phone numbers for this meeting\n{{dialInfoPageUrl}}",
+            "mainText": "1. Please join my online meeting.\n\n{{roomUrl}}\n\nGoogle Chrome is recommended for the best experience.\n\n2. Use your microphone and speakers (VoIP) - a headset is recommended."
+        },
+        "chat": {
+            "noMessagesTitle": "No Messages",
+            "noMessagesMessage": "There are no messages in the meeting yet.\nStart a conversation typing to input down."
+        },
+        "addPeople": {
+            "copyLink": "Copy link"
+        }
     }
 }

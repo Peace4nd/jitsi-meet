@@ -99,6 +99,7 @@
     },
     "connectionindicator": {
         "address": "地址：",
+        "audio_ssrc": "Audio SSRC:",
         "bandwidth": "估计带宽：",
         "bitrate": "比特率：",
         "bridgeCount": "服务器数量:",
@@ -126,9 +127,12 @@
         "remoteport": "远程端口：",
         "remoteport_plural": "远程端口:",
         "resolution": "分辨率：",
+        "savelogs": "Save logs",
+        "participant_id": "Participant id:",
         "status": "连接：",
         "transport": "传输：",
-        "transport_plural": "传输:"
+        "transport_plural": "传输:",
+        "video_ssrc": "Video SSRC:"
     },
     "dateUtils": {
         "earlier": "更早的",
@@ -201,9 +205,9 @@
         "e2eeWarning": "警告: 并非所有会议参与者都支持端到端加密。如果启用它，他们将无法看到您或听到您的声音。",
         "enterDisplayName": "请输入您的名称",
         "error": "错误",
+        "gracefulShutdown": "服务器正在维护，请稍后再试。",
         "grantModeratorDialog": "您确定要让此参会者成为主持人吗？",
         "grantModeratorTitle": "授权为主持人",
-        "gracefulShutdown": "服务器正在维护，请稍后再试。",
         "IamHost": "我是主持人。",
         "incorrectRoomLockPassword": "密码错误",
         "incorrectPassword": "错误的用户名或者密码",
@@ -216,7 +220,6 @@
         "kickTitle": "对不起，您被 {{participantDisplayName}} 踢出了会议。",
         "liveStreaming": "流媒体直播中",
         "liveStreamingDisabledBecauseOfActiveRecordingTooltip": "录制处于活动状态时无法启动流媒体直播",
-        "liveStreamingDisabledForGuestTooltip": "访客无法启动流媒体直播。",
         "liveStreamingDisabledTooltip": "禁止启动流媒体。",
         "lockMessage": "锁定会议失败。",
         "lockRoom": "添加会议 $t(lockRoomPasswordUppercase)",
@@ -251,7 +254,6 @@
         "readMore": "更多",
         "recording": "录制中",
         "recordingDisabledBecauseOfActiveLiveStreamingTooltip": "直播时无法使用录制功能",
-        "recordingDisabledForGuestTooltip": "访客无法开启录制。",
         "recordingDisabledTooltip": "开始录制被禁用。",
         "rejoinNow": "马上重新加入",
         "remoteControlAllowedMessage": "{{user}} 接受了您的远程控制请求",
@@ -283,7 +285,6 @@
         "shareVideoTitle": "分享视频",
         "shareYourScreen": "共享你的屏幕",
         "shareYourScreenDisabled": "禁止共享屏幕。",
-        "shareYourScreenDisabledForGuest": "访客无法共享屏幕。",
         "startLiveStreaming": "开始直播",
         "startRecording": "开始录制",
         "startRemoteControlErrorMessage": "尝试开始远程控制会话时发生了一个错误！",
@@ -299,12 +300,16 @@
         "tokenAuthFailedTitle": "认证失败",
         "transcribing": "转录中",
         "unlockRoom": "移除会议 $t(lockRoomPassword)",
+        "user": "user",
         "userPassword": "用户密码",
         "WaitForHostMsg": "会议<b>{{room}}</b>尚未开始。如果您是主持人，请进行身份验证。否则，请等待主持人的到来。",
         "WaitForHostMsgWOk": "会议<b>{{room}}</b>尚未开始。如果您是主持人，请进行身份验证。否则，请等待主持人的到来。",
         "WaitingForHost": "等待主持人。。。",
         "Yes": "是",
-        "yourEntireScreen": "你的整个屏幕"
+        "yourEntireScreen": "你的整个屏幕",
+        "liveStreamingDisabledForGuestTooltip": "访客无法启动流媒体直播。",
+        "recordingDisabledForGuestTooltip": "访客无法开启录制。",
+        "shareYourScreenDisabledForGuest": "访客无法共享屏幕。"
     },
     "dialOut": {
         "statusMessage": "现在状态为 {{status}}"
@@ -600,6 +605,7 @@
         "pending": "正在准备录制会议…",
         "rec": "REC录制",
         "serviceDescription": "录制服务将保存您的录制",
+        "serviceDescriptionCloud": "Cloud recording",
         "serviceName": "录制服务",
         "signIn": "登录",
         "signOut": "登出",
@@ -676,7 +682,7 @@
         "speakerTime": "发言者时间"
     },
     "startupoverlay": {
-        "policyText": " ",
+        "genericTitle": "The meeting needs to use your microphone and camera.",
         "title": "{{app}} 需要使用您的麦克风和摄像头。"
     },
     "suspendedoverlay": {
@@ -710,7 +716,6 @@
             "mute": "静音 / 取消静音",
             "muteEveryone": "全员静音",
             "pip": "切换子母画面模式",
-            "privateMessage": "",
             "profile": "编辑您的简介",
             "raiseHand": "举手 / 取消举手",
             "recording": "开启 / 停止 视频录制",
@@ -836,13 +841,14 @@
         "ld": "低清",
         "ldTooltip": "观看普清视频",
         "lowDefinition": "低清",
-        "onlyAudioAvailable": "只能使用音频",
-        "onlyAudioSupported": "我们只支持此浏览器的音频功能。",
         "sd": "标清",
         "sdTooltip": "观看标清视频",
-        "standardDefinition": "标清"
+        "standardDefinition": "标清",
+        "onlyAudioAvailable": "只能使用音频",
+        "onlyAudioSupported": "我们只支持此浏览器的音频功能。"
     },
     "videothumbnail": {
+        "connectionInfo": "Connection Info",
         "domute": "静音",
         "domuteOthers": "静音其他人",
         "flip": "翻转",
@@ -872,8 +878,11 @@
         "getHelp": "获得帮助",
         "go": "开始",
         "goSmall": "开始",
+        "headerTitle": "Jitsi Meet",
+        "headerSubtitle": "Secure and high quality meetings",
         "info": "信息",
         "join": "创建 / 加入",
+        "jitsiOnMobile": "Jitsi on mobile – download our apps and start a meeting from anywhere",
         "moderatedMessage": "或<a href=\"{{url}}\" rel=\"noopener noreferrer\" target=\"_blank\">提前预订会议URL </a>，您是唯一的主持人。",
         "privacy": "隐私",
         "recentList": "最近",
@@ -884,6 +893,7 @@
         "roomname": "请输入房间名",
         "roomnameHint": "请输入您想加入房间的 URL 地址或者房间名。您也可以想个房名创建房间，只要其他人输入和您一样的名称就能加入您的房间。",
         "sendFeedback": "发送反馈",
+        "startMeeting": "Start meeting",
         "terms": "条款",
         "title": "安全，功能完善和完全开源的视频会议"
     },
@@ -926,5 +936,29 @@
         "passwordJoinButton": "加入",
         "reject": "拒绝",
         "toggleLabel": "开启大厅模式"
+    },
+    "icwCustom": {
+        "toolbar": {
+            "invite": "Invite",
+            "mute": "Mute",
+            "unmute": "Unmute",
+            "end": "End",
+            "cam": "Cam",
+            "more": "More",
+            "hand": "Raise Hand",
+            "screen": "Share Screen",
+            "tile": "Grid View"
+        },
+        "share": {
+            "dialInfoText": "\n\n=====\n\nJust want to dial in on your phone?\n\n{{defaultDialInNumber}}Click this link to see the dial in phone numbers for this meeting\n{{dialInfoPageUrl}}",
+            "mainText": "1. Please join my online meeting.\n\n{{roomUrl}}\n\nGoogle Chrome is recommended for the best experience.\n\n2. Use your microphone and speakers (VoIP) - a headset is recommended."
+        },
+        "chat": {
+            "noMessagesTitle": "No Messages",
+            "noMessagesMessage": "There are no messages in the meeting yet.\nStart a conversation typing to input down."
+        },
+        "addPeople": {
+            "copyLink": "Copy link"
+        }
     }
 }

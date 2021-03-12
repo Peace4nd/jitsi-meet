@@ -92,11 +92,11 @@
         "DISCONNECTED": "Desconectado",
         "DISCONNECTING": "Desconectando",
         "ERROR": "Error",
-        "RECONNECTING": "Ocurrió un problema en la red. Reconectando...",
         "FETCH_SESSION_ID": "Obteniendo session-ID…",
         "GET_SESSION_ID_ERROR": "Obtener session-id error: {{code}}",
         "GOT_SESSION_ID": "Obteniendo session-ID… Listo",
-        "LOW_BANDWIDTH": "El vídeo para {{displayName}} ha sido desactivado para ahorrar ancho de banda"
+        "LOW_BANDWIDTH": "El vídeo para {{displayName}} ha sido desactivado para ahorrar ancho de banda",
+        "RECONNECTING": "Ocurrió un problema en la red. Reconectando..."
     },
     "connectionindicator": {
         "address": "Dirección:",
@@ -116,7 +116,6 @@
         "maxEnabledResolution": "enviar max",
         "more": "Mostrar más",
         "packetloss": "Pérdida de paquetes:",
-        "participant_id": "ID participante:",
         "quality": {
             "good": "Buena",
             "inactive": "Inactivo",
@@ -128,8 +127,9 @@
         "remoteaddress_plural": "Direcciones remotas:",
         "remoteport": "Puerto remoto:",
         "remoteport_plural": "Puertos remotos:",
-        "savelogs": "Guardar logs",
         "resolution": "Resolución:",
+        "savelogs": "Guardar logs",
+        "participant_id": "ID participante:",
         "status": "Calidad:",
         "transport": "Transporte:",
         "transport_plural": "Transportes:",
@@ -145,13 +145,13 @@
         "description": "¿No pasó nada? Hemos intentado iniciar la reunión en la aplicación de escritorio {{app}}. Intenta de nuevo o inicia en la aplicación web {{app}}.",
         "descriptionWithoutWeb": "¿No pasó nada? Intentamos iniciar su reunión en la aplicación de escritorio {{app}}.",
         "downloadApp": "Descargar la app",
-        "launchWebButton": "Iniciar en el navegador",
         "ifDoNotHaveApp": "Si aún no tienes la app:",
         "ifHaveApp": "Si ya tienes la app:",
         "joinInApp": "Unirse a la reunion usando la app",
-        "openApp": "Continuar a la aplicación",
+        "launchWebButton": "Iniciar en el navegador",
         "title": "Iniciando la reunión en {{app}}…",
-        "tryAgainButton": "Intentar de nuevo en el escritorio"
+        "tryAgainButton": "Intentar de nuevo en el escritorio",
+        "openApp": "Continuar a la aplicación"
     },
     "defaultLink": "ej. {{url}}",
     "defaultNickname": "ej. Juan Pérez",
@@ -196,28 +196,23 @@
         "connectError": "¡Oops! Algo salió mal y no fue posible conectarnos a la conferencia.",
         "connectErrorWithMsg": "¡Oops! Algo salió mal y no fue posible conectarnos a la conferencia: {{msg}}",
         "connecting": "Conectando",
-        "copied": "Copiado",
         "contactSupport": "Contacta al soporte técnico",
+        "copied": "Copiado",
         "copy": "Copiar",
         "dismiss": "Descartar",
         "displayNameRequired": "¡Hola! ¿Cuál es tu nombre?",
         "done": "Listo",
-        "e2eeLabel": "Habilitar cifrado Extremo-a-Extremo",
         "e2eeDescription": "El cifrado de extremo a extremo es actualmente EXPERIMENTAL. Tenga en cuenta que activarlo puede deshabilitar servicios como: grabación, transmisión en vivo y participación telefónica. Además, esta reunión solo funcionará con personas que se unan con un navegador.",
+        "e2eeLabel": "Habilitar cifrado Extremo-a-Extremo",
         "e2eeWarning": "ADVERTENCIA: No todos los participantes de esta reunión soportan el cifrado de extremo a extremo. Si usted habilita esta opción, ellos no podrán verlo ni oírlo.",
         "enterDisplayName": "Por favor ingresa tu nombre aquí",
         "error": "Error",
-        "externalInstallationMsg": "Necesita instalar nuestra extensión para compartir pantalla.",
-        "externalInstallationTitle": "Extensión requerida",
-        "goToStore": "Ir a la tienda web",
         "gracefulShutdown": "Nuestro servicio se encuentra en mantenimiento. Por favor, intente más tarde.",
         "grantModeratorDialog": "¿Estas seguro de que quieres convertir a este participante en moderator?",
         "grantModeratorTitle": "Convertir en moderador",
         "IamHost": "Soy el anfitrión",
         "incorrectRoomLockPassword": "Contraseña incorrecta",
         "incorrectPassword": "Nombre de usuario o contraseña incorrecta",
-        "inlineInstallationMsg": "Necesita instalar nuestra extensión para compartir escritorio.",
-        "inlineInstallExtension": "Instalar ahora",
         "internalError": "¡Oops! Algo salió mal. El siguiente error ocurrió: {{error}}",
         "internalErrorTitle": "Error interno",
         "kickMessage": "Puede ponerse en contacto con {{participantDisplayName}} para obtener más detalles.",
@@ -225,9 +220,8 @@
         "kickParticipantDialog": "¿Seguro que quiere expulsar a este participante?",
         "kickParticipantTitle": "¿Expulsar a este participante?",
         "kickTitle": "¡Ay! {{participantDisplayName}} te expulsó de la reunión",
-        "liveStreamingDisabledBecauseOfActiveRecordingTooltip": "No es posible mientras la grabación este activa",
         "liveStreaming": "Transmisión en vivo",
-        "liveStreamingDisabledForGuestTooltip": "Los invitados no pueden iniciar la transmisión en vivo.",
+        "liveStreamingDisabledBecauseOfActiveRecordingTooltip": "No es posible mientras la grabación este activa",
         "liveStreamingDisabledTooltip": "Las trasmisiones están deshabilitadas.",
         "lockMessage": "No se pudo bloquear la conferencia.",
         "lockRoom": "Agregar $t(lockRoomPasswordUppercase) a la reunión",
@@ -262,7 +256,6 @@
         "readMore": "mas",
         "recording": "Grabando",
         "recordingDisabledBecauseOfActiveLiveStreamingTooltip": "No es posible mientras la transmisión en vivo este activa",
-        "recordingDisabledForGuestTooltip": "Los invitados no pueden iniciar grabaciones.",
         "recordingDisabledTooltip": "Inicio de grabación desactivado.",
         "rejoinNow": "Reunirse ahora",
         "remoteControlAllowedMessage": "¡{{user}} ha aceptado tu solicitud de control remoto!",
@@ -282,10 +275,6 @@
         "screenSharingAudio": "Compartir audio",
         "screenSharingFailed": "¡Oops! ¡Algo salio mal, no se pudo iniciar la compartición de su pantalla!",
         "screenSharingFailedTitle": "¡Fallo al compartir su pantalla!",
-        "screenSharingFailedToInstall": "¡Uy! La extensión de uso compartido de pantalla no se pudo instalar.",
-        "screenSharingFailedToInstallTitle": "La extensión de uso compartido de pantalla no se pudo instalar",
-        "screenSharingFirefoxPermissionDeniedError": "Algo salió mal al compartir pantalla. Asegúrate de habernos dado permiso para hacerlo.",
-        "screenSharingFirefoxPermissionDeniedTitle": "¡Uy! No pudimos iniciar el uso compartido de la pantalla.",
         "screenSharingPermissionDeniedError": "¡Uy! Algo salió mal con tus permisos de extensión para compartir pantalla. Vuelve a cargar la página e intenta de nuevo.",
         "sendPrivateMessage": "Acabas de recibir un mensaje privado. ¿Deseas responder en privado o a todos?",
         "sendPrivateMessageCancel": "Enviar al grupo",
@@ -298,7 +287,6 @@
         "shareVideoTitle": "Compartir un vídeo",
         "shareYourScreen": "Compartir pantalla",
         "shareYourScreenDisabled": "Se desactivó la opción para compartir pantalla.",
-        "shareYourScreenDisabledForGuest": "Los invitados no pueden compartir la pantalla.",
         "startLiveStreaming": "Iniciar transmisión en vivo",
         "startRecording": "Iniciar grabación",
         "startRemoteControlErrorMessage": "Se produjo un error al intentar iniciar la sesión de control remoto.",
@@ -314,12 +302,25 @@
         "tokenAuthFailedTitle": "Error de autenticación",
         "transcribing": "Transcribiendo",
         "unlockRoom": "Quitar la $t(lockRoomPassword) de reunión",
+        "user": "user",
         "userPassword": "contraseña del usuario",
         "WaitForHostMsg": "La conferencia <b>{{room}}</b> aún no ha comenzado. Si eres el anfitrión, inicia sesión. De lo contrario, espera a que llegue el anfitrión.",
         "WaitForHostMsgWOk": "La conferencia <b>{{room}}</b> aún no ha comenzado. Si eres el anfitrión, presiona Aceptar para autenticar. De lo contrario, espera a que llegue el anfitrión.",
         "WaitingForHost": "Esperando al anfitrión…",
         "Yes": "Sí",
-        "yourEntireScreen": "Toda la pantalla"
+        "yourEntireScreen": "Toda la pantalla",
+        "externalInstallationMsg": "Necesita instalar nuestra extensión para compartir pantalla.",
+        "externalInstallationTitle": "Extensión requerida",
+        "goToStore": "Ir a la tienda web",
+        "inlineInstallationMsg": "Necesita instalar nuestra extensión para compartir escritorio.",
+        "inlineInstallExtension": "Instalar ahora",
+        "liveStreamingDisabledForGuestTooltip": "Los invitados no pueden iniciar la transmisión en vivo.",
+        "recordingDisabledForGuestTooltip": "Los invitados no pueden iniciar grabaciones.",
+        "screenSharingFailedToInstall": "¡Uy! La extensión de uso compartido de pantalla no se pudo instalar.",
+        "screenSharingFailedToInstallTitle": "La extensión de uso compartido de pantalla no se pudo instalar",
+        "screenSharingFirefoxPermissionDeniedError": "Algo salió mal al compartir pantalla. Asegúrate de habernos dado permiso para hacerlo.",
+        "screenSharingFirefoxPermissionDeniedTitle": "¡Uy! No pudimos iniciar el uso compartido de la pantalla.",
+        "shareYourScreenDisabledForGuest": "Los invitados no pueden compartir la pantalla."
     },
     "dialOut": {
         "statusMessage": "está {{status}}"
@@ -329,9 +330,6 @@
     },
     "e2ee": {
         "labelToolTip": "La comunicación de audio y vídeo en esta reunión está cifrada de extremo a extremo"
-    },
-    "embedMeeting": {
-        "title": "Insertar reunión en sitio web"
     },
     "embedMeeting": {
         "title": "Insertar esta reunión"
@@ -414,6 +412,8 @@
         "videoQuality": "Ajustar la calidad de la llamada"
     },
     "liveStreaming": {
+        "limitNotificationDescriptionWeb": "Debido a la alta demanda su transmisión estará limitada a {{limit}} minutos. Puede obtener transmisiones ilimitadas en <a href={{url}} rel='noopener noreferrer' target='_blank'>{{app}}</a>.",
+        "limitNotificationDescriptionNative": "Su transmisión estará limitada a {{limit}} minutos. Puede obtener transmisiones ilimitadas en {{app}}.",
         "busy": "Nuestros servidores andan un poco ocupados. Vuelve a intentarlo en unos minutos.",
         "busyTitle": "Todos los transmisores están ocupados",
         "changeSignIn": "Cambiar de cuenta.",
@@ -425,9 +425,6 @@
         "errorLiveStreamNotEnabled": "La transmisión en vivo no está activada en {{email}}. Por favor, activa la transmisión en vivo o inicia sesión en una cuenta con la transmisión en vivo activada.",
         "expandedOff": "La transmisión en vivo se ha detenido",
         "expandedOn": "La reunión se está transmitiendo a YouTube.",
-        "googlePrivacyPolicy": "Política de Privacidad de Google",
-        "limitNotificationDescriptionWeb": "Debido a la alta demanda su transmisión estará limitada a {{limit}} minutos. Puede obtener transmisiones ilimitadas en <a href={{url}} rel='noopener noreferrer' target='_blank'>{{app}}</a>.",
-        "limitNotificationDescriptionNative": "Su transmisión estará limitada a {{limit}} minutos. Puede obtener transmisiones ilimitadas en {{app}}.",
         "expandedPending": "La transmisión en vivo se está iniciando…",
         "failedToStart": "La transmisión en vivo no se pudo iniciar",
         "getStreamKeyManually": "No pudimos encontrar tu clave de transmisión. Por favor, obtenla de la página de YouTube y pégala.",
@@ -445,7 +442,8 @@
         "start": "Iniciar una transmisión en vivo",
         "streamIdHelp": "¿Qué es esto?",
         "unavailableTitle": "Transmisión en vivo no disponible",
-        "youtubeTerms": "Términos de servicios de YouTube"
+        "youtubeTerms": "Términos de servicios de YouTube",
+        "googlePrivacyPolicy": "Política de Privacidad de Google"
     },
     "localRecording": {
         "clientState": {
@@ -518,7 +516,15 @@
     "passwordDigitsOnly": "Hasta {{number]] cifras",
     "poweredby": "con tecnología de",
     "prejoin": {
+        "audioAndVideoError": "Error en audio y vídeo:",
         "audioDeviceProblem": "Hay un problema con su dispositivo de audio",
+        "audioOnlyError": "Error en audio:",
+        "audioTrackError": "No se pudo crear la pista de audio.",
+        "calling": "Llamando",
+        "callMe": "Llámame",
+        "callMeAtNumber": "Llamame a este número:",
+        "configuringDevices": "Configurando dispositivos...",
+        "connectedWithAudioQ": "¿Estás está conectado con audio?",
         "connection": {
             "good": "¡Su conexión a internet es buena!",
             "nonOptimal": "Su conexión a internet no es óptima",
@@ -538,16 +544,6 @@
             "videoLowQuality": "Prevemos que su video tendrá baja calidad en términos de velocidad de fotogramas y resolución.",
             "videoTearing": "Prevemos que su video se pixelará o tendrá artefactos visuales."
         },
-        "errorMissingName": "Ingrese su nombre para unirse a la reunión",
-        "premeeting": "Pre-reunión",
-        "showScreen": "Habilitar pantalla pre-reunión",
-        "audioAndVideoError": "Error en audio y vídeo:",
-        "audioOnlyError": "Error en audio:",
-        "audioTrackError": "No se pudo crear la pista de audio.",
-        "callMe": "Llámame",
-        "callMeAtNumber": "Llamame a este número:",
-        "configuringDevices": "Configurando dispositivos...",
-        "connectedWithAudioQ": "¿Estás está conectado con audio?",
         "copyAndShare": "Copia y comparte el link de la reuinión",
         "dialInMeeting": "Entrar con llamada telefónica",
         "dialInPin": "Marca a la reunión e ingresa el código:",
@@ -557,6 +553,7 @@
         "errorDialOutDisconnected": "No se pudo marcar. Desconectado.",
         "errorDialOutFailed": "No se pudo marcar. La llamada falló.",
         "errorDialOutStatus": "Hubo algún error, y no se pudo determinar cuál",
+        "errorMissingName": "Ingrese su nombre para unirse a la reunión",
         "errorStatusCode": "Error al marcar, código de error {{status}}",
         "errorValidation": "No se pudo validar el número",
         "iWantToDialIn": "Quiero entrar por teléfono",
@@ -567,7 +564,8 @@
         "linkCopied": "Se copió el link",
         "lookGood": "Tu micrófono funciona bien.",
         "or": "o",
-        "calling": "Llamando",
+        "premeeting": "Pre-reunión",
+        "showScreen": "Habilitar pantalla pre-reunión",
         "startWithPhone": "Iniciar con audio de llamada telefónica",
         "screenSharingError": "Error al compartir pantalla:",
         "videoOnlyError": "Error con el vídeo:",
@@ -596,6 +594,8 @@
     },
     "raisedHand": "Desea hablar",
     "recording": {
+        "limitNotificationDescriptionWeb": "Debido a la alta demanda su grabación estará limitada a {{limit}} minutos. Puede obtener grabaciones ilimitadas en <a href={{url}} rel='noopener noreferrer' target='_blank'>{{app}}</a>.",
+        "limitNotificationDescriptionNative": "Su grabación estará limitada a {{limit}} minutos. Puede obtener grabaciones ilimitadas en <3>{{app}}</3>.",
         "authDropboxText": "Subir a Dropbox",
         "availableSpace": "Espacio disponible: {{spaceLeft}} MB (aproximadamente {{duration}} minutos de grabación)",
         "beta": "BETA",
@@ -607,8 +607,6 @@
         "expandedPending": "La grabación se está iniciando…",
         "failedToStart": "No se pudo iniciar la grabación",
         "fileSharingdescription": "Compartir la grabación con los participantes de la reunión",
-        "limitNotificationDescriptionWeb": "Debido a la alta demanda su grabación estará limitada a {{limit}} minutos. Puede obtener grabaciones ilimitadas en <a href={{url}} rel='noopener noreferrer' target='_blank'>{{app}}</a>.",
-        "limitNotificationDescriptionNative": "Su grabación estará limitada a {{limit}} minutos. Puede obtener grabaciones ilimitadas en <3>{{app}}</3>.",
         "live": "EN VIVO",
         "loggedIn": "Sesión iniciada como {{userName}}",
         "off": "Grabación detenida",
@@ -618,6 +616,7 @@
         "pending": "Preparando para grabar la reunión…",
         "rec": "GRA",
         "serviceDescription": "El servicio de grabación guardará la grabación",
+        "serviceDescriptionCloud": "Cloud recording",
         "serviceName": "Servicio de grabación",
         "signIn": "Iniciar sesión",
         "signOut": "Cerrar sesión",
@@ -628,8 +627,8 @@
         "pullToRefresh": "Mueve el dedo para abajo para actualizar."
     },
     "security": {
-        "aboutReadOnly": "Los participantes moderadores pueden agregar una $t(lockRoomPassword) a la reunión. Los participantes deberán proporcionar la $t(lockRoomPassword) antes de que se les permita unirse a la reunión.",
         "about": "Puedes agregar una contraseña a la reunión. Los participantes necesitarán la contraseña para unirse a la reunión.",
+        "aboutReadOnly": "Los participantes moderadores pueden agregar una $t(lockRoomPassword) a la reunión. Los participantes deberán proporcionar la $t(lockRoomPassword) antes de que se les permita unirse a la reunión.",
         "insecureRoomNameWarning": "El nombre de la sala es inseguro. Participantes no deseados pueden llegar a unirse a la reunión.",
         "securityOptions": "Opciones de seguridad"
     },
@@ -653,10 +652,9 @@
         "selectAudioOutput": "Salida de audio",
         "selectCamera": "Cámara",
         "selectMic": "Micrófono",
-        "speakers": "Altavoces",
+        "speakers": "Parlantes",
         "startAudioMuted": "Todos inician silenciados",
         "startVideoMuted": "Todos inician con cámara desactivada",
-        "speakers": "Parlantes",
         "title": "Ajustes"
     },
     "settingsView": {
@@ -669,9 +667,9 @@
         "conferenceSection": "Conferencia",
         "disableCallIntegration": "Desactivar la integración nativa de llamadas",
         "disableP2P": "Desactivar la comunicación directa (\"Peer-To-Peer\")",
-        "displayName": "Nombre a mostrar",
         "disableCrashReporting": "Desactivar el reporte de crasheos",
         "disableCrashReportingWarning": "¿Estás seguro que no deseas reportarnos los crasheos? La opción se activará al reiniciar la app.",
+        "displayName": "Nombre a mostrar",
         "email": "Correo electrónico",
         "header": "Configuración",
         "profileSection": "Perfil",
@@ -695,7 +693,7 @@
         "speakerTime": "Tiempo hablado"
     },
     "startupoverlay": {
-        "policyText": " ",
+        "genericTitle": "The meeting needs to use your microphone and camera.",
         "title": "{{app}} necesita usar el micrófono y la cámara."
     },
     "suspendedoverlay": {
@@ -711,17 +709,14 @@
             "cc": "Alternar subtítulos",
             "chat": "Alternar ventana de chat",
             "document": "Alternar documento compartido",
-            "embedMeeting": "Insertar reunión",
-            "grantModerator": "Convertir en moderador",
             "download": "Descargar nuestras aplicaciones",
-            "e2ee": "Cifrado de extremo a extremo",
+            "embedMeeting": "Insertar reunión",
             "feedback": "Dejar comentarios",
             "fullScreen": "Alternar pantalla completa",
+            "grantModerator": "Convertir en moderador",
             "hangup": "Colgar",
             "help": "Ayuda",
             "invite": "Invitar personas",
-            "lobbyButtonDisable": "Desactivar sala de espera",
-            "lobbyButtonEnable": "Activar sala de espera",
             "kick": "Expulsar participante",
             "lobbyButton": "Activar / desactivar el modo lobby",
             "localRecording": "Alternar controles de grabación local",
@@ -749,7 +744,10 @@
             "toggleCamera": "Alternar cámara",
             "toggleFilmstrip": "Alternar mosaicos",
             "videomute": "Alternar vídeo",
-            "videoblur": "Alternar desenfoque de vídeo"
+            "videoblur": "Alternar desenfoque de vídeo",
+            "e2ee": "Cifrado de extremo a extremo",
+            "lobbyButtonDisable": "Desactivar sala de espera",
+            "lobbyButtonEnable": "Activar sala de espera"
         },
         "addPeople": "Agregar personas a la llamada",
         "audioOnlyOff": "Mostrar cámaras de los demás",
@@ -762,8 +760,8 @@
         "documentClose": "Cerrar documento compartido",
         "documentOpen": "Abrir documento compartido",
         "download": "Descarga nuestras aplicaciones",
-        "embedMeeting": "Insertar reunión",
         "e2ee": "Cifrado de extremo a extremo",
+        "embedMeeting": "Insertar reunión",
         "enterFullScreen": "Pantalla completa",
         "enterTileView": "Ver en cuadrícula",
         "exitFullScreen": "Salir de pantalla completa",
@@ -858,13 +856,14 @@
         "ld": "LD",
         "ldTooltip": "Viendo vídeo en baja definición",
         "lowDefinition": "Baja definición",
-        "onlyAudioAvailable": "Solo hay audio disponible",
-        "onlyAudioSupported": "Solo admitimos audio en este navegador.",
         "sd": "SD",
         "sdTooltip": "Viendo vídeo en definición estándar",
-        "standardDefinition": "Definición estándar"
+        "standardDefinition": "Definición estándar",
+        "onlyAudioAvailable": "Solo hay audio disponible",
+        "onlyAudioSupported": "Solo admitimos audio en este navegador."
     },
     "videothumbnail": {
+        "connectionInfo": "Connection Info",
         "domute": "Silenciar",
         "domuteOthers": "Silenciar a todos",
         "flip": "Voltear",
@@ -892,20 +891,24 @@
         "connectCalendarText": "Conecta tu calendario para ver todas tus reuniones de {{app}}. Además, agrega reuniones a tu calendario e inícialas con un solo clic.",
         "enterRoomTitle": "Comenzar una reunión",
         "getHelp": "Obtener ayuda",
-        "roomNameAllowedChars": "El nombre de la reunión no debe contener ninguno de estos caracteres: ?, &, :, ', \", %, #.",
         "go": "IR",
         "goSmall": "IR",
-        "join": "CREAR / UNIRSE",
+        "headerTitle": "Jitsi Meet",
+        "headerSubtitle": "Secure and high quality meetings",
         "info": "Información",
+        "join": "CREAR / UNIRSE",
+        "jitsiOnMobile": "Jitsi on mobile – download our apps and start a meeting from anywhere",
         "moderatedMessage": "O <a href=\"{{url}}\" rel=\"noopener noreferrer\" target=\"_blank\">reserve con antelación una URL de reunión</a> en la que usted sea el único moderador.",
         "privacy": "Privacidad",
         "recentList": "Reciente",
         "recentListDelete": "Eliminar",
         "recentListEmpty": "Tu historial de reuniones está vacío. Reúnete y aparecerán aquí.",
         "reducedUIText": "¡Bienvenid@ a {{app}}!",
+        "roomNameAllowedChars": "El nombre de la reunión no debe contener ninguno de estos caracteres: ?, &, :, ', \", %, #.",
         "roomname": "Introduce el nombre de la sala",
         "roomnameHint": "Introduce el nombre o URL de la sala a la que deseas unirte. Puedes inventar un nombre, simplemente infórmaselo a las personas con las que te reunirás para que introduzcan el mismo nombre.",
         "sendFeedback": "Enviar sugerencias",
+        "startMeeting": "Start meeting",
         "terms": "Términos",
         "title": "Videoconferencias seguras, con gran variedad de funcionalidades y completamente gratuitas"
     },
@@ -948,5 +951,29 @@
         "passwordJoinButton": "Entrar",
         "reject": "Rechazar",
         "toggleLabel": "Activar sala de espera"
+    },
+    "icwCustom": {
+        "toolbar": {
+            "invite": "Invite",
+            "mute": "Mute",
+            "unmute": "Unmute",
+            "end": "End",
+            "cam": "Cam",
+            "more": "More",
+            "hand": "Raise Hand",
+            "screen": "Share Screen",
+            "tile": "Grid View"
+        },
+        "share": {
+            "dialInfoText": "\n\n=====\n\nJust want to dial in on your phone?\n\n{{defaultDialInNumber}}Click this link to see the dial in phone numbers for this meeting\n{{dialInfoPageUrl}}",
+            "mainText": "1. Please join my online meeting.\n\n{{roomUrl}}\n\nGoogle Chrome is recommended for the best experience.\n\n2. Use your microphone and speakers (VoIP) - a headset is recommended."
+        },
+        "chat": {
+            "noMessagesTitle": "No Messages",
+            "noMessagesMessage": "There are no messages in the meeting yet.\nStart a conversation typing to input down."
+        },
+        "addPeople": {
+            "copyLink": "Copy link"
+        }
     }
 }

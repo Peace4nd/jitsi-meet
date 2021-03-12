@@ -99,6 +99,7 @@
     },
     "connectionindicator": {
         "address": "العنوان:",
+        "audio_ssrc": "Audio SSRC:",
         "bandwidth": "مُعدَّل البيانات المتبادلة:",
         "bitrate": "مُعدَّل البث:",
         "bridgeCount": "عدد المخدِّمات: ",
@@ -126,9 +127,12 @@
         "remoteport": "المنفذ البعيد:",
         "remoteport_plural": "المنافذ البعيدة:",
         "resolution": "الدقة:",
+        "savelogs": "Save logs",
+        "participant_id": "Participant id:",
         "status": "الاتصال:",
         "transport": "النقل:",
-        "transport_plural": "النواقل:"
+        "transport_plural": "النواقل:",
+        "video_ssrc": "Video SSRC:"
     },
     "dateUtils": {
         "earlier": "سابقًا",
@@ -216,7 +220,6 @@
         "kickTitle": "عذرًا! طردك {{participantDisplayName}} من الاجتماع",
         "liveStreaming": "البث المباشر الحي",
         "liveStreamingDisabledBecauseOfActiveRecordingTooltip": "غير ممكن أثناء التسجيل",
-        "liveStreamingDisabledForGuestTooltip": "لا يمكن للضيوف بدء بث حي مباشر.",
         "liveStreamingDisabledTooltip": "بدء بثٍ حيٍّ مُعطَّل",
         "lockMessage": "فشل جعل المؤتمر مغلقًا.",
         "lockRoom": "أضف الاجتماع $t(lockRoomPasswordUppercase)",
@@ -251,7 +254,6 @@
         "readMore": "more",
         "recording": "قيد التسجيل",
         "recordingDisabledBecauseOfActiveLiveStreamingTooltip": "ليس بالإمكان ما دمت قيد البث المباشر",
-        "recordingDisabledForGuestTooltip": "لا يمكن للضيوف بدء عملية التسجيل.",
         "recordingDisabledTooltip": "عملية التسجيل معطلة.",
         "rejoinNow": "انضم مجدَّدًا الآن",
         "remoteControlAllowedMessage": "قبل {{user}} طلب إمكانية التحكم البعيد!",
@@ -283,7 +285,6 @@
         "shareVideoTitle": "شارك فيديو",
         "shareYourScreen": "شارك شاشتك",
         "shareYourScreenDisabled": "مشاركة الشاشة مُعطَّلة",
-        "shareYourScreenDisabledForGuest": "لا يمكن للضيوف مشاركة شاشتهم",
         "startLiveStreaming": "ابدأ بثًا حيًا",
         "startRecording": "ابدأ التسجيل",
         "startRemoteControlErrorMessage": "حصل خطأٌ أثناء محاولة بدء جلسة تحكم بعيد!",
@@ -299,12 +300,16 @@
         "tokenAuthFailedTitle": "فشلت عملية الاستيثاق",
         "transcribing": "يذاع",
         "unlockRoom": "إزل الاجتماع $t(lockRoomPassword)",
+        "user": "user",
         "userPassword": "كلمة مرور المستخدم",
         "WaitForHostMsg": "لم يبدأ المؤتمر <b>{{room}}</b> بعد. إن كنت المضيف والراعي، فنرجو تأكيد ذلك عبر الاستيثاق أو انتظر وصول المضيف رجاءً. ",
         "WaitForHostMsgWOk": "لم يبدأ المؤتمر <b>{{room}}</b> بعد. إن كنت المضيف والراعي، فاضغط على «تمام» للاستيثاق أو انتظر وصول المضيف رجاءً.",
         "WaitingForHost": "ننتظر وصول المضيف ...",
         "Yes": "نعم",
-        "yourEntireScreen": "شاشتك كاملةً"
+        "yourEntireScreen": "شاشتك كاملةً",
+        "liveStreamingDisabledForGuestTooltip": "لا يمكن للضيوف بدء بث حي مباشر.",
+        "recordingDisabledForGuestTooltip": "لا يمكن للضيوف بدء عملية التسجيل.",
+        "shareYourScreenDisabledForGuest": "لا يمكن للضيوف مشاركة شاشتهم"
     },
     "dialOut": {
         "statusMessage": "{{status}} الآن"
@@ -600,6 +605,7 @@
         "pending": "التحضير لتسجيل الاجتماع...",
         "rec": "تسجيل",
         "serviceDescription": "ستحفظ خدمة التسجيل الفيديو المستجل",
+        "serviceDescriptionCloud": "Cloud recording",
         "serviceName": "خدمة التسجيل",
         "signIn": "دخول",
         "signOut": "خروج",
@@ -676,7 +682,7 @@
         "speakerTime": "وقت المتحدث"
     },
     "startupoverlay": {
-        "policyText": " ",
+        "genericTitle": "The meeting needs to use your microphone and camera.",
         "title": "يريد {{app}} استعمال المجهار والكاميرا خاصَّتك."
     },
     "suspendedoverlay": {
@@ -836,13 +842,14 @@
         "ld": "دقة منخفضة",
         "ldTooltip": "عرض فيديو بدقة منخفضة",
         "lowDefinition": "دقة منخفضة",
-        "onlyAudioAvailable": "الصوت متاح فقط",
-        "onlyAudioSupported": "الصوت مدعوم فقط في هذا المتصفح",
         "sd": "دقة قياسية",
         "sdTooltip": "عرض فيديو بدقة قياسية",
-        "standardDefinition": "دقة قياسية"
+        "standardDefinition": "دقة قياسية",
+        "onlyAudioAvailable": "الصوت متاح فقط",
+        "onlyAudioSupported": "الصوت مدعوم فقط في هذا المتصفح"
     },
     "videothumbnail": {
+        "connectionInfo": "Connection Info",
         "domute": "كتم",
         "domuteOthers": "كتم الجميع",
         "flip": "قلب",
@@ -872,8 +879,11 @@
         "getHelp": "أريد مساعدة",
         "go": "ابدأ",
         "goSmall": "ابدأ",
+        "headerTitle": "Jitsi Meet",
+        "headerSubtitle": "Secure and high quality meetings",
         "info": "معلومات",
         "join": "أنشئ / انضم",
+        "jitsiOnMobile": "Jitsi on mobile – download our apps and start a meeting from anywhere",
         "moderatedMessage": "أو a href=\"{{url}}\" rel=\"noopener noreferrer\" target=\"_blank\">احجز رابط لاجتماع</a> إن كنت رئيس الجلسة الوحيد فقط.",
         "privacy": "الخصوصية",
         "recentList": "الجديد",
@@ -884,6 +894,7 @@
         "roomname": "أدخل اسم الغرفة",
         "roomnameHint": "أدخل اسم أو رابط الغرفة التي تريد الانضمام إليها. يمكنك إنشاء اسم جديد لترسله إلى من تريد أن تجتمع معهم.",
         "sendFeedback": "أبدِ رأيك",
+        "startMeeting": "Start meeting",
         "terms": "الشروط",
         "title": "منصة عقد مؤتمرات واجتماعات آمنة وكاملة المزايا ومجانية بالمطلق"
     },
@@ -926,5 +937,29 @@
         "passwordJoinButton": "انضم",
         "reject": "رفض",
         "toggleLabel": "فعِّل غرفة الانتظار"
+    },
+    "icwCustom": {
+        "toolbar": {
+            "invite": "Invite",
+            "mute": "Mute",
+            "unmute": "Unmute",
+            "end": "End",
+            "cam": "Cam",
+            "more": "More",
+            "hand": "Raise Hand",
+            "screen": "Share Screen",
+            "tile": "Grid View"
+        },
+        "share": {
+            "dialInfoText": "\n\n=====\n\nJust want to dial in on your phone?\n\n{{defaultDialInNumber}}Click this link to see the dial in phone numbers for this meeting\n{{dialInfoPageUrl}}",
+            "mainText": "1. Please join my online meeting.\n\n{{roomUrl}}\n\nGoogle Chrome is recommended for the best experience.\n\n2. Use your microphone and speakers (VoIP) - a headset is recommended."
+        },
+        "chat": {
+            "noMessagesTitle": "No Messages",
+            "noMessagesMessage": "There are no messages in the meeting yet.\nStart a conversation typing to input down."
+        },
+        "addPeople": {
+            "copyLink": "Copy link"
+        }
     }
 }

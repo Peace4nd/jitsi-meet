@@ -92,11 +92,11 @@
         "DISCONNECTED": "Déconnecté",
         "DISCONNECTING": "Déconnexion en cours",
         "ERROR": "Erreur",
-        "RECONNECTING": "Un problème réseau est survenue. Reconnexion en cours ...",
         "FETCH_SESSION_ID": "Obtention d'un identifiant de session ...",
         "GET_SESSION_ID_ERROR": "Obtenir une erreur d'identifiant de session : {{code}}",
         "GOT_SESSION_ID": "Obtention d'un identifiant de session ... Terminée",
-        "LOW_BANDWIDTH": "La vidéo de {{displayName}} a été désactivée pour économiser de la bande passante"
+        "LOW_BANDWIDTH": "La vidéo de {{displayName}} a été désactivée pour économiser de la bande passante",
+        "RECONNECTING": "Un problème réseau est survenue. Reconnexion en cours ..."
     },
     "connectionindicator": {
         "address": "Adresse :",
@@ -105,8 +105,8 @@
         "bitrate": "Débit :",
         "bridgeCount": "Nombre de serveurs :",
         "codecs": "Codecs (A/V) :",
-        "e2e_rtt": "E2E RTT :",
         "connectedTo": "Connecté à :",
+        "e2e_rtt": "E2E RTT :",
         "framerate": "Images par seconde :",
         "less": "Cacher les détails",
         "localaddress": "Adresse locale :",
@@ -129,6 +129,7 @@
         "remoteport_plural": "Ports distants :",
         "resolution": "Résolution :",
         "savelogs": "Enregistrer les logs",
+        "participant_id": "Participant id:",
         "status": "Connexion :",
         "transport": "Transport :",
         "transport_plural": "Transports :",
@@ -148,9 +149,9 @@
         "ifHaveApp": "Si vous avez déjà installé l'application:",
         "joinInApp": "Rejoindre la réunion en utilisant l'application",
         "launchWebButton": "Lancer dans le navigateur",
-        "openApp": "Continuer vers l'application",
         "title": "Lancement de votre réunion dans {{app}} en cours ...",
-        "tryAgainButton": "Réessayez sur le bureau"
+        "tryAgainButton": "Réessayez sur le bureau",
+        "openApp": "Continuer vers l'application"
     },
     "defaultLink": "ex. {{url}}",
     "defaultNickname": "ex. Jean Dupont",
@@ -206,17 +207,12 @@
         "e2eeWarning": "ATTENTION : Tous les participants de cette réunion ne semblent pas prendre en charge le chiffrement de Bout-en-Bout. Si vous activez le cryptage, ils ne pourront ni vous voir, ni vous entendre.",
         "enterDisplayName": "Merci de saisir votre nom ici",
         "error": "Erreur",
-        "externalInstallationMsg": "Vous devez installer notre extension de partage de bureau.",
-        "externalInstallationTitle": "Extension requise",
-        "goToStore": "Aller sur le webstore",
         "gracefulShutdown": "Notre service est actuellement en maintenance. Veuillez réessayer plus tard.",
         "grantModeratorDialog": "Êtes-vous sûr de vouloir rendre ce participant modérateur ?",
         "grantModeratorTitle": "Nommer modérateur",
         "IamHost": "Je suis l'hôte",
         "incorrectRoomLockPassword": "Mot de passe incorrect",
         "incorrectPassword": "Nom d'utilisateur ou mot de passe incorrect",
-        "inlineInstallationMsg": "Vous devez installer notre extension de partage de bureau.",
-        "inlineInstallExtension": "Installer maintenant",
         "internalError": "Oups ! Quelque chose s'est mal passée. L'erreur suivante s'est produite : {{error}}",
         "internalErrorTitle": "Erreur interne",
         "kickMessage": "Vous pouvez contacter {{participantDisplayName}} pour plus de détails.",
@@ -225,7 +221,7 @@
         "kickParticipantTitle": "Expulser ce participant ?",
         "kickTitle": "Oups ! vous avez été expulsé(e) par {{participantDisplayName}}",
         "liveStreaming": "Direct",
-        "liveStreamingDisabledForGuestTooltip": "Les invités ne peuvent démarrer la diffusion en direct.",
+        "liveStreamingDisabledBecauseOfActiveRecordingTooltip": "Not possible while recording is active",
         "liveStreamingDisabledTooltip": "La diffusion en direct est désactivé",
         "lockMessage": "Impossible de verrouiller la conférence.",
         "lockRoom": "Ajouter un $t(lockRoomPassword) à la réunion ",
@@ -259,7 +255,7 @@
         "popupErrorTitle": "Pop-up bloquée",
         "readMore": "plus",
         "recording": "Enregistrement",
-        "recordingDisabledForGuestTooltip": "Les invités ne peuvent enregistrer.",
+        "recordingDisabledBecauseOfActiveLiveStreamingTooltip": "Not possible while a live stream is active",
         "recordingDisabledTooltip": "L'enregistrement est désactivé.",
         "rejoinNow": "Rejoindre maintenant",
         "remoteControlAllowedMessage": "{{user}} a accepté votre demande de prise en main à distance !",
@@ -279,11 +275,6 @@
         "screenSharingAudio": "Partager l'audio",
         "screenSharingFailed": "Oops ! Quelque chose s'est mal passée, nous n'avons pas pu démarrer le partage d'écran !",
         "screenSharingFailedTitle": "Echec du partage d'écran !",
-        "screenSharingPermissionDeniedError": "Oops ! Un problème est survenu avec vos autorisations de partage d'écran. Veuillez réessayer.",
-        "screenSharingFailedToInstall": "Oups ! Votre extension de partage d'écran n'a pas pu être installée.",
-        "screenSharingFailedToInstallTitle": "L'extension de partage d'écran n'a pas pu être installée",
-        "screenSharingFirefoxPermissionDeniedError": "Quelque chose s'est mal passé pendant que nous essayions de partager votre écran. S'il vous plaît assurez-vous que vous nous avez donné la permission de le faire. ",
-        "screenSharingFirefoxPermissionDeniedTitle": "Oups ! Nous ne pouvions pas démarrer le partage d'écran !",
         "screenSharingPermissionDeniedError": "Oups ! Une erreur s'est produite avec vos autorisations d'extension de partage d'écran. Veuillez rafraîchir et réessayer.",
         "sendPrivateMessage": "Vous avez récemment reçu un message privé. Aviez-vous l'intention d'y répondre en privé, ou vouliez-vous envoyer votre message au groupe ?",
         "sendPrivateMessageCancel": "Envoyer au groupe",
@@ -296,7 +287,6 @@
         "shareVideoTitle": "Partager une vidéo",
         "shareYourScreen": "Partager votre écran",
         "shareYourScreenDisabled": "Le partage d'écran est désactivé.",
-        "shareYourScreenDisabledForGuest": "Les invités ne peuvent pas partager leur écran.",
         "startLiveStreaming": "Démarrer la diffusion en direct",
         "startRecording": "Commencer l'enregistrement",
         "startRemoteControlErrorMessage": "Une erreur est survenue lors de la tentative de démarrage de la session de contrôle à distance !",
@@ -312,12 +302,25 @@
         "tokenAuthFailedTitle": "Échec de l'authentification",
         "transcribing": "Transcription",
         "unlockRoom": "Supprimer le $t(lockRoomPassword) de la réunion",
+        "user": "user",
         "userPassword": "mot de passe utilisateur",
         "WaitForHostMsg": "La conférence <b>{{room}}</b> n'a pas encore commencé. Si vous en êtes l'hôte, veuillez vous authentifier. Sinon, veuillez attendre son arrivée.",
         "WaitForHostMsgWOk": "La conférence <b>{{room}}</b> n'a pas encore commencé. Si vous en êtes l'hôte, veuillez appuyer sur Ok pour vous authentifier. Sinon, veuillez attendre son arrivée.",
         "WaitingForHost": "En attente de l'hôte ...",
         "Yes": "Oui",
-        "yourEntireScreen": "Votre écran entier"
+        "yourEntireScreen": "Votre écran entier",
+        "externalInstallationMsg": "Vous devez installer notre extension de partage de bureau.",
+        "externalInstallationTitle": "Extension requise",
+        "goToStore": "Aller sur le webstore",
+        "inlineInstallationMsg": "Vous devez installer notre extension de partage de bureau.",
+        "inlineInstallExtension": "Installer maintenant",
+        "liveStreamingDisabledForGuestTooltip": "Les invités ne peuvent démarrer la diffusion en direct.",
+        "recordingDisabledForGuestTooltip": "Les invités ne peuvent enregistrer.",
+        "screenSharingFailedToInstall": "Oups ! Votre extension de partage d'écran n'a pas pu être installée.",
+        "screenSharingFailedToInstallTitle": "L'extension de partage d'écran n'a pas pu être installée",
+        "screenSharingFirefoxPermissionDeniedError": "Quelque chose s'est mal passé pendant que nous essayions de partager votre écran. S'il vous plaît assurez-vous que vous nous avez donné la permission de le faire. ",
+        "screenSharingFirefoxPermissionDeniedTitle": "Oups ! Nous ne pouvions pas démarrer le partage d'écran !",
+        "shareYourScreenDisabledForGuest": "Les invités ne peuvent pas partager leur écran."
     },
     "dialOut": {
         "statusMessage": "est maintenant {{status}}"
@@ -409,13 +412,13 @@
         "videoQuality": "Accorder la qualité des appels"
     },
     "liveStreaming": {
+        "limitNotificationDescriptionWeb": "En raison de la forte demande, votre diffusion sera limitée à {{limit}} min. Pour un streaming illimité, essayez <a href={{url}} rel='noopener noreferrer' target='_blank'> {{app}} </a>.",
+        "limitNotificationDescriptionNative": "Votre diffusion sera limitée à {{limit}} min. Pour un streaming illimité, essayez {{app}}.",
         "busy": "Nous tentons de libérer des ressources de diffusion. Veuillez réessayez dans quelques minutes.",
         "busyTitle": "Tous les flux sont actuellement occupés",
         "changeSignIn": "Changer de compte.",
         "choose": "Choisir un flux en direct",
         "chooseCTA": "Choisissez une option de diffusion. Vous êtes actuellement connecté comme {{email}}.",
-        "enterStreamKey": "Entrez votre clé de diffusion Youtube ici",
-        "error": "La diffusion a échouée. Veuillez réessayer ultérieurement.",
         "enterStreamKey": "Entrez votre clé de flux direct YouTube ici.",
         "error": "Le Streaming a échoué. Veuillez réessayer.",
         "errorAPI": "Une erreur s'est produite lors de l'accès à vos diffusions YouTube. Veuillez réessayer de vous connecter.",
@@ -426,8 +429,6 @@
         "failedToStart": "La diffusion n'as pas réussi à démarrer",
         "getStreamKeyManually": "Nous n'avons pu récupérer aucun flux en direct. Essayez d'obtenir votre clé de diffusion en direct sur YouTube.",
         "invalidStreamKey": "La clé de diffusion en direct n'est peut-être pas correcte.",
-        "limitNotificationDescriptionWeb": "En raison de la forte demande, votre diffusion sera limitée à {{limit}} min. Pour un streaming illimité, essayez <a href={{url}} rel='noopener noreferrer' target='_blank'> {{app}} </a>.",
-        "limitNotificationDescriptionNative": "Votre diffusion sera limitée à {{limit}} min. Pour un streaming illimité, essayez {{app}}.",
         "off": "Le Streaming a été arrêté",
         "offBy": "{{name}} a arrêté la diffusion en continu",
         "on": "En direct",
@@ -516,6 +517,7 @@
     "poweredby": "produit par",
     "prejoin": {
         "audioAndVideoError": "Erreur audio et video:",
+        "audioDeviceProblem": "There is a problem with your audio device",
         "audioOnlyError": "Erreur audio:",
         "audioTrackError": "N'a pas pu créer la piste audio.",
         "calling": "Appel",
@@ -524,23 +526,23 @@
         "configuringDevices": "Configuration des appareils ...",
         "connectedWithAudioQ": "Êtes-vous connecté avec le microphone ?",
         "connection": {
-           "good": "Votre connexion Internet est bonne !",
-           "nonOptimal": "Votre connexion n'est pas optimale",
-           "poor": "Vous avez une mauvaise connexion"
+            "good": "Votre connexion Internet est bonne !",
+            "nonOptimal": "Votre connexion n'est pas optimale",
+            "poor": "Vous avez une mauvaise connexion"
         },
         "connectionDetails": {
-          "audioClipping": "Attendez vous à ce que votre audio soit coupé.",
-          "audioHighQuality": "Votre audio sera de bonne qualité.",
-          "audioLowNoVideo": "Attendez vous à une faible qualité audio et aucune vidéo",
-          "goodQuality": "Impressionnant ! La qualité de vos médias sera excellente",
-          "noMediaConnectivity": "Nous n'avons pas pu trouver un moyen d'établir une connectivité multimédia pour ce test. Cela est généralement causé par un pare-feu ou un NAT.",
-          "noVideo": "Attendez vous à ce que votre qualité vidéo soit très mauvaise.",
-          "undetectable": "Si vous ne parvenez toujours pas à passer des appels dans le navigateur, nous vous recommandons de vous assurer que vos haut-parleurs, microphone et caméra sont correctement configurés, que vous avez accordé à votre navigateur les droits d'utiliser votre microphone et votre caméra et que la version de votre navigateur est à jour. Si vous rencontrez toujours des difficultés pour appeler, vous devez contacter le développeur de l'application Web.",
-          "veryPoorConnection": "Attendez vous à ce que la qualité de votre appel soit très mauvaise",
-          "videoFreezing": "Attendez vous à ce que votre vidéo saute, soit noire, et pixelisée.",
-          "videoHighQuality": "Votre vidéo sera de bonne qualité",
-          "videoLowQuality": "Votre vidéo sera de basse qualité en terme d'images par seconde et de résolution.",
-          "videoTearing": "Attendez vous à ce que votre vidéo soit pixélisée ou contienne des artefacts visuels."
+            "audioClipping": "Attendez vous à ce que votre audio soit coupé.",
+            "audioHighQuality": "Votre audio sera de bonne qualité.",
+            "audioLowNoVideo": "Attendez vous à une faible qualité audio et aucune vidéo",
+            "goodQuality": "Impressionnant ! La qualité de vos médias sera excellente",
+            "noMediaConnectivity": "Nous n'avons pas pu trouver un moyen d'établir une connectivité multimédia pour ce test. Cela est généralement causé par un pare-feu ou un NAT.",
+            "noVideo": "Attendez vous à ce que votre qualité vidéo soit très mauvaise.",
+            "undetectable": "Si vous ne parvenez toujours pas à passer des appels dans le navigateur, nous vous recommandons de vous assurer que vos haut-parleurs, microphone et caméra sont correctement configurés, que vous avez accordé à votre navigateur les droits d'utiliser votre microphone et votre caméra et que la version de votre navigateur est à jour. Si vous rencontrez toujours des difficultés pour appeler, vous devez contacter le développeur de l'application Web.",
+            "veryPoorConnection": "Attendez vous à ce que la qualité de votre appel soit très mauvaise",
+            "videoFreezing": "Attendez vous à ce que votre vidéo saute, soit noire, et pixelisée.",
+            "videoHighQuality": "Votre vidéo sera de bonne qualité",
+            "videoLowQuality": "Votre vidéo sera de basse qualité en terme d'images par seconde et de résolution.",
+            "videoTearing": "Attendez vous à ce que votre vidéo soit pixélisée ou contienne des artefacts visuels."
         },
         "copyAndShare": "Copier & partager le lien",
         "dialInMeeting": "Participez à la réunion",
@@ -562,7 +564,6 @@
         "linkCopied": "Lien copié dans le presse-papiers",
         "lookGood": "Il semble que votre microphone fonctionne correctement",
         "or": "ou",
-        "calling": "Appel",
         "premeeting": "Pré-séance",
         "showScreen": "Activer l'écran de pré-séance",
         "startWithPhone": "Commencez avec l'audio du téléphone",
@@ -593,6 +594,8 @@
     },
     "raisedHand": "Aimerait prendre la parole",
     "recording": {
+        "limitNotificationDescriptionWeb": "En raison d'une forte demande, votre enregistrement sera limité à {{limit}} min. Pour des enregistrements illimités, essayez <a href={{url}} rel='noopener noreferrer' target='_blank'> {{app}} </a>.",
+        "limitNotificationDescriptionNative": "En raison d'une forte demande, votre enregistrement sera limité à {{limit}} min. Pour des enregistrements illimités, essayez <3> {{app}} </3>.",
         "authDropboxText": "Téléchargement vers Dropbox",
         "availableSpace": "Espace disponible : {{spaceLeft}} Mo (approximativement {{duration}} minutes d'enregistrement)",
         "beta": "BETA",
@@ -604,8 +607,6 @@
         "expandedPending": "Démarrage de l'enregistrement ...",
         "failedToStart": "L'enregistrement n'as pas réussi à démarrer",
         "fileSharingdescription": "Partager l'enregistrement avec les participants de la réunion",
-        "limitNotificationDescriptionWeb": "En raison d'une forte demande, votre enregistrement sera limité à {{limit}} min. Pour des enregistrements illimités, essayez <a href={{url}} rel='noopener noreferrer' target='_blank'> {{app}} </a>.",
-        "limitNotificationDescriptionNative": "En raison d'une forte demande, votre enregistrement sera limité à {{limit}} min. Pour des enregistrements illimités, essayez <3> {{app}} </3>.",
         "live": "DIRECT",
         "loggedIn": "Connecté en tant que {{userName}}",
         "off": "Enregistrement arrêté",
@@ -615,6 +616,7 @@
         "pending": "Préparation de l'enregistrement de la réunion ...",
         "rec": "REC",
         "serviceDescription": "Votre enregistrement sera enregistré par le service dédié",
+        "serviceDescriptionCloud": "Cloud recording",
         "serviceName": "Service d'enregistrement",
         "signIn": "Se connecter",
         "signOut": "Se déconnecter",
@@ -691,7 +693,6 @@
         "speakerTime": "Temps de l'interlocuteur"
     },
     "startupoverlay": {
-        "policyText": " ",
         "genericTitle": "La conférence a besoin d'utiliser votre microphone et votre caméra.",
         "title": "{{app}} a besoin d'accéder à votre microphone et votre caméra."
     },
@@ -852,13 +853,14 @@
         "ld": "BD",
         "ldTooltip": "Regardez la vidéo en basse définition",
         "lowDefinition": "Basse définition",
-        "onlyAudioAvailable": "Seul l'audio est disponible",
-        "onlyAudioSupported": "Nous ne supportons que l'audio sur ce navigateur.",
         "sd": "MD",
         "sdTooltip": "Regardez la vidéo en définition standard",
-        "standardDefinition": "Moyenne Définition"
+        "standardDefinition": "Moyenne Définition",
+        "onlyAudioAvailable": "Seul l'audio est disponible",
+        "onlyAudioSupported": "Nous ne supportons que l'audio sur ce navigateur."
     },
     "videothumbnail": {
+        "connectionInfo": "Connection Info",
         "domute": "Couper le micro",
         "domuteOthers": "Couper le micro de tous les autres",
         "flip": "Balancer",
@@ -946,5 +948,29 @@
         "passwordJoinButton": "Rejoindre",
         "reject": "Refuser",
         "toggleLabel": "Activer la salle d'attente"
+    },
+    "icwCustom": {
+        "toolbar": {
+            "invite": "Invite",
+            "mute": "Mute",
+            "unmute": "Unmute",
+            "end": "End",
+            "cam": "Cam",
+            "more": "More",
+            "hand": "Raise Hand",
+            "screen": "Share Screen",
+            "tile": "Grid View"
+        },
+        "share": {
+            "dialInfoText": "\n\n=====\n\nJust want to dial in on your phone?\n\n{{defaultDialInNumber}}Click this link to see the dial in phone numbers for this meeting\n{{dialInfoPageUrl}}",
+            "mainText": "1. Please join my online meeting.\n\n{{roomUrl}}\n\nGoogle Chrome is recommended for the best experience.\n\n2. Use your microphone and speakers (VoIP) - a headset is recommended."
+        },
+        "chat": {
+            "noMessagesTitle": "No Messages",
+            "noMessagesMessage": "There are no messages in the meeting yet.\nStart a conversation typing to input down."
+        },
+        "addPeople": {
+            "copyLink": "Copy link"
+        }
     }
 }

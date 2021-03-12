@@ -300,6 +300,7 @@
         "tokenAuthFailedTitle": "認証に失敗しました",
         "transcribing": "文字起こし",
         "unlockRoom": "ミーティング $t(lockRoomPassword) を削除",
+        "user": "user",
         "userPassword": "ユーザーのパスワード",
         "WaitForHostMsg": "ミーティング <b>{{room}}</b> はまだ開始されていません。あなたがホストの場合は、認証を行ってください。それ以外の場合は、ホストの到着をお待ちください。",
         "WaitForHostMsgWOk": "ミーティング <b>{{room}}</b> はまだ開始されていません。あなたがホストの場合は、OKを押して認証を行ってください。それ以外の場合は、ホストの到着をお待ちください。",
@@ -511,23 +512,23 @@
         "configuringDevices": "デバイスの設定中...",
         "connectedWithAudioQ": "オーディオを有効にして接続していますか?",
         "connection": {
-           "good": "インターネット接続は良好のようです!",
-           "nonOptimal": "インターネット接続が最適ではありません",
-           "poor": "貧弱なインターネット接続です"
+            "good": "インターネット接続は良好のようです!",
+            "nonOptimal": "インターネット接続が最適ではありません",
+            "poor": "貧弱なインターネット接続です"
         },
         "connectionDetails": {
-          "audioClipping": "音声が歪んでいると思います。",
-          "audioHighQuality": "音声は優れた品質であると思います。",
-          "audioLowNoVideo": "音声の品質が悪く、ビデオがないと思います。",
-          "goodQuality": "素晴らしい! メディアの品質は素晴らしいものになりそうです。",
-          "noMediaConnectivity": "このテストで、メディア接続を確立する方法を検出することができませんでした。これは通常、ファイアウォールやNATが原因で発生します。",
-          "noVideo": "ビデオの品質が悪いと思います。",
-          "undetectable": "引き続きブラウザーで通話ができない場合、スピーカー、マイク、カメラが適切に設定されているか、ブラウザーにマイクとカメラの使用を許可しているか、そしてブラウザーのバージョンが最新であるか確認することをお勧めします。それでも通話に問題がある場合は、ウェブアプリの開発者にお問い合わせください。",
-          "veryPoorConnection": "通話の品質がとても悪いと思います。",
-          "videoFreezing": "ビデオが固まったり、黒画面になったり、モザイクがかかったようになると思います。",
-          "videoHighQuality": "ビデオは優れた品質であると思います。",
-          "videoLowQuality": "ビデオはフレームレートと解像度の点で低品質であると思います。",
-          "videoTearing": "ビデオにモザイクがかかったようなったり、ブロックノイズが発生すると思います。"
+            "audioClipping": "音声が歪んでいると思います。",
+            "audioHighQuality": "音声は優れた品質であると思います。",
+            "audioLowNoVideo": "音声の品質が悪く、ビデオがないと思います。",
+            "goodQuality": "素晴らしい! メディアの品質は素晴らしいものになりそうです。",
+            "noMediaConnectivity": "このテストで、メディア接続を確立する方法を検出することができませんでした。これは通常、ファイアウォールやNATが原因で発生します。",
+            "noVideo": "ビデオの品質が悪いと思います。",
+            "undetectable": "引き続きブラウザーで通話ができない場合、スピーカー、マイク、カメラが適切に設定されているか、ブラウザーにマイクとカメラの使用を許可しているか、そしてブラウザーのバージョンが最新であるか確認することをお勧めします。それでも通話に問題がある場合は、ウェブアプリの開発者にお問い合わせください。",
+            "veryPoorConnection": "通話の品質がとても悪いと思います。",
+            "videoFreezing": "ビデオが固まったり、黒画面になったり、モザイクがかかったようになると思います。",
+            "videoHighQuality": "ビデオは優れた品質であると思います。",
+            "videoLowQuality": "ビデオはフレームレートと解像度の点で低品質であると思います。",
+            "videoTearing": "ビデオにモザイクがかかったようなったり、ブロックノイズが発生すると思います。"
         },
         "copyAndShare": "ミーティングのリンクをコピーまたは共有",
         "dialInMeeting": "このミーティングにダイアルする",
@@ -601,6 +602,7 @@
         "pending": "ミーティングの録画準備中...",
         "rec": "REC",
         "serviceDescription": "ビデオは録画サービスで録画されます",
+        "serviceDescriptionCloud": "Cloud recording",
         "serviceName": "録画サービス",
         "signIn": "サインイン",
         "signOut": "サインアウト",
@@ -677,7 +679,7 @@
         "speakerTime": "話した時間"
     },
     "startupoverlay": {
-        "policyText": " ",
+        "genericTitle": "The meeting needs to use your microphone and camera.",
         "title": "{{app}} を使用するには、マイクとカメラが必要です。"
     },
     "suspendedoverlay": {
@@ -842,6 +844,7 @@
         "standardDefinition": "標準画質"
     },
     "videothumbnail": {
+        "connectionInfo": "Connection Info",
         "domute": "ミュート",
         "domuteOthers": "他の全員をミュート",
         "flip": "フリップ",
@@ -871,9 +874,10 @@
         "getHelp": "ヘルプ",
         "go": "GO",
         "goSmall": "GO",
+        "headerTitle": "Jitsi Meet",
+        "headerSubtitle": "Secure and high quality meetings",
         "info": "ダイアルイン情報",
         "join": "作成/参加",
-        "jitsiMeet": "Jitsi Meet",
         "jitsiOnMobile": "モバイル版 Jitsi – アプリをダウンロードして、どこからでも会議を開始できます",
         "moderatedMessage": "または、前もってあなたのみがモデレーターである<a href=\"{{url}}\" rel=\"noopener noreferrer\" target=\"_blank\">ミーティングの URL をブックマークに登録</a>しましょう。",
         "privacy": "プライバシー",
@@ -885,10 +889,11 @@
         "roomname": "ルーム名を入力してください",
         "roomnameHint": "参加したい部屋の名前または URL を入力してください。あなたが名前を付け、あなたが会っている人々に知らせて、同じ名前を入力してもらうだけです。",
         "sendFeedback": "フィードバックを送信",
-        "secureMeetings": "安全で高品質なミーティング",
         "startMeeting": "ミーティングを開始",
         "terms": "利用規約",
-        "title": "安全、機能充実、そして完全無料のビデオミーティング"
+        "title": "安全、機能充実、そして完全無料のビデオミーティング",
+        "jitsiMeet": "Jitsi Meet",
+        "secureMeetings": "安全で高品質なミーティング"
     },
     "lonelyMeetingExperience": {
         "button": "他の人を招待する",
@@ -929,5 +934,29 @@
         "passwordJoinButton": "参加",
         "reject": "却下",
         "toggleLabel": "ロビーを有効"
+    },
+    "icwCustom": {
+        "toolbar": {
+            "invite": "Invite",
+            "mute": "Mute",
+            "unmute": "Unmute",
+            "end": "End",
+            "cam": "Cam",
+            "more": "More",
+            "hand": "Raise Hand",
+            "screen": "Share Screen",
+            "tile": "Grid View"
+        },
+        "share": {
+            "dialInfoText": "\n\n=====\n\nJust want to dial in on your phone?\n\n{{defaultDialInNumber}}Click this link to see the dial in phone numbers for this meeting\n{{dialInfoPageUrl}}",
+            "mainText": "1. Please join my online meeting.\n\n{{roomUrl}}\n\nGoogle Chrome is recommended for the best experience.\n\n2. Use your microphone and speakers (VoIP) - a headset is recommended."
+        },
+        "chat": {
+            "noMessagesTitle": "No Messages",
+            "noMessagesMessage": "There are no messages in the meeting yet.\nStart a conversation typing to input down."
+        },
+        "addPeople": {
+            "copyLink": "Copy link"
+        }
     }
 }

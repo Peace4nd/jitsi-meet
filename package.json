@@ -139,7 +139,8 @@
     "webpack": "4.43.0",
     "webpack-bundle-analyzer": "3.4.1",
     "webpack-cli": "3.3.11",
-    "webpack-dev-server": "3.11.0"
+    "webpack-dev-server": "3.11.0",
+    "xml2js": "^0.4.23"
   },
   "engines": {
     "node": ">=8.0.0",
@@ -152,6 +153,9 @@
     "android-build": "./android/scripts/release-sdk.sh",
     "web": "make dev",
     "web-build": "make && dpkg-buildpackage -A -rfakeroot -us -uc -tc",
+    "script:locale-import": "node ./scripts/locale.js import",
+    "script:locale-update": "node ./scripts/locale.js update",
+    "script:locale-export": "node ./scripts/locale.js export",
     "lint": "eslint . && flow",
     "postinstall": "jetify",
     "validate": "npm ls"

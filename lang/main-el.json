@@ -20,8 +20,8 @@
         "loadingNumber": "Ο αριθμός τηλεφώνου επικυρώνεται",
         "loadingPeople": "Γίνεται αναζήτηση για ανθρώπους που θα καλεστούν",
         "noResults": "Δε βρέθηκαν αποτελέσματα αναζήτησης",
-        "outlookEmail": "Outlook Email",
         "noValidNumbers": "Παρακαλώ εισάγετε έναν αριθμό τηλεφώνου",
+        "outlookEmail": "Outlook Email",
         "searchNumbers": "Προσθέστε αριθμούς τηλεφώνου",
         "searchPeople": "Αναζήτηση για ανθρώπους",
         "searchPeopleAndNumbers": "Αναζήτηση για ανθρώπους ή προσθήκη των αριθμών τηλεφώνου τους",
@@ -99,9 +99,11 @@
     },
     "connectionindicator": {
         "address": "Διεύθυνση:",
+        "audio_ssrc": "Audio SSRC:",
         "bandwidth": "Εκτιμώμενο εύρος ζώνης:",
         "bitrate": "Ρυθμός μετάδοσης:",
         "bridgeCount": "Αριθμός server: ",
+        "codecs": "Codecs (A/V): ",
         "connectedTo": "Συνδεδεμένος με:",
         "e2e_rtt": "E2E RTT:",
         "framerate": "Ρυθμός ανανέωσης:",
@@ -110,6 +112,7 @@
         "localaddress_plural": "Τοπικές διευθύνσεις:",
         "localport": "Τοπική θύρα:",
         "localport_plural": "Τοπικές θύρες:",
+        "maxEnabledResolution": "send max",
         "more": "Εμφάνιση περισσότερων",
         "packetloss": "Απώλεια πακέτων:",
         "quality": {
@@ -124,9 +127,12 @@
         "remoteport": "Απομακρυσμένη θύρα:",
         "remoteport_plural": "Απομακρυσμένες θύρες:",
         "resolution": "Ανάλυση:",
+        "savelogs": "Save logs",
+        "participant_id": "Participant id:",
         "status": "Σύνδεση:",
         "transport": "Μεταφορά:",
-        "transport_plural": "Μεταφορές:"
+        "transport_plural": "Μεταφορές:",
+        "video_ssrc": "Video SSRC:"
     },
     "dateUtils": {
         "earlier": "Νωρίτερα",
@@ -189,18 +195,19 @@
         "connectErrorWithMsg": "Ουπς! Κάτι πήγε στραβά και δεν μπορούσαμε να συνδεθούμε με τη διάσκεψη: {{msg}}",
         "connecting": "Γίνεται σύνδεση",
         "contactSupport": "Επικοινωνήστε με την υποστήριξη",
+        "copied": "Copied",
         "copy": "Αντιγραφή",
         "dismiss": "Απόρριψη",
         "displayNameRequired": "Γεια σου! Ποιο είναι το όνομα σου;",
         "done": "Έγινε",
         "e2eeDescription": "Η από άκρη σε άκρη κρυπτογράφηση είναι σήμερα σε ΠΕΙΡΑΜΑΤΙΚΟ στάδιο. Παρακαλώ να έχετε κατά νου ότι η ενεργοποίηση της από άκρη σε άκρη κρυπτογράφησης θα απενεργοποιήσει από την πλευρά του διακομιστή υπηρεσίες όπως: καταγραφή, live streaming και συμμετοχή μέσω τηλεφώνου. Επίσης, να έχετε κατά νου ότι η συνάντηση θα λειτουργήσει μόνο για τους ανθρώπους που συνδέονται από φυλλομετρητές με υποστήριξη για insertable streams.",
-        "e2eeNoKey": "None",
-        "e2eeSet": "Set",
-        "e2eeToggleSet": "Set key",
+        "e2eeLabel": "Enable End-to-End Encryption",
         "e2eeWarning": "ΠΡΟΕΙΔΟΠΟΊΗΣΗ: Δε φαίνεται να έχουν όλοι οι συμμετέχοντες στη συνάντηση αυτή υποστήριξη για από άκρη σε άκρη κρυπτογράφηση. Αν την ενεργοποιήσετε, δεν θα μπορέσουν να σας δουν ούτε να σας ακούσουν.",
         "enterDisplayName": "Παρακαλώ εισάγετε το όνομά σας εδώ",
         "error": "Σφάλμα",
         "gracefulShutdown": "Μας υπηρεσία είναι προς το παρόν εκτός λειτουργίας για συντήρηση. Παρακαλώ προσπαθήστε ξανά αργότερα.",
+        "grantModeratorDialog": "Are you sure you want to make this participant a moderator?",
+        "grantModeratorTitle": "Grant moderator",
         "IamHost": "Είμαι ο οικοδεσπότης",
         "incorrectRoomLockPassword": "Εσφαλμένος κωδικός πρόσβασης",
         "incorrectPassword": "Λανθασμένο όνομα χρήστη ή κωδικός πρόσβασης",
@@ -213,7 +220,6 @@
         "kickTitle": "Ωχ! Ο/Η {{participantDisplayName}} σας απέβαλε από τη διάσκεψη",
         "liveStreaming": "Ζωντανή ροή",
         "liveStreamingDisabledBecauseOfActiveRecordingTooltip": "Not possible while recording is active",
-        "liveStreamingDisabledForGuestTooltip": "Οι επισκέπτες δεν μπορούν να ξεκινήσουν τη ζωντανή ροή",
         "liveStreamingDisabledTooltip": "Έναρξη ζωντανής ροής απενεργοποιημένη",
         "lockMessage": "Αποτυχία κλειδώματος της διάσκεψης.",
         "lockRoom": "Προσθέστε συνάντηση $t(lockRoomPasswordUppercase)",
@@ -245,9 +251,9 @@
         "passwordRequired": "Απαιτείται $t(lockRoomPasswordUppercase)",
         "popupError": "Ο φυλλομετρητής σας μπλοκάρει τα pop-up windows από αυτό το site. Παρακαλούμε ενεργοποιήστε τα pop-ups στις ρυθμίσεις ασφαλείας του προγράμματος περιήγησής σας και προσπαθήστε ξανά.",
         "popupErrorTitle": "Pop-up μπλοκαρίστηκε",
+        "readMore": "more",
         "recording": "Γίνεται εγγραφή",
         "recordingDisabledBecauseOfActiveLiveStreamingTooltip": "Not possible while a live stream is active",
-        "recordingDisabledForGuestTooltip": "Οι επισκέπτες δεν μπορούν να ξεκινήσουν τις ηχογραφήσεις.",
         "recordingDisabledTooltip": "Έναρξη εγγραφής απενεργοποιημένη.",
         "rejoinNow": "Επανασύνδεση τώρα",
         "remoteControlAllowedMessage": "O/H {{user}} έκανε αποδεκτό το αίτημα απομακρυσμένου ελέγχου!",
@@ -265,8 +271,8 @@
         "reservationErrorMsg": "Κωδικός σφάλματος: {{code}}, μήνυμα: {{msg}}",
         "retry": "Επανάληψη",
         "screenSharingAudio": "Διαμοιρασμός ήχου",
-        "screenSharingFailedToInstall": "Ουπς! Η εγκατάσταση της επέκταση κοινής χρήσης οθόνης απέτυχε.",
-        "screenSharingFailedToInstallTitle": "Η εγκατάσταση της επέκταση κοινής χρήσης οθόνης απέτυχε",
+        "screenSharingFailed": "Oops! Something went wrong, we weren’t able to start screen sharing!",
+        "screenSharingFailedTitle": "Screen sharing failed!",
         "screenSharingPermissionDeniedError": "Ουπς! Κάτι πήγε στραβά με τα δικαιώματα της επέκτασης κοινής χρήσης οθόνης. Παρακαλώ ξαναφορτώστε και προσπαθήστε ξανά.",
         "sendPrivateMessage": "Πρόσφατα λάβατε ένα προσωπικό μήνυμα. Σκοπεύετε να απαντήσετε σε αυτό ιδιωτικά ή θέλετε να στείλετε το μήνυμά σας στην ομάδα;",
         "sendPrivateMessageCancel": "Στείλτε στην ομάδα",
@@ -279,7 +285,6 @@
         "shareVideoTitle": "Μοιραστείτε ένα βίντεο",
         "shareYourScreen": "Μοιραστείτε την οθόνη σας",
         "shareYourScreenDisabled": "Η κοινή χρήση οθόνης απενεργοποιήθηκε.",
-        "shareYourScreenDisabledForGuest": "Οι επισκέπτες δεν μπορούν να μοιραστούν την οθόνη τους.",
         "startLiveStreaming": "Έναρξη ζωντανής ροής",
         "startRecording": "Ξεκινήστε την εγγραφή",
         "startRemoteControlErrorMessage": "Παρουσιάστηκε σφάλμα κατά την προσπάθεια να ξεκινήσει η λειτουργία απομακρυσμένου ελέγχου!",
@@ -295,12 +300,21 @@
         "tokenAuthFailedTitle": "Ο έλεγχος ταυτότητας απέτυχε",
         "transcribing": "Γίνεται μεταγραφή",
         "unlockRoom": "Αφαιρέστε το $t(lockRoomPassword) της συνάντησης",
+        "user": "user",
         "userPassword": "κωδικός πρόσβασης χρήστη",
         "WaitForHostMsg": "Η διάσκεψη <b>{{room}}</b> δεν έχει ακόμη αρχίσει. Αν είστε ο οικοδεσπότης, τότε παρακαλούμε να πιστοποιήσετε τον εαυτό σας. Διαφορετικά, σας παρακαλώ να περιμένετε να συνδεθεί ο οικοδεσπότης.",
         "WaitForHostMsgWOk": "Η διάσκεψη <b>{{room}}</b> δεν έχει ακόμη αρχίσει. Αν είστε ο οικοδεσπότης, τότε παρακαλούμε πατήστε ΟΚ για να πιστοποιήσετε τον εαυτό σας. Διαφορετικά, σας παρακαλώ να περιμένετε να συνδεθεί ο οικοδεσπότης.",
         "WaitingForHost": "Αναμονή για τον οικοδεσπότη ...",
         "Yes": "Ναι",
-        "yourEntireScreen": "Ολόκληρη την οθόνη σας"
+        "yourEntireScreen": "Ολόκληρη την οθόνη σας",
+        "e2eeNoKey": "None",
+        "e2eeSet": "Set",
+        "e2eeToggleSet": "Set key",
+        "liveStreamingDisabledForGuestTooltip": "Οι επισκέπτες δεν μπορούν να ξεκινήσουν τη ζωντανή ροή",
+        "recordingDisabledForGuestTooltip": "Οι επισκέπτες δεν μπορούν να ξεκινήσουν τις ηχογραφήσεις.",
+        "screenSharingFailedToInstall": "Ουπς! Η εγκατάσταση της επέκταση κοινής χρήσης οθόνης απέτυχε.",
+        "screenSharingFailedToInstallTitle": "Η εγκατάσταση της επέκταση κοινής χρήσης οθόνης απέτυχε",
+        "shareYourScreenDisabledForGuest": "Οι επισκέπτες δεν μπορούν να μοιραστούν την οθόνη τους."
     },
     "dialOut": {
         "statusMessage": "είναι τώρα {{status}}"
@@ -310,6 +324,9 @@
     },
     "e2ee": {
         "labelToolTip": "Όλοι οι συμμετέχοντες στη συνάντηση αυτή έχουν ενεργοποιήσει την από άκρη σε άκρη κρυπτογράφηση"
+    },
+    "embedMeeting": {
+        "title": "Embed this meeting"
     },
     "feedback": {
         "average": "Μέτριο",
@@ -389,6 +406,8 @@
         "videoQuality": "Διαχειριστείτε την ποιότητα της κλήσης"
     },
     "liveStreaming": {
+        "limitNotificationDescriptionWeb": "Due to high demand your streaming will be limited to {{limit}} min. For unlimited streaming try <a href={{url}} rel='noopener noreferrer' target='_blank'>{{app}}</a>.",
+        "limitNotificationDescriptionNative": "Your streaming will be limited to {{limit}} min. For unlimited streaming try {{app}}.",
         "busy": "Δουλεύουμε για την απελευθέρωση πόρων streaming. Παρακαλώ δοκιμάστε ξανά σε λίγα λεπτά.",
         "busyTitle": "Όλες οι streamers είναι απασχολημένοι",
         "changeSignIn": "Εναλλαγή λογαριασμών.",
@@ -404,8 +423,6 @@
         "failedToStart": "Η ζωντανή ροή απέτυχε να ξεκινήσει",
         "getStreamKeyManually": "Δεν ήμασταν σε θέση να φέρουμε κάποια ζωντανή ροή. Προσπαθήστε να πάρετε το κλειδί της ζωντανής ροής από το YouTube.",
         "invalidStreamKey": "Το κλειδί της ζωντανής ροής μπορεί να είναι εσφαλμένο.",
-        "limitNotificationDescriptionNative": "Your streaming will be limited to {{limit}} min. For unlimited streaming try {{app}}.",
-        "limitNotificationDescriptionWeb": "Due to high demand your streaming will be limited to {{limit}} min. For unlimited streaming try <a href={{url}} rel='noopener noreferrer' target='_blank'>{{app}}</a>.",
         "off": "Η ζωντανή ροή σταμάτησε",
         "offBy": "Ο/Η {{name}} σταμάτησε τη ζωντανή ροή",
         "on": "Ζωντανή ροή",
@@ -494,12 +511,33 @@
     "poweredby": "με τη δύναμη του",
     "prejoin": {
         "audioAndVideoError": "Σφάλμα ήχου και βίντεο:",
+        "audioDeviceProblem": "There is a problem with your audio device",
         "audioOnlyError": "Σφάλμα ήχου:",
         "audioTrackError": "Δεν ήταν δυνατή η δημιουργία κομματιού ήχου.",
+        "calling": "Γίνεται κλήση",
         "callMe": "Κάλεσέ με",
         "callMeAtNumber": "Κάλεσέ με σε αυτό το νούμερο:",
         "configuringDevices": "Γίνεται παραμετροποίηση συσκευών...",
         "connectedWithAudioQ": "Είστε συνδεδεμένοι με ήχο;",
+        "connection": {
+            "good": "Your internet connection looks good!",
+            "nonOptimal": "Your internet connection is not optimal",
+            "poor": "You have a poor internet connection"
+        },
+        "connectionDetails": {
+            "audioClipping": "We expect your audio to be clipped.",
+            "audioHighQuality": "We expect your audio to have excellent quality.",
+            "audioLowNoVideo": "We expect your audio quality to be low and no video.",
+            "goodQuality": "Awesome! Your media quality is going to be great.",
+            "noMediaConnectivity": "We could not find a way to establish media connectivity for this test. This is typically caused by a firewall or NAT.",
+            "noVideo": "We expect that your video will be terrible.",
+            "undetectable": "If you still can not make calls in browser, we recommend that you make sure your speakers, microphone and camera are properly set up, that you have granted your browser rights to use your microphone and camera, and that your browser version is up-to-date. If you still have trouble calling, you should contact the web application developer.",
+            "veryPoorConnection": "We expect your call quality to be really terrible.",
+            "videoFreezing": "We expect your video to freeze, turn black, and be pixelated.",
+            "videoHighQuality": "We expect your video to have good quality.",
+            "videoLowQuality": "We expect your video to have low quality in terms of frame rate and resolution.",
+            "videoTearing": "We expect your video to be pixelated or have visual artefacts."
+        },
         "copyAndShare": "Αντιγραφή και κοινή χρήση συνδέσμου συνάντησης",
         "dialInMeeting": "Κλήση στη συνάντηση",
         "dialInPin": "Κλήση στη συνάντηση και εισαγωγή κωδικού PIN:",
@@ -509,6 +547,7 @@
         "errorDialOutDisconnected": "Η κλήση δεν ήταν δυνατή. Έγινε αποσύνδεση",
         "errorDialOutFailed": "Η κλήση δεν ήταν δυνατή. Η κλήση απέτυχε",
         "errorDialOutStatus": "Σφάλμα λήψης κατάστασης κλήσης",
+        "errorMissingName": "Please enter your name to join the meeting",
         "errorStatusCode": "Σφάλμα κλήσης, κωδικός κατάστασης: {{status}}",
         "errorValidation": "Η επικύρωση του αριθμού απέτυχε",
         "iWantToDialIn": "Θέλω να κάνω κλήση",
@@ -519,7 +558,8 @@
         "linkCopied": "Ο σύνδεσμος αντιγράφηκε στο πρόχειρο",
         "lookGood": "Ακούγεται ότι το μικρόφωνο σας λειτουργεί άψογα",
         "or": "ή",
-        "calling": "Γίνεται κλήση",
+        "premeeting": "Pre meeting",
+        "showScreen": "Enable pre meeting screen",
         "startWithPhone": "Έναρξη με ήχο τηλεφώνου",
         "screenSharingError": "Σφάλμα διαμοιρασμού οθόνης:",
         "videoOnlyError": "Σφάλμα βίντεο:",
@@ -570,6 +610,7 @@
         "pending": "Προετοιμασία για την καταγραφή της σύσκεψης...",
         "rec": "ΚΑΤΑΓΡΑΦΗ",
         "serviceDescription": "Η καταγραφή σας θα αποθηκευτεί από την υπηρεσία καταγραφής",
+        "serviceDescriptionCloud": "Cloud recording",
         "serviceName": "Υπηρεσία καταγραφής",
         "signIn": "Σύνδεση",
         "signOut": "Αποσύνδεση",
@@ -581,6 +622,7 @@
     },
     "security": {
         "about": "Έχετε τη δυνατότητα να προσθέσετε κωδικό στη συνάντησή σας. Οι συμμετέχοντες θα πρέπει να τον εισάγουν για να τους δοθεί πρόσβαση στη συνάντηση.",
+        "aboutReadOnly": "Moderator participants can add a $t(lockRoomPassword) to the meeting. Participants will need to provide the $t(lockRoomPassword) before they are allowed to join the meeting.",
         "insecureRoomNameWarning": "Το όνομα του διαδρόμου δεν είναι ασφαλές. Ανεπιθύμητοι συμμετέχοντες μπορεί να συμμετάσχουν στη συνάντησή σας. Σκεφτείτε το να ασφαλίσετε τη συνάντηση σας χρησιμοποιώντας το κουμπί Ασφάλεια.",
         "securityOptions": "Επιλογές ασφαλείας"
     },
@@ -612,12 +654,15 @@
     "settingsView": {
         "advanced": "Για προχωρημένους",
         "alertOk": "OK",
+        "alertCancel": "Ακύρωση",
         "alertTitle": "Προειδοποίηση",
         "alertURLText": "Η διεύθυνση URL του διακομοστή που εισάγατε δεν είναι έγκυρη",
         "buildInfoSection": "Πληροφορίες έκδοσης",
         "conferenceSection": "Συνέδριο",
         "disableCallIntegration": "Απενεργοποίηση ολοκλήρωσης εγγενούς κλήσης",
         "disableP2P": "Απενεργοποίηση λειτουργίας Peer-to-Peer",
+        "disableCrashReporting": "Απενεργοποίηση αναφοράς σφαλμάτων",
+        "disableCrashReportingWarning": "Είστε βέβαιοι ότι θέλετε να απενεργοποιήσετε την αναφορά σφαλμάτων; Η ρύθμιση θα εφαρμοστεί μετά την επανεκκίνηση της εφαρμογής.",
         "displayName": "Εμφανιζόμενο όνομα",
         "email": "E-mail",
         "header": "Ρυθμίσεις",
@@ -626,10 +671,7 @@
         "showAdvanced": "Εμφάνιση ρυθμίσεων για προχωρημένους",
         "startWithAudioMuted": "Ξεκινήστε με σίγαση ήχου",
         "startWithVideoMuted": "Ξεκινήστε με το βίντεο σε σίγαση",
-        "version": "Έκδοση",
-        "alertCancel": "Ακύρωση",
-        "disableCrashReporting": "Απενεργοποίηση αναφοράς σφαλμάτων",
-        "disableCrashReportingWarning": "Είστε βέβαιοι ότι θέλετε να απενεργοποιήσετε την αναφορά σφαλμάτων; Η ρύθμιση θα εφαρμοστεί μετά την επανεκκίνηση της εφαρμογής."
+        "version": "Έκδοση"
     },
     "share": {
         "dialInfoText": "\n\n=====\n\nΘέλω απλά να καλέσετε με το τηλέφωνό σας;\n\n{{defaultDialInNumber}}κάντε Κλικ σε αυτό το σύνδεσμο για να δείτε τους τηλεφωνικούς αριθμούς κλήσης για αυτή τη συνάντηση\n{{dialInfoPageUrl}}",
@@ -645,7 +687,7 @@
         "speakerTime": "Χρόνος ομιλητή"
     },
     "startupoverlay": {
-        "policyText": " ",
+        "genericTitle": "The meeting needs to use your microphone and camera.",
         "title": "Το {{app}} πρέπει να χρησιμοποιήσει το μικρόφωνο και την κάμερά σας."
     },
     "suspendedoverlay": {
@@ -662,9 +704,10 @@
             "chat": "Εναλλαγή παραθύρου συνομιλίας",
             "document": "Εναλλαγή κοινοχρήστου εγγράφου",
             "download": "Κατεβάστε τις εφαρμογές μας",
-            "e2ee": "End-to-End Κρυπτογράφηση",
+            "embedMeeting": "Embed meeting",
             "feedback": "Αφήστε σχόλια",
             "fullScreen": "Εναλλαγή σε πλήρη οθόνη",
+            "grantModerator": "Grant Moderator",
             "hangup": "Απόχώρηση από την κλήση",
             "help": "Βοήθεια",
             "invite": "Πρόσκληση συμμετεχόντων",
@@ -695,7 +738,8 @@
             "toggleCamera": "Εναλλαγή κάμερας",
             "toggleFilmstrip": "Εναλλαγή filmstrip",
             "videomute": "Εναλλαγή σίγασης βίντεο",
-            "videoblur": "Εναλλαγή θολούρας βίντεο"
+            "videoblur": "Εναλλαγή θολούρας βίντεο",
+            "e2ee": "End-to-End Κρυπτογράφηση"
         },
         "addPeople": "Προσθήκη ατόμων στην κλήση σας",
         "audioOnlyOff": "Απενεργοποίηση λειτουργίας χαμηλού εύρους ζώνης",
@@ -709,6 +753,7 @@
         "documentOpen": "Άνοιγμα κοινόχρηστο εγγράφου",
         "download": "Κατεβάστε τις εφαρμογές μας",
         "e2ee": "End-to-End Κρυπτογράφηση",
+        "embedMeeting": "Embed meeting",
         "enterFullScreen": "Δείτε σε πλήρη οθόνη",
         "enterTileView": "Είσοδος σε προβολή εικονιδίων",
         "exitFullScreen": "Έξοδος από πλήρη οθόνη",
@@ -803,16 +848,18 @@
         "ld": "LD",
         "ldTooltip": "Προβολή χαμηλής ευκρίνειας βίντεο",
         "lowDefinition": "Χαμηλής ευκρίνειας",
-        "onlyAudioAvailable": "Μόνο ο ήχος είναι διαθέσιμος",
-        "onlyAudioSupported": "Υποστηρίζουμε μόνο ήχο σε αυτό το πρόγραμμα περιήγησης.",
         "sd": "SD",
         "sdTooltip": "Προβολή βίντεο τυπικής ανάλυσης",
-        "standardDefinition": "Τυπική ανάλυση"
+        "standardDefinition": "Τυπική ανάλυση",
+        "onlyAudioAvailable": "Μόνο ο ήχος είναι διαθέσιμος",
+        "onlyAudioSupported": "Υποστηρίζουμε μόνο ήχο σε αυτό το πρόγραμμα περιήγησης."
     },
     "videothumbnail": {
+        "connectionInfo": "Connection Info",
         "domute": "Σίγαση",
         "domuteOthers": "Σίγαση όλων των άλλων",
         "flip": "Περιστροφή",
+        "grantModerator": "Grant Moderator",
         "kick": "Αποβολή",
         "moderator": "Συντονιστής",
         "mute": "Ο συμμετέχων είναι σε σίγαση",
@@ -836,19 +883,24 @@
         "connectCalendarText": "Συνδέστε το ημερολόγιο για να δείτε όλες τις συναντήσεις σας στο {{app}}. Επιπλέον, προσθέστε συναντήσεις στο {{provider}} ημερολόγιό σας και ξεκινήστε με ένα κλικ.",
         "enterRoomTitle": "Ξεκινήστε μια νέα συνάντηση",
         "getHelp": "Βοήθεια",
-        "roomNameAllowedChars": "Το όνομα συνάντησης δεν πρέπει να περιέχει οποιονδήποτε από αυτούς τους χαρακτήρες: ?, &, :, ', \", %, #.",
         "go": "ΠΑΜΕ",
         "goSmall": "ΠΑΜΕ",
-        "join": "ΔΗΜΙΟΥΡΓΙΑ / ΕΙΣΟΔΟΣ",
+        "headerTitle": "Jitsi Meet",
+        "headerSubtitle": "Secure and high quality meetings",
         "info": "Πληροφορίες",
+        "join": "ΔΗΜΙΟΥΡΓΙΑ / ΕΙΣΟΔΟΣ",
+        "jitsiOnMobile": "Jitsi on mobile – download our apps and start a meeting from anywhere",
+        "moderatedMessage": "Or <a href=\"{{url}}\" rel=\"noopener noreferrer\" target=\"_blank\">book a meeting URL</a> in advance where you are the only moderator.",
         "privacy": "Απόρρητο",
         "recentList": "Πρόσφατες",
         "recentListDelete": "Διαγραφή",
         "recentListEmpty": "Η λίστα με τα πρόσφατα σας είναι άδεια. Συνομιλήστε με την ομάδα σας και θα βρείτε όλες τις πρόσφατες συναντήσεις εδώ.",
         "reducedUIText": "Καλώς ήρθατε στο {{app}}!",
+        "roomNameAllowedChars": "Το όνομα συνάντησης δεν πρέπει να περιέχει οποιονδήποτε από αυτούς τους χαρακτήρες: ?, &, :, ', \", %, #.",
         "roomname": "Εισάγετε το όνομα δωματίου",
         "roomnameHint": "Εισάγετε το όνομα ή τη διεύθυνση URL του δωματίου στο οποίο θέλετε να συμμετάσχετε. Μπορείτε να βρείτε ένα όνομα, απλά ενημερώστε τους συμμετέχοντες, έτσι ώστε να εισάγουν το ίδιο όνομα.",
         "sendFeedback": "Στείλτε τα σχόλιά σας",
+        "startMeeting": "Start meeting",
         "terms": "Όροι",
         "title": "Ασφαλής, πλήρως εξοπλισμένη, και εντελώς δωρεάν βίντεο συνομιλία"
     },
@@ -860,6 +912,7 @@
         "header": "Κέντρο βοήθειας"
     },
     "lobby": {
+        "knockingParticipantList": "Knocking participant list",
         "allow": "Επίτρεψε",
         "backToKnockModeButton": "Χωρίς κωδικό, ζητήστε πρόσβαση αντί αυτού",
         "dialogTitle": "Λειτουργία διαδρόμου",
@@ -881,9 +934,38 @@
         "knockButton": "Αίτημα εισόδου",
         "knockTitle": "Κάποιος θέλει να προστεθεί στη συνάντηση",
         "nameField": "Εισάγετε το όνομά σας",
+        "notificationLobbyAccessDenied": "{{targetParticipantName}} has been rejected to join by {{originParticipantName}}",
+        "notificationLobbyAccessGranted": "{{targetParticipantName}} has been allowed to join by {{originParticipantName}}",
+        "notificationLobbyDisabled": "Lobby has been disabled by {{originParticipantName}}",
+        "notificationLobbyEnabled": "Lobby has been enabled by {{originParticipantName}}",
+        "notificationTitle": "Lobby",
         "passwordField": "Εισάγετε τον κωδικό συνάντησης",
         "passwordJoinButton": "Είσοδος",
         "reject": "Απόρριψη",
         "toggleLabel": "Ενεργοποίηση διαδρόμου"
+    },
+    "icwCustom": {
+        "toolbar": {
+            "invite": "Invite",
+            "mute": "Mute",
+            "unmute": "Unmute",
+            "end": "End",
+            "cam": "Cam",
+            "more": "More",
+            "hand": "Raise Hand",
+            "screen": "Share Screen",
+            "tile": "Grid View"
+        },
+        "share": {
+            "dialInfoText": "\n\n=====\n\nJust want to dial in on your phone?\n\n{{defaultDialInNumber}}Click this link to see the dial in phone numbers for this meeting\n{{dialInfoPageUrl}}",
+            "mainText": "1. Please join my online meeting.\n\n{{roomUrl}}\n\nGoogle Chrome is recommended for the best experience.\n\n2. Use your microphone and speakers (VoIP) - a headset is recommended."
+        },
+        "chat": {
+            "noMessagesTitle": "No Messages",
+            "noMessagesMessage": "There are no messages in the meeting yet.\nStart a conversation typing to input down."
+        },
+        "addPeople": {
+            "copyLink": "Copy link"
+        }
     }
 }

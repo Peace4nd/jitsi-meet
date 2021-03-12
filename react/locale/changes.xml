@@ -1,0 +1,30 @@
+<resources>
+	<string name="icwCustom.toolbar.invite">Invite</string>
+	<string name="icwCustom.toolbar.mute">Mute</string>
+	<string name="icwCustom.toolbar.unmute">Unmute</string>
+	<string name="icwCustom.toolbar.end">End</string>
+	<string name="icwCustom.toolbar.cam">Cam</string>
+	<string name="icwCustom.toolbar.more">More</string>
+	<string name="icwCustom.toolbar.hand">Raise Hand</string>
+	<string name="icwCustom.toolbar.screen">Share Screen</string>
+	<string name="icwCustom.toolbar.tile">Grid View</string>
+	<string name="icwCustom.share.dialInfoText">
+
+=====
+
+Just want to dial in on your phone?
+
+{{defaultDialInNumber}}Click this link to see the dial in phone numbers for this meeting
+{{dialInfoPageUrl}}</string>
+	<string name="icwCustom.share.mainText">1. Please join my online meeting.
+
+{{roomUrl}}
+
+Google Chrome is recommended for the best experience.
+
+2. Use your microphone and speakers (VoIP) - a headset is recommended.</string>
+	<string name="icwCustom.chat.noMessagesTitle">No Messages</string>
+	<string name="icwCustom.chat.noMessagesMessage">There are no messages in the meeting yet.
+Start a conversation typing to input down.</string>
+	<string name="icwCustom.addPeople.copyLink">Copy link</string>
+</resources>
